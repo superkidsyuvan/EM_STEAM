@@ -61,6 +61,8 @@ Trailer!!!:
 
 [![Trailer link idl](https://i.imgur.com/krRriJs.png)]({https://drive.google.com/file/d/1N9zszkRas5_XJ9oaKnV1Vu3kLdHZNolt/view?usp=sharing} "cool boi link here 😎😋😋")
 
+[click me if image no take u to link](https://drive.google.com/file/d/1N9zszkRas5_XJ9oaKnV1Vu3kLdHZNolt/view?usp=sharing)
+
 Dont forgor that tis is best game ever!!!
 
 (im to dum to know how to port it to linux or macos cuz on windows)
