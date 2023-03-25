@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bone catcher</title>
+        <style>
+            #mainGame{
+                width: 500px;
+                height: 250px;
+                background-color: #2980b9;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="mainGame">If You See Me, Try Upgrading Your Browser</canvas>
+        <h3>Images Not Working? / Image Loading Stuck?: Change Server (Image):</h3>
+        <button onclick="imgur()" id="imgur">imgur (Default) - (Selected)</button> <button onclick="google()" id="google">Google Photos (Recommended for school computers)</button>
+        </br><span>Images May Take Time To Load When Changing Servers</span>
+        </br><span><b>Directions ("." = move right | "," = move left)</b></span>
+        <img hidden src="https://docs.google.com/uc?export=open&id=13W6AQIzMiTxAARy8okKClEh_5Hqu7Iqq" id="dawg-google" alt="dawg-google">
+        <img hidden src="https://i.imgur.com/TmrjezN.png" id="dawg-imgur" alt="dawg-imgur">
+        <img hidden src="https://docs.google.com/uc?export=open&id=13Xq-Srh7yZA9bd7G_DQ97dx7fFFxNprT" id="bone-google" alt="bone-google">
+        <img hidden src="https://i.imgur.com/EGZ5vDA.png" id="bone-imgur" alt="bone-imgur">
+        <script>
+            var canvas = document.getElementById("mainGame") // ooh thaats where we are drawinf right?
+            var ctx = canvas.getContext("2d"); //it could be 3d but nah
+            var lvl = "load" //level selection
+            var load = 0 // loading state- must meet number of assets in if function
+            var IMAGEserver = "imgur" //is image server online11!!
+            var SOUNDserver = "sound" //is sound server online1!1!
+            var ms100 = 0 //100ms timer (like good for gif frames aka sprite sheets)
+            var frame_bg_main=0 //spritesheet variable for bg of main game
+            var intake="8" //how much images should be loaded (half of all assets - imgur / all assets - google / TIP: if all assest loaded dont put back to half, it break game)
+            var FPS = setInterval(FRAME,33.3333333) //frames
+            var score = 0
+            var dogX=50
+            var boneX=100
+            var boneY=0
+            
+            // heheheh WE are now loadng millons of assests maybe (it add event listener so images load fully)
+
+            document.getElementById("dawg-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("dawg-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("bone-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("bone-google").addEventListener("load", function(){
+                load=load+1
+            })
+            // functions
+            function google(){
+            	IMAGEserver="google"
+                document.getElementById("google").innerHTML="Google Photos (Recommended for school computers) - (Selected)"
+                document.getElementById("imgur").innerHTML="imgur (Default)"
+            }
+            function imgur(){
+            	IMAGEserver="imgur"
+                document.getElementById("google").innerHTML="Google Photos (Recommended for school computers)"
+                document.getElementById("imgur").innerHTML="imgur (Default) - (Selected)"
+            }
+            function touching(ax,ay,aw,ah,bx,by,bw,bh){
+                if((ax + aw)>=bx && ax <=(bx+bw) && (ay+ah) > by && ay <= (by+bh)){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            function FRAME(){
+                ctx.clearRect(0,0,310, 150);
+                envo()
+            }
+            function envo(){
+                if(lvl=="load"){
+                    ctx.font = "30px Arial";
+                    ctx.fillStyle="white";
+                    var loade = load.toString();
+                    var ss = "Loading Assets (stats/16)";
+                    var fina = ss.replace("stats",loade);
+                    ctx.fillText(fina, 10, 50);
+                    var mma = intake.toString()
+                    if(loade<=mma){
+                        lvl="game"
+                    }                    
+                }
+                if(lvl=="game"){
+                    ctx.font = "15px Arial";
+                    ctx.fillStyle="#ffffff";
+                    ctx.fillText("Score: "+score, 10, 10);
+                    ctx.fillStyle="#00ff00";
+                    ctx.fillRect(0, 100, 500, 500);
+                    ctx.drawImage(document.getElementById("dawg-"+IMAGEserver),dogX,100,32,32)
+                    ctx.drawImage(document.getElementById("bone-"+IMAGEserver),boneX,boneY,32,32)
+                }
+                if(ms100!=3){
+                    ms100=ms100+1
+                    boneY=boneY+2
+                    if(touching(dogX,100,32,32,boneX,boneY+8,32,16)==true){
+                        boneY=0
+                        boneX=Math.floor(Math.random()*278)
+                        score=score+1
+                    }
+                    if(boneY==116){
+                        score=score-1
+                        boneY=0
+                        boneX=Math.floor(Math.random()*278) 
+                    }
+                }else{
+                    ms100=0
+                    if(IMAGEserver=="imgur"){
+                        frame_bg_main=frame_bg_main+310
+                            if(frame_bg_main>=4650){
+                            frame_bg_main=0
+                        }  
+                    }else{
+                        frame_bg_main=frame_bg_main+120
+                            if(frame_bg_main>=1800){
+                            frame_bg_main=0
+                        }  
+                    }
+                }
+            }
+            function drawSTUF(){
+
+            }
+            canvas.addEventListener("click", function(e){
+                console.log(e.clientX,e.clientY)
+            })
+            window.addEventListener("keydown", function(e){
+            if(e.key==","){dogX=dogX-3}
+            if(e.key=="."){dogX=dogX+3}
+            })
+        </script>
+    </body>
+</html>

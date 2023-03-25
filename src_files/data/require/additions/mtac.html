@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DEMO-MTAC-HOME</title>
+        <style>
+            #mainGame{
+                width: 500px;
+                height: 250px;
+                background-color: white;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="mainGame">If You See Me, Try Upgrading Your Browser</canvas>
+        <h3>Images Not Working? / Assets Loading Stuck?: Change Server:</h3>
+        <button onclick="imgur()" id="imgur">imgur (Default) - (Selected)</button> <button onclick="google()" id="google">Google Photos (Recommended for school computers)</button>
+        </br><span>Images May Take Time To Load When Changing Servers</span>
+        <img hidden src="https://i.imgur.com/ESQq60K.png" id="plr-imgur" alt="plr-imgur">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEU36jLOv4Yvf-ARkcnL7aVsBeOh_AF1NYG_lFBuTi35lxF3OrnTl_UpR_-qH5HGZK5AMU_mQkIG3a5oKVDixLeTkiRt1Swx1iOlwMx22Xchv_Lb-xFewcwRSKmrBhOe9BpeLlKK8dbdnbv8lsifxz69=s64-no?authuser=0" id="plr-google" alt="plr-google">
+        <img hidden src="https://i.imgur.com/wFgacTV.png" id="lab_bg-imgur" alt="lab_bg-imgur">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEVybN8hgJjqQZtNeCRvvDH8pdDnzmr8DlCC_qVvkr20z1ObynZRzwRICT4twf7tSwXzA5AF92Jrk-ripK1abUP7zdoHGXX1lokydGsVGFmE5tPp9txc81tnf57ErOfi_h-MFWx7VTNQW28n65txy05U=w1024-h576-no?authuser=0" id="lab_bg-google" alt="lab_bg-google">
+        <img hidden src="https://i.imgur.com/DQrpGRC.png" id="menu-imgur" alt="menu-imgur">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEUrCSs93iNvw5qg4HMMSGobEjOmEFL8P_ew5v78_7OsStVa_0skhbd23bWTPAjKbjXmz8beSY1mcd_cj3osisWKrSV-1jfP4BzYWdvvZSDZl-7QwCY-_fsW7TaGDyUXCJu43sm-rWzvhDcUGVO6MknN=w1024-h576-no?authuser=0" id="menu-google" alt="menu-google">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEWRdD0pa0a9esKdKnRYHFCLR5m0hLCzSnjQyfCVReT7U93GgwE-0YWZP66cNyDDqebx0nq3Ebo67hjdBvfg8aLkrQkN8XR4fy-Vw3PqX8P9Wn8UPKXlj5Q9156XjfF63UXJDB1RPwo-gXd6nhl_Y4b_=w64-h32-no?authuser=0" id="play_button-google" alt="play_button-google">
+        <img hidden src="https://i.imgur.com/uPtIOLv.png" id="play_button-imgur" alt="play_button-imgur">
+        <img hidden src="https://i.imgur.com/Qf8YWQ3.png" id="settings_button-imgur" alt="settings_button-imgur">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEWjxPzh1UiFNDwOAXthEA3Efib7PG-_tZgh1NE7vl3vm3RLj2wVY8EHHV6seeNW4slM05WatvAJHS8Oxlv64bBOVDa9acs2NRShWN9po4H25D1n41h92popkAOFp8uMyKoaKXC8-8o1_bbk4kEvLJNu=w64-h32-no?authuser=0" id="settings_button-google" alt="settings_button-google">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEXefqLRg6sZwJc6o70Fbg8ToCECZg7eLyi8qyQAjaLCe5xwwlf8Sra3vJc2cMXyFYuHEGS-6cVQMq0RvsOEHRY0U488DnttU_KEDSuFxcy8Jgmi6xiRxmIIJikJAoi0RJHhBYfbCFH6YBf5dQSvPqvV=w64-h32-no?authuser=0" id="credit_button-google" alt="credit_button-google">
+        <img hidden src="https://i.imgur.com/zfbOm5W.png" id="credit_button-imgur" alt="credit_button-imgur">
+        <img hidden src="https://i.imgur.com/dNYhEEP.png" id="title_up1-imgur" alt="title_up1-imgur">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEVjKR4vSLjqQ5w3wjplLUaQNBMx1ZtsOxbaKagJeIq9FZqbcoxugsDYDeW8kCTgkaXJoYhRxVf3XkSqOAECKxIWi16kc7EkFQ-Uz5eWlxelNeIuRuz5sUC28sqQQWzZpghq_gZ2AT6FB5cF-KL4woea=w64-h32-no?authuser=0" id="title_up1-google" alt="title_up1-google">
+        <img hidden src="https://i.imgur.com/AgSLuSG.png" id="settings_bg-imgur" alt="settings_bg-imgur">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEWkdkU2KtYJSq_O_pvDWVRZvcBg0UifOsnZ9xQw-TLwsa_ESJzotoPPjhNtaz31nGDxgTlT08ET9O1uRfuWfLIC6Mrt9D0DZ6NYXjvSGa48dowT2gPgkw2-VWUMi-e1W_4nKOwYoteKxxdRaeI496cE=w500-h250-no?authuser=0" id="settings_bg-google" alt="settings_bg-google">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEXEZTEBTqh3YOgqCJrn8VvyDp3LJnJMbARXf4VRBUxqa24CV1DjpaOdrZFy9XQlvVABi67PXFhZ9Vtn43tn6zBPGyaxMuERi18Ia5hfSIS7vyo3rdfs2df2hPF7gS1SCtVr_gBH5QuI0M8ihbtSaID1=w500-h250-no?authuser=0" id="credit_bg-google" alt="credit_bg-google">
+        <img hidden src="https://i.imgur.com/g6tujgq.png" id="credit_bg-imgur" alt="credit_bg-imgur">
+        <img hidden src="https://i.imgur.com/pSmsWQa.png" id="candle_spritesheet1-imgur" alt="candle_spritesheet1-imgur">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEV5T8RUw_zmHH-3D92qh1-WMpTqJ2x05dndcSmcg22AWsw78DtZTE2LzZR7tSL49XdK71T6k9fGwHNV5Wh23GSDx490XGpAO5X50TP8GgRwjrMDtWyn90HyQRR80kOMNZJqzHhSp-7PofnCSZqogW45=w1920-h80-no?authuser=0" id="candle_spritesheet1-google" alt="candle_spritesheet1-google">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEWBq7sthZXpJvxQ5RlLtj2Fcy1GbY3bym-5jwXqsntyosaDi0TF2TFb73LeIbSLWtOoynD_-gsq-LY8YSOrRpK_wa3DulMNBApnfLHwCgve5Ulk2m0mNPJ2VKtDyahAspQL73ybu_M1f1uk7-D6oTcH=s64-no?authuser=0" id="plrFaceLeft-google" alt="plrFaceLeft-google">
+        <img hidden src="https://i.imgur.com/O134wUe.png" id="plrFaceLeft-imgur" alt="plrFaceLeft-imgur">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEVYWx1le72L7puSf7MFoM1oEXq765xzM6JX3Tvcfgm3henkTQEra3PEIdGi_r_nP00w7Tswxb2WiGnRhFnmk8TQFWuIjthKk7T4Dq0CTCYCyNZHFAt6eWi5XNnU_YYFRAeX9HyFJj95Op1TG2-Rh6Hv=s64-no?authuser=0" id="plrFaceRight-google" alt="plrFaceRight-google">
+        <img hidden src="https://i.imgur.com/9uxeOyh.png" id="plrFaceRight-imgur" alt="plrFaceRight-imgur">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEWfWQyYczg1M8c5Z6es3bcli70alhpbexKwTKyjVN7CI-gDsGo_DJhty-djTLGk6XrAxXN2TRzy6715fO_iADVJrqv0uUd61OnHKbbY4_Pvakn92LgHlIqrIB17T942dTpzcndguj8E0t-fUwbK75Hu=s64-no?authuser=0" id="plrFaceUp-google" alt="plrFaceUp-google">
+        <img hidden src="https://i.imgur.com/KnfuwjQ.png" id="plrFaceUp-imgur" alt="plrFaceUp-imgur">
+        <img hidden src="https://i.imgur.com/Q0hLtXZ.png" id="directions-imgur" alt="directions-imgur">
+        <img hidden src="https://i.imgur.com/Ui9tGRO.png" id="gotgetoutofhereimg-imgur" alt="gotgetoutofhereimg-imgur">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEUxkvAz0G3vuQmIjwyy_mLruXw85SYxVJBvKmOWYsVWn4ts5YRiBmQgdWqMsjX3_ZvmT2qCyjBEhdzanN0-aFYx4S3mW_CaiydEY4Ss_5hUU65GTczhlUGYfIF2fJCsd6W5DxFKIJm3Q8yXdE2l5S7c=s64-no?authuser=0" id="directions-google" alt="directions-google">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEXxFOsfnSkSWoLCTTyZubtW2trwe_hkvGM9JrqYe3brY6vDhP6Iz5kcPFqy7HuifJ0NLy7qt2aPbomGGP4Kr_1p8WjRp3PjT60TSHRlRaWQlcxxmepbBvw_66Ptcz0YgofYdR95ga9zykQdkQXIpH-C=w300-h150-no?authuser=0" id="gotgetoutofhereimg-google" alt="gotgetoutofhereimg-google">
+        <img hidden src="https://i.imgur.com/hJucqK2.png" id="noti-imgur" alt="noti-imgur">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEW28xUPh3puacA3D7BFtODjtPh3FYZwnpQJPRPIvlcx7oGfu7_4wdZnwHZnGqxKWhxSgCJUU1a2XXlqP7zlUInII_LZA72FP0Bq3CUxgRmfk0B7stj8iBtWFH0CI5gLNPEk8iv_5JDtN8Y71Ct2rLD7=w300-h25-no?authuser=0" id="noti-google" alt="noti-google">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEVs_CvCacRcFsgAu1Yzv8Q0pCm7oOxJBNR0Qzi2qemLd2DhvgRk8_9dQA4_vPhHJRyMaFAyYEpK3D3yY5YDxwebKIlpjMGA3e6Y_R7FIOU1EYt_64gfr7xT8_7Y322Iv4eaafhbRWswWzNQK-BsM1gw=w1152-h128-no?authuser=0" id="the_eye-google" alt="the_eye-google">
+        <img hidden src="https://i.imgur.com/YcNoYwp.png" id="the_eye-imgur" alt="the_eye-imgur">
+        <img hidden src="https://i.imgur.com/sVH2Ecc.png" id="error_body64-imgur" alt="error_body64-imgur">
+        <img hidden src="https://lh3.googleusercontent.com/pw/AL9nZEUVvnGPMaQjR1qEao6g-UK_Cf4RH0S7RaCV3kXwGJTo-pWuto-CWqEYgC2fRf2LtdRnqTtnM6rb2ig_C8jEP2Ms3YA0fF9tFBHDtv5dmtsnJqUH7d9LhjAtm3E-Dj9TLnAdfwE5TLzlUyOTqCdPVIj_=w1088-h64-no?authuser=0" id="error_body64-google" alt="error_body64-google">
+        <script>
+            var canvas = document.getElementById("mainGame") // ooh thaats where we are drawinf right?
+            var ctx = canvas.getContext("2d"); //it could be 3d but nah
+            var lvl = "load" //level selection
+            var load = 0 // loading state- must meet number of assets in if function
+            var server = "imgur" // NOT MUTLIPLAYER SERVER- is image server online11!!
+            var candlespritex = 0 //helps frames become gif!! (x axis)
+            var candlespritey = 0 //helps frame become the gif!! (y axis)
+            var the_eyex=0 // +128 every time new frame ok? (x axis)
+            var the_eyey=0 // lke this is pretty much not needed but here for basic comprehension (y axis)
+            var error_body64INNERX = 0 // what sprite in sheet (x axis)
+            var error_body64INNERY = 0 // why does this exist again? - oh right, comprehension (y axis)
+            var error_body64OUTERX = 20 // where we placing you (x axis)
+            var error_body64OUTERY = 60 // why you flying in outer space (y axis)
+            var ms100 = 0 //100ms timer (like good for gif frames aka sprite sheets)
+            var wannaDRAWme = false //draws player if true
+            var playerx=25 //players x position
+            var playery=50 //players y position
+            var interact=0 // ok dude you interacted like what happens
+            var obj="" // wat obiject do you want ):<
+            var stay=false // i actually forgor what this does
+            var player_Image=document.getElementById("plr-"+server) //image for player (changeable)
+            var intake="18" //how much images should be loaded (half of all assets - imgur / all assets - google / TIP: if all assest loaded dont put back to half, it break game)
+            var FPS = setInterval(FRAME,33.3333333) //frames
+            
+            // heheheh WE are now loadng millons of assests maybe (it add event listener so images load fully)
+
+            document.getElementById("plr-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("lab_bg-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("plr-google").addEventListener("load", function(){
+                load=load+1;
+            })
+            document.getElementById("lab_bg-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("menu-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("menu-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("play_button-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("play_button-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("settings_button-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("settings_button-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("credit_button-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("credit_button-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("title_up1-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("title_up1-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("settings_bg-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("settings_bg-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("credit_bg-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("credit_bg-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("candle_spritesheet1-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("candle_spritesheet1-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("plrFaceLeft-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("plrFaceLeft-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("gotgetoutofhereimg-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("gotgetoutofhereimg-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("directions-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("directions-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("noti-imgur").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("noti-google").addEventListener("load", function(){
+                load=load+1
+            })
+            document.getElementById("the_eye-google").addEventListener("load", function(){
+            	load=load+1
+            })
+            document.getElementById("the_eye-imgur").addEventListener("load", function(){
+            	load=load+1
+            })
+            document.getElementById("error_body64-imgur").addEventListener("load", function(){
+            	load=load+1
+            })
+            document.getElementById("error_body64-google").addEventListener("load", function(){
+            	load=load+1
+            })
+            //maybe we could optimize these FUNCTIONS but no. me am to dumb
+
+            function google(){
+                server="google"
+                document.getElementById("imgur").innerHTML="imgur (Default)"
+                document.getElementById("google").innerHTML="Google Photos (Recommended for school computers) - (Selected)"
+                lvl="load"
+                intake="32"
+                candlespritex=0
+                candlespritey=0
+                wannaDRAWme=false
+           }
+           function imgur(){
+                server="imgur"
+                document.getElementById("imgur").innerHTML="imgur (Default) - (Selected)"
+                document.getElementById("google").innerHTML="Google Photos (Recommended for school computers)"
+                lvl="menu-i"
+                candlespritex=0
+                candlespritey=0
+                wannaDRAWme=false
+           }
+
+            function player(decide){
+                 if(wannaDRAWme!=false){
+                    ctx.drawImage(player_Image,playerx,playery,32,32)
+                }
+            }
+
+            function touching(ax,ay,aw,ah,bx,by,bw,bh){
+                if((ax + aw)>=bx && ax <=(bx+bw) && (ay+ah) > by && ay <= (by+bh)){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+
+            function enviorment(){
+                if(lvl=="load"){
+                    ctx.font = "30px Arial";
+                    ctx.strokeStyle="white";
+                    var loade = load.toString();
+                    var ss = "Loading Assets (stats/36)";
+                    var fina = ss.replace("stats",loade);
+                    ctx.fillText(fina, 10, 50);
+                    var mma = intake.toString()
+                    if(loade<=mma){
+                        lvl="menu-i"
+                    }
+                }
+                if(lvl=="menu-i"){
+                    ctx.drawImage(document.getElementById("menu-"+server),0,0,300,150)
+                    ctx.drawImage(document.getElementById("title_up1-"+server),30,10)
+                    ctx.drawImage(document.getElementById("play_button-"+server),80,70)
+                    ctx.drawImage(document.getElementById("settings_button-"+server),150,30)
+                    ctx.drawImage(document.getElementById("credit_button-"+server),150,70)                                     
+                }
+                if(lvl=="menu-s"){
+                    ctx.drawImage(document.getElementById("settings_bg-"+server),0,0,300,150)
+                }
+                if(lvl=="menu-c"){
+                    ctx.drawImage(document.getElementById("credit_bg-"+server),0,0,300,150)
+                }
+                if(lvl=="candle-sprite"){
+                    ctx.drawImage(document.getElementById("candle_spritesheet1-"+server),candlespritex,candlespritey,300,150,0,0,300,150)
+                    if(ms100==3){
+                        candlespritex=candlespritex+300
+                        if(candlespritex==3600){
+                            lvl="lab-ul"
+                            wannaDRAWme=true
+                        }
+                    }
+                }
+                if(lvl=="lab-ul"){
+                    ctx.drawImage(document.getElementById("lab_bg-"+server),0,0,512,300,0,0,300,150)
+                    ctx.drawImage(document.getElementById("directions-"+server),90,20,16,16)
+                }
+                if(lvl=="lab-ur"){
+                    ctx.drawImage(document.getElementById("lab_bg-"+server),512,0,512,300,0,0,300,150)
+                }
+                if(lvl=="lab-dl"){
+                    ctx.drawImage(document.getElementById("lab_bg-"+server),0,300,512,276,0,0,300,150)  
+                    ctx.drawImage(document.getElementById("the_eye-"+server),the_eyex,the_eyey,128,128,25,40,64,64)  
+                }
+                if(lvl=="lab-dr"){
+                    ctx.drawImage(document.getElementById("lab_bg-"+server),512,300,512,276,0,0,300,150)
+                    ctx.drawImage(document.getElementById("error_body64-"+server),error_body64INNERX,error_body64INNERY,64,64,error_body64OUTERX,error_body64OUTERY,32,32)
+                }
+                if(ms100==3){
+                    ms100=0
+                    the_eyex=the_eyex+128
+                    error_body64INNERX=error_body64INNERX+64
+                    if(the_eyex==1024){the_eyex=0}
+                    if(error_body64INNERX==1024){error_body64INNERX=0}
+                }
+            }
+            
+            function interactOBJ(){
+                if(interact==1){
+                    if(obj=="note-1"){
+                        stay=true
+                        ctx.drawImage(document.getElementById("gotgetoutofhereimg-"+server),0,0)
+                        ctx.drawImage(document.getElementById("directions-"+server),75,37,150,75)
+                    }
+                }
+            }
+
+            function FRAME(){
+                ctx.clearRect(0, 0, 500, 250);
+                ms100=ms100+1
+                enviorment()
+                player("NO")    
+                if(lvl=="lab-ul"){
+                    var note = touching(90,20,16,16,playerx,playery,32,32)
+                    if(note==true){
+                        ctx.drawImage(document.getElementById("noti-"+server),0,125)
+                        interact=1
+                        obj="note-1"
+                    }
+                }
+                
+                if(lvl=="lab-dl"){
+                    var note=touching(25,40,64,64,playerx,playery,32,32)
+                    if(note==true){
+                        ctx.drawImage(document.getElementById("noti-"+server),0,125)
+                        interact=2
+                        obj="eye-1"
+                    }
+                }
+                if(interact==1){
+                    if(obj=="note-1"){
+                        if(stay==true){
+                            ctx.drawImage(document.getElementById("gotgetoutofhereimg-"+server),0,0)
+                        ctx.drawImage(document.getElementById("directions-"+server),75,37,150,75)
+                        }
+                    }
+                }    
+            }
+            
+            canvas.addEventListener("click", function(){
+               interactOBJ() 
+            })
+
+            window.addEventListener("keydown", function(key){
+                if(key.key=="x"){
+                    if(stay==true){
+                        stay=false
+                        obj=""
+                        interact=false
+                    }
+                }
+                if(key.key==" " || key.key=="Spacebar"){
+                    interactOBJ()
+                }
+                if(key.key=="s"){
+                    if(lvl=="menu-i"){
+                        lvl="menu-s"
+                    }
+                    if(playery==132 && lvl=="lab-ur"){
+                        lvl="lab-dr"
+                        playery=3
+                    }
+                }
+                if(key.key=="c"){
+                    if(lvl=="menu-i"){
+                        lvl="menu-c"
+                    }
+                }
+                if(key.key=="p"){
+                    if(lvl=="menu-i"){
+                        lvl="candle-sprite"
+                    }
+                }
+                if(key.key=="w"){
+                    if(wannaDRAWme==true){
+                        player_Image = document.getElementById("plrFaceUp-"+server)
+                        playery=playery-1
+                        if(playery<=23 && lvl=="lab-ul"){
+                            playery=24
+                        }
+                        if(playery<=23 && lvl=="lab-ur"){
+                            playery=24
+                        }
+                        if(playery<=2 && lvl=="lab-dl"){
+                            playery=123
+                            lvl="lab-ul"
+                        }
+                        if(playery<=2 && lvl=="lab-dr"){
+                            playery=130
+                            lvl="lab-ur"
+                        }
+                    }
+                }
+                if(key.key=="s"){
+                    if(wannaDRAWme==true){
+                        playery=playery+1
+                        player_Image =  document.getElementById("plr-"+server)
+                        if(playery>=122 && lvl=="lab-ul"){
+                            playery=3
+                            lvl="lab-dl"
+                        }
+                        if(playery>=114 && lvl=="lab-dl"){
+                            playery=113
+                        }
+                    }
+                }
+                if(key.key=="d"){
+                    if(wannaDRAWme==true){
+                    player_Image =  document.getElementById("plrFaceRight-"+server)
+                        playerx=playerx+1
+                        if(playerx>=286 && lvl=="lab-ul"){
+                            playerx=4
+                            lvl="lab-ur"
+                        }
+                        if(playerx>=263 && lvl=="lab-ur"){
+                            playerx=262
+                        }
+                        if(playerx>=286 && lvl=="lab-dl"){
+                            playerx=4
+                            lvl="lab-dr"
+                        }
+                    }
+                }
+                if(key.key=="a"){
+                    if(wannaDRAWme==true){
+                        playerx=playerx-1
+                        player_Image = document.getElementById("plrFaceLeft-"+server)
+                        if(playerx<=7 && lvl=="lab-ul"){
+                            playerx=8
+                        }
+                        if(playerx<=7 && lvl=="lab-dl"){
+                            playerx=8
+                        }
+                        if(playerx>=2 && lvl=="lab-ur"){
+                            playerx=285
+                            lvl="lab-ul"
+                        }
+                        if(playerx>=2 && lvl=="lab-dr"){
+                            playerx=285
+                            lvl="lab-dl"
+                        }
+                    }
+                }
+                if(key.key=="b"){
+                    if(lvl=="menu-s"||lvl=="menu-c"){
+                        lvl="menu-i"
+                    }
+                }
+            })
+            // the end of script lololol also like credit to original site if using for other site (permission needed for no credits/ no permission needed if credit to original site) ORIGINAL SITE: https://sites.google.com/k12.friscoisd.org/tsone/games/web-games/more-than-a-city-demo
+        </script>
+    </body>
+</html>
