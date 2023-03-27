@@ -47,6 +47,10 @@ npm run electron
 
 (the program should be running now idk)
 
+### side note:
+
+only run "npm install electron" if it is your first time running the program, although if you download it again (maybe because updated), run the command. Not sure if that made sense but **YES**
+
 # Overview and cool stuff
 
 Guys its **EVIL** cece from cocomelon but in Electronic Mayhem!!

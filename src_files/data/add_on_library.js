@@ -927,6 +927,15 @@ var icon_r = document.createElement("img")
 icon_r.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/osu!/letter_r/icon.png"
 icon_r.id="icon_r-desktop"
 icon_r.hidden=true
+var letter_c = document.createElement("img")
+letter_c.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/osu!/letter_c/letter.png"
+letter_c.id="letter_c-desktop"
+letter_c.hidden=true
+var icon_c = document.createElement("img")
+icon_c.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/osu!/letter_c/icon.png"
+icon_c.id="icon_c-desktop"
+icon_c.hidden=true
+
 
 /* DONTI OWKRRR!!
 
@@ -1023,7 +1032,7 @@ var walking = document.createElement("audio")
 walking.src=window.location.href.slice(0,-21)+"files/sound/SFX/.wav/walking.wav"
 walking.id="walking-SOUNDdesk"
 var drive_clip = document.createElement("audio")
-drive_clip.src=window.location.href.slice(0,-21)+"files/sound/MUSIC/.wav/drive_clip.wav"
+drive_clip.src=window.location.href.slice(0,-21)+"files/sound/MUSIC/.ogg/drive_clip.ogg"
 drive_clip.id="drive_clip-SOUNDdesk"
 drive_clip.preload="auto"
 drive_clip.oncanplaythrough=function(){tempINFO[8]=1}
@@ -1288,6 +1297,8 @@ document.getElementById("library_com").appendChild(letter_s)
 document.getElementById("library_com").appendChild(icon_s)
 document.getElementById("library_com").appendChild(letter_r)
 document.getElementById("library_com").appendChild(icon_r)
+document.getElementById("library_com").appendChild(letter_c)
+document.getElementById("library_com").appendChild(icon_c)
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)
@@ -1314,7 +1325,4 @@ document.getElementById("desktop").addEventListener("click",function(){
 })
 
 document.getElementById("drive_clip-SOUNDdesk").ontimeupdate=function(){SONGupdated('drive_clip',this.currentTime)}
-document.getElementById("drive_clip-SOUNDdesk").addEventListener('canplaythrough', function() { 
-    console.log("help")
-}, false);
 console.log("it worked")
