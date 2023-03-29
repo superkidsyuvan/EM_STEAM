@@ -3088,7 +3088,16 @@
                 }
             }
 
+            async function playVideo() {
+                try {
+                    await document.getElementById('drive_clip-'+SOUNDserver).play();
+                } catch (err) {
+                    return err
+                }
+            }
+
             function SONGupdated(song,time){
+                console.log(time)
                 if(lvl=="osu!-doki_doki,[json-cece_F]"){
                     if(song=="drive_clip"){
                         //yess

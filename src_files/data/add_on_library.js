@@ -1032,7 +1032,7 @@ var walking = document.createElement("audio")
 walking.src=window.location.href.slice(0,-21)+"files/sound/SFX/.wav/walking.wav"
 walking.id="walking-SOUNDdesk"
 var drive_clip = document.createElement("audio")
-drive_clip.src=window.location.href.slice(0,-21)+"files/sound/MUSIC/.ogg/drive_clip.ogg"
+drive_clip.src=window.location.href.slice(0,-21)+"files/sound/MUSIC/.mp3/drive_clip.mp3"
 drive_clip.id="drive_clip-SOUNDdesk"
 drive_clip.preload="auto"
 drive_clip.oncanplaythrough=function(){tempINFO[8]=1}
