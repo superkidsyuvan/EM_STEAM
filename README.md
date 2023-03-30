@@ -71,6 +71,42 @@ Dont forgor that tis is best game ever!!!
 
 (im to dum to know how to port it to linux or macos cuz on windows)
 
+# Updates
+
+## update 1.0.48 (first commit)
+
+literally just uploaded that version to em 
+
+everything from tutorial to like everything
+
+## update 1.0.481 (RED)
+
+added readme.md file for github!!
+
+## update 1.0.482 (RED)
+
+added readme.md file for github!!
+
+## update 1.0.4830 (SECOND COMMIT)
+
+very misleading but did this to confirm sync and pull and updated readme.md
+
+## update 1.0.4831 (bug fix README.md)
+
+just like the name
+
+## update 1.0.4832 (yes)
+
+did this because dev decied to bug fix
+
+## update 1.0.4833 (i)
+
+regulaly update!!
+
+## update 1.0.4849 (sus bean)
+
+this is so cool but like regular updateding and like everthing
+
 # SOCIAL STUFFF
 
 [tsone website](https://sites.google.com/view/tsone) | [youtube idk](https://www.youtube.com/@tsone_) | [roblox group](https://www.roblox.com/groups/10913019)
