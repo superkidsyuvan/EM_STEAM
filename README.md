@@ -107,6 +107,10 @@ regulaly update!!
 
 this is so cool but like regular updateding and like everthing
 
+## update 1.0.485 (uab)
+
+this is so cool but like regular updateding and like everthing (x2)
+
 # SOCIAL STUFFF
 
 [tsone website](https://sites.google.com/view/tsone) | [youtube idk](https://www.youtube.com/@tsone_) | [roblox group](https://www.roblox.com/groups/10913019)

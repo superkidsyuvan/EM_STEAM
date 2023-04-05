@@ -131,6 +131,14 @@ var warning1 = document.createElement("img")
 warning1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/CHAP_SEL/warning1.png"
 warning1.id="warning1-desktop"
 warning1.hidden=true
+var skip1button = document.createElement("img")
+skip1button.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/CHAP_SEL/skip1.png"
+skip1button.id="skip1button-desktop"
+skip1button.hidden=true
+var skip2button = document.createElement("img")
+skip2button.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/CHAP_SEL/skip2.png"
+skip2button.id="skip2button-desktop"
+skip2button.hidden=true
 var warning2 = document.createElement("img")
 warning2.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/CHAP_SEL/warning2.png"
 warning2.id="warning2-desktop"
@@ -935,7 +943,14 @@ var icon_c = document.createElement("img")
 icon_c.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/osu!/letter_c/icon.png"
 icon_c.id="icon_c-desktop"
 icon_c.hidden=true
-
+var tsone_intro = document.createElement("video")
+tsone_intro.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/MENU_START/intro_cool.mp4"
+tsone_intro.id="tsone_intro-desktop"
+tsone_intro.hidden=true
+var tsone_intro_no = document.createElement("video")
+tsone_intro_no.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/MENU_START/intro_no_sound.mp4"
+tsone_intro_no.id="tsone_intro_no-desktop"
+tsone_intro_no.hidden=true
 
 /* DONTI OWKRRR!!
 
@@ -1031,11 +1046,15 @@ bit8_loop.id="8bit_loop-SOUNDdesk"
 var walking = document.createElement("audio")
 walking.src=window.location.href.slice(0,-21)+"files/sound/SFX/.wav/walking.wav"
 walking.id="walking-SOUNDdesk"
+var skip_sfx1 = document.createElement("audio")
+skip_sfx1.src=window.location.href.slice(0,-21)+"files/sound/SFX/.wav/skip_sfx1.wav"
+skip_sfx1.id="skip_sfx1-SOUNDdesk"
 var drive_clip = document.createElement("audio")
 drive_clip.src=window.location.href.slice(0,-21)+"files/sound/MUSIC/.mp3/drive_clip.mp3"
 drive_clip.id="drive_clip-SOUNDdesk"
 drive_clip.preload="auto"
 drive_clip.oncanplaythrough=function(){tempINFO[8]=1}
+document.getElementById("sound_lib").appendChild(skip_sfx1)
 document.getElementById("sound_lib").appendChild(drive_clip)
 document.getElementById("sound_lib").appendChild(walking)
 document.getElementById("sound_lib").appendChild(bit8_loop)
@@ -1299,6 +1318,10 @@ document.getElementById("library_com").appendChild(letter_r)
 document.getElementById("library_com").appendChild(icon_r)
 document.getElementById("library_com").appendChild(letter_c)
 document.getElementById("library_com").appendChild(icon_c)
+document.getElementById("library_com").appendChild(skip1button)
+document.getElementById("library_com").appendChild(skip2button)
+document.getElementById("library_com").appendChild(tsone_intro)
+document.getElementById("library_com").appendChild(tsone_intro_no)
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)
@@ -1324,5 +1347,17 @@ document.getElementById("desktop").addEventListener("click",function(){
     desktop()
 })
 
-document.getElementById("drive_clip-SOUNDdesk").ontimeupdate=function(){SONGupdated('drive_clip',this.currentTime)}
+document.getElementById("external_script").innerHTML="true"
+document.getElementById("drive_clip-SOUNDdesk").ontimeupdate=function(){SONGupdated('drive_clip',Math.floor(this.currentTime))}
+document.getElementById('tsone_intro-desktop').onended = (event) => {
+    console.log("Video stopped either because it has finished playing or no further data is available.");
+    sound=false
+    lvl="soundin"
+};
+
+document.getElementById('tsone_intro_no-desktop').onended = (event) => {
+    console.log("Video stopped either because it has finished playing or no further data is available.");
+    sound=false
+    lvl="enter"
+};
 console.log("it worked")

@@ -15,7 +15,6 @@
     <body>
         <canvas id="mainGame">If You See Me, Try Upgrading Your Browser</canvas>
         <div id="ugly"><h3>Images Not Working? / Image Loading Stuck?: Change Server (Image):</h3>
-        <span hidden id="external_script"></span>
         <button onclick="imgur()" id="imgur">imgur (Default) - (Selected)</button> <button onclick="google()" id="google">Google Photos (Recommended for school computers)</button>         <div id="library_com"></div>
         </br><span>Images May Take Time To Load When Changing Servers</span>
         <h3>Sound Not Working? (Make sure not on mute) / Sound Assest Loading Stuck?: Change Server (Sound):</h3> <button id="drive_s" onclick="drive()">DRIVE.cloud (Default) - (Selected)</button> <button id="c3.RBX" onclick="RBX()">C3.RBXcdn</button> <button id="desktop_sound" onclick="desktopSOUND()">Desktop sound! (no internet needed)</button> <div id="sound_lib"></div>
@@ -469,14 +468,8 @@
         <img hidden src="https://docs.google.com/uc?export=open&id=19O6PgQPhDDvhrUkzFv8YjOrPOHxkbX9M" id="letter_c-google" alt="letter_c-google">
         <img hidden src="https://i.imgur.com/r7UnvE7.png" id="icon_c-imgur" alt="icon_c-imgur">
         <img hidden src="https://docs.google.com/uc?export=open&id=13ZLIEdjDYysf9fUdq9bO4uY7n4Xv8EjC" id="icon_c-google" alt="icon_c-google">
-        <img hidden src="https://i.imgur.com/HCMOY7d.png" id="skip1button-imgur" alt="skip1button-imgur">
+        <img hidden src="" id="skip1button-imgur" alt="skip1button-imgur">
         <img hidden src="https://docs.google.com/uc?export=open&id=1eHecx7akyctxCi01s0eKgH3lT_Necavn" id="skip1button-google" alt="skip1button-google">
-        <img hidden src="https://i.imgur.com/Q6rhe9q.png" id="skip2button-imgur" alt="skip2button-imgur">
-        <img hidden src="https://docs.google.com/uc?export=open&id=1NCLtLeo7FE9tZv8vFZ2gF_tDucv0aoaC" id="skip2button-google" alt="skip2button-google">
-        <video hidden src="https://i.imgur.com/H0EPXlB.mp4" id="tsone_intro-imgur" alt="tsone_intro-imgur"></video>
-        <video hidden src="https://docs.google.com/uc?export=open&id=1NFltla_juGGw8Z8olSMD93FaLTUM3o7_" id="tsone_intro-google" alt="tsone_intro-google"></video>
-        <video hidden src="" id="tsone_intro_no-imgur" alt="tsone_intro_no-imgur"></video>
-        <video hidden src="" id="tsone_intro_no-google" alt="tsone_intro_no-google"></video>
         <audio id="jumpscare_HARVESTER-drive" src=""></audio>
         <audio id="jumpscare_HARVESTER-r3" src=""></audio>
         <audio id="go-drive" src=""></audio>
@@ -527,22 +520,15 @@
         <audio id="walking-r3" src=""></audio>
         <audio id="8bit_loop-drive" src=""></audio>
         <audio id="8bit_loop-r3" src=""></audio>
-        <audio id="drive_clip-drive" src="" ontimeupdate="SONGupdated('drive_clip',Math.floor(this.currentTime))" preload="auto" oncanplaythrough="amough()"></audio>
-        <audio id="drive_clip-r3" src="" ontimeupdate="SONGupdated('drive_clip',Math.floor(this.currentTime))" preload="auto" oncanplaythrough="amough2()"></audio>
-        <audio id="skip_sfx1-drive" src=""></audio>
-        <audio id="skip_sfx1-r3" src=""></audio>
+        <audio id="drive_clip-drive" src="" ontimeupdate="SONGupdated('drive_clip',this.currentTime)" preload="auto" oncanplaythrough="amough()"></audio>
+        <audio id="drive_clip-r3" src="" ontimeupdate="SONGupdated('drive_clip',this.currentTime)" preload="auto" oncanplaythrough="amough2()"></audio>
         <script src="./add_on_library.js"></script>
         <script>
             //        <button onclick="document.getElementById('drive_clip-'+SOUNDserver).play()">test</button>
-            /*
-            <button onclick="imgur()" id="imgur">imgur (Default) - (Selected)</button> <button onclick="google()" id="google">Google Photos (Recommended for school computers)</button>         <div id="library_com"></div>
-        </br><span>Images May Take Time To Load When Changing Servers</span>
-        <h3>Sound Not Working? (Make sure not on mute) / Sound Assest Loading Stuck?: Change Server (Sound):</h3> <button id="drive_s" onclick="drive()">DRIVE.cloud (Default) - (Selected)</button> <button id="c3.RBX" onclick="RBX()">C3.RBXcdn</button> <button id="desktop_sound" onclick="desktopSOUND()">Desktop sound! (no internet needed)</button> <div id="sound_lib"></div>
-        </br><span>Sound May Take Time To Load When Changing Servers</span></div>
-            */
             var canvas = document.getElementById("mainGame") // ooh thaats where we are drawinf right?
             var ctx = canvas.getContext("2d"); //it could be 3d but nah
-            var lvl = "start-warn" //level selection
+            var external_script =  false
+            var lvl = "load" //level selection
             var load = 0 // loading state- must meet number of assets in if function
             var IMAGEserver = "imgur" //is image server online11!!
             var SOUNDserver = "drive" //is sound server online1!1!
@@ -586,14 +572,14 @@
             var frame_bg_main32=23
             var deload = 0
             var stay=false // i actually forgor what this does
-            var intake="180" //how much images should be loaded (half of all assets - imgur / all assets - google / TIP: if all assest loaded dont put back to half, it break game)
+            var intake="178" //how much images should be loaded (half of all assets - imgur / all assets - google / TIP: if all assest loaded dont put back to half, it break game)
             var FPS = setInterval(FRAME,33.3333333) //frames
             var sound = false // default we have negative sound!?
             var chapterSEL = "0"
             var pause=false
             var SOUNDload = 0
             var SOUNDLOAD = "0"
-            var all_sounds = 48
+            var all_sounds = 46
             var debouce1 = 0
             var moveDIR = "idle"
             var player = "him."
@@ -661,7 +647,7 @@
             var pause_menu2=0
             var holding_what_obj="none" //what you holding tho??
             var moveTHING=0
-            var tempINFO = [false,false,0,false,false,false,0,0,0,false,0]
+            var tempINFO = [false,false,0,false,false,false,0,0,0,false]
             var osu={}
             var osuX={}
             var osuY={}
@@ -680,201 +666,7 @@
             var NPCcount=0
             var NPCmoveDIR="idle"
             var db1RE=false
-            var debouce1osu=false
-            var times_osu=0
-            const tsone_video_desktop={
-                timerCallback: function() {
-                if (this.video.paused) {
-                    return;
-                }
-                if(this.video.ended){
-                    sound=false
-                    lvl="soundin"
-                    return "end";
-                }
-                this.computeFrame();
-                let self = this;
-                setTimeout(function () {
-                    self.timerCallback();
-                    }, 0);
-                },
             
-                doLoad: function() {
-                this.video = document.getElementById("tsone_intro-desktop");
-                this.c1 = document.getElementById("mainGame");
-                this.ctx1 = this.c1.getContext("2d");
-                //this.c2 = document.getElementById("c2");
-                //this.ctx2 = this.c2.getContext("2d");
-                let self = this;
-                this.video.addEventListener("play", function() {
-                    self.width = self.c1.width//self.video.videoWidth / 2;
-                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
-                    self.timerCallback();
-                    }, false);
-                },
-            
-                computeFrame: function() {
-                if(lvl=="tsone_intro"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
-                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
-                    let l = frame.data.length / 4;
-                
-                // below is for chroma key (would use movavi tho)    
-                /*for (let i = 0; i < l; i++) {
-                    let r = frame.data[i * 4 + 0];
-                    let g = frame.data[i * 4 + 1];
-                    let b = frame.data[i * 4 + 2];
-                    if (g > 100 && r > 100 && b < 43)
-                    frame.data[i * 4 + 3] = 0;
-                }
-                this.ctx2.putImageData(frame, 0, 0);*/
-                return;
-                }
-            };
-            const tsone_video_desktop_no={
-                timerCallback: function() {
-                if (this.video.paused) {
-                    return;
-                }
-                if(this.video.ended){
-                    sound=false
-                    lvl="soundin"
-                    return "end";
-                }
-                this.computeFrame();
-                let self = this;
-                setTimeout(function () {
-                    self.timerCallback();
-                    }, 0);
-                },
-            
-                doLoad: function() {
-                this.video = document.getElementById("tsone_intro_no-desktop");
-                this.c1 = document.getElementById("mainGame");
-                this.ctx1 = this.c1.getContext("2d");
-                //this.c2 = document.getElementById("c2");
-                //this.ctx2 = this.c2.getContext("2d");
-                let self = this;
-                this.video.addEventListener("play", function() {
-                    self.width = self.c1.width//self.video.videoWidth / 2;
-                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
-                    self.timerCallback();
-                    }, false);
-                },
-            
-                computeFrame: function() {
-                if(lvl=="tsone_intro1"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
-                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
-                    let l = frame.data.length / 4;
-                
-                // below is for chroma key (would use movavi tho)    
-                /*for (let i = 0; i < l; i++) {
-                    let r = frame.data[i * 4 + 0];
-                    let g = frame.data[i * 4 + 1];
-                    let b = frame.data[i * 4 + 2];
-                    if (g > 100 && r > 100 && b < 43)
-                    frame.data[i * 4 + 3] = 0;
-                }
-                this.ctx2.putImageData(frame, 0, 0);*/
-                return;
-                }
-            };
-            const tsone_video_google={
-                timerCallback: function() {
-                if (this.video.paused) {
-                    return;
-                }
-                if(this.video.ended){
-                    sound=false
-                    lvl="soundin"
-                    return "end";
-                }
-                this.computeFrame();
-                let self = this;
-                setTimeout(function () {
-                    self.timerCallback();
-                    }, 0);
-                },
-            
-                doLoad: function() {
-                this.video = document.getElementById("tsone_intro-google");
-                this.c1 = document.getElementById("mainGame");
-                this.ctx1 = this.c1.getContext("2d");
-                //this.c2 = document.getElementById("c2");
-                //this.ctx2 = this.c2.getContext("2d");
-                let self = this;
-                this.video.addEventListener("play", function() {
-                    self.width = self.c1.width//self.video.videoWidth / 2;
-                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
-                    self.timerCallback();
-                    }, false);
-                },
-            
-                computeFrame: function() {
-                if(lvl=="tsone_intro"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
-                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
-                    let l = frame.data.length / 4;
-                
-                // below is for chroma key (would use movavi tho)    
-                /*for (let i = 0; i < l; i++) {
-                    let r = frame.data[i * 4 + 0];
-                    let g = frame.data[i * 4 + 1];
-                    let b = frame.data[i * 4 + 2];
-                    if (g > 100 && r > 100 && b < 43)
-                    frame.data[i * 4 + 3] = 0;
-                }
-                this.ctx2.putImageData(frame, 0, 0);*/
-                return;
-                }
-            };
-            const tsone_video_imgur={
-                timerCallback: function() {
-                if (this.video.paused) {
-                    return;
-                }
-                if(this.video.ended){
-                    sound=false
-                    lvl="soundin"
-                    return "end";
-                }
-                this.computeFrame();
-                let self = this;
-                setTimeout(function () {
-                    self.timerCallback();
-                    }, 0);
-                },
-            
-                doLoad: function() {
-                this.video = document.getElementById("tsone_intro-imgur");
-                this.c1 = document.getElementById("mainGame");
-                this.ctx1 = this.c1.getContext("2d");
-                //this.c2 = document.getElementById("c2");
-                //this.ctx2 = this.c2.getContext("2d");
-                let self = this;
-                this.video.addEventListener("play", function() {
-                    self.width = self.c1.width//self.video.videoWidth / 2;
-                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
-                    self.timerCallback();
-                    }, false);
-                },
-            
-                computeFrame: function() {
-                if(lvl=="tsone_intro"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
-                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
-                    let l = frame.data.length / 4;
-                
-                // below is for chroma key (would use movavi tho)    
-                /*for (let i = 0; i < l; i++) {
-                    let r = frame.data[i * 4 + 0];
-                    let g = frame.data[i * 4 + 1];
-                    let b = frame.data[i * 4 + 2];
-                    if (g > 100 && r > 100 && b < 43)
-                    frame.data[i * 4 + 3] = 0;
-                }
-                this.ctx2.putImageData(frame, 0, 0);*/
-                return;
-                }
-            };
-                        
             //universal functions (some left out cuz ya)
             function FRAME(){
                 ctx.clearRect(0,0,310, 150);
@@ -926,7 +718,7 @@
                     }
                 }
             }*/
-        
+
             function amough(){
                 tempINFO[6]=1
             }
@@ -2926,18 +2718,6 @@
             document.getElementById("door_garage_closet-imgur").addEventListener("load", function(){
                 load=load+1
             })
-            document.getElementById("skip1button-google").addEventListener("load", function(){
-                load=load+1
-            })
-            document.getElementById("skip1button-imgur").addEventListener("load", function(){
-                load=load+1
-            })
-            document.getElementById("skip2button-google").addEventListener("load", function(){
-                load=load+1
-            })
-            document.getElementById("skip2button-imgur").addEventListener("load", function(){
-                load=load+1
-            })
             document.getElementById("mogus_garage_closet-google").addEventListener("load", function(){
                 load=load+1
             })
@@ -3393,34 +3173,7 @@
                 console.log(time)
                 if(lvl=="osu!-doki_doki,[json-cece_F]"){
                     if(song=="drive_clip"){
-                        if(time!=times_osu){
-                            times_osu=time
-                            debouce1osu=false
-                        }
-                        if(debouce1osu==false){
-                            if(times_osu==1){
-                                spawnOSU("a",30,30)
-                                debouce1osu=true
-                            }
-                            if(times_osu==2){
-                                spawnOSU("k",130,30)
-                                debouce1osu=true
-                            }
-                            if(times_osu==3){
-                                spawnOSU("h",30,130)
-                                debouce1osu=true
-                            }
-                            if(times_osu==4){
-                                spawnOSU("b",55,30)
-                                spawnOSU("f",50,50)
-                                debouce1osu=true
-                            }
-                            if(times_osu==5){
-                                spawnOSU("s",100,100)
-                                debouce1osu=true
-                            }
-                        }
-                        /*yess
+                        //yess
                         if(time==1.810){
                             spawnOSU("a",30,30)
                         }
@@ -3444,7 +3197,7 @@
                         }
                         if(time==5.071){
                             spawnOSU("f",100,150)
-                        }*/
+                        }
                     }
                 }
             }
@@ -3681,32 +3434,11 @@
             }
 
             function envo_2d(){
-                if(lvl=="start-warn"){
-                    ctx.font = "10px Arial";
-                    ctx.fillStyle = "white";
-                    ctx.strokeStyle = "white";
-                    ctx.fillText("This game requires a keyboard and a mouse.", 10, 120);
-                    ctx.fillText("Click to continue...", 10, 140);
-                    ctx.strokeRect(5,5,100,50)
-                    ctx.fillText("keyboard here", 20, 20);
-                    ctx.beginPath()
-                    ctx.ellipse(150, 60, 30, 55, 0, 0, 2 * Math.PI);
-                    ctx.stroke()
-                    ctx.fillText("mouse here", 123, 70);
-                }
-                if(lvl=="start-img"){
-                    ctx.font = "10px Arial";
-                    ctx.fillStyle = "white";
-                    ctx.strokeStyle = "white";
-                    ctx.fillText("press 'I' for imgur image server", 10, 10);
-                    ctx.fillText("press 'G' for google image server", 10, 30);
-                    if(document.getElementById("external_script").innerHTML=="true"){ctx.fillText("press 'D' for desktop image server", 10, 70);}
-                }
                 if(lvl=="load"){
                     ctx.font = "15px Arial";
                     ctx.fillStyle="white";
                     var loade = load.toString();
-                    var ss = "Loading Assets ("+loade+"/400)";
+                    var ss = "Loading Assets ("+loade+"/396)";
                     ctx.fillText(ss, 10, 50);
                     var mma = Number(intake)
                     if(mma<=load){
@@ -3916,30 +3648,10 @@
                 }
                 if(lvl=="winner-s-1"){
                     ctx.fill="#00ff00"
-                    ctx.font = "10px Arial";
-                    ctx.fillText("ok we need to know why cuz hemoglobin",10,10)
-                    ctx.fillText("when hemoglobin binds to oxygen, red",10,25)
-                    ctx.fillText("it becomes oxygenized.",10,35)
-                    ctx.fillText("when c02 bind it blue!!",10,45)
-                    ctx.fillText("ok now u know clicke",10,55)
-                    ctx.fillText("also take da w qween",10,65)
-                }
-                if(lvl=="loser-s-1"){
-                    ctx.fill="#00ff00"
-                    ctx.font = "10px Arial";
-                    ctx.fillText("ok we need to know why cuz hemoglobin",10,10)
-                    ctx.fillText("when hemoglobin binds to oxygen, red",10,25)
-                    ctx.fillText("it becomes oxygenized.",10,35)
-                    ctx.fillText("when c02 bind it blue!!",10,45)
-                    ctx.fillText("ok now u know clicke",10,55)
-                    ctx.fillText("also u failed bozo imagine you have no father figure",10,65)
-                }
-                if(lvl=="winner-s-2"){
-                    ctx.fill="#00ff00"
                     ctx.fillText("you slayyy qween 👑🐊🎌🐸⚔😵⛑⛑",10,10)
                     ctx.fillText("(you win gaming)",10,50)
                 }
-                if(lvl=="loser-s-2"){
+                if(lvl=="loser-s-1"){
                     ctx.fillStyle="#ffffff"
                     ctx.fillRect(0,0,310,150)
                     ctx.drawImage(document.getElementById("imagin_get_noob_loser-"+IMAGEserver),frame_bg_main12,0,310,150,10,10,260,100)
@@ -4100,7 +3812,7 @@
                     if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,100,70,20)}
                     if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,115,70,20)}
                     ctx.drawImage(document.getElementById("tutorial-"+IMAGEserver),220,70,70,20)
-                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("skip1button-"+IMAGEserver),25,120,90,16)}
+                    if(tempINFO[9]==false){ctx.drawImage(document.getElementById("skip1button-"+IMAGEserver),25,120,90,16)}
                     ctx.drawImage(document.getElementById("chaptpre-"+IMAGEserver),10,10)
                     ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25,100,90,16)                    
                 }
@@ -4113,7 +3825,7 @@
                     if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,100,70,20)}
                     if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,115,70,20)}
                     ctx.drawImage(document.getElementById("tutorial-"+IMAGEserver),220,70,70,20)
-                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("skip1button-"+IMAGEserver),25,120,90,16)}
+                    if(tempINFO[9]==false){ctx.drawImage(document.getElementById("skip1button-"+IMAGEserver),25,120,90,16)}
                     ctx.drawImage(document.getElementById("chaptpre-"+IMAGEserver),10,10)
                     ctx.drawImage(document.getElementById("enter2-"+IMAGEserver),25,100,90,16)                    
                 }
@@ -4126,7 +3838,7 @@
                     if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,100,70,20)}
                     if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,115,70,20)}
                     ctx.drawImage(document.getElementById("tutorial-"+IMAGEserver),220,70,70,20)
-                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("skip2button-"+IMAGEserver),25,120,90,16)}
+                    if(tempINFO[9]==false){ctx.drawImage(document.getElementById("skip2button-"+IMAGEserver),25,120,90,16)}
                     ctx.drawImage(document.getElementById("chaptpre-"+IMAGEserver),10,10)
                     ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25,100,90,16)                    
                 }
@@ -4277,18 +3989,6 @@
                     ctx.drawImage(document.getElementById("hard_contract-"+IMAGEserver),91,111)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
                 }
                 if(lvl=="menuSEL2"){
-                    ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
-                    ctx.drawImage(document.getElementById("chapter3-"+IMAGEserver),230,85,70,20)
-                    if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,85,70,20)}
-                    ctx.drawImage(document.getElementById("chapter1-"+IMAGEserver),230,55,70,20)
-                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,55,70,20)}                    
-                    ctx.drawImage(document.getElementById("chapter2-"+IMAGEserver),220,70,70,20)
-                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,220,70,70,20)}
-                    ctx.drawImage(document.getElementById("chap2pre-"+IMAGEserver),10,10)
-                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_visual_chapSEL-"+IMAGEserver),10,10)}
-                    ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25,100,90,16)                    
-                }
-                if(lvl=="menuSEL3"){
                     ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
                     ctx.drawImage(document.getElementById("chapter3-"+IMAGEserver),230,85,70,20)
                     if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,85,70,20)}
@@ -5062,38 +4762,13 @@
                         white_trans_num=white_trans_num+310
                         if(lvl=="plz_turn_on_sound_plzzz_jump"){
                             if(white_trans_num==3100){
-                                sound=true
-                                lvl="tsone_intro"
+                                lvl="soundin"
                             }
                         }
-                        if(lvl=="tsone_intro"){
+                        if(lvl=="soundin"){
                             if(white_trans_num==5270){
                                 white_trans_num=0
                                 white_trans=false
-                                if(sound==true){
-                                    if(SOUNDserver=="r3"){
-                                        document.getElementById("tsone_intro-imgur").play()
-                                        if(tsone_video_imgur.doLoad()=="end"){
-                                            sound=false
-                                            lvl="soundin"
-                                        }
-                                    }else if(SOUNDserver=="drive"){
-                                        document.getElementById("tsone_intro-google").play()
-                                        if(tsone_video_google.doLoad()=="end"){
-                                            sound=false
-                                            lvl="soundin"
-                                        }
-                                    }else if(SOUNDserver=="SOUNDdesk"){
-                                        document.getElementById("tsone_intro-desktop").play()
-                                        if(tsone_video_desktop.doLoad()=="end"){
-                                            sound=false
-                                            lvl="soundin"
-                                            
-                                        }
-                                    }
-                                }else{
-                                    
-                                }
                             }
                         }
                     }
@@ -5108,16 +4783,7 @@
                         }else if(lvl=="plz_turn_on_sound_plzzz_decline"){
                             if(frame_bg_main57==7440){
                                 frame_bg_main57=0
-                                if(IMAGEserver=="desktop"){
-                                        lvl="tsone_intro1"
-                                        document.getElementById("tsone_intro_no-desktop").play()
-                                        if(tsone_video_desktop_no.doLoad()=="end"){
-                                            sound=false
-                                            lvl="enter"
-                                        }
-                                    }else{
-                                        lvl="enter"
-                                    }
+                                lvl="enter"
                             }
                         }else{
                             if(frame_bg_main57==1240){
@@ -5312,7 +4978,7 @@
                         if(lvl=="dead-hallwayCHASE"){
                             frame_bg_main12=frame_bg_main12+256
                         }
-                        if(lvl=="transition-s" || lvl=="loser-s-2"){
+                        if(lvl=="transition-s" || lvl=="loser-s-1"){
                             frame_bg_main12=frame_bg_main12+310
                         }
                         if(lvl=="jumpscare-evil_blob"){
@@ -5445,12 +5111,12 @@
                         if(lvl=="cece_room_1"){
                             frame_bg_main29=frame_bg_main29+256
                         }
-                        if(frame_bg_main12>=2816&&lvl!="transition-s"&&lvl!="loser-s-2"){
+                        if(frame_bg_main12>=2816&&lvl!="transition-s"&&lvl!="loser-s-1"){
                             frame_bg_main12=0
-                        }else if(lvl=="transition-s"&&frame_bg_main12>=3410&&lvl!="loser-s-2"){
+                        }else if(lvl=="transition-s"&&frame_bg_main12>=3410&&lvl!="loser-s-1"){
                             lvl="question1-s"
                             frame_bg_main12=0
-                        }else if(lvl=="loser-s-2"&&frame_bg_main12>=10540&&lvl!="transition-s"){
+                        }else if(lvl=="loser-s-1"&&frame_bg_main12>=10540&&lvl!="transition-s"){
                             frame_bg_main12=0
                         }
                         if(frame_bg_main29>=768){
@@ -5676,16 +5342,6 @@
                                 SOUNDload=SOUNDload+1
                                 SOUNDLOAD = SOUNDload.toString()
                                 document.getElementById("chasemusic-drive").loop=true
-                            }, false);
-                            document.getElementById("skip_sfx1-drive").src = 'https://docs.google.com/uc?export=open&id=1NDslEopwlP7OqqMhlOXJkP8fWXMOiGd-'
-                            document.getElementById("skip_sfx1-drive").addEventListener('canplaythrough', function() { 
-                                SOUNDload=SOUNDload+1
-                                SOUNDLOAD = SOUNDload.toString()
-                            }, false);
-                            document.getElementById("skip_sfx1-r3").src = 'https://c7.rbxcdn.com/ac5db46276b75dee6b49b7db7277d48c'
-                            document.getElementById("skip_sfx1-r3").addEventListener('canplaythrough', function() { 
-                                SOUNDload=SOUNDload+1
-                                SOUNDLOAD = SOUNDload.toString()
                             }, false);
                             document.getElementById("ambience-drive").src = 'https://docs.google.com/uc?export=open&id=1An-rdQHqXIJ0wDodJaSS2GHZFIVLqtUp'
                             document.getElementById("ambience-drive").addEventListener('canplaythrough', function() { 
@@ -6731,24 +6387,15 @@
                 }
             }
 
+            document.getElementById("desktop_sound").addEventListener("click",function(){
+                desktopSOUND()
+            })
+
+            document.getElementById("desktop").addEventListener("click",function(){
+                desktop()
+            })
+
             canvas.addEventListener("click", function(e){
-                if(lvl=="loser-s-1"){
-                    lvl="loser-s-2"
-                }
-                if(lvl=="winner-s-1"){
-                    lvl="winner-s-2"
-                }
-                if(lvl=="start-warn"){
-                    lvl="start-img"
-                }
-                if(lvl=="menuSEL0-rotate1"){
-                    lvl="menuSEL0"
-                    tempINFO[3]=true
-                    if(sound==true || SOUNDserver=="SOUNDdesk"){
-                        document.getElementById("skip_sfx1-"+SOUNDserver).currentTime=0
-                        document.getElementById("skip_sfx1-"+SOUNDserver).play()
-                    }
-                }
                 if(lvl=="osu!-doki_doki,[json-cece_F]"){
                     document.getElementById("drive_clip-"+SOUNDserver).play()
                 }
@@ -6971,8 +6618,8 @@
                         //fnfsong("cece1")         
                         if(sound==true || SOUNDserver=="SOUNDdesk"){
                             document.getElementById("soft_rain-"+SOUNDserver).play()
-                            //document.getElementById("fnf_inst_sc-"+SOUNDserver).play()
-                            //document.getElementById("fnf_vocals_sc-"+SOUNDserver).play()
+                            document.getElementById("fnf_inst_sc-"+SOUNDserver).play()
+                            document.getElementById("fnf_vocals_sc-"+SOUNDserver).play()
                             document.getElementById("decide-"+SOUNDserver).pause()
                             document.getElementById("decide-"+SOUNDserver).currentTime=0
                         }
@@ -7192,7 +6839,7 @@
                                 lvl="loading2"
                             }else{
                                 lvl="osu!-doki_doki,[json-cece_F]"
-                                playVideo()
+                                document.getElementById('drive_clip-'+SOUNDserver).play()
                             }
                         }                               
 
@@ -7875,21 +7522,6 @@
                     console.log("yes, edwerd did eat the banana")
                     lvl="question0-s"
                 }
-                if(lvl=="start-img"){
-                    if(e.key=="I" || e.key=="i"){
-                        IMAGEserver="imgur"
-                        lvl="load"
-                    }
-                    if(e.key=="G" || e.key=="g"){
-                        IMAGEserver="google"
-                        lvl="load"
-                    }
-                    if(e.key=="D" || e.key=="d"){
-                        if(document.getElementById("external_script").innerHTML=="true"){IMAGEserver="desktop"}
-                        lvl="load"
-                        
-                    }
-                }
                 if(lvl=="question1-s"){
                     if(e.key=="a"){
                         lvl="winner-s-1"
@@ -8012,10 +7644,8 @@
                 if(lvl=="menuSEL0" || lvl=="menuSEL0-rotate" || lvl=="menuSEL0-rotate1"){
                     if(e.clientX>=52 && e.clientX<=192 && e.clientY>=175 && e.clientY<=198){
                         lvl="menuSEL0-rotate"
-                    }else if(e.clientX>=52 && e.clientX<=192 && e.clientY>=215 && e.clientY<=248){
-                        if(tempINFO[3]==false){
-                            lvl="menuSEL0-rotate1"
-                        }
+                    }else if(e.clientX>=52 && e.clientX<=192 && e.clientY>=175 && e.clientY<=198){
+                        lvl="menuSEL0-rotate1"
                     }else{
                         lvl="menuSEL0"
                     } 
@@ -8135,17 +7765,6 @@
                     }
                 }
             })
-
-            document.getElementById('tsone_intro-google').onended = (event) => {
-                console.log("Video stopped either because it has finished playing or no further data is available.");
-                sound=false
-                lvl="soundin"
-            };
-            document.getElementById('tsone_intro-imgur').onended = (event) => {
-                console.log("Video stopped either because it has finished playing or no further data is available.");
-                sound=false
-                lvl="soundin"
-            };  
             ////window.location.href.slice(0,-10)+
         </script>
     </body>
