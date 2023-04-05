@@ -395,17 +395,17 @@ var tutorial_ne = document.createElement("img")
 tutorial_ne.src=window.location.href.slice(0,-21)+"files/images/bin/TUTORIAL/bg_ani.png"
 tutorial_ne.id="tutorial_ne-desktop"
 tutorial_ne.hidden=true
-var portal_red_2E = document.createElement("img")
-portal_red_2E.src=window.location.href.slice(0,-21)+"files/images/bin/TUTORIAL/col_portal.png"
-portal_red_2E.id="amogus-desktop"
-portal_red_2E.hidden=true
+var portal_red_2D = document.createElement("img")
+portal_red_2D.src=window.location.href.slice(0,-21)+"files/images/bin/TUTORIAL/col_portal.png"
+portal_red_2D.id="portal_red_2D-desktop"
+portal_red_2D.hidden=true
 var pole_scawy = document.createElement("img")
 pole_scawy.src=window.location.href.slice(0,-21)+"files/images/bin/TUTORIAL/thoses_poles_not_for_dancing_but_for_electrucuting.png"
 pole_scawy.id="pole_scawy-desktop"
 pole_scawy.hidden=true
 var lookover_1 = document.createElement("img")
 lookover_1.src=window.location.href.slice(0,-21)+"files/images/bin/TUTORIAL/1_lookover.png"
-lookover_1.id="lookover_1-desktop"
+lookover_1.id="1_lookover-desktop"
 lookover_1.hidden=true
 var he_in_water = document.createElement("img")
 he_in_water.src=window.location.href.slice(0,-21)+"files/images/bin/TUTORIAL/he_in_weter.png"
@@ -1182,7 +1182,7 @@ document.getElementById("library_com").appendChild(portal_3d)
 document.getElementById("library_com").appendChild(portal_2d)
 document.getElementById("library_com").appendChild(amogus)
 document.getElementById("library_com").appendChild(tutorial_ne)
-document.getElementById("library_com").appendChild(portal_red_2E)
+document.getElementById("library_com").appendChild(portal_red_2D)
 document.getElementById("library_com").appendChild(pole_scawy)
 document.getElementById("library_com").appendChild(lookover_1)
 document.getElementById("library_com").appendChild(laugh_smal)

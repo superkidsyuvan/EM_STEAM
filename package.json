@@ -14,7 +14,7 @@
   "author": "@superkidsyuvan (on rblx)",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^21.3.1"
+    "electron": "^21.4.4"
   },
   "dependencies": {
     "build": "^0.1.4",
