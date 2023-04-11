@@ -951,6 +951,14 @@ var tsone_intro_no = document.createElement("video")
 tsone_intro_no.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/MENU_START/intro_no_sound.mp4"
 tsone_intro_no.id="tsone_intro_no-desktop"
 tsone_intro_no.hidden=true
+var intro_chapter1 = document.createElement("video")
+intro_chapter1.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/SCENE1/heavily_edited.mp4"
+intro_chapter1.id="intro_chapter1-desktop"
+intro_chapter1.hidden=true
+var band_playback_cece = document.createElement("video")
+band_playback_cece.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/near_end/the_band_gets_together_to_scare_mother.mp4"
+band_playback_cece.id="cece_band_osu_playback-desktop"
+band_playback_cece.hidden=true
 
 /* DONTI OWKRRR!!
 
@@ -970,7 +978,10 @@ document.getElementById("testAUDIO-desktop").appendChild(d1)
 document.getElementById("testAUDIO-desktop").appendChild(d2)
 document.getElementById("testAUDIO-desktop").appendChild(d3)
 document.getElementById("library_com").appendChild(testAUDIO)*/
-
+var drive_clip = document.createElement("audio")
+drive_clip.src=window.location.href.slice(0,-21)+"files/sound/MUSIC/.ogg/drive_clip.ogg"
+drive_clip.id="drive_clip-SOUNDdesk"
+//drive_clip.oncanplaythrough=function(){tempINFO[8]=1}
 var go3 = document.createElement("audio")
 go3.src=window.location.href.slice(0,-21)+"files/sound/SFX/.wav/go.wav"
 go3.id="go-SOUNDdesk"
@@ -1049,13 +1060,13 @@ walking.id="walking-SOUNDdesk"
 var skip_sfx1 = document.createElement("audio")
 skip_sfx1.src=window.location.href.slice(0,-21)+"files/sound/SFX/.wav/skip_sfx1.wav"
 skip_sfx1.id="skip_sfx1-SOUNDdesk"
-var drive_clip = document.createElement("audio")
-drive_clip.src=window.location.href.slice(0,-21)+"files/sound/MUSIC/.mp3/drive_clip.mp3"
-drive_clip.id="drive_clip-SOUNDdesk"
-drive_clip.preload="auto"
-drive_clip.oncanplaythrough=function(){tempINFO[8]=1}
-document.getElementById("sound_lib").appendChild(skip_sfx1)
+var ding = document.createElement("audio")
+ding.src=window.location.href.slice(0,-21)+"files/sound/SFX/.wav/ding.wav"
+ding.id="ding-SOUNDdesk"
+//drive_clip.preload="auto"
+document.getElementById("sound_lib").appendChild(ding)
 document.getElementById("sound_lib").appendChild(drive_clip)
+document.getElementById("sound_lib").appendChild(skip_sfx1)
 document.getElementById("sound_lib").appendChild(walking)
 document.getElementById("sound_lib").appendChild(bit8_loop)
 document.getElementById("sound_lib").appendChild(set)
@@ -1322,6 +1333,8 @@ document.getElementById("library_com").appendChild(skip1button)
 document.getElementById("library_com").appendChild(skip2button)
 document.getElementById("library_com").appendChild(tsone_intro)
 document.getElementById("library_com").appendChild(tsone_intro_no)
+document.getElementById("library_com").appendChild(intro_chapter1)
+document.getElementById("library_com").appendChild(band_playback_cece)
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)
@@ -1350,14 +1363,26 @@ document.getElementById("desktop").addEventListener("click",function(){
 document.getElementById("external_script").innerHTML="true"
 document.getElementById("drive_clip-SOUNDdesk").ontimeupdate=function(){SONGupdated('drive_clip',Math.floor(this.currentTime))}
 document.getElementById('tsone_intro-desktop').onended = (event) => {
-    console.log("Video stopped either because it has finished playing or no further data is available.");
+    console.log("tsone_intro-desktop stopped either because it has finished playing or no further data is available.");
     sound=false
     lvl="soundin"
 };
 
 document.getElementById('tsone_intro_no-desktop').onended = (event) => {
-    console.log("Video stopped either because it has finished playing or no further data is available.");
+    console.log("tsone_intro_no-desktop stopped either because it has finished playing or no further data is available.");
     sound=false
     lvl="enter"
 };
+
+document.getElementById('intro_chapter1-desktop').onended = (event) => {
+    console.log("intro_chapter1-desktop stopped either because it has finished playing or no further data is available.");
+    lvl="hallwayCHASE-0"
+};
+
+document.getElementById("cece_band_osu_playback-desktop").ontimeupdate=function(){SONGupdated('drive_clip',Math.floor(this.currentTime))};
+
+document.getElementById("cece_band_osu_playback-desktop").onended = (event) => {
+    lvl="demo-end"
+};
+
 console.log("it worked")
