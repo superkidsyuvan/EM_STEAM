@@ -473,10 +473,37 @@
         <img hidden src="https://docs.google.com/uc?export=open&id=1eHecx7akyctxCi01s0eKgH3lT_Necavn" id="skip1button-google" alt="skip1button-google">
         <img hidden src="https://i.imgur.com/Q6rhe9q.png" id="skip2button-imgur" alt="skip2button-imgur">
         <img hidden src="https://docs.google.com/uc?export=open&id=1NCLtLeo7FE9tZv8vFZ2gF_tDucv0aoaC" id="skip2button-google" alt="skip2button-google">
+        <img hidden src="" id="vol0-imgur" alt="vol0-imgur">
+        <img hidden src="" id="vol0-google" alt="vol0-google">
+        <img hidden src="" id="vol1-imgur" alt="vol1-imgur">
+        <img hidden src="" id="vol1-google" alt="vol1-google">
+        <img hidden src="" id="vol2-imgur" alt="vol2-imgur">
+        <img hidden src="" id="vol2-google" alt="vol2-google">
+        <img hidden src="" id="vol3-imgur" alt="vol3-imgur">
+        <img hidden src="" id="vol3-google" alt="vol3-google">
+        <img hidden src="" id="vol4-imgur" alt="vol4-imgur">
+        <img hidden src="" id="vol4-google" alt="vol4-google">
+        <img hidden src="" id="vol5-imgur" alt="vol5-imgur">
+        <img hidden src="" id="vol5-google" alt="vol5-google">
+        <img hidden src="" id="vol6-imgur" alt="vol6-imgur">
+        <img hidden src="" id="vol6-google" alt="vol6-google">
+        <img hidden src="" id="vol7-imgur" alt="vol7-imgur">
+        <img hidden src="" id="vol7-google" alt="vol7-google">
+        <img hidden src="" id="vo8-imgur" alt="vo8-imgur">
+        <img hidden src="" id="vo8-google" alt="vo8-google">
+        <img hidden src="" id="vol9-imgur" alt="vol9-imgur">
+        <img hidden src="" id="vol9-google" alt="vol9-google">
+        <img hidden src="" id="vol10-imgur" alt="vol10-imgur">
+        <img hidden src="" id="vol10-google" alt="vol10-google">
         <video hidden src="https://i.imgur.com/H0EPXlB.mp4" id="tsone_intro-imgur" alt="tsone_intro-imgur"></video>
         <video hidden src="https://docs.google.com/uc?export=open&id=1NFltla_juGGw8Z8olSMD93FaLTUM3o7_" id="tsone_intro-google" alt="tsone_intro-google"></video>
-        <video hidden src="" id="tsone_intro_no-imgur" alt="tsone_intro_no-imgur"></video>
-        <video hidden src="" id="tsone_intro_no-google" alt="tsone_intro_no-google"></video>
+        <video hidden src="https://i.imgur.com/hIUsXgN.mp4" id="tsone_intro_no-imgur" alt="tsone_intro_no-imgur"></video>
+        <video hidden src="https://docs.google.com/uc?export=open&id=1NHue0_26RTy571PtP7tRKpoi5gdlF9WH" id="tsone_intro_no-google" alt="tsone_intro_no-google"></video>
+        <video hidden src="https://i.imgur.com/9oqYuU8.mp4" id="intro_chapter1-imgur" alt="intro_chapter1-imgur"></video>
+        <video hidden src="https://docs.google.com/uc?export=open&id=1NGXoWn6PYfHcCGeX7sdzQUSa9iR24Q6v" id="intro_chapter1-google" alt="intro_chapter1-google"></video>
+        <video hidden src="https://i.imgur.com/H4J0lNG.mp4" id="cece_band_osu_playback1-imgur" ontimeupdate="SONGupdated('drive_clip',Math.floor(this.currentTime))" alt="cece_band_osu_playback1-imgur"></video>
+        <video hidden src="https://i.imgur.com/gv0tyF8.mp4" id="cece_band_osu_playback2-imgur" ontimeupdate="SONGupdated('drive_clip',Math.floor(this.currentTime+60))" alt="cece_band_osu_playback2-imgur"></video>
+        <video hidden src="https://docs.google.com/uc?export=open&id=1N_UXv7Ry2OSm6yaeks4x25G1oCEi7LoW" ontimeupdate="SONGupdated('drive_clip',Math.floor(this.currentTime))" id="cece_band_osu_playback-google" alt="cece_band_osu_playback-google"></video>
         <audio id="jumpscare_HARVESTER-drive" src=""></audio>
         <audio id="jumpscare_HARVESTER-r3" src=""></audio>
         <audio id="go-drive" src=""></audio>
@@ -519,6 +546,8 @@
         <audio id="ready-r3" src=""></audio>
         <audio id="missnote1-drive" src=""></audio>
         <audio id="missnote1-r3" src=""></audio>
+        <audio id="ding-drive" src=""></audio>
+        <audio id="ding-r3" src=""></audio>
         <audio id="missnote3-drive" src=""></audio>
         <audio id="missnote3-r3" src=""></audio>
         <audio id="set-drive" src=""></audio>
@@ -661,7 +690,7 @@
             var pause_menu2=0
             var holding_what_obj="none" //what you holding tho??
             var moveTHING=0
-            var tempINFO = [false,false,0,false,false,false,0,0,0,false,0]
+            var tempINFO = [false,false,0,false,false,false,0,0,1,false,0]
             var osu={}
             var osuX={}
             var osuY={}
@@ -681,7 +710,7 @@
             var NPCmoveDIR="idle"
             var db1RE=false
             var debouce1osu=false
-            var times_osu=0
+            var times_osu=-99999
             const tsone_video_desktop={
                 timerCallback: function() {
                 if (this.video.paused) {
@@ -877,7 +906,7 @@
                         
             //universal functions (some left out cuz ya)
             function FRAME(){
-                ctx.clearRect(0,0,310, 150);
+                if(lvl!="osu!-doki_doki,[json-cece_F]"){ctx.clearRect(0,0,310, 150);}
                 envo_2d()
                 otherSTUF()
                 envo_3d()
@@ -926,7 +955,418 @@
                     }
                 }
             }*/
-        
+
+            const intro_chapter1_desktop={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("intro_chapter1-desktop");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="chapter1_intro"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                    let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+                return;
+                }
+            };
+
+            const intro_chapter1_google={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("intro_chapter1-google");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="chapter1_intro"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                    let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+                return;
+                }
+            };
+
+            const intro_chapter1_imgur={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("intro_chapter1-imgur");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="chapter1_intro"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                    let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+                return;
+                }
+            };
+
+            const cece_band_osu_playback1_imgur={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("cece_band_osu_playback1-imgur");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="osu!-doki_doki,[json-cece_F]"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                    let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+
+                if( Object.keys(osu).length===0){}else{
+                    for (var [key, value] of Object.entries(osu)) {
+                        ctx.drawImage(document.getElementById("osucircle-"+IMAGEserver),osu[key],0,64,64,osuX[key],osuY[key],64,64)
+                        var m = key.slice(0,-1)
+                        if(mode=="easy" && value<=960){
+                            ctx.drawImage(document.getElementById("letter_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
+                        }else{
+                            ctx.drawImage(document.getElementById("icon_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
+                        }
+                        if(value==1024){
+                            delete osu[key]
+                            delete osuX[key]
+                            delete osuY[key]
+                        } 
+                    }
+                }
+                return;
+                }
+            };
+
+            const cece_band_osu_playback2_imgur={
+                timerCallback: function() {
+                if (this.video.paused) {           
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("cece_band_osu_playback2-imgur");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="osu!-doki_doki,[json-cece_F]"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                    let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+
+                if( Object.keys(osu).length===0){}else{
+                    for (var [key, value] of Object.entries(osu)) {
+                        ctx.drawImage(document.getElementById("osucircle-"+IMAGEserver),osu[key],0,64,64,osuX[key],osuY[key],64,64)
+                        var m = key.slice(0,-1)
+                        if(mode=="easy" && value<=960){
+                            ctx.drawImage(document.getElementById("letter_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
+                        }else{
+                            ctx.drawImage(document.getElementById("icon_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
+                        }
+                        if(value==1024){
+                            delete osu[key]
+                            delete osuX[key]
+                            delete osuY[key]
+                        } 
+                    }
+                }
+                return;
+                }
+            };
+
+            const cece_band_osu_playback_desktop={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("cece_band_osu_playback-desktop");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="osu!-doki_doki,[json-cece_F]"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                    let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+
+                if( Object.keys(osu).length===0){}else{
+                    for (var [key, value] of Object.entries(osu)) {
+                        ctx.drawImage(document.getElementById("osucircle-"+IMAGEserver),osu[key],0,64,64,osuX[key],osuY[key],64,64)
+                        var m = key.slice(0,-1)
+                        if(mode=="easy" && value<=960){
+                            ctx.drawImage(document.getElementById("letter_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
+                        }else{
+                            ctx.drawImage(document.getElementById("icon_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
+                        }
+                        if(value==1024){
+                            delete osu[key]
+                            delete osuX[key]
+                            delete osuY[key]
+                        } 
+                    }
+                }
+                return;
+                }
+            };
+
+            const cece_band_osu_playback_google={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("cece_band_osu_playback-google");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="osu!-doki_doki,[json-cece_F]"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                    let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+
+                if( Object.keys(osu).length===0){}else{
+                    for (var [key, value] of Object.entries(osu)) {
+                        ctx.drawImage(document.getElementById("osucircle-"+IMAGEserver),osu[key],0,64,64,osuX[key],osuY[key],64,64)
+                        var m = key.slice(0,-1)
+                        if(mode=="easy" && value<=960){
+                            ctx.drawImage(document.getElementById("letter_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
+                        }else{
+                            ctx.drawImage(document.getElementById("icon_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
+                        }
+                        if(value==1024){
+                            delete osu[key]
+                            delete osuX[key]
+                            delete osuY[key]
+                        } 
+                    }
+                }
+
+                return;
+                }
+            };
             function amough(){
                 tempINFO[6]=1
             }
@@ -3384,21 +3824,100 @@
             async function playVideo() {
                 try {
                     await document.getElementById('drive_clip-'+SOUNDserver).play();
+                    console.log('diddidididi')
                 } catch (err) {
                     return err
+                    console.log(err)
                 }
             }
 
             function SONGupdated(song,time){
-                console.log(time)
                 if(lvl=="osu!-doki_doki,[json-cece_F]"){
                     if(song=="drive_clip"){
-                        if(time!=times_osu){
+                        if(times_osu!=time && time!=0){
                             times_osu=time
+                            console.log(time)
+                            if(time==5){
+                                spawnOSU("s",100,100)
+                            }
+                            if(time==7){
+                                spawnOSU("a",30,30)
+                            }
+                            if(time==10){
+                                spawnOSU("k",0,10)
+                            }
+                            if(time==14){
+                                spawnOSU("b",80,10)
+                            }
+                            if(time==15){
+                                spawnOSU("r",80,80)
+                            }
+                            if(time==21){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==22){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==30){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==33){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==35){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==36){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==40){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==46){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==47){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==51){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==55){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==60){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==65){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==71){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==77){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==79){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==82){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==90){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==97){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==107){
+                                spawnOSU("r",70,50)
+                            }
+                            if(time==115){
+                                spawnOSU("r",70,50)
+                            }
                             debouce1osu=false
                         }
-                        if(debouce1osu==false){
-                            if(times_osu==1){
+                        /*if(times_osu==1){
                                 spawnOSU("a",30,30)
                                 debouce1osu=true
                             }
@@ -3407,19 +3926,13 @@
                                 debouce1osu=true
                             }
                             if(times_osu==3){
-                                spawnOSU("h",30,130)
+                                spawnOSU("h",30,20)
                                 debouce1osu=true
                             }
                             if(times_osu==4){
                                 spawnOSU("b",55,30)
-                                spawnOSU("f",50,50)
                                 debouce1osu=true
-                            }
-                            if(times_osu==5){
-                                spawnOSU("s",100,100)
-                                debouce1osu=true
-                            }
-                        }
+                            }*/
                         /*yess
                         if(time==1.810){
                             spawnOSU("a",30,30)
@@ -3917,26 +4430,36 @@
                 if(lvl=="winner-s-1"){
                     ctx.fill="#00ff00"
                     ctx.font = "10px Arial";
-                    ctx.fillText("ok we need to know why cuz hemoglobin",10,10)
-                    ctx.fillText("when hemoglobin binds to oxygen, red",10,25)
-                    ctx.fillText("it becomes oxygenized.",10,35)
-                    ctx.fillText("when c02 bind it blue!!",10,45)
-                    ctx.fillText("ok now u know clicke",10,55)
-                    ctx.fillText("also take da w qween",10,65)
+                    ctx.fillText("But, to understand why the blood is red you have to study",10,10)
+                    ctx.fillText("them on a molecular level. Within the red blood cells there ",10,20)
+                    ctx.fillText("is a protein called hemoglobin. Each hemoglobin protein is ",10,30)
+                    ctx.fillText("made up subunits called hemes, which are what give blood ",10,40)
+                    ctx.fillText("its red color. the hemes can bind iron molecules, and ",10,50)
+                    ctx.fillText("these iron molecules bind oxygen. The blood cells are red ",10,60)
+                    ctx.fillText("because of the interaction between iron and oxygen.",10,70)
+                    ctx.fillText("Iron has the property of reflecting red light and ",10,80)
+                    ctx.fillText("because there is so much iron in our blood, blood looks red.",10,90)
+                    ctx.fillText("also u very smart 😎",10,110)
+                    ctx.fillText("(click to continue)",10,120)
                 }
                 if(lvl=="loser-s-1"){
                     ctx.fill="#00ff00"
                     ctx.font = "10px Arial";
-                    ctx.fillText("ok we need to know why cuz hemoglobin",10,10)
-                    ctx.fillText("when hemoglobin binds to oxygen, red",10,25)
-                    ctx.fillText("it becomes oxygenized.",10,35)
-                    ctx.fillText("when c02 bind it blue!!",10,45)
-                    ctx.fillText("ok now u know clicke",10,55)
-                    ctx.fillText("also u failed bozo imagine you have no father figure",10,65)
+                    ctx.fillText("But, to understand why the blood is red you have to study",10,10)
+                    ctx.fillText("them on a molecular level. Within the red blood cells there ",10,20)
+                    ctx.fillText("is a protein called hemoglobin. Each hemoglobin protein is ",10,30)
+                    ctx.fillText("made up subunits called hemes, which are what give blood ",10,40)
+                    ctx.fillText("its red color. the hemes can bind iron molecules, and ",10,50)
+                    ctx.fillText("these iron molecules bind oxygen. The blood cells are red ",10,60)
+                    ctx.fillText("because of the interaction between iron and oxygen.",10,70)
+                    ctx.fillText("Iron has the property of reflecting red light and ",10,80)
+                    ctx.fillText("because there is so much iron in our blood, blood looks red.",10,90)
+                    ctx.fillText("also u failed bozo imagine you have no father figure",10,110)
+                    ctx.fillText("(click to continue)",10,120)
                 }
                 if(lvl=="winner-s-2"){
                     ctx.fill="#00ff00"
-                    ctx.fillText("you slayyy qween 👑🐊🎌🐸⚔😵⛑⛑",10,10)
+                    ctx.fillText("*insert win screen here*",10,10)
                     ctx.fillText("(you win gaming)",10,50)
                 }
                 if(lvl=="loser-s-2"){
@@ -7192,13 +7715,28 @@
                                 lvl="loading2"
                             }else{
                                 lvl="osu!-doki_doki,[json-cece_F]"
-                                playVideo()
+                                if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                    if(SOUNDserver=="SOUNDdesk"){
+                                        document.getElementById('cece_band_osu_playback-desktop').play();
+                                        cece_band_osu_playback_desktop.doLoad()
+                                    }
+                                    if(SOUNDserver=="imgur"){
+                                        document.getElementById('cece_band_osu_playback1-imgur').play();
+                                        cece_band_osu_playback1_imgur.doLoad()
+                                    }
+                                    if(SOUNDserver=="google"){
+                                        document.getElementById('cece_band_osu_playback-google').play();
+                                        cece_band_osu_playback_google.doLoad()
+                                    }
+                                }
+                                /*playVideo()
+                                if(document.getElementById("external_script").innerHTML=="true"){
+                                    document.getElementById('drive_clip-SOUNDdesk').play();
+                                }*/
                             }
                         }                               
-
-                        dia=0
-                        nuTW=0
                     } 
+                    //if(dia==9 && lvl=="osu!-doki_doki,[json-cece_F]"){playVideo();dia=0}
                 }
                 if(lvl=="tutorial_end1"){
                     dia=dia+1
@@ -7224,7 +7762,25 @@
                 }
                 if(lvl=="ms1dse"){
                     if(tempINFO[3]==true){
-                        lvl="introCUTP1"
+                        if(sound==true || SOUNDserver=="SOUNDdesk"){
+                            if(SOUNDserver=="SOUNDdesk"){
+                                lvl="chapter1_intro"
+                                document.getElementById("intro_chapter1-desktop").play()
+                                intro_chapter1_desktop.doLoad()
+                            }
+                            if(SOUNDserver=="drive"){
+                                lvl="chapter1_intro"
+                                document.getElementById("intro_chapter1-google").play()
+                                intro_chapter1_google.doLoad()
+                            }
+                            if(SOUNDserver=="r3"){
+                                lvl="chapter1_intro"
+                                document.getElementById("intro_chapter1-imgur").play()
+                                intro_chapter1_imgur.doLoad()
+                            }
+                        }else{
+                            lvl="introCUTP1"
+                        }
                         player="bakaRUN-v1.2"
                         mode="easy"
                     }else{
@@ -7236,7 +7792,25 @@
                 }
                 if(lvl=="ms1dsn"){
                     if(tempINFO[3]==true){
-                        lvl="introCUTP1"
+                        if(sound==true || SOUNDserver=="SOUNDdesk"){
+                            if(SOUNDserver=="SOUNDdesk"){
+                                lvl="chapter1_intro"
+                                document.getElementById("intro_chapter1-desktop").play()
+                                intro_chapter1_desktop.doLoad()
+                            }
+                            if(SOUNDserver=="drive"){
+                                lvl="chapter1_intro"
+                                document.getElementById("intro_chapter1-google").play()
+                                intro_chapter1_google.doLoad()
+                            }
+                            if(SOUNDserver=="r3"){
+                                lvl="chapter1_intro"
+                                document.getElementById("intro_chapter1-imgur").play()
+                                intro_chapter1_imgur.doLoad()
+                            }
+                        }else{
+                            lvl="introCUTP1"
+                        }
                         player="bakaRUN-v1.2"
                         mode="norm"
                     }else{
@@ -7248,7 +7822,25 @@
                 }
                 if(lvl=="ms1dsh"){
                     if(tempINFO[3]==true){
-                        lvl="introCUTP1"
+                        if(sound==true || SOUNDserver=="SOUNDdesk"){
+                            if(SOUNDserver=="SOUNDdesk"){
+                                lvl="chapter1_intro"
+                                document.getElementById("intro_chapter1-desktop").play()
+                                intro_chapter1_desktop.doLoad()
+                            }
+                            if(SOUNDserver=="drive"){
+                                lvl="chapter1_intro"
+                                document.getElementById("intro_chapter1-google").play()
+                                intro_chapter1_google.doLoad()
+                            }
+                            if(SOUNDserver=="r3"){
+                                lvl="chapter1_intro"
+                                document.getElementById("intro_chapter1-imgur").play()
+                                intro_chapter1_imgur.doLoad()
+                            }
+                        }else{
+                            lvl="introCUTP1"
+                        }
                         player="bakaRUN-v1.2"
                         mode="hard"
                     }else{
@@ -7759,9 +8351,9 @@
                     }   
                 }
                 if(e.key==" " || e.key=="Spacebar"){
-                    if(lvl=="osu!-doki_doki,[json-cece_F]"){
+                    /*if(lvl=="osu!-doki_doki,[json-cece_F]"){
                         console.log(document.getElementById("drive_clip-"+SOUNDserver).currentTime)
-                    }
+                    }*/
                     if(wannaDRAWme==true){
                         if(jump==false){
                         jump=true
@@ -7814,6 +8406,11 @@
                 }
                 if(e.key=="q" && e.ctrlKey){
                     lvl="menuSEL0"
+                    chapterSEL=0
+                }
+                if(e.key=="." && e.ctrlKey){
+                    lvl="cece_moms_bedroom"
+                    dia=0
                     chapterSEL=0
                 }
                 if(e.key=="ArrowDown"){
@@ -7874,6 +8471,24 @@
                 if(pressed.join("").includes(secretCODE)){
                     console.log("yes, edwerd did eat the banana")
                     lvl="question0-s"
+                }
+                if(e.key=="-"){
+                    if(sound==true || SOUNDserver=="SOUNDdesk"){
+                        if(document.querySelector('audio')!=0){
+                            document.querySelector('audio').volume=document.querySelector('audio').volume-0.1
+                            document.querySelector('video').volume=document.querySelector('video').volume-0.1
+                            document.getElementById("ding-"+SOUNDserver).play()
+                        }
+                    }
+                }
+                if(e.key=="=" || e.key=="+"){
+                    if(sound==true || SOUNDserver=="SOUNDdesk"){
+                        if(document.querySelector('audio')!=1){
+                            document.querySelector('audio').volume=document.querySelector('audio').volume+0.1
+                            document.querySelector('video').volume=document.querySelector('video').volume+0.1
+                            document.getElementById("ding-"+SOUNDserver).play()
+                        }
+                    }
                 }
                 if(lvl=="start-img"){
                     if(e.key=="I" || e.key=="i"){
@@ -8137,15 +8752,39 @@
             })
 
             document.getElementById('tsone_intro-google').onended = (event) => {
-                console.log("Video stopped either because it has finished playing or no further data is available.");
+                console.log("tsone_intro-google stopped either because it has finished playing or no further data is available.");
                 sound=false
                 lvl="soundin"
             };
             document.getElementById('tsone_intro-imgur').onended = (event) => {
-                console.log("Video stopped either because it has finished playing or no further data is available.");
+                console.log("tsone_intro-imgur stopped either because it has finished playing or no further data is available.");
                 sound=false
                 lvl="soundin"
             };  
+
+            document.getElementById('intro_chapter1-google').onended = (event) => {
+                console.log("intro_chapter1-google stopped either because it has finished playing or no further data is available.");
+                lvl="hallwayCHASE-0"
+            };
+
+            document.getElementById('intro_chapter1-imgur').onended = (event) => {
+                console.log("intro_chapter1-imgur stopped either because it has finished playing or no further data is available.");
+                lvl="hallwayCHASE-0"
+            };
+            
+            document.getElementById('cece_band_osu_playback-google').onended = (event) => {
+                //lvl="drive_clip_osu_ended_"
+                lvl="demo-end"
+            };
+            
+            document.getElementById('cece_band_osu_playback1-imgur').onended = (event) => {
+                document.getElementById('cece_band_osu_playback2-imgur').play()
+                cece_band_osu_playback2_imgur.doLoad()
+            };
+            
+            document.getElementById('cece_band_osu_playback2-imgur').onended = (event) => {
+                lvl="demo-end"
+            };
             ////window.location.href.slice(0,-10)+
         </script>
     </body>
