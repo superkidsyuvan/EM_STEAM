@@ -1383,6 +1383,11 @@ document.getElementById("cece_band_osu_playback-desktop").ontimeupdate=function(
 
 document.getElementById("cece_band_osu_playback-desktop").onended = (event) => {
     lvl="demo-end"
+    document.getElementById('cece_band_osu_playback-desktop').pause()
+    document.getElementById('drive_clip-drive').pause()
+    document.getElementById('drive_clip-SOUNDdesk').pause()
+    document.getElementById('drive_clip-r3').pause()
+    document.getElementById('cece_band_osu_playback-desktop').currentTime=0
 };
 
 console.log("it worked")

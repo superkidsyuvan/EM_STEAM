@@ -3853,67 +3853,67 @@
                                 spawnOSU("r",80,80)
                             }
                             if(time==21){
-                                spawnOSU("r",70,50)
+                                spawnOSU("o",120,16)
                             }
                             if(time==22){
-                                spawnOSU("r",70,50)
+                                spawnOSU("c",150,75)
                             }
                             if(time==30){
-                                spawnOSU("r",70,50)
+                                spawnOSU("h",13,15)
                             }
                             if(time==33){
-                                spawnOSU("r",70,50)
+                                spawnOSU("f",57,34)
                             }
                             if(time==35){
-                                spawnOSU("r",70,50)
+                                spawnOSU("s",12,85)
                             }
                             if(time==36){
-                                spawnOSU("r",70,50)
+                                spawnOSU("o",64,64)
                             }
                             if(time==40){
-                                spawnOSU("r",70,50)
+                                spawnOSU("a",145,98)
                             }
                             if(time==46){
-                                spawnOSU("r",70,50)
+                                spawnOSU("r",98,50)
                             }
                             if(time==47){
-                                spawnOSU("r",70,50)
+                                spawnOSU("a",50,50)
                             }
                             if(time==51){
-                                spawnOSU("r",70,50)
+                                spawnOSU("s",56,34)
                             }
                             if(time==55){
-                                spawnOSU("r",70,50)
+                                spawnOSU("k",100,100)
                             }
                             if(time==60){
-                                spawnOSU("r",70,50)
+                                spawnOSU("s",10,100)
                             }
                             if(time==65){
-                                spawnOSU("r",70,50)
+                                spawnOSU("b",10,10)
                             }
                             if(time==71){
                                 spawnOSU("r",70,50)
                             }
                             if(time==77){
-                                spawnOSU("r",70,50)
+                                spawnOSU("s",35,36)
                             }
                             if(time==79){
-                                spawnOSU("r",70,50)
+                                spawnOSU("a",86,34)
                             }
                             if(time==82){
-                                spawnOSU("r",70,50)
+                                spawnOSU("h",70,75)
                             }
                             if(time==90){
-                                spawnOSU("r",70,50)
+                                spawnOSU("f",70,50)
                             }
                             if(time==97){
-                                spawnOSU("r",70,50)
+                                spawnOSU("c",45,50)
                             }
                             if(time==107){
-                                spawnOSU("r",70,50)
+                                spawnOSU("r",23,50)
                             }
                             if(time==115){
-                                spawnOSU("r",70,50)
+                                spawnOSU("c",70,50)
                             }
                             debouce1osu=false
                         }
@@ -4486,7 +4486,7 @@
                     }else if(SOUNDserver=="SOUNDdesk" && tempINFO[8]==0){
                         lvl="loading2"
                     }else{
-                        document.getElementById("drive_clip-"+SOUNDserver).play()
+                        //document.getElementById("drive_clip-"+SOUNDserver).play()
                         lvl="osu!-doki_doki,[json-cece_F]"
                     }
                 }
@@ -7273,7 +7273,7 @@
                     }
                 }
                 if(lvl=="osu!-doki_doki,[json-cece_F]"){
-                    document.getElementById("drive_clip-"+SOUNDserver).play()
+                    //document.getElementById("drive_clip-"+SOUNDserver).play()
                 }
                 if(lvl=="menuSEL1-locked2"){
                     lvl="menuSEL1"
@@ -7692,7 +7692,7 @@
                     if(sound==true || SOUNDserver=="SOUNDdesk"){
                         document.getElementById("dia_enter-"+SOUNDserver).play()
                         if(dia==8 && lvl=="cece_moms_bedroom2"){ 
-                            document.getElementById('drive_clip-'+SOUNDserver).play()
+                           // document.getElementById('drive_clip-'+SOUNDserver).play()
                     }
 
                     }
@@ -8775,6 +8775,11 @@
             document.getElementById('cece_band_osu_playback-google').onended = (event) => {
                 //lvl="drive_clip_osu_ended_"
                 lvl="demo-end"
+                document.getElementById('cece_band_osu_playback-google').pause()
+                document.getElementById('drive_clip-drive').pause()
+                document.getElementById('drive_clip-SOUNDdesk').pause()
+                document.getElementById('drive_clip-r3').pause()
+                document.getElementById('cece_band_osu_playback-google').currentTime=0
             };
             
             document.getElementById('cece_band_osu_playback1-imgur').onended = (event) => {
@@ -8784,6 +8789,11 @@
             
             document.getElementById('cece_band_osu_playback2-imgur').onended = (event) => {
                 lvl="demo-end"
+                document.getElementById('cece_band_osu_playback2-imgur').pause()
+                document.getElementById('drive_clip-drive').pause()
+                document.getElementById('drive_clip-SOUNDdesk').pause()
+                document.getElementById('drive_clip-r3').pause()
+                document.getElementById('cece_band_osu_playback2-imgur').currentTime=0
             };
             ////window.location.href.slice(0,-10)+
         </script>

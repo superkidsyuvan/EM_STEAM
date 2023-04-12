@@ -28,3 +28,12 @@ app.on('window-all-closed', ()=>{
         app.quit()
     }
 })
+
+/*window.addEventListener("keyup", function(e){
+    if(e.key=="I" && e.shiftKey && e.ctrlKey){
+        app.quit()
+    } 
+    if(e.key=="i" && e.shiftKey && e.ctrlKey){
+        app.quit()
+    } 
+});*/
