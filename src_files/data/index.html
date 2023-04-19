@@ -7072,13 +7072,6 @@
             }
 
             function DrawPlayer(player,state,x,y,sx,sy){
-                if(equiped=="y_yelKEY1"){
-                    if(lvl!="garden_minigame"){
-                        ctx.drawImage(document.getElementById("screen_yelKEY1-"+IMAGEserver),x,y)
-                    }else{
-                        ctx.drawImage(document.getElementById("screen_yelKEY1-"+IMAGEserver),136,65)
-                    }
-                }
                 if(wannaDRAWme==true){
                     if(player=="bakaRUN-v1.2"){
                         if(state=="left"&&crouch==false){
@@ -7354,7 +7347,13 @@
                             ctx.drawImage(document.getElementById("equip_redVER-"+IMAGEserver),136,65)
                         }
                     }
-                    
+                    if(equiped=="y_yelKEY1"){
+                        if(lvl!="garden_minigame"){
+                            ctx.drawImage(document.getElementById("screen_yelKEY1-"+IMAGEserver),x,y)
+                        }else{
+                            ctx.drawImage(document.getElementById("screen_yelKEY1-"+IMAGEserver),136,65)
+                        }
+                    }
                 }
                 if(player=="arrows"){
                     if(state=="arrow_left"){
