@@ -73,43 +73,44 @@ Dont forgor that tis is best game ever!!!
 
 # Updates
 
-## update 1.0.48 (first commit)
+## updaet 1.0.486-1.0.488(cece_osu_mania 🐸 / edwer beginn)
 
-literally just uploaded that version to em 
-
-everything from tutorial to like everything
-
-## update 1.0.481 (RED)
-
-added readme.md file for github!!
-
-## update 1.0.482 (RED)
-
-added readme.md file for github!!
-
-## update 1.0.4830 (SECOND COMMIT)
-
-very misleading but did this to confirm sync and pull and updated readme.md
-
-## update 1.0.4831 (bug fix README.md)
-
-just like the name
-
-## update 1.0.4832 (yes)
-
-did this because dev decied to bug fix
-
-## update 1.0.4833 (i)
-
-regulaly update!!
+i deleted **ALL** desktop.ini **files** cuz like not needed just leftovers of compiling and google drive server~
+anyways added ***full recreation of osu!mania***  (song made for da game tho) and like edwerd quest is starting to actualy exists like honestly its very cool boi
 
 ## update 1.0.4849 (sus bean)
 
 this is so cool but like regular updateding and like everthing
 
-## update 1.0.485 (uab)
+## update 1.0.4833 (i)
 
-this is so cool but like regular updateding and like everthing (x2)
+regulaly update!!
+
+## update 1.0.4832 (yes)
+
+did this because dev decied to bug fix
+
+## update 1.0.4831 (bug fix README.md)
+
+just like the name
+
+## update 1.0.4830 (SECOND COMMIT)
+
+very misleading but did this to confirm sync and pull and updated readme.md
+
+## update 1.0.482 (RED)
+
+added readme.md file for github!!
+
+## update 1.0.481 (RED)
+
+added readme.md file for github!!
+
+## update 1.0.48 (first commit)
+
+literally just uploaded that version to em 
+
+everything from tutorial to like everything
 
 # SOCIAL STUFFF
 

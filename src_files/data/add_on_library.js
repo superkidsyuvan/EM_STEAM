@@ -959,6 +959,46 @@ var band_playback_cece = document.createElement("video")
 band_playback_cece.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/near_end/the_band_gets_together_to_scare_mother.mp4"
 band_playback_cece.id="cece_band_osu_playback-desktop"
 band_playback_cece.hidden=true
+var horrible = document.createElement("img")
+horrible.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/osu!/popups/ugly.png"
+horrible.id="horrible-desktop"
+horrible.hidden=true
+var bad = document.createElement("img")
+bad.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/osu!/popups/badd.png"
+bad.id="bad-desktop"
+bad.hidden=true
+var miss = document.createElement("img")
+miss.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/osu!/popups/miss.png"
+miss.id="miss-desktop"
+miss.hidden=true
+var mid = document.createElement("img")
+mid.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/osu!/popups/mid.png"
+mid.id="mid-desktop"
+mid.hidden=true
+var good = document.createElement("img")
+good.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/osu!/popups/goood.png"
+good.id="good-desktop"
+good.hidden=true
+var perfect = document.createElement("img")
+perfect.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/osu!/popups/perfect.png"
+perfect.id="perfect-desktop"
+perfect.hidden=true
+var osu_stats_temp = document.createElement("img")
+osu_stats_temp.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/near_end/osu_template.png"
+osu_stats_temp.id="osu_stats_temp-desktop"
+osu_stats_temp.hidden=true
+var dum_ways_to_death = document.createElement("img")
+dum_ways_to_death.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/near_end/dumb_ways_to_die.png"
+dum_ways_to_death.id="dum_ways_to_death-desktop"
+dum_ways_to_death.hidden=true
+var cece_garden_minigame_death_spritesheet = document.createElement("img")
+cece_garden_minigame_death_spritesheet.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/house/death_new/father_thinks_i_am_a_fox.png"
+cece_garden_minigame_death_spritesheet.id="cece_garden_minigame_death_spritesheet-desktop"
+cece_garden_minigame_death_spritesheet.hidden=true
+var fox_vide_or_something_pov_idk = document.createElement("video")
+fox_vide_or_something_pov_idk.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/house/death_new/POV_u_became_fox.mp4"
+fox_vide_or_something_pov_idk.id="fox_vide_or_something_pov_idk-desktop"
+fox_vide_or_something_pov_idk.hidden=true
 
 /* DONTI OWKRRR!!
 
@@ -1335,6 +1375,16 @@ document.getElementById("library_com").appendChild(tsone_intro)
 document.getElementById("library_com").appendChild(tsone_intro_no)
 document.getElementById("library_com").appendChild(intro_chapter1)
 document.getElementById("library_com").appendChild(band_playback_cece)
+document.getElementById("library_com").appendChild(horrible)
+document.getElementById("library_com").appendChild(bad)
+document.getElementById("library_com").appendChild(miss)
+document.getElementById("library_com").appendChild(mid)
+document.getElementById("library_com").appendChild(good)
+document.getElementById("library_com").appendChild(perfect)
+document.getElementById("library_com").appendChild(osu_stats_temp)
+document.getElementById("library_com").appendChild(dum_ways_to_death)
+document.getElementById("library_com").appendChild(cece_garden_minigame_death_spritesheet)
+document.getElementById("library_com").appendChild(fox_vide_or_something_pov_idk)
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)
@@ -1382,7 +1432,7 @@ document.getElementById('intro_chapter1-desktop').onended = (event) => {
 document.getElementById("cece_band_osu_playback-desktop").ontimeupdate=function(){SONGupdated('drive_clip',Math.floor(this.currentTime))};
 
 document.getElementById("cece_band_osu_playback-desktop").onended = (event) => {
-    lvl="demo-end"
+    lvl="osu_afterplay_stats"
     document.getElementById('cece_band_osu_playback-desktop').pause()
     document.getElementById('drive_clip-drive').pause()
     document.getElementById('drive_clip-SOUNDdesk').pause()

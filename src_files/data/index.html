@@ -495,6 +495,24 @@
         <img hidden src="" id="vol9-google" alt="vol9-google">
         <img hidden src="" id="vol10-imgur" alt="vol10-imgur">
         <img hidden src="" id="vol10-google" alt="vol10-google">
+        <img hidden src="" id="perfect-imgur" alt="perfect-imgur">
+        <img hidden src="https://docs.google.com/uc?export=open&id=1l4Tvvrk8E52UXHu6WEPV-RJBAvtDg0yp" id="perfect-google" alt="perfect-google">
+        <img hidden src="" id="good-imgur" alt="good-imgur">
+        <img hidden src="https://docs.google.com/uc?export=open&id=1sweqpdt2FpwoyZKI1ORaohPBlnYiyJxt" id="good-google" alt="good-google">
+        <img hidden src="" id="mid-imgur" alt="mid-imgur">
+        <img hidden src="https://docs.google.com/uc?export=open&id=10fIvweYb4STwK0WJswFMNGDInZLVig8G" id="mid-google" alt="mid-google">
+        <img hidden src="" id="bad-imgur" alt="bad-imgur">
+        <img hidden src="https://docs.google.com/uc?export=open&id=1npUPcNEehjyto1-a7LGnIE8Uh1shGGGF" id="bad-google" alt="bad-google">
+        <img hidden src="" id="horrible-imgur" alt="horrible-imgur">
+        <img hidden src="https://docs.google.com/uc?export=open&id=1xDUsXDvyStwrAxinfHh35HsIOoPNLqwn" id="horrible-google" alt="horrible-google">
+        <img hidden src="" id="miss-imgur" alt="miss-imgur">
+        <img hidden src="https://docs.google.com/uc?export=open&id=1VSoSTtpGGDLYiO7RIzOMut-B1bMHlFUp" id="miss-google" alt="miss-go  ogle">
+        <img hidden src="" id="osu_stats_temp-imgur" alt="osu_stats_temp-imgur">
+        <img hidden src="" id="osu_stats_temp-google" alt="osu_stats_temp-google">
+        <img hidden src="" id="dum_ways_to_death-imgur" alt="dum_ways_to_death-imgur">
+        <img hidden src="" id="dum_ways_to_death-google" alt="dum_ways_to_death-google">
+        <img hidden src="" id="cece_garden_minigame_death_spritesheet-google" alt="cece_garden_minigame_death_spritesheet-google">
+        <img hidden src="" id="cece_garden_minigame_death_spritesheet-imgur" alt="cece_garden_minigame_death_spritesheet-imgur">
         <video hidden src="https://i.imgur.com/H0EPXlB.mp4" id="tsone_intro-imgur" alt="tsone_intro-imgur"></video>
         <video hidden src="https://docs.google.com/uc?export=open&id=1NFltla_juGGw8Z8olSMD93FaLTUM3o7_" id="tsone_intro-google" alt="tsone_intro-google"></video>
         <video hidden src="https://i.imgur.com/hIUsXgN.mp4" id="tsone_intro_no-imgur" alt="tsone_intro_no-imgur"></video>
@@ -504,6 +522,8 @@
         <video hidden src="https://i.imgur.com/H4J0lNG.mp4" id="cece_band_osu_playback1-imgur" ontimeupdate="SONGupdated('drive_clip',Math.floor(this.currentTime))" alt="cece_band_osu_playback1-imgur"></video>
         <video hidden src="https://i.imgur.com/gv0tyF8.mp4" id="cece_band_osu_playback2-imgur" ontimeupdate="SONGupdated('drive_clip',Math.floor(this.currentTime+60))" alt="cece_band_osu_playback2-imgur"></video>
         <video hidden src="https://docs.google.com/uc?export=open&id=1N_UXv7Ry2OSm6yaeks4x25G1oCEi7LoW" ontimeupdate="SONGupdated('drive_clip',Math.floor(this.currentTime))" id="cece_band_osu_playback-google" alt="cece_band_osu_playback-google"></video>
+        <video hidden src="" id="fox_vide_or_something_pov_idk-imgur" alt="fox_vide_or_something_pov_idk-imgur"></video>
+        <video hidden src="" id="fox_vide_or_something_pov_idk-google" alt="fox_vide_or_something_pov_idk-google"></video>
         <audio id="jumpscare_HARVESTER-drive" src=""></audio>
         <audio id="jumpscare_HARVESTER-r3" src=""></audio>
         <audio id="go-drive" src=""></audio>
@@ -694,6 +714,10 @@
             var osu={}
             var osuX={}
             var osuY={}
+            var sta={}
+            var staX={}
+            var staY={}
+            var staC={}
             const pressed=[]
             var secretCODE="edwerd eat banana"
             var inventory_toggle = false
@@ -711,6 +735,8 @@
             var db1RE=false
             var debouce1osu=false
             var times_osu=-99999
+            var clicks_osu={"miss":0,"horrible":0,"bad":0,"mid":0,"good":0,"perfect":0}
+
             const tsone_video_desktop={
                 timerCallback: function() {
                 if (this.video.paused) {
@@ -959,18 +985,18 @@
             const intro_chapter1_desktop={
                 timerCallback: function() {
                 if (this.video.paused) {
-                    return;
-                }
-                if(this.video.ended){
-                    sound=false
-                    lvl="soundin"
-                    return "end";
-                }
-                this.computeFrame();
-                let self = this;
-                setTimeout(function () {
-                    self.timerCallback();
-                    }, 0);
+                        return;
+                    }
+                    if(this.video.ended){
+                        sound=false
+                        lvl="soundin"
+                        return "end";
+                    }
+                    this.computeFrame();
+                    let self = this;
+                    setTimeout(function () {
+                        self.timerCallback();
+                        }, 0);
                 },
             
                 doLoad: function() {
@@ -988,11 +1014,12 @@
                 },
             
                 computeFrame: function() {
+                this.ctx1.drawImage(document.getElementById("dum_ways_to_death-"+IMAGEserver), 0, 0, this.width, this.height)
                 if(lvl=="chapter1_intro"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
                 let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
-                    let l = frame.data.length / 4;
+                let l = frame.data.length / 4;
                 
-                // below is for chroma key (would use movavi tho)    
+                // below is for chroma key (would use movavi tho unless realtime)    
                 /*for (let i = 0; i < l; i++) {
                     let r = frame.data[i * 4 + 0];
                     let g = frame.data[i * 4 + 1];
@@ -1037,6 +1064,7 @@
                 },
             
                 computeFrame: function() {
+                    this.ctx1.drawImage(document.getElementById("dum_ways_to_death-"+IMAGEserver), 0, 0, this.width, this.height)
                 if(lvl=="chapter1_intro"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
                 let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
                     let l = frame.data.length / 4;
@@ -1086,6 +1114,7 @@
                 },
             
                 computeFrame: function() {
+                this.ctx1.drawImage(document.getElementById("dum_ways_to_death-"+IMAGEserver), 0, 0, this.width, this.height)
                 if(lvl=="chapter1_intro"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
                 let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
                     let l = frame.data.length / 4;
@@ -1135,6 +1164,7 @@
                 },
             
                 computeFrame: function() {
+                this.ctx1.drawImage(document.getElementById("dum_ways_to_death-imgur"), 0, 0, this.width, this.height)
                 if(lvl=="osu!-doki_doki,[json-cece_F]"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
                 let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
                     let l = frame.data.length / 4;
@@ -1159,6 +1189,16 @@
                             ctx.drawImage(document.getElementById("icon_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
                         }
                         if(value==1024){
+                            clicks_osu["miss"]=clicks_osu["miss"]+1
+                            var oasdi = 0
+                            var ee = key.slice(0,-1)
+                            while(get(sta,ee+oasdi,'No')!='No'){
+                                oasdi=oasdi+1 
+                            }
+                            staX[ee+oasdi]=osuX[key]
+                            staY[ee+oasdi]=osuY[key]
+                            staC[ee+oasdi]=0
+                            sta[ee+oasdi]="miss"
                             delete osu[key]
                             delete osuX[key]
                             delete osuY[key]
@@ -1201,6 +1241,7 @@
                 },
             
                 computeFrame: function() {
+                this.ctx1.drawImage(document.getElementById("dum_ways_to_death-imgur"), 0, 0, this.width, this.height) 
                 if(lvl=="osu!-doki_doki,[json-cece_F]"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
                 let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
                     let l = frame.data.length / 4;
@@ -1225,6 +1266,16 @@
                             ctx.drawImage(document.getElementById("icon_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
                         }
                         if(value==1024){
+                            clicks_osu["miss"]=clicks_osu["miss"]+1
+                            var oasdi = 0
+                            var ee = key.slice(0,-1)
+                            while(get(sta,ee+oasdi,'No')!='No'){
+                                oasdi=oasdi+1 
+                            }
+                            staX[ee+oasdi]=osuX[key]
+                            staY[ee+oasdi]=osuY[key]
+                            staC[ee+oasdi]=0
+                            sta[ee+oasdi]="miss"
                             delete osu[key]
                             delete osuX[key]
                             delete osuY[key]
@@ -1267,6 +1318,7 @@
                 },
             
                 computeFrame: function() {
+                this.ctx1.drawImage(document.getElementById("dum_ways_to_death-desktop"), 0, 0, this.width, this.height) 
                 if(lvl=="osu!-doki_doki,[json-cece_F]"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
                 let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
                     let l = frame.data.length / 4;
@@ -1291,6 +1343,16 @@
                             ctx.drawImage(document.getElementById("icon_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
                         }
                         if(value==1024){
+                            clicks_osu["miss"]=clicks_osu["miss"]+1
+                            var oasdi = 0
+                            var ee = key.slice(0,-1)
+                            while(get(sta,ee+oasdi,'No')!='No'){
+                                oasdi=oasdi+1 
+                            }
+                            staX[ee+oasdi]=osuX[key]
+                            staY[ee+oasdi]=osuY[key]
+                            staC[ee+oasdi]=0
+                            sta[ee+oasdi]="miss"
                             delete osu[key]
                             delete osuX[key]
                             delete osuY[key]
@@ -1357,6 +1419,16 @@
                             ctx.drawImage(document.getElementById("icon_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
                         }
                         if(value==1024){
+                            clicks_osu["miss"]=clicks_osu["miss"]+1
+                            var oasdi = 0
+                            var ee = key.slice(0,-1)
+                            while(get(sta,ee+oasdi,'No')!='No'){
+                                oasdi=oasdi+1 
+                            }
+                            staX[ee+oasdi]=osuX[key]
+                            staY[ee+oasdi]=osuY[key]
+                            staC[ee+oasdi]=0
+                            sta[ee+oasdi]="miss"
                             delete osu[key]
                             delete osuX[key]
                             delete osuY[key]
@@ -1682,7 +1754,7 @@
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("cece_mother","profile",10,28)
-                            typewriter("cece wtf are you doing", 15, 110);
+                            typewriter("cece wat are you doing", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -1962,7 +2034,7 @@
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("advisor","profile",10,28)
-                            typewriter("shit.", 15, 110);
+                            typewriter("😡", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -4329,9 +4401,15 @@
                     ctx.drawImage(document.getElementById("skip1-"+IMAGEserver),250,130)
                 }
                 if(lvl=="introCUTP1-pause"){
-                 ctx.drawImage(document.getElementById("introS1P1-"+IMAGEserver),frame_bg_main10,0,256,144,0,0,300,150)
+                    ctx.drawImage(document.getElementById("introS1P1-"+IMAGEserver),frame_bg_main10,0,256,144,0,0,300,150)
                     ctx.drawImage(document.getElementById("skip1-"+IMAGEserver),240,120,70,25)
-                    }
+                }
+                if(lvl=="chapter1_intro-pause"){
+                    ctx.drawImage(document.getElementById("skip1-"+IMAGEserver),240,120,70,25)
+                }
+                if(lvl=="chapter1_intro"){
+                    ctx.drawImage(document.getElementById("skip1-"+IMAGEserver),250,130)    
+                }
                 if(lvl=="introCUTP2"){
                     ctx.drawImage(document.getElementById("introS1P2-"+IMAGEserver),frame_bg_main11,0,256,144,0,0,300,150)
                 }
@@ -4475,6 +4553,16 @@
                 }
                 if(lvl=="osu!-doki_doki,[json-cece_F]"){
 
+                }
+                if(lvl=="osu_afterplay_stats"){
+                    ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
+                    ctx.drawImage(document.getElementById("osu_stats_temp-"+IMAGEserver),0,0,310,150)
+                    ctx.fillText(clicks_osu["miss"],120,60)
+                    ctx.fillText(clicks_osu["bad"],120,80)
+                    ctx.fillText(clicks_osu["good"],120,100)
+                    ctx.fillText(clicks_osu["horrible"],260,60)
+                    ctx.fillText(clicks_osu["mid"],260,80)
+                    ctx.fillText(clicks_osu["perfect"],260,100)
                 }
                 if(lvl=="loading2"){
                     ctx.fillText("waiting for song to load..",10,10)
@@ -5203,7 +5291,20 @@
                     if(touching(165,65,33,51,-x+dx-13,-y+dy+51,75,36)){
                        x=0
                        y=0
-                       lvl="garden_minigame"
+                       if(sound==true || SOUNDserver=="SOUNDdesk"){
+                            lvl="garden_minigame_new_death"//_sound"
+                       }else{
+                            lvl="garden_minigame_new_death"
+                       }
+                    }
+                }
+                    if(lvl=="garden_minigame_new_death_sound"){
+                        //videoplays---
+                        ctx.drawImage(document.getElementById("skip1-"+IMAGEserver),250,130)
+                    }
+                    if(lvl=="garden_minigame_new_death"){
+                        ctx.drawImage(document.getElementById("cece_garden_minigame_death_spritesheet-"+IMAGEserver),frame_bg_main47,0,310,150,0,0,310,150)
+                        //ctx.drawImage(document.getElementById("skip1-"+IMAGEserver),250,130)
                     }
                     if(pause==false){
                         if(obj=="noti"){
@@ -5228,7 +5329,7 @@
                             if(obj!="noti"){obj="none"}
                         }
                     }
-                }
+
                 if(lvl=="outsidegame_cece1_backyard"){
                     ctx.drawImage(document.getElementById("grass_static-"+IMAGEserver),0,0,310,150)
                     ctx.drawImage(document.getElementById("wall_outside_amogus-"+IMAGEserver),0,0,310,150)
@@ -5483,6 +5584,16 @@
                             ctx.drawImage(document.getElementById("icon_"+m+"-"+IMAGEserver),osuX[key],osuY[key],64,64)
                         }
                         if(value==1024){
+                            clicks_osu["miss"]=clicks_osu["miss"]+1
+                            var oasdi = 0
+                            var ee = key.slice(0,-1)
+                            while(get(sta,ee+oasdi,'No')!='No'){
+                                oasdi=oasdi+1 
+                            }
+                            staX[ee+oasdi]=osuX[key]
+                            staY[ee+oasdi]=osuY[key]
+                            staC[ee+oasdi]=0
+                            sta[ee+oasdi]="miss"
                             delete osu[key]
                             delete osuX[key]
                             delete osuY[key]
@@ -5545,6 +5656,21 @@
                             var d = value+64
                             osu[key]=d
                         }
+                        if(staC[key] === undefined){}else{if( Object.keys(sta).length===0){}else{
+                        for (var [key, value] of Object.entries(staC)) {
+                            var d = value+1
+                            staC[key]=d
+                            console.log(sta[key])
+                            if( Object.keys(sta).length===0){}else{ctx.drawImage(document.getElementById(sta[key]+"-"+IMAGEserver),staX[key],staY[key])}
+                            //,Math.round(document.getElementById(sta[key]+"-"+IMAGEserver).width),
+                            if(value>=14){
+                                delete staC[key]
+                                delete staX[key]
+                                delete staY[key]
+                                delete sta[key]
+                                console.log("asasasaggjj")
+                            }
+                        }}}
                     }
                 }else{
                     ms100=0
@@ -5553,6 +5679,19 @@
                             var d = value+64
                             osu[key]=d
                         }
+                        if(staC[key] === undefined){}else{if( Object.keys(sta).length===0){}else{
+                        for (var [key, value] of Object.entries(staC)) {
+                            var d = value+1
+                            staC[key]=d
+                            console.log(sta[key])
+                            if( Object.keys(sta).length===0){}else{ctx.drawImage(document.getElementById(sta[key]+"-"+IMAGEserver),staX[key],staY[key])}
+                            if(value>=7){
+                                delete staC[key]
+                                delete staX[key]
+                                delete staY[key]
+                                delete sta[key]
+                            }
+                        }}}
                     }
                     if(lvl=="dad_test01" || lvl=="garden_minigame"){
                         frame_bg_main58=frame_bg_main58+700
@@ -5705,6 +5844,14 @@
                         if(frame_bg_main13>=1410){
                             frame_bg_main13=35
                         }
+                        if(lvl=="garden_minigame_new_death"){
+                            if(frame_bg_main47==24490){
+                                frame_bg_main47=0
+                                //lvl="new_death_backyard"
+                                lvl="dead-hallwayCHASE"
+                            }
+                            frame_bg_main47=frame_bg_main47+310
+                        }
                         if(frame_bg_main20>=2521){
                             frame_bg_main20=121
                         }
@@ -5850,8 +5997,15 @@
                         if(lvl=="sound_dies"){
                             frame_bg_main37=frame_bg_main37+256
                         }
+                        if(lvl=="garden_minigame_new_death"){
+                            frame_bg_main37=frame_bg_main37+310
+                        }
                         if(frame_bg_main37==7936){
                             lvl="sound_stay"
+                            frame_bg_main37=0
+                        }
+                        if(frame_bg_main37==21700){
+                            lvl="death"
                             frame_bg_main37=0
                         }
                         if(lvl=="tutorial" || lvl=="tutorial1" || lvl=="tutoriali" || lvl=="tutorialo" || lvl=="tutorialp" || lvl=="tutorials" || lvl=="tutoriala" || lvl=="3d_minimap" || lvl=="tutorial_ne" || lvl=="tutorial_ne1" || lvl=="tutorial_end" || lvl=="tutorial_end1"){
@@ -7255,6 +7409,15 @@
             }
 
             canvas.addEventListener("click", function(e){
+                if(lvl=="chapter1_intro-pause"){
+                    lvl="hallwayCHASE-0"
+                    document.getElementById('intro_chapter1-google').currentTime=0;
+                    document.getElementById('intro_chapter1-desktop').currentTime=0;
+                    document.getElementById('intro_chapter1-imgur').currentTime=0;
+                }
+                if(lvl=="osu_afterplay_stats"){
+                    lvl="demo-end"
+                }
                 if(lvl=="loser-s-1"){
                     lvl="loser-s-2"
                 }
@@ -7275,6 +7438,7 @@
                 if(lvl=="osu!-doki_doki,[json-cece_F]"){
                     //document.getElementById("drive_clip-"+SOUNDserver).play()
                 }
+                
                 if(lvl=="menuSEL1-locked2"){
                     lvl="menuSEL1"
                 }
@@ -7823,6 +7987,12 @@
                 if(lvl=="ms1dsh"){
                     if(tempINFO[3]==true){
                         if(sound==true || SOUNDserver=="SOUNDdesk"){
+                            clicks_osu["horrible"]=0
+                            clicks_osu["bad"]=0
+                            clicks_osu["mid"]=0
+                            clicks_osu["good"]=0
+                            clicks_osu["perfect"]=0
+                            clicks_osu["misses"]=0
                             if(SOUNDserver=="SOUNDdesk"){
                                 lvl="chapter1_intro"
                                 document.getElementById("intro_chapter1-desktop").play()
@@ -7903,6 +8073,7 @@
                     lvl="hallwayCHASE-0"
                 }
                 console.log(e.clientX,e.clientY)
+                //document.getElementById("amoguuusnnsja").innerHTML=e.clientX+","+e.clientY
             })
             window.addEventListener("keydown", function(e){
                 if(e.key=="f"){
@@ -8409,7 +8580,7 @@
                     chapterSEL=0
                 }
                 if(e.key=="." && e.ctrlKey){
-                    lvl="cece_moms_bedroom"
+                    lvl="cece_moms_bedroom2"
                     dia=0
                     chapterSEL=0
                 }
@@ -8517,8 +8688,43 @@
                 if( Object.keys(osu).length===0){}else{
                     for (var [key, value] of Object.entries(osu)) {
                         var m = key.slice(0,-1)
-                        if(e.key=m){
-                            console.log("key: "+key)
+                        if(e.key==m){
+                            console.log("key: "+key+" , e.key: "+e.key)
+                            /*var val_x = osuX[key]
+                            var val_y = osuY[key]
+                            var horrible = clicks_osu["horrible"]
+                            var bad = clicks_osu["bad"]
+                            var mid = clicks_osu["mid"]
+                            var good = clicks_osu["good"]
+                            var perfect = clicks_osu["perfect"]*/
+                            var oasdi = 0
+                            var ee = key.slice(0,-1)
+                            while(get(sta,ee+oasdi,'No')!='No'){
+                                oasdi=oasdi+1 
+                            }
+                            staX[ee+oasdi]=osuX[key]
+                            staY[ee+oasdi]=osuY[key]
+                            staC[ee+oasdi]=0
+                            if(osu[key]<=960 && osu[key]>=832){
+                                clicks_osu["horrible"]=clicks_osu["horrible"]+1
+                                sta[ee+oasdi]="horrible"
+                            }
+                            if(osu[key]<=768 && osu[key]>=640){
+                                clicks_osu["bad"]=clicks_osu["bad"]+1
+                                sta[ee+oasdi]="bad"
+                            }
+                            if(osu[key]<=448 && osu[key]>=320){
+                                clicks_osu["mid"]=clicks_osu["mid"]+1
+                                sta[ee+oasdi]="mid"
+                            }
+                            if(osu[key]<=256 && osu[key]>=128){
+                                clicks_osu["good"]=clicks_osu["good"]+1
+                                sta[ee+oasdi]="good"
+                            }
+                            if(osu[key]<=64 && osu[key]>=0){
+                                clicks_osu["perfect"]=clicks_osu["perfect"]+1
+                                sta[ee+oasdi]="perfect"
+                            }
                             delete osu[key]
                             delete osuX[key]
                             delete osuY[key]
@@ -8608,6 +8814,43 @@
                         lvl="introCUTP1-pause"
                     }else{
                         lvl="introCUTP1"
+                    }
+                }
+                if(lvl=="chapter1_intro-pause" || lvl=="chapter1_intro"){
+                	if(e.clientX>=425 && e.clientX<=495 && e.clientY>=229 && e.clientY<=250){
+                        lvl="chapter1_intro-pause"
+                        if(IMAGEserver=="desktop"){
+                            if(!document.getElementById("intro_chapter1-desktop").paused){
+                                document.getElementById("intro_chapter1-desktop").pause()
+                            }
+                        }
+                        if(IMAGEserver=="google"){
+                            if(!document.getElementById("intro_chapter1-google").paused){
+                                document.getElementById("intro_chapter1-google").pause()
+                            }
+                        }
+                        if(IMAGEserver=="imgur"){
+                            if(!document.getElementById("intro_chapter1-imgur").paused){
+                                document.getElementById("intro_chapter1-imgur").pause()
+                            }
+                        }
+                    }else{
+                        lvl="chapter1_intro"
+                        if(IMAGEserver=="desktop"){
+                            if(document.getElementById("intro_chapter1-desktop").paused){
+                                document.getElementById("intro_chapter1-desktop").play()
+                            }
+                        }
+                        if(IMAGEserver=="google"){
+                            if(document.getElementById("intro_chapter1-google").paused){
+                                document.getElementById("intro_chapter1-google").play()
+                            }
+                        }
+                        if(IMAGEserver=="imgur"){
+                            if(document.getElementById("intro_chapter1-imgur").paused){
+                                document.getElementById("intro_chapter1-imgur").play()
+                            }
+                        }
                     }
                 }
                 if(lvl=="hallwayCHASE-start" || lvl=="hallwayCHASE-start-pause"){
@@ -8774,7 +9017,7 @@
             
             document.getElementById('cece_band_osu_playback-google').onended = (event) => {
                 //lvl="drive_clip_osu_ended_"
-                lvl="demo-end"
+                lvl="osu_afterplay_stats"
                 document.getElementById('cece_band_osu_playback-google').pause()
                 document.getElementById('drive_clip-drive').pause()
                 document.getElementById('drive_clip-SOUNDdesk').pause()
@@ -8788,7 +9031,7 @@
             };
             
             document.getElementById('cece_band_osu_playback2-imgur').onended = (event) => {
-                lvl="demo-end"
+                lvl="osu_afterplay_stats"
                 document.getElementById('cece_band_osu_playback2-imgur').pause()
                 document.getElementById('drive_clip-drive').pause()
                 document.getElementById('drive_clip-SOUNDdesk').pause()
