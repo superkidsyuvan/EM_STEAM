@@ -1,33 +1,3 @@
-const { app, BrowserWindow } = require('electron')
-
-function createWindow(){
-    const win = new BrowserWindow({
-        width:550,
-        height:325,
-        icon: "./resources/app/src_files/images/bin/SYS/ico/light.ico",
-        webPreferences: {
-            nodeIntegration: true
-        }
-    })
-
-    win.loadFile('./require/additions/dog.html')
-    win.setMenuBarVisibility(false)
-
-    //win.webContents.openDevTools()
-    //  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';"> <script src="window.location.href.slice(0,-10)+'add_in_library.js'"> <-- tag use in head if no work (:
-    // also add in body LAST, <div id="library_com"></div> (also <div id="sound_lib"></div>)
-    // add bootleg() to end of imgur() and google()
-    // add bootarm() to end of RBX() and drive()
-    // remeber the button sound thing idk i forgor 
-}
-
-
-app.on('window-all-closed', ()=>{
-    if(process.platform!=='darwin'){
-        app.quit()
-    }
-})
-
 function desktop(){
     IMAGEserver="desktop"
     document.getElementById("google").innerHTML="Google Photos (Recommended for school computers)"
@@ -1033,6 +1003,62 @@ var fox_vide_or_something_pov_idk = document.createElement("video")
 fox_vide_or_something_pov_idk.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/house/death_new/POV_u_became_fox.mp4"
 fox_vide_or_something_pov_idk.id="fox_vide_or_something_pov_idk-desktop"
 fox_vide_or_something_pov_idk.hidden=true
+var cece_garden_minigame_death_die_ssheet = document.createElement("img")
+cece_garden_minigame_death_die_ssheet.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/house/death_new/die_death.png"
+cece_garden_minigame_death_die_ssheet.id="cece_garden_minigame_death_die_ssheet-desktop"
+cece_garden_minigame_death_die_ssheet.hidden=true
+var amogus_costume_closup1 = document.createElement("img")
+amogus_costume_closup1.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/house/garage_area/closet/amogus_liek_death.png"
+amogus_costume_closup1.id="amogus_costume_closup1-desktop"
+amogus_costume_closup1.hidden=true
+var amogus_costume_closup2 = document.createElement("img")
+amogus_costume_closup2.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/house/garage_area/closet/weird_eye_amogussuu.png"
+amogus_costume_closup2.id="amogus_costume_closup2-desktop"
+amogus_costume_closup2.hidden=true
+var vol0 = document.createElement("img")
+vol0.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol0.png"
+vol0.id="vol0-desktop"
+vol0.hidden=true
+var vol1 = document.createElement("img")
+vol1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol1.png"
+vol1.id="vol1-desktop"
+vol1.hidden=true
+var vol2 = document.createElement("img")
+vol2.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol2.png"
+vol2.id="vol2-desktop"
+vol2.hidden=true
+var vol3 = document.createElement("img")
+vol3.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol3.png"
+vol3.id="vol3-desktop"
+vol3.hidden=true
+var vol4 = document.createElement("img")
+vol4.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol4.png"
+vol4.id="vol4-desktop"
+vol4.hidden=true
+var vol5 = document.createElement("img")
+vol5.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol5.png"
+vol5.id="vol5-desktop"
+vol5.hidden=true
+var vol6 = document.createElement("img")
+vol6.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol6.png"
+vol6.id="vol6-desktop"
+vol6.hidden=true
+var vol7 = document.createElement("img")
+vol7.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol7.png"
+vol7.id="vol7-desktop"
+vol7.hidden=true
+var vol8 = document.createElement("img")
+vol8.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol8.png"
+vol8.id="vol8-desktop"
+vol8.hidden=true
+var vol9 = document.createElement("img")
+vol9.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol9.png"
+vol9.id="vol9-desktop"
+vol9.hidden=true
+var vol10 = document.createElement("img")
+vol10.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol10.png"
+vol10.id="vol10-desktop"
+vol10.hidden=true
 
 /* DONTI OWKRRR!!
 
@@ -1419,6 +1445,21 @@ document.getElementById("library_com").appendChild(osu_stats_temp)
 document.getElementById("library_com").appendChild(dum_ways_to_death)
 document.getElementById("library_com").appendChild(cece_garden_minigame_death_spritesheet)
 document.getElementById("library_com").appendChild(fox_vide_or_something_pov_idk)
+document.getElementById("library_com").appendChild(cece_garden_minigame_death_die_ssheet)
+document.getElementById("library_com").appendChild(amogus_costume_closup1)
+document.getElementById("library_com").appendChild(amogus_costume_closup2)
+document.getElementById("library_com").appendChild(vol0)
+document.getElementById("library_com").appendChild(vol1)
+document.getElementById("library_com").appendChild(vol2)
+document.getElementById("library_com").appendChild(vol3)
+document.getElementById("library_com").appendChild(vol4)
+document.getElementById("library_com").appendChild(vol5)
+document.getElementById("library_com").appendChild(vol6)
+document.getElementById("library_com").appendChild(vol7)
+document.getElementById("library_com").appendChild(vol8)
+document.getElementById("library_com").appendChild(vol9)
+document.getElementById("library_com").appendChild(vol10)
+
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)
@@ -1464,6 +1505,11 @@ document.getElementById('intro_chapter1-desktop').onended = (event) => {
 };
 
 document.getElementById("cece_band_osu_playback-desktop").ontimeupdate=function(){SONGupdated('drive_clip',Math.floor(this.currentTime))};
+
+document.getElementById("fox_vide_or_something_pov_idk-desktop").onended = (event) => {
+    //lvl="dead-hallwayCHASE"        
+    lvl="garden_minigame_death_die"
+}
 
 document.getElementById("cece_band_osu_playback-desktop").onended = (event) => {
     lvl="osu_afterplay_stats"

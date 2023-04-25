@@ -12,7 +12,7 @@
         </style>
         <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
     </head>
-    <body>
+    <body id="body-body">
         <canvas id="mainGame">If You See Me, Try Upgrading Your Browser</canvas>
         <div id="ugly"><h3>Images Not Working? / Image Loading Stuck?: Change Server (Image):</h3>
         <span hidden id="external_script"></span>
@@ -245,7 +245,7 @@
         <img hidden src="https://i.imgur.com/46DmD05.png" id="fridge-imgur" alt="fridge-imgur">
         <img hidden src="https://i.imgur.com/cdyzBzm.png" id="countertop1-imgur" alt="countertop1-imgur">
         <img hidden src="https://i.imgur.com/J1qNk0j.png" id="countertop2-imgur" alt="countertop2-imgur">
-        <img hidden src="https://docs.google.com/uc?export=open&id=1TDng8vU_fVMjTZ0lvTg0hzQSNv72Wwg4" id="kitchenbg-google" alt="kitchenbg-google">
+        <img hidden src="https://docs.google.com/uc?export=open&id=1e0egpunxaTP4q7wJImiZmrnIUFIxE-Qt" id="kitchenbg-google" alt="kitchenbg-google">
         <img hidden src="https://docs.google.com/uc?export=open&id=1Al7sZPuHNiGZtYD9lu0ZviEpdB-MNpfI" id="exhaust-google" alt="exhaust-google">
         <img hidden src="https://docs.google.com/uc?export=open&id=1vtD_x7rDnQdJlUoCGqZQhnl8YqYtFA6k" id="stove-google" alt="stove-google">
         <img hidden src="https://docs.google.com/uc?export=open&id=1fHSZsGddjFcXobzdk5KRGWU4WK60305L" id="fridge-google" alt="fridge-google">
@@ -317,7 +317,7 @@
         <img hidden src="https://i.imgur.com/fZBp1qP.png" id="o_ghntb-imgur" alt="o_ghntb-imgur">
         <img hidden src="https://i.imgur.com/4i3s111.png" id="wt_ghntb-imgur" alt="wt_ghntb-imgur">
         <img hidden src="https://i.imgur.com/dfd6Qrp.png" id="w_ghntb-imgur" alt="w_ghntb-imgur">
-        <img hidden src="https://docs.google.com/uc?export=open&id=1xaUuXsUl_MQsxE5x4sC5Po2IwkUrMzwv" id="bg_ghntb-google" alt="bg_ghntb-google">
+        <img hidden src="https://docs.google.com/uc?export=open&id=1cP4HWjiZMLZum0CqWML742oto43URHBO" id="bg_ghntb-google" alt="bg_ghntb-google">
         <img hidden src="https://docs.google.com/uc?export=open&id=1ni0iMrdjc7VrUMvmAmFyu--hOFLT9IBz" id="dc_ghntb-google" alt="dc_ghntb-google">
         <img hidden src="https://docs.google.com/uc?export=open&id=1UfxXy8PW-GVXrGqwmax8TbLHahabtBdI" id="df_ghntb-google" alt="df_ghntb-google">
         <img hidden src="https://docs.google.com/uc?export=open&id=1wjJA-RtjNQfkjRrsI8XKnyYjiW0fwLFf" id="gdf_ghntb-google" alt="gdf_ghntb-google">
@@ -513,6 +513,12 @@
         <img hidden src="" id="dum_ways_to_death-google" alt="dum_ways_to_death-google">
         <img hidden src="" id="cece_garden_minigame_death_spritesheet-google" alt="cece_garden_minigame_death_spritesheet-google">
         <img hidden src="" id="cece_garden_minigame_death_spritesheet-imgur" alt="cece_garden_minigame_death_spritesheet-imgur">
+        <img hidden src="" id="cece_garden_minigame_death_die_ssheet-google" alt="cece_garden_minigame_death_die_ssheet-google">
+        <img hidden src="" id="cece_garden_minigame_death_die_ssheet-imgur" alt="cece_garden_minigame_death_die_ssheet-imgur">
+        <img hidden src="" id="amogus_costume_closup1-google" alt="amogus_costume_closup1-google">
+        <img hidden src="" id="amogus_costume_closup1-imgur" alt="amogus_costume_closup1-imgur">
+        <img hidden src="" id="amogus_costume_closup2-google" alt="amogus_costume_closup2-google">
+        <img hidden src="" id="amogus_costume_closup2-imgur" alt="amogus_costume_closup2-imgur">
         <video hidden src="https://i.imgur.com/H0EPXlB.mp4" id="tsone_intro-imgur" alt="tsone_intro-imgur"></video>
         <video hidden src="https://docs.google.com/uc?export=open&id=1NFltla_juGGw8Z8olSMD93FaLTUM3o7_" id="tsone_intro-google" alt="tsone_intro-google"></video>
         <video hidden src="https://i.imgur.com/hIUsXgN.mp4" id="tsone_intro_no-imgur" alt="tsone_intro_no-imgur"></video>
@@ -598,7 +604,6 @@
             var hover1 = "2" //used for hover hover menu thing
             var ms100 = 0 //100ms timer (like good for gif frames aka sprite sheets)
             var wannaDRAWme = true //draws player if true
-            var interact=0 // ok dude you interacted like what happens
             var obj="" // wat obiject do you want ):<
             var frame_bg_main=0 //spritesheet variable for p1 main game
             var frame_bg_main1=0 //spritesheet variable for animation-into menu 
@@ -634,6 +639,7 @@
             var frame_bg_main31=108
             var frame_bg_main32=23
             var deload = 0
+            var interact = false
             var stay=false // i actually forgor what this does
             var intake="180" //how much images should be loaded (half of all assets - imgur / all assets - google / TIP: if all assest loaded dont put back to half, it break game)
             var FPS = setInterval(FRAME,33.3333333) //frames
@@ -666,7 +672,6 @@
             var aucp = -34
             var adc = false
             var adcp = -34
-            var interact=false
             var cece1_1 = "cece_sleeping"
             var frame_bg_main33 = 187
             var frame_bg_main34 = 271
@@ -710,7 +715,7 @@
             var pause_menu2=0
             var holding_what_obj="none" //what you holding tho??
             var moveTHING=0
-            var tempINFO = [false,false,0,false,false,false,0,0,1,false,0]
+            var tempINFO = [false,false,0,false,false,false,0,0,1,false,0,"dor1","none",false,"vol-","nil",0,"vol-"]
             var osu={}
             var osuX={}
             var osuY={}
@@ -736,6 +741,151 @@
             var debouce1osu=false
             var times_osu=-99999
             var clicks_osu={"miss":0,"horrible":0,"bad":0,"mid":0,"good":0,"perfect":0}
+
+            const fox_video_idk_imgur={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("fox_vide_or_something_pov_idk-imgur");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="garden_minigame_new_death_sound"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                    let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+                return;
+                }
+            };
+            const fox_video_idk_google={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("fox_vide_or_something_pov_idk-google");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="garden_minigame_new_death_sound"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                    let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+                return;
+                }
+            };
+            const fox_video_idk_desktop={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("fox_vide_or_something_pov_idk-desktop");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="garden_minigame_new_death_sound"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                    let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+                return;
+                }
+            };
 
             const tsone_video_desktop={
                 timerCallback: function() {
@@ -1457,6 +1607,331 @@
             function dialogue(){
                     ctx.fillStyle="black";
                     ctx.fillRect(10, 95, 270, 50);
+                    if(lvl=="nonesensical_amogus_talk"){
+                        if(dia==0){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==1){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==2){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==3){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==4){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==5){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==6){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==7){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==8){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("*you hear whispers around you*", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==9){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==10){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==11){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==12){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==13){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==14){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==15){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==16){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==17){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==18){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==19){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==20){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==21){
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("cece1","cece_profilepic2",10,28)
+                            typewriter("*you wonder why you are doing this*", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==22){
+                           ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==23){
+                           ctx.drawImage(document.getElementById("amogus_costume_closup2-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50)
+                           ctx.fillRect(10, 95, 270, 50);                           
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("*he seems angry*", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        } 
+                        if(dia==24){
+                           ctx.drawImage(document.getElementById("amogus_costume_closup2-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50)
+                           ctx.fillRect(10, 95, 270, 50);                            
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("*he seems very angry*", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        } 
+                        if(dia==25){
+                           ctx.drawImage(document.getElementById("amogus_costume_closup2-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50)                            
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("*he seems very, very angry*", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        } 
+                        if(dia==26){
+                           ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==27){
+                           ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("*it tries to mumble*", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==28){
+                           ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("...", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==29){
+                           ctx.drawImage(document.getElementById("amogus_costume_closup2-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);                            
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("*he struggles**", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        } 
+                        if(dia==30){
+                           ctx.drawImage(document.getElementById("amogus_costume_closup2-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);                            
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("*he runs a command*", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        } 
+                        if(dia==31){
+                           ctx.drawImage(document.getElementById("amogus_costume_closup2-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);                            
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("*he seems...*", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        } 
+                        if(dia==32){
+                           ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("amogus","profile",10,28)
+                            typewriter("*happy?*", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        } 
+                    }
                     if(lvl=="doyoulife"){
                         if(dia==0){
                             ctx.fillStyle="white"; 
@@ -2108,7 +2583,7 @@
                         }
                     }
                     if(lvl=="3d_minimap"){
-                        if(obj=="none"){
+                        if(tempINFO[12]=="none"){
                             if(dia==0){
                                 ctx.fillStyle="white"; 
                                 ctx.font = "15px Arial";
@@ -2118,7 +2593,7 @@
                                 ctx.fillText("Click To Continue", 15, 130);
                             }
                         }
-                        if(obj=="amogus"){
+                        if(tempINFO[12]=="amogus"){
                             if(dia==0){
                                 ctx.fillStyle="white"; 
                                 ctx.font = "15px Arial";
@@ -2136,7 +2611,7 @@
                                 ctx.fillText("Click To Continue", 15, 130);
                             }
                         }
-                        if(obj=="advisor"){
+                        if(tempINFO[12]=="advisor"){
                             if(dia==0){
                                 ctx.fillStyle="white"; 
                                 ctx.font = "15px Arial";
@@ -3816,21 +4291,19 @@
                         ctx.fillRect(0, 0, canvas.width, mapOffsetY);
                         ctx.fillRect(0, mapOffsetY + 200, canvas.width, canvas.width - mapOffsetY + 200);
 
-                        if(interact==true){
+                        if(tempINFO[13]==true){
                             dialogue() 
                         }
 
                         if(playerX<=400.51668806603703 && playerY<=291.97293386869825 && playerX>=315.66255458405715 && playerY>=211.4766448172366){
-                            if(interact==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)}
-                            obj="advisor" 
+                            if(tempINFO[13]==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)}
+                            tempINFO[12]="advisor" 
                         }else if(playerX>=309.15273249776766 && playerY>=476.7996971400903 && playerX<=408.56922684323985 && playerY<=541.8303063532986){
-                            obj="2d_portal"
-                            if(interact==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)} 
+                            tempINFO[12]="2d_portal"
+                            if(tempINFO[13]==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)} 
                         }else if(playerX<=1955.229260630279 && playerY>=1463.2179126460276 && playerX>=1913.488090043841 && playerY<=1550.448107335401){
-                            obj="amogus"
-                            if(interact==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)} 
-                        }else{
-                            obj="none"
+                            tempINFO[12]="amogus"
+                            if(tempINFO[13]==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)} 
                         }}
                     }
                 }
@@ -4942,8 +5415,7 @@
                     DrawPlayer("edward",moveDIR,x,y,0,0)
                     if(x<=146 && x>=119){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),110,40)
-                        interact=true
-                    }else{interact=false}
+                    }
                 }
                 if(lvl=="tutoriala"){
                     ctx.drawImage(document.getElementById("tutorial1-"+IMAGEserver),0,0,256,144,0,0,300,150)
@@ -4957,8 +5429,7 @@
                     DrawPlayer("edward",moveDIR,x,y,0,0)
                     if(x<=240 && x>=188){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),190,40)
-                        interact=true
-                    }else{interact=false}
+                    }
                 }
                 if(lvl=="tutorial_ne"){
                     ctx.drawImage(document.getElementById("tutorial_ne-"+IMAGEserver),frame_bg_main47,0,256,144,0,0,300,150)
@@ -4967,8 +5438,7 @@
                     DrawPlayer("edward",moveDIR,x,y,0,0)
                     if(x<=171 && x>=141){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),120,5)
-                        interact=true
-                    }else{interact=false}
+                    }
                 }
                 if(lvl=="tutorial_ne1"){
                     ctx.drawImage(document.getElementById("tutorial_ne-"+IMAGEserver),frame_bg_main47,0,256,144,0,0,300,150)
@@ -4982,8 +5452,7 @@
                     DrawPlayer("edward",moveDIR,x,y,0,0)
                     if(x>=125){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),230,65)
-                        interact=true
-                    }else{interact=false}
+                    }
                 }
                 if(lvl=="warning_popup"){
                     ctx.drawImage(document.getElementById("warning_popup-"+IMAGEserver),0,0,310,150)
@@ -5032,9 +5501,6 @@
                     ctx.drawImage(document.getElementById("levitate1-"+IMAGEserver),frame_bg_main52,0,175,350,0,0,87,175)
                     if(x>=89 && x<=117){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),2,5)
-                        interact=true
-                    }else{
-                        interact=false
                     }
                 }
                 if(lvl=="conscience2.1"){
@@ -5117,30 +5583,27 @@
                     DrawPlayer("room1","potted_plant1",195,78,0,0)
                     if(y>=39 && y<=69 && x<=43){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),10,57,32,16)
-                        interact=true
-                    }else{
-                        interact=false
                     }
                     if(obj=="animation"){
                         ctx.drawImage(document.getElementById("questopen-"+IMAGEserver),frame_bg_main57,0,100,75,0,0,100,75)
                     }
-                    if(obj="mogus"){
+                    if(obj=="mogus"){
                         ctx.drawImage(document.getElementById("questcecefollow-"+IMAGEserver),0,0,100,75,0,0,100,75)
                     }
                 }
                 if(lvl=="ceceRoom_into_Kicten"){
                     ctx.drawImage(document.getElementById("bg_hallway1-"+IMAGEserver),0,0,310,150)                       
                     ctx.drawImage(document.getElementById("shade-"+IMAGEserver),0,0,310,150)
-                    if(obj=="dor1"){
+                    if(tempINFO[11]=="dor1"){
                         ctx.drawImage(document.getElementById("closed_door1-"+IMAGEserver),0,0,310,150)
                     }
-                    if(obj=="opene"){
+                    if(tempINFO[11]=="opene"){
                         if(x>=105 && x<=179){
                             ctx.drawImage(document.getElementById("slighted_trans_open_door1-"+IMAGEserver),150,0,151,150,150,0,151,150)
                         }
                     }
                     DrawPlayer(player,moveDIR,x,y,0,0)
-                    if(obj=="opene"){
+                    if(tempINFO[11]=="opene"){
                         if(x>=105 && x<=179){
                             ctx.drawImage(document.getElementById("slighted_trans_open_door1-"+IMAGEserver),0,0,149,150,0,0,149,150)
                         }else{
@@ -5149,9 +5612,6 @@
                     } 
                     if(x>=119 && x<=179){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),138,48)
-                        interact=true
-                    }else{
-                        interact=false
                     }
                 }
                 if(lvl=="kitchen"){
@@ -5165,19 +5625,13 @@
                     ctx.drawImage(document.getElementById("countertop2-"+IMAGEserver),0,0,310,150)
                     if(y>=51 && y<=106 && x>=246){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),270,73,32,16)
-                        interact=true
                         obj="ceceRoom_into_Kicten"
                     }else if(x>=121 && x<=148 && y<=45){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),133,30,32,16)
-                        interact=true
                         obj="hallway_to_front_enterance1"
                     }else if(y>=60 && y<=90 && x<=36){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),10,67,32,16)
-                        interact=true
                         obj="t_hallway1"
-                    }else{
-                        interact=false
-                        obj="none"
                     }
                 }
                 if(lvl=="hallway_to_front_enterance1"){
@@ -5219,16 +5673,9 @@
                     if(y<=40){ctx.drawImage(document.getElementById("wall_enterance_hallway-"+IMAGEserver),0,0,310,150);ctx.drawImage(document.getElementById("door_enterance_hallway-"+IMAGEserver),0,0,310,150)}else{ctx.drawImage(document.getElementById("wall_trans_enterance_hallway-"+IMAGEserver),0,0,310,150);ctx.drawImage(document.getElementById("door_trans_enterance_hallway-"+IMAGEserver),0,0,310,150)}
                     ctx.drawImage(document.getElementById("shade-"+IMAGEserver),0,0,310,150)
                     if(y>=86){
-                        obj="door_outside!!"
-                        interact=true
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),86,118,32,16)
                     }else if(y<12){
-                        obj="minigame~"
-                        interact=true
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),86,118,32,16)
-                    }else{
-                        obj="none"
-                        interact=false
                     }
                 }
                 if(lvl=="locked_hallway_side1"){
@@ -5241,14 +5688,8 @@
                     ctx.drawImage(document.getElementById("shade-"+IMAGEserver),0,0,310,150)
                     if(x<=243 && x>=223 && obj!="msg1"){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),225,51,32,16)
-                        interact=true
-                        obj="da_locked_dor"
                     }else if(x>=127 && y>=36 && x<=157 && y<=48 && obj!="msg1"){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),142,36,32,16)
-                        interact=true
-                        obj="bedoom"
-                    }else{
-                        interact=false
                     }
                     if(obj=="msg1"){
                         ctx.fillStyle="red";
@@ -5270,11 +5711,6 @@
                     ctx.drawImage(document.getElementById("shade-"+IMAGEserver),0,0,310,150)
                     if(y>=69){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),46,83,32,16)
-                        interact=true
-                        obj="garage"
-                    }else{
-                        interact=false
-                        obj="none"
                     }
                 }
                 if(lvl=="garden_minigame"){
@@ -5289,22 +5725,32 @@
                     //if(dx>preDX){movement="right"}else{movement="left";if(dy>preDY){movement="down"}else if(dy<preDY){movement="up"}else{movement="idle"}}
                     DrawPlayer("dad_backgardian",NPCmoveDIR,-x+dx,-y+dy,0,0)
                     if(touching(165,65,33,51,-x+dx-13,-y+dy+51,75,36)){
-                       x=0
-                       y=0
-                       if(sound==true || SOUNDserver=="SOUNDdesk"){
-                            lvl="garden_minigame_new_death"//_sound"
-                       }else{
+                        x=0
+                        y=0
+                        boxINVENTORY[0]=""
+                        boxINVENTORY[1]=""
+                        boxINVENTORY[2]=""
+                        boxINVENTORY[3]=""
+                        boxINVENTORY[4]=""
+                        boxINVENTORY[6]=""
+                        inventory_toggle=false
+                        if(sound==true || SOUNDserver=="SOUNDdesk"){
+                            lvl="garden_minigame_new_death_sound"//_sound"
+                            if(IMAGEserver=="desktop"){
+                                document.getElementById("fox_vide_or_something_pov_idk-desktop").play()
+                                fox_video_idk_desktop.doLoad()
+                            }
+                            if(IMAGEserver=="google"){
+                                document.getElementById("fox_vide_or_something_pov_idk-google").play()
+                                fox_video_idk_google.doLoad()
+                            }
+                            if(IMAGEserver=="imgur"){
+                                document.getElementById("fox_vide_or_something_pov_idk-imgur").play()
+                                fox_video_idk_imgur.doLoad()
+                            }
+                        }else{
                             lvl="garden_minigame_new_death"
                        }
-                    }
-                }
-                    if(lvl=="garden_minigame_new_death_sound"){
-                        //videoplays---
-                        ctx.drawImage(document.getElementById("skip1-"+IMAGEserver),250,130)
-                    }
-                    if(lvl=="garden_minigame_new_death"){
-                        ctx.drawImage(document.getElementById("cece_garden_minigame_death_spritesheet-"+IMAGEserver),frame_bg_main47,0,310,150,0,0,310,150)
-                        //ctx.drawImage(document.getElementById("skip1-"+IMAGEserver),250,130)
                     }
                     if(pause==false){
                         if(obj=="noti"){
@@ -5316,20 +5762,16 @@
                         }
                         if(y>31&&y<151&&x<-59){
                             if(tempINFO[0]==false){
-                                interact=true
-                                obj="keyRED1!"
                                 ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),136,64,32,16)
+                                ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),0,64,32,16)
                             }
                         }else if(x>425&&y>31&&y<115){
-                            interact=true
-                            obj="leave(A)"
                             ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),136,64,32,16)
                         }else{
-                            interact=false
                             if(obj!="noti"){obj="none"}
                         }
                     }
-
+                }
                 if(lvl=="outsidegame_cece1_backyard"){
                     ctx.drawImage(document.getElementById("grass_static-"+IMAGEserver),0,0,310,150)
                     ctx.drawImage(document.getElementById("wall_outside_amogus-"+IMAGEserver),0,0,310,150)
@@ -5340,36 +5782,41 @@
                     DrawPlayer(player,moveDIR,x,y,0,0)
                     ctx.drawImage(document.getElementById("intenstive-"+IMAGEserver),0,0,310,150)
                     if(x>=211 && y<=51){
-                        interact=true
-                        obj="inside_they_should"
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),221,32,32,16)
                     }else if(x<=70){
-                        interact=true
-                        obj="minigame~"
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),16,74,32,16)
-                    }else{
-                        interact=false
-                        obj="none"
                     }
+                }
+                if(lvl=="garden_minigame_death_die"){
+                    ctx.drawImage(document.getElementById("cece_garden_minigame_death_die_ssheet-"+IMAGEserver),frame_bg_main47,0,310,150,0,0,310,150)
+                    //ctx.drawImage(document.getElementById("cece_garden_minigame_death_spritesheet-"+IMAGEserver),frame_bg_main47,0,310,150,0,0,310,150)
+                }
+                if(lvl=="garden_minigame_new_death_sound"){
+                    //videoplays---
+                    ctx.drawImage(document.getElementById("skip1-"+IMAGEserver),250,130)
+                }
+                if(lvl=="garden_minigame_new_death"){
+                    ctx.drawImage(document.getElementById("cece_garden_minigame_death_spritesheet-"+IMAGEserver),frame_bg_main47,0,310,150,0,0,310,150)
+                    //ctx.drawImage(document.getElementById("skip1-"+IMAGEserver),250,130)
+                }
+                if(lvl=="nonesensical_amogus_talk"){
+                    dialogue()
                 }
                 if(lvl=="garage_cece1_closet"){
                     ctx.drawImage(document.getElementById("bg_garage_closet-"+IMAGEserver),0,0,310,150)
                     ctx.drawImage(document.getElementById("mogus_garage_closet-"+IMAGEserver),0,0,310,150)
                     if(tempINFO[1]==false){ctx.drawImage(document.getElementById("screen_yelKEY1-"+IMAGEserver),0,0,310,150)}
-                    if(obj!="notification_MAD"){
+                    if(tempINFO[15]!="notification_MAD"){
                         if(x>=170 && x<=197 && y<=60){
                             if(tempINFO[1]==false){
-                                interact=true
                                 obj="myYellowKeyKeyKeykey"
                                 ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),178,48,32,16)
                             }
                         }else if(x>=221&&y>=48&&y<=72){
-                            interact=true
                             obj="leaveCLOSET"
                             ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),250,68,32,16)
-                        }else{
-                            interact=false
-                            obj="none"
+                        }else if(x<=91 && y<=69 && y>=48){
+                            ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),56,54,32,16)
                         }
                     }else{
                         aboveTEXTnotification("#ff0000","#ffffff","error with inventory, prob full")
@@ -5384,18 +5831,13 @@
                     DrawPlayer(player,moveDIR,x,y,0,0)
                     ctx.drawImage(document.getElementById("garage_door_trans-"+IMAGEserver),0,0,310,150)
                     ctx.drawImage(document.getElementById("shade-"+IMAGEserver),0,0,310,150)
-                    if(obj!="get_key_ok_cece1!!!"){if(x>=203 && y<=42){
-                        ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),218,24,32,16)
-                        obj="leave101"
-                        interact=true
-                    }else if(y>=42 && y<=66 && x<=58){
-                        ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),36,57,32,16)
-                        if(holding_what_obj=="da_garage_closet_key_cece1"){obj="closet!!!"}else{obj="get_key_ok_cece1"}
-                        interact=true
+                    if(obj!="get_key_ok_cece1!!!"){
+                        if(x>=203 && y<=42){
+                            ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),218,24,32,16)
+                        }else if(y>=42 && y<=66 && x<=58){
+                            ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),36,57,32,16)
+                        }
                     }else{
-                        obj="none"
-                        interact=false
-                    }}else{
                         if(equiped!="y_redKEY1"){
                             obj="get_key_ok_cece1!!!"
                             ctx.fillStyle="red";
@@ -5672,6 +6114,16 @@
                             }
                         }}}
                     }
+                    if(tempINFO[14]!=tempINFO[17] && tempINFO[16]!=0){
+                        tempINFO[16]=tempINFO[16]-1
+                        if(tempINFO[14]==0){
+                            ctx.drawImage(document.getElementById(tempINFO[14]+"-"+IMAGEserver),0,0)
+                        }else if(tempINFO[14]==1){
+                            ctx.drawImage(document.getElementById(tempINFO[14]+"0-"+IMAGEserver),0,0)
+                        }else{
+                            ctx.drawImage(document.getElementById("vol"+(tempINFO[14].slice(5))+"-"+IMAGEserver),0,0)
+                        }
+                    }
                 }else{
                     ms100=0
                     if(mode=="easy"){
@@ -5844,11 +6296,14 @@
                         if(frame_bg_main13>=1410){
                             frame_bg_main13=35
                         }
-                        if(lvl=="garden_minigame_new_death"){
-                            if(frame_bg_main47==24490){
+                        if(lvl=="garden_minigame_new_death" || lvl=="garden_minigame_death_die"){
+                            if(frame_bg_main47==24490 && lvl=="garden_minigame_new_death"){
                                 frame_bg_main47=0
                                 //lvl="new_death_backyard"
-                                lvl="dead-hallwayCHASE"
+                                lvl="garden_minigame_death_die"
+                            }
+                            if(lvl=="garden_minigame_death_die" && frame_bg_main47>=1550){
+                                frame_bg_main47=0
                             }
                             frame_bg_main47=frame_bg_main47+310
                         }
@@ -6004,8 +6459,8 @@
                             lvl="sound_stay"
                             frame_bg_main37=0
                         }
-                        if(frame_bg_main37==21700){
-                            lvl="death"
+                        if(frame_bg_main37==21700 && lvl!="garden_minigame_new_death"){
+                            lvl="hallwayCHASE-0"
                             frame_bg_main37=0
                         }
                         if(lvl=="tutorial" || lvl=="tutorial1" || lvl=="tutoriali" || lvl=="tutorialo" || lvl=="tutorialp" || lvl=="tutorials" || lvl=="tutoriala" || lvl=="3d_minimap" || lvl=="tutorial_ne" || lvl=="tutorial_ne1" || lvl=="tutorial_end" || lvl=="tutorial_end1"){
@@ -6540,7 +6995,7 @@
                             frame_bg_main10=0
                             lvl="introCUTP2"
                         }
-                        if(frame_bg_main11>=30976){
+                        if(frame_bg_main11>=30976 && lvl!="garden_minigame_new_death"){
                             debouce1=0
                             frame_bg_main11=0
                             lvl="hallwayCHASE-0"
@@ -6677,7 +7132,7 @@
                     }
                 }
                 if(lvl=="ceceRoom_into_Kicten"){
-                    if(x<=158 && obj=="dor1"){
+                    if(x<=158 && tempINFO[11]=="dor1"){
                         x=159
                     }
                     if(y<=47){
@@ -7408,6 +7863,43 @@
             }
 
             canvas.addEventListener("click", function(e){
+                if(lvl=="garden_minigame"){
+                        if(y>31&&y<151&&x<-59){
+                            if(tempINFO[0]==false){
+                                tempINFO[0]=true
+                                obj="noti"
+                                inventory_toggle=true
+                                inventoryDEBOUNCE = addITEM("inventory_redKEY1")
+                                holding_what_obj="da_garage_closet_key_cece1"
+                                setInterval(function(){
+                                    obj="none"
+                                    if(inventoryDEBOUNCE==false){
+                                        tempINFO[0]=false
+                                    }
+                                },1000)
+                            }
+                        }else if(x>425&&y>31&&y<115){
+                            lvl="outsidegame_cece1_backyard"
+                            y=79
+                            x=72
+                        }
+                    }
+                if(lvl=="garden_minigame_death_die"){
+                    boxINVENTORY[0]=""
+                    boxINVENTORY[1]=""
+                    boxINVENTORY[2]=""
+                    boxINVENTORY[3]=""
+                    boxINVENTORY[4]=""
+                    boxINVENTORY[6]=""
+                    inventory_toggle=false
+                    player="cece1"
+                    type="evil"
+                    lvl="outsidegame_cece1_backyard"
+                    x=106
+                    y=75
+                    equiped=""
+                    holding_what_obj=""
+                }
                 if(lvl=="chapter1_intro-pause"){
                     lvl="hallwayCHASE-0"
                     document.getElementById('intro_chapter1-google').currentTime=0;
@@ -7446,27 +7938,27 @@
                     lvl="transition-s"
                 }
                 if(lvl=="garage_cece1_closet"){
-                    if(interact==true){
-                        if(obj=="myYellowKeyKeyKeykey"){
-                            if(tempINFO[1]==false){
-                                var dd = addITEM("inventory_yelKEY1")
-                                if(dd==false){
-                                    obj="notification_MAD"
-                                    setInterval(function(){
-                                        obj="none"
-                                    },1000)
-                                }else{
-                                    tempINFO[1]=true
-                                    inventory_toggle=true
-                                }
+                    if(x>=170 && x<=197 && y<=60){
+                        if(tempINFO[1]==false){
+                            var dd = addITEM("inventory_yelKEY1")
+                            if(dd==false){
+                                tempINFO[15]="notification_MAD"
+                                setInterval(function(){
+                                    tempINFO[15]="none"
+                                },1000)
+                            }else{
+                                tempINFO[1]=true
+                                inventory_toggle=true
                             }
                         }
-                        if(obj=="leaveCLOSET"){
-                            lvl="garage_cece1"
-                            x=64
-                            y=59
+                    }else if(x>=221&&y>=48&&y<=72){
+                        lvl="garage_cece1"
+                        x=64
+                        y=59
+                    }else if(x<=91 && y<=69 && y>=48){
+                            lvl="nonesensical_amogus_talk"
+                            dia=0
                         }
-                    }
                 }
                 if(lvl=="warning_popup"){
                     if(e.clientX>=110 && e.clientX<=132 && e.clientY>=111 && e.clientY<=130){
@@ -7478,12 +7970,12 @@
                             return  
                         }
                     }else if(e.clientX>=147 && e.clientX<=364 && e.clientY>=189 && e.clientY<=212){
-                        if(interact==true){
-                            interact=false
+                        //if(interact==true){
+                            //intract=false
                             lvl="garden_minigame"
                             x=399
                             y=89
-                        } 
+                        //} 
                     }else if(e.clientX>=425 && e.clientX<=456 && e.clientY>=28 && e.clientY<=60){
                         lvl="outsidegame_cece1_backyard"
                         y=79
@@ -7504,32 +7996,37 @@
                         }
                     }
                 }
-                if(lvl=="conscience2" && interact==true){
+                if(x>=89 && x<=117 && lvl=="conscience2"){
                     lvl="conscience2.1"
                     dia=0
                     x=90
                     y=68
                 }
                 if(lvl=="outsidegame_cece1_backyard"){
-                    if(obj=="inside_they_should"){
-                        if(interact==true){
-                            interact=false
-                            lvl="hallway_backyard_connect1"
-                            x=120
-                            y=87
+                    if(x>=211 && y<=51){
+                        lvl="hallway_backyard_connect1"
+                        x=120
+                        y=60
+                        if(sound==true || SOUNDserver=="SOUNDdesk"){
+                            document.getElementById("wooden_door_open-"+SOUNDserver).play()
                         }
+                    }else if(x<=70){
+                        lvl="warning_popup"
                     }
                 }
                 if(lvl=="hallway_backyard_connect1"){
-                    if(obj=="door_outside!!"){
-                        if(interact==true){
-                            interact=false
+                        if(y>=86){
                             lvl="outsidegame_cece1_backyard"
                             x=247
                             y=45
+                            if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                document.getElementById("wooden_door_close-"+SOUNDserver).currentTime=0
+                                document.getElementById("wooden_door_close-"+SOUNDserver).play()
+                            }
+                        }else if(y<12){
+                            lvl="warning_popup"
                         }
                     }
-                }
                 if(pause==true){
                     if(char_pause.slice(-8)=="-basicin"){
                         if(e.clientX>=355 && e.clientX<=503 && e.clientY>=154 && e.clientY<=184){
@@ -7580,11 +8077,11 @@
                         char_pause = char_pause.slice(0,-8)+"-charact"
                     }
                 }
-                if(lvl=="ghntb" && interact==true){
-                    if(obj=="garage"){
+                if(lvl=="ghntb"){
+                    if(y>=72){
                         lvl="garage_cece1"
-                        x=220
-                        y=30
+                        x=223
+                        y=48
                     }
                 }
                 if(lvl=="plz_turn_on_sound_plzzz_decline:hover"){
@@ -7595,59 +8092,74 @@
                     lvl="plz_turn_on_sound_plzzz_accept"
                     frame_bg_main57=0
                 }
-                if(lvl=="kitchen" && interact==true){
-                    if(obj=="ceceRoom_into_Kicten"){
+                if(lvl=="kitchen"){
+                    if(y>=51 && y<=106 && x>=246){
                         x=2
                         y=58
                         lvl="ceceRoom_into_Kicten"
-                        obj="opene"
-                    }
-                    if(obj=="hallway_to_front_enterance1"){
+                        tempINFO[11]="opene"
+                    }else if(x>=121 && x<=148 && y<=45){
                         x=135
                         y=99
                         obj="none"
                         lvl="hallway_to_front_enterance1"
-                    }
-                    if(obj=="t_hallway1"){
+                    }else if(y>=60 && y<=90 && x<=36){
                         x=267
                         y=24
-                        obj="opene"
+                        tempINFO[11]="opene"
                         lvl="t_hallway1"
                     }
                 }
-                if(lvl=="ceceRoom_into_Kicten" && interact==true){
-                    if(obj=="dor1"){
-                        obj="opene"
-                        if(sound==true || SOUNDserver=="SOUNDdesk"){
-                            document.getElementById("wooden_door_open-"+SOUNDserver).play()
+                if(lvl=="ceceRoom_into_Kicten"){
+                    if(x>=119 && x<=179){
+                        if(tempINFO[11]=="dor1"){
+                            tempINFO[11]="opene"
+                            if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                document.getElementById("wooden_door_open-"+SOUNDserver).play()
+                            }
+                        }else{
+                            tempINFO[11]="dor1"
+                            if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                document.getElementById("wooden_door_open-"+SOUNDserver).play()
+                            }
                         }
-                    }else{
-                        obj="dor1"
-                        if(sound==true || SOUNDserver=="SOUNDdesk"){
-                            document.getElementById("wooden_door_open-"+SOUNDserver).play()
+                    }
+                }
+                if(lvl=="cece_room_2"){
+                        if(y>=39 && y<=69 && x<=43){
+                            lvl="ceceRoom_into_Kicten"
+                            tempINFO[11]="dor1"
+                            dia=0
+                            x=284
+                            y=56
                         }
                     }
-                }
-                if(lvl=="cece_room_2" && interact==true){
-                    lvl="ceceRoom_into_Kicten"
-                    obj="dor1"
-                    dia=0
-                    x=284
-                    y=56
-                }
-                if(lvl=="garage_cece1" && interact==true){
-                    if(obj=="leave101"){
-                        lvl="ghntb"
-                        x=46
-                        y=72
-                    }
-                    if(obj=="get_key_ok_cece1"){
-                        obj="get_key_ok_cece1!!!"
-                        setInterval(function(){
-                            obj="none"
-                        }, 1500);
-                    }
-                }
+                    if(lvl=="garage_cece1"){
+                        if(x>=203 && y<=42){
+                            lvl="ghntb"
+                            x=46
+                            y=72
+                        }else if(y>=42 && y<=66 && x<=58){
+                            if(holding_what_obj=="da_garage_closet_key_cece1"){
+                                lvl="garage_cece1_closet"
+                                x=215
+                                y=62
+                                boxINVENTORY[0]=""
+                                boxINVENTORY[1]=""
+                                boxINVENTORY[2]=""
+                                boxINVENTORY[3]=""
+                                boxINVENTORY[4]=""
+                                boxINVENTORY[6]=""
+                                holding_what_obj="none"
+                                inventory_toggle=false
+                            }else{
+                                obj="get_key_ok_cece1!!!"
+                                setInterval(function(){
+                                    obj="none"
+                                }, 1500);
+                            }
+                        }
+                    }    
                 if(lvl=="cece_room_1_decide"){
                     if(decide_1==1){
                         fnf_mode=true
@@ -7669,6 +8181,20 @@
                             document.getElementById("decide-"+SOUNDserver).pause()
                             document.getElementById("decide-"+SOUNDserver).currentTime=0
                         }
+                    }
+                }
+                if(lvl=="nonesensical_amogus_talk"){
+                    dia=dia+1
+                    nuTW=0
+                    if(sound==true || SOUNDserver=="SOUNDdesk"){
+                        document.getElementById("dia_enter-"+SOUNDserver).play()
+                    }
+                    if(dia==33){
+                        if(document.getElementById("external_script").innerHTML=="true"){
+                            var amosiiia=window.location.href.slice(0,-10)+"require/additions/text_msg.html"
+                            window.open(amosiiia, '_blank', 'top=500,left=200,frame=true,nodeIntegration=no')
+                        }
+                        lvl="garage_cece1_closet"
                     }
                 }
                 if(lvl=="doyoulife"){
@@ -7716,29 +8242,44 @@
                 if(lvl=="enter"){
                     lvl="sound"
                 }
-                if(lvl=="tutorialp" && interact==true){
-                    dia=0
-                    lvl="tutoriala"
-                }
-                if(lvl=="tutorial_ne" && interact==true){
-                    dia=0
-                    lvl="tutorial_ne1"
-                }
-                if(lvl=="tutorial_end" && interact==true){
-                    dia=0
-                    lvl="tutorial_end1"
-                }
-                if(lvl=="locked_hallway_side1" && interact==true){
-                    if(obj=="da_locked_dor"){
-                        if(equiped!="y_yelKEY1"){
-                            obj="msg1"
-                            setInterval(function(){if(lvl=="locked_hallway_side1"){obj="da_locked_dor"}},1000)
-                        }else{
-                            tempINFO[2]=0
-                            db1RE=true
-                        }
+                if(lvl=="tutorialp"){
+                    if(x<=146 && x>=119){
+                        dia=0
+                        lvl="tutoriala"
                     }
                 }
+                if(lvl=="tutorial_ne"){
+                    if(x<=171 && x>=141){
+                        dia=0
+                        lvl="tutorial_ne1"
+                    }
+                }
+                if(lvl=="tutorial_end"){
+                    if(x>=125){
+                        dia=0
+                        lvl="tutorial_end1"
+                    }
+                }
+                if(lvl=="locked_hallway_side1"){
+                        if(x<=243 && x>=223 && obj!="msg1"){
+                            if(equiped!="y_yelKEY1"){
+                                obj="msg1"
+                                setInterval(function(){if(lvl=="locked_hallway_side1"){obj="da_locked_dor"}},1000)
+                            }else{
+                                tempINFO[2]=0
+                                db1RE=true
+                            }
+                        }else if(x>=127 && y>=36 && x<=157 && y<=48 && obj!="msg1"){
+                            boxINVENTORY[0]=""
+                            inventory_toggle=false
+                            equiped=""
+                            pause=false
+                            dia=0
+                            nuTW=0
+                            obj=""
+                            lvl="cece_moms_bedroom"
+                        }
+                    }
                 if(lvl=="tutorial_ne1"){
                     dia=dia+1
                     nuTW=0
@@ -7752,70 +8293,72 @@
                         lvl="tutorial_ne"
                     }
                 }
-                if(lvl=="tutorials" && interact==true){
-                    lvl="3d_minimap"
-                    if(sound==true || SOUNDserver=="SOUNDdesk"){
-                        document.getElementById("ohio-"+SOUNDserver).currentTime=0
+                if(lvl=="tutorials"){
+                    if(x<=240 && x>=188){
+                        lvl="3d_minimap"
+                        playerX=84
+                        playerY=84
                         if(sound==true || SOUNDserver=="SOUNDdesk"){
+                            document.getElementById("ohio-"+SOUNDserver).currentTime=0
                             document.getElementById("ohio-"+SOUNDserver).play()
                         }
                     }
                 }
                 if(lvl=="3d_minimap"){
-                if(obj=="none"){
-                    if(interact==true){
+                if(tempINFO[12]=="none"){
+                    if(tempINFO[13]==true){
                         dia=dia+1
                         nuTW=0
                         if(sound==true || SOUNDserver=="SOUNDdesk"){
                             document.getElementById("dia_enter-"+SOUNDserver).play()
                         }
                         if(dia==1){
-                            obj="none"
+                            tempINFO[12]="none"
                             dia=0
-                            interact=false
+                            tempINFO[13]=false
                         }
                     }
                 }
-                    if(obj=="advisor"){
-                        if(interact==false){
-                            interact=true
-                            obj="advisor"
+                    if(tempINFO[12]=="advisor"){
+                        if(tempINFO[13]==false){
+                            tempINFO[13]=true
+                            tempINFO[12]="advisor"
                             dia=0
                         }
-                        if(interact==true){
+                        if(tempINFO[13]==true){
                             dia=dia+1
                             nuTW=0
                             if(sound==true || SOUNDserver=="SOUNDdesk"){
                                 document.getElementById("dia_enter-"+SOUNDserver).play()
                             }
                             if(dia==8){
-                                obj="none"
-                                interact=false
+                                tempINFO[12]="none"
+                                tempINFO[13]=false
                             }
                         }
                     }
-                    if(obj=="2d_portal"){
+                    if(tempINFO[12]=="2d_portal"){
                         lvl="tutorial_ne"
                         x = 0
                         y = 0
-                        obj="none"
+                        tempINFO[12]="none"
                     }
                 }
-                if(obj=="amogus"){
-                    if(interact==false){
-                        interact=true
-                        obj="amogus"
+                if(tempINFO[12]=="amogus"){
+                    if(tempINFO[13]==false){
+                        tempINFO[13]=true
+                        tempINFO[12]="amogus"
                         dia=0
                     }
-                    if(interact==true){
+                    if(tempINFO[13]==true){
                         dia=dia+1
                         nuTW=0
                         if(sound==true || SOUNDserver=="SOUNDdesk"){
                             document.getElementById("dia_enter-"+SOUNDserver).play()
                         }
                         if(dia==2){
-                            obj="none"
-                            interact=false
+                            tempINFO[12]="none"
+                            tempINFO[13]=false
                         }
                     }
                 }
@@ -7823,7 +8366,7 @@
                     lvl="tutorial_ne"
                     x = 0
                     y = 0
-                    obj="none"
+                    tempINFO[12]="none"
                 }
                 if(lvl=="tutorial"){
                     dia=dia+1
@@ -8084,6 +8627,22 @@
                     return*/
                 }
                 if(e.key=="Enter"){
+                    if(lvl=="garden_minigame_death_die"){
+                        boxINVENTORY[0]=""
+                        boxINVENTORY[1]=""
+                        boxINVENTORY[2]=""
+                        boxINVENTORY[3]=""
+                        boxINVENTORY[4]=""
+                        boxINVENTORY[6]=""
+                        inventory_toggle=false
+                        player="cece1"
+                        type="evil"
+                        lvl="outsidegame_cece1_backyard"
+                        x=106
+                        y=75
+                        equiped=""
+                        holding_what_obj=""
+                    }
                     if(lvl=="enter"){
                         lvl="sound"
                     }
@@ -8296,66 +8855,76 @@
                 }
                 if(e.key=="e"){
                     if(lvl=="garage_cece1_closet"){
-                        if(interact==true){
-                            if(obj=="myYellowKeyKeyKeykey"){
-                                if(tempINFO[1]==false){
-                                    var dd = addITEM("inventory_yelKEY1")
-                                    if(dd==false){
-                                        obj="notification_MAD"
-                                        setInterval(function(){
-                                            obj="none"
-                                        },1000)
-                                    }else{
-                                        tempINFO[1]=true
-                                        inventory_toggle=true
-                                    }
+                        if(x>=170 && x<=197 && y<=60){
+                            if(tempINFO[1]==false){
+                                var dd = addITEM("inventory_yelKEY1")
+                                if(dd==false){
+                                    tempINFO[15]="notification_MAD"
+                                    setInterval(function(){
+                                        tempINFO[15]="none"
+                                    },1000)
+                                }else{
+                                    tempINFO[1]=true
+                                    inventory_toggle=true
                                 }
                             }
-                            if(obj=="leaveCLOSET"){
-                                lvl="garage_cece1"
-                                x=64
-                                y=59
-                            }
+                        }else if(x>=221&&y>=48&&y<=72){
+                            lvl="garage_cece1"
+                            x=64
+                            y=59
+                        }else if(x<=91 && y<=69 && y>=48){
+                            lvl="nonesensical_amogus_talk"
+                            dia=0
                         }
                     }
                     if(lvl=="outsidegame_cece1_backyard"){
-                        if(obj=="inside_they_should"){
-                            if(interact==true){
-                                interact=false
-                                lvl="hallway_backyard_connect1"
-                                x=120
-                                y=87
-                                if(sound==true || SOUNDserver=="SOUNDdesk"){
-                                    document.getElementById("wooden_door_open-"+SOUNDserver).play()
-                                }
+                        if(x>=211 && y<=51){
+                            lvl="hallway_backyard_connect1"
+                            x=120
+                            y=60
+                            if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                document.getElementById("wooden_door_open-"+SOUNDserver).play()
                             }
-                        }
-                        if(obj=="minigame~"){
+                        }else if(x<=70){
                             lvl="warning_popup"
                         }
                     }
-                    if(lvl=="ghntb" && interact==true){
-                        if(obj=="garage"){
+                    if(lvl=="ghntb"){
+                        if(y>=72){
                             lvl="garage_cece1"
-                            x=220
-                            y=30
+                            x=223
+                            y=48
                         }
                     }
-                    if(lvl=="garage_cece1" && interact==true){
-                        if(obj=="leave101"){
+                    if(lvl=="garage_cece1"){
+                        if(x>=203 && y<=42){
                             lvl="ghntb"
                             x=46
                             y=72
-                        }
-                        if(obj=="get_key_ok_cece1"){
-                            obj="get_key_ok_cece1!!!"
-                            setInterval(function(){
-                                obj="none"
-                            }, 1500);
+                        }else if(y>=42 && y<=66 && x<=58){
+                            if(holding_what_obj=="da_garage_closet_key_cece1"){
+                                lvl="garage_cece1_closet"
+                                x=215
+                                y=62
+                                boxINVENTORY[0]=""
+                                boxINVENTORY[1]=""
+                                boxINVENTORY[2]=""
+                                boxINVENTORY[3]=""
+                                boxINVENTORY[4]=""
+                                boxINVENTORY[6]=""
+                                holding_what_obj=""
+                                equiped=""
+                                inventory_toggle=false
+                            }else{
+                                obj="get_key_ok_cece1!!!"
+                                setInterval(function(){
+                                    obj="none"
+                                }, 1500);
+                            }
                         }
                     }
-                    if(lvl=="locked_hallway_side1" && interact==true){
-                        if(obj=="da_locked_dor"){
+                    if(lvl=="locked_hallway_side1"){
+                        if(x<=243 && x>=223 && obj!="msg1"){
                             if(equiped!="y_yelKEY1"){
                                 obj="msg1"
                                 setInterval(function(){if(lvl=="locked_hallway_side1"){obj="da_locked_dor"}},1000)
@@ -8363,8 +8932,7 @@
                                 tempINFO[2]=0
                                 db1RE=true
                             }
-                        }
-                        if(obj=="bedoom"){
+                        }else if(x>=127 && y>=36 && x<=157 && y<=48 && obj!="msg1"){
                             boxINVENTORY[0]=""
                             inventory_toggle=false
                             equiped=""
@@ -8375,94 +8943,103 @@
                             lvl="cece_moms_bedroom"
                         }
                     }
-                    if(lvl=="ceceRoom_into_Kicten" && interact==true){
-                        if(obj=="dor1"){
-                            obj="opene"
-                        }else{
-                            obj="dor1"
+                    if(lvl=="ceceRoom_into_Kicten"){
+                        if(x>=119 && x<=179){
+                            if(tempINFO[11]=="dor1"){
+                                tempINFO[11]="opene"
+                                if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                    document.getElementById("wooden_door_open-"+SOUNDserver).play()
+                                }
+                            }else{
+                                tempINFO[11]="dor1"
+                                if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                    document.getElementById("wooden_door_open-"+SOUNDserver).play()
+                                }
+                            }
                         }
                     }
-                    if(lvl=="kitchen" && interact==true){
-                    if(obj=="ceceRoom_into_Kicten"){
-                        x=2
-                        y=58
-                        lvl="ceceRoom_into_Kicten"
-                        obj="opene"
+                    if(lvl=="kitchen"){
+                        if(y>=51 && y<=106 && x>=246){
+                            x=2
+                            y=58
+                            lvl="ceceRoom_into_Kicten"
+                            tempINFO[11]="opene"
+                        }else if(x>=121 && x<=148 && y<=45){
+                            x=135
+                            y=99
+                            obj="none"
+                            lvl="hallway_to_front_enterance1"
+                        }else if(y>=60 && y<=90 && x<=36){
+                            x=267
+                            y=24
+                            tempINFO[11]="opene"
+                            lvl="t_hallway1"
+                        }
                     }
-                    if(obj=="hallway_to_front_enterance1"){
-                        x=135
-                        y=99
-                        obj="none"
-                        lvl="hallway_to_front_enterance1"
+                    if(lvl=="cece_room_2"){
+                        if(y>=39 && y<=69 && x<=43){
+                            lvl="ceceRoom_into_Kicten"
+                            tempINFO[11]="dor1"
+                            dia=0
+                            x=284
+                            y=56
+                        }
                     }
-                    if(obj=="t_hallway1"){
-                        x=267
-                        y=24
-                        obj="opene"
-                        lvl="t_hallway1"
-                    }
-                }
-                    if(lvl=="cece_room_2" && interact==true){
-                        lvl="ceceRoom_into_Kicten"
-                        obj="dor1"
-                        dia=0
-                        x=284
-                        y=56
-                    }
-                    if(lvl=="conscience2" && interact==true){
+                    if(x>=89 && x<=117 && lvl=="conscience2"){
                         lvl="conscience2.1"
                         dia=0
                         x=90
                         y=68
                     }
-                    if(lvl=="tutorial_end" && interact==true){
-                        dia=0
-                        lvl="tutorial_end1"
-                    }
-                    if(lvl=="tutorial_ne" && interact==true){
-                        dia=0
-                        lvl="tutorial_ne1"
-                    }
-                    if(interact==true){
-                        if(lvl=="tutorialp"){
-                            lvl="tutoriala"
+                    if(lvl=="tutorial_end"){
+                        if(x>=125){
+                            dia=0
+                            lvl="tutorial_end1"
                         }
-                        if(lvl=="tutorials"){
+                    }
+                    if(lvl=="tutorial_ne"){
+                        if(x<=171 && x>=141){
+                            dia=0
+                            lvl="tutorial_ne1"
+                        }
+                    }
+                    if(lvl=="tutorialp"){
+                        if(x<=146 && x>=119){
+                           lvl="tutoriala"
+                        }
+                    }
+                    if(lvl=="tutorials"){
+                        if(x<=240 && x>=188){
                             lvl="3d_minimap"
-                            interact=false
-                            if(sound==true || SOUNDserver=="SOUNDdesk"){
-                                document.getElementById("ohio-"+SOUNDserver).currentTime=0
                             playerX=84
                             playerY=84
                             if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                document.getElementById("ohio-"+SOUNDserver).currentTime=0
                                 document.getElementById("ohio-"+SOUNDserver).play()
                             }
-                            }}
+                        }
                     }
                     if(lvl=="hallway_backyard_connect1"){
-                        if(obj=="door_outside!!"){
-                            if(interact==true){
-                                interact=false
-                                lvl="outsidegame_cece1_backyard"
-                                x=247
-                                y=45
-                                if(sound==true || SOUNDserver=="SOUNDdesk"){
-                                    document.getElementById("wooden_door_close-"+SOUNDserver).currentTime=0
-                                    document.getElementById("wooden_door_close-"+SOUNDserver).play()
-                                }
+                        if(y>=86){
+                            lvl="outsidegame_cece1_backyard"
+                            x=247
+                            y=45
+                            if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                document.getElementById("wooden_door_close-"+SOUNDserver).currentTime=0
+                                document.getElementById("wooden_door_close-"+SOUNDserver).play()
                             }
-                        }
-                        if(obj=="minigame~"){
+                        }else if(y<12){
                             lvl="warning_popup"
                         }
                     }
                     if(lvl=="garden_minigame"){
-                        if(obj=="keyRED1!"){
+                        if(y>31&&y<151&&x<-59){
                             if(tempINFO[0]==false){
                                 tempINFO[0]=true
                                 obj="noti"
                                 inventory_toggle=true
                                 inventoryDEBOUNCE = addITEM("inventory_redKEY1")
+                                holding_what_obj="da_garage_closet_key_cece1"
                                 setInterval(function(){
                                     obj="none"
                                     if(inventoryDEBOUNCE==false){
@@ -8470,53 +9047,52 @@
                                     }
                                 },1000)
                             }
-                        }
-                        if(obj=="leave(A)"){
+                        }else if(x>425&&y>31&&y<115){
                             lvl="outsidegame_cece1_backyard"
                             y=79
                             x=72
                         }
                     }
                     if(lvl=="3d_minimap"){
-                        if(obj=="advisor"){
-                            if(interact==false){
-                                interact=true
-                                obj="advisor"
+                        if(tempINFO[12]=="advisor"){
+                            if(tempINFO[13]==false){
+                                tempINFO[13]=true
+                                tempINFO[12]="advisor"
                                 dia=0
                             }
-                            if(interact==true){
+                            if(tempINFO[13]==true){
                                 dia=dia+1
                                 if(sound==true || SOUNDserver=="SOUNDdesk"){
                                     document.getElementById("dia_enter-"+SOUNDserver).play()
                                 }
                                 if(dia==8){
-                                    obj="none"
-                                    interact=false
+                                    tempINFO[12]="none"
+                                    tempINFO[13]=false
                                 }
                             }
                         }
-                        if(obj=="amogus"){
-                            if(interact==false){
-                                interact=true
-                                obj="amogus"
+                        if(tempINFO[12]=="amogus"){
+                            if(tempINFO[13]==false){
+                                tempINFO[13]=true
+                                tempINFO[12]="amogus"
                                 dia=0
                             }
-                            if(interact==true){
+                            if(tempINFO[13]==true){
                                 dia=dia+1
                                 if(sound==true || SOUNDserver=="SOUNDdesk"){
                                     document.getElementById("dia_enter-"+SOUNDserver).play()
                                 }
                                 if(dia==2){
-                                    obj="none"
-                                    interact=false
+                                    tempINFO[12]="none"
+                                    tempINFO[13]=false
                                 }
                             }
                         }
-                        if(obj=="2d_portal"){
+                        if(tempINFO[12]=="2d_portal"){
                             lvl="tutorial_ne"
                             x = 0
                             y = 0
-                            obj="none"
+                            tempINFO[12]="none"
                         }
                     }   
                 }
@@ -8644,18 +9220,38 @@
                 }
                 if(e.key=="-"){
                     if(sound==true || SOUNDserver=="SOUNDdesk"){
-                        if(document.querySelector('audio')!=0){
-                            document.querySelector('audio').volume=document.querySelector('audio').volume-0.1
-                            document.querySelector('video').volume=document.querySelector('video').volume-0.1
+                        if((document.getElementById('audioP1S1-'+SOUNDserver).volume-0.1)>0){
+                            tempINFO[17]="vol"+(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString())
+                            var lin = document.getElementById("body-body").getElementsByTagName("audio")
+                            var lis = document.getElementById("body-body").getElementsByTagName("video")
+                            for (var i = 0, len = lin.length; i < len; i++) {
+                                document.getElementById(lin[i].id).volume=document.getElementById(lin[i].id).volume-0.1
+                                // allTags[i] is an element within the container object
+                                // allTags[i].id is the id of the element (if there is one)
+                            }
+                            for (var i = 0, len = lis.length; i < len; i++) {
+                                document.getElementById(lis[i].id).volume=document.getElementById(lis[i].id).volume-0.1
+                            }
+                            tempINFO[14]="vol"+(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString())
+                            tempINFO[16]=10
                             document.getElementById("ding-"+SOUNDserver).play()
                         }
                     }
                 }
                 if(e.key=="=" || e.key=="+"){
                     if(sound==true || SOUNDserver=="SOUNDdesk"){
-                        if(document.querySelector('audio')!=1){
-                            document.querySelector('audio').volume=document.querySelector('audio').volume+0.1
-                            document.querySelector('video').volume=document.querySelector('video').volume+0.1
+                        if((document.getElementById('audioP1S1-'+SOUNDserver).volume+0.1)<1){
+                            tempINFO[17]="vol"+(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString())
+                            var lin = document.getElementById("body-body").getElementsByTagName("audio")
+                            var lis = document.getElementById("body-body").getElementsByTagName("video")
+                            for (var i = 0, len = lin.length; i < len; i++) {
+                                document.getElementById(lin[i].id).volume=document.getElementById(lin[i].id).volume+0.1
+                            }
+                            for (var i = 0, len = lis.length; i < len; i++) {
+                                document.getElementById(lis[i].id).volume=document.getElementById(lis[i].id).volume+0.1
+                            }
+                            tempINFO[14]="vol"+(Math.ceil(document.getElementById('audioP1S1-'+SOUNDserver).volume/10).toString())
+                            tempINFO[16]=10
                             document.getElementById("ding-"+SOUNDserver).play()
                         }
                     }
@@ -9028,6 +9624,13 @@
                 document.getElementById('cece_band_osu_playback2-imgur').play()
                 cece_band_osu_playback2_imgur.doLoad()
             };
+
+            document.getElementById("fox_vide_or_something_pov_idk-google").onended = (event) => {
+                lvl="garden_minigame_death_die"
+            }
+            document.getElementById("fox_vide_or_something_pov_idk-imgur").onended = (event) => {
+                lvl="garden_minigame_death_die"
+            }
             
             document.getElementById('cece_band_osu_playback2-imgur').onended = (event) => {
                 lvl="osu_afterplay_stats"
