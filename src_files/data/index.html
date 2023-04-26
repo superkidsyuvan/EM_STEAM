@@ -6116,13 +6116,7 @@
                     }
                     if(tempINFO[14]!=tempINFO[17] && tempINFO[16]!=0){
                         tempINFO[16]=tempINFO[16]-1
-                        if(tempINFO[14]==0){
-                            ctx.drawImage(document.getElementById(tempINFO[14]+"-"+IMAGEserver),0,0)
-                        }else if(tempINFO[14]==1){
-                            ctx.drawImage(document.getElementById(tempINFO[14]+"0-"+IMAGEserver),0,0)
-                        }else{
-                            ctx.drawImage(document.getElementById("vol"+(tempINFO[14].slice(5))+"-"+IMAGEserver),0,0)
-                        }
+                        ctx.drawImage(document.getElementById(tempINFO[14]+"-"+IMAGEserver),0,0)
                     }
                 }else{
                     ms100=0
@@ -7007,9 +7001,6 @@
             document.getElementById("ready-drive").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=1}}
             document.getElementById("set-drive").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=2}}
             document.getElementById("go-drive").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=0}}
-            document.getElementById("ready-SOUNDdesk").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=1}}
-            document.getElementById("set-SOUNDdesk").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=2}}
-            document.getElementById("go-SOUNDdesk").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=0}}
             document.getElementById("ready-r3").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=1}}
             document.getElementById("set-r3").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=2}}
             document.getElementById("go-r3").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=0}}
@@ -7019,12 +7010,8 @@
             document.getElementById("laugh-r3").onended=function(){if(lvl=="hallwayCHASE-laugh"){lvl="hallwayCHASE-1";x=80;document.getElementById("chasemusic-"+SOUNDserver).play()}}
             document.getElementById("begin-r3").onended=function(){if(lvl=="hallwayCHASE-start" || lvl=="hallwayCHASE-start-pause"){document.getElementById("laugh-"+SOUNDserver).play();lvl="hallwayCHASE-laugh"}}
             document.getElementById("decide-r3").onended=function(){if(lvl=="cece_room_1_decide"){lvl="she_is_the_ded"}}
-            document.getElementById("laugh-SOUNDdesk").onended=function(){if(lvl=="hallwayCHASE-laugh"){lvl="hallwayCHASE-1";x=80;document.getElementById("chasemusic-"+SOUNDserver).play()}}
-            document.getElementById("begin-SOUNDdesk").onended=function(){if(lvl=="hallwayCHASE-start" || lvl=="hallwayCHASE-start-pause"){document.getElementById("laugh-"+SOUNDserver).play();lvl="hallwayCHASE-laugh"}}
-            document.getElementById("decide-SOUNDdesk").onended=function(){if(lvl=="cece_room_1_decide"){lvl="she_is_the_ded"}}
             document.getElementById("jumpscare_HARVESTER-drive").onended=function(){if(lvl=="plz_turn_on_sound_plzzz_jump"){white_trans=true}}
             document.getElementById("jumpscare_HARVESTER-r3").onended=function(){if(lvl=="plz_turn_on_sound_plzzz_jump"){white_trans=true}}
-            document.getElementById("jumpscare_HARVESTER-SOUNDdesk").onended=function(){if(lvl=="plz_turn_on_sound_plzzz_jump"){white_trans=true}}
             function collide(){
                 if(lvl=="garage_cece1_closet"){
                     if(x<=75){
@@ -9232,7 +9219,13 @@
                             for (var i = 0, len = lis.length; i < len; i++) {
                                 document.getElementById(lis[i].id).volume=document.getElementById(lis[i].id).volume-0.1
                             }
-                            tempINFO[14]="vol"+(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString())
+                            if(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString().includes(".")==true){
+                                tempINFO[14]="vol"+document.getElementById('audioP1S1-'+SOUNDserver).volume.toString().slice(2).slice(-1)
+                            }else if(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString()=="0"){
+                                tempINFO[14]="vol0"
+                            }else if(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString()=="1"){
+                                tempINFO[14]="vol10"
+                            }
                             tempINFO[16]=10
                             document.getElementById("ding-"+SOUNDserver).play()
                         }
@@ -9250,7 +9243,13 @@
                             for (var i = 0, len = lis.length; i < len; i++) {
                                 document.getElementById(lis[i].id).volume=document.getElementById(lis[i].id).volume+0.1
                             }
-                            tempINFO[14]="vol"+(Math.ceil(document.getElementById('audioP1S1-'+SOUNDserver).volume/10).toString())
+                            if(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString().includes(".")==true){
+                                tempINFO[14]="vol"+document.getElementById('audioP1S1-'+SOUNDserver).volume.toString().slice(2).slice(-1)
+                            }else if(document.getElementById('audioP1S1-'+SOUNDserver).volume==0){
+                                tempINFO[14]="vol0"
+                            }else if(document.getElementById('audioP1S1-'+SOUNDserver).volume==1){
+                                tempINFO[14]="vol10"
+                            }
                             tempINFO[16]=10
                             document.getElementById("ding-"+SOUNDserver).play()
                         }

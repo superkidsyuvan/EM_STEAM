@@ -1520,4 +1520,12 @@ document.getElementById("cece_band_osu_playback-desktop").onended = (event) => {
     document.getElementById('cece_band_osu_playback-desktop').currentTime=0
 };
 
+document.getElementById("ready-SOUNDdesk").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=1}}
+document.getElementById("set-SOUNDdesk").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=2}}
+document.getElementById("go-SOUNDdesk").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=0}}
+document.getElementById("laugh-SOUNDdesk").onended=function(){if(lvl=="hallwayCHASE-laugh"){lvl="hallwayCHASE-1";x=80;document.getElementById("chasemusic-"+SOUNDserver).play()}}
+document.getElementById("begin-SOUNDdesk").onended=function(){if(lvl=="hallwayCHASE-start" || lvl=="hallwayCHASE-start-pause"){document.getElementById("laugh-"+SOUNDserver).play();lvl="hallwayCHASE-laugh"}}
+document.getElementById("decide-SOUNDdesk").onended=function(){if(lvl=="cece_room_1_decide"){lvl="she_is_the_ded"}}
+document.getElementById("jumpscare_HARVESTER-SOUNDdesk").onended=function(){if(lvl=="plz_turn_on_sound_plzzz_jump"){white_trans=true}}
+
 console.log("it worked")
