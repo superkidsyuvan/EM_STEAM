@@ -1059,6 +1059,78 @@ var vol10 = document.createElement("img")
 vol10.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol10.png"
 vol10.id="vol10-desktop"
 vol10.hidden=true
+var teacher_bg_edwer1 = document.createElement("img")
+teacher_bg_edwer1.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/teacherROM/teacherbg.png"
+teacher_bg_edwer1.id="teacher_bg_edwer1-desktop"
+teacher_bg_edwer1.hidden=true
+var teacher1_profile_128 = document.createElement("img")
+teacher1_profile_128.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/teacherROM/teacher_profile.png"
+teacher1_profile_128.id="teacher1_profile_128-desktop"
+teacher1_profile_128.hidden=true
+var edwerd_profile_ph = document.createElement("img")
+edwerd_profile_ph.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/teacherROM/edwerd_placeholder_profile.png"
+edwerd_profile_ph.id="edwerd_profile_ph-desktop"
+edwerd_profile_ph.hidden=true
+var teacher_caught_edwerd_AAA = document.createElement("img")
+teacher_caught_edwerd_AAA.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/teacherROM/caught_in_action.png"
+teacher_caught_edwerd_AAA.id="teacher_caught_edwerd_AAA-desktop"
+teacher_caught_edwerd_AAA.hidden=true
+var teacher_caught_edwer_watching_on_his_iphone4 = document.createElement("video")
+teacher_caught_edwer_watching_on_his_iphone4.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/teacherROM/caught_in_action.mp4"
+teacher_caught_edwer_watching_on_his_iphone4.id="teacher_caught_edwer_watching_on_his_iphone4-desktop"
+teacher_caught_edwer_watching_on_his_iphone4.hidden=true
+var bell1_s_profile = document.createElement("img")
+bell1_s_profile.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/teacherROM/bell_profile.png"
+bell1_s_profile.id="bell1_s_profile-desktop"
+bell1_s_profile.hidden=true
+var wall_classroom1_LM = document.createElement("img")
+wall_classroom1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/wall_plain.png"
+wall_classroom1_LM.id="wall_classroom1_LM-desktop"
+wall_classroom1_LM.hidden=true
+var board_left_LM = document.createElement("img")
+board_left_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/board_left.png"
+board_left_LM.id="board_left_LM-desktop"
+board_left_LM.hidden=true
+var board_middle_LM = document.createElement("img")
+board_middle_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/board_middle.png"
+board_middle_LM.id="board_middle_LM-desktop"
+board_middle_LM.hidden=true
+var board_right_LM = document.createElement("img")
+board_right_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/board_right.png"
+board_right_LM.id="board_right_LM-desktop"
+board_right_LM.hidden=true
+var fade_1_LM = document.createElement("img")
+fade_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fade.png"
+fade_1_LM.id="fade_1_LM-desktop"
+fade_1_LM.hidden=true
+var fade_rev_1_LM = document.createElement("img")
+fade_rev_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fade_rev.png"
+fade_rev_1_LM.id="fade_rev_1_LM-desktop"
+fade_rev_1_LM.hidden=true
+var wall_norm_1_LM = document.createElement("img")
+wall_norm_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/wall_norm.png"
+wall_norm_1_LM.id="wall_norm_1_LM-desktop"
+wall_norm_1_LM.hidden=true
+var wall_poster1_1_LM = document.createElement("img")
+wall_poster1_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/wall_poster1.png"
+wall_poster1_1_LM.id="wall_poster1_1_LM-desktop"
+wall_poster1_1_LM.hidden=true
+var cafeteria_1_LM = document.createElement("img")
+cafeteria_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/cafeteria.png"
+cafeteria_1_LM.id="cafeteria_1_LM-desktop"
+cafeteria_1_LM.hidden=true
+var cafe_norm_1_LM = document.createElement("img")
+cafe_norm_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/cafe_norm.png"
+cafe_norm_1_LM.id="cafe_norm_1_LM-desktop"
+cafe_norm_1_LM.hidden=true
+var cafe_norm_rev_1_LM = document.createElement("img")
+cafe_norm_rev_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/cafe_norm_rev.png"
+cafe_norm_rev_1_LM.id="cafe_norm_rev_1_LM-desktop"
+cafe_norm_rev_1_LM.hidden=true
+var door_left_1_LM = document.createElement("img")
+door_left_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/door_left.png"
+door_left_1_LM.id="door_left_1_LM-desktop"
+door_left_1_LM.hidden=true
 
 /* DONTI OWKRRR!!
 
@@ -1459,7 +1531,25 @@ document.getElementById("library_com").appendChild(vol7)
 document.getElementById("library_com").appendChild(vol8)
 document.getElementById("library_com").appendChild(vol9)
 document.getElementById("library_com").appendChild(vol10)
-
+document.getElementById("library_com").appendChild(teacher_caught_edwerd_AAA)
+document.getElementById("library_com").appendChild(teacher_caught_edwer_watching_on_his_iphone4)
+document.getElementById("library_com").appendChild(fox_vide_or_something_pov_idk)
+document.getElementById("library_com").appendChild(teacher_bg_edwer1)
+document.getElementById("library_com").appendChild(teacher1_profile_128)
+document.getElementById("library_com").appendChild(edwerd_profile_ph)
+document.getElementById("library_com").appendChild(bell1_s_profile)
+document.getElementById("library_com").appendChild(wall_classroom1_LM)
+document.getElementById("library_com").appendChild(board_left_LM)
+document.getElementById("library_com").appendChild(board_middle_LM)
+document.getElementById("library_com").appendChild(board_right_LM)
+document.getElementById("library_com").appendChild(wall_norm_1_LM)
+document.getElementById("library_com").appendChild(wall_poster1_1_LM)
+document.getElementById("library_com").appendChild(fade_1_LM)
+document.getElementById("library_com").appendChild(fade_rev_1_LM)
+document.getElementById("library_com").appendChild(cafeteria_1_LM)
+document.getElementById("library_com").appendChild(cafe_norm_1_LM)
+document.getElementById("library_com").appendChild(cafe_norm_rev_1_LM)
+document.getElementById("library_com").appendChild(door_left_1_LM)
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)
@@ -1519,6 +1609,10 @@ document.getElementById("cece_band_osu_playback-desktop").onended = (event) => {
     document.getElementById('drive_clip-r3').pause()
     document.getElementById('cece_band_osu_playback-desktop').currentTime=0
 };
+
+document.getElementById("teacher_caught_edwer_watching_on_his_iphone4-desktop").onended = (event) => {
+    lvl="teacher_mad_talk"
+}
 
 document.getElementById("ready-SOUNDdesk").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=1}}
 document.getElementById("set-SOUNDdesk").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=2}}
