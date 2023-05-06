@@ -1131,6 +1131,18 @@ var door_left_1_LM = document.createElement("img")
 door_left_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/door_left.png"
 door_left_1_LM.id="door_left_1_LM-desktop"
 door_left_1_LM.hidden=true
+var lunch_lady1_1_LM = document.createElement("img")
+lunch_lady1_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/lunch_lady1.png"
+lunch_lady1_1_LM.id="lunch_lady1_1_LM-desktop"
+lunch_lady1_1_LM.hidden=true
+var lunch_map_bg_1_LM = document.createElement("img")
+lunch_map_bg_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/land2.png"
+lunch_map_bg_1_LM.id="lunch_map_bg_1_LM-desktop"
+lunch_map_bg_1_LM.hidden=true
+var fruit_foret_no_bg_1_LM = document.createElement("img")
+fruit_foret_no_bg_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/dont_forget_fruit.png"
+fruit_foret_no_bg_1_LM.id="fruit_foret_no_bg_1_LM-desktop"
+fruit_foret_no_bg_1_LM.hidden=true
 
 /* DONTI OWKRRR!!
 
@@ -1550,6 +1562,9 @@ document.getElementById("library_com").appendChild(cafeteria_1_LM)
 document.getElementById("library_com").appendChild(cafe_norm_1_LM)
 document.getElementById("library_com").appendChild(cafe_norm_rev_1_LM)
 document.getElementById("library_com").appendChild(door_left_1_LM)
+document.getElementById("library_com").appendChild(lunch_lady1_1_LM)
+document.getElementById("library_com").appendChild(lunch_map_bg_1_LM)
+document.getElementById("library_com").appendChild(fruit_foret_no_bg_1_LM)
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)
