@@ -1143,6 +1143,10 @@ var fruit_foret_no_bg_1_LM = document.createElement("img")
 fruit_foret_no_bg_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/dont_forget_fruit.png"
 fruit_foret_no_bg_1_LM.id="fruit_foret_no_bg_1_LM-desktop"
 fruit_foret_no_bg_1_LM.hidden=true
+var normstand_1_LM = document.createElement("img")
+normstand_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/lunch_stand.png"
+normstand_1_LM.id="normstand_1_LM-desktop"
+normstand_1_LM.hidden=true
 
 /* DONTI OWKRRR!!
 
@@ -1565,6 +1569,7 @@ document.getElementById("library_com").appendChild(door_left_1_LM)
 document.getElementById("library_com").appendChild(lunch_lady1_1_LM)
 document.getElementById("library_com").appendChild(lunch_map_bg_1_LM)
 document.getElementById("library_com").appendChild(fruit_foret_no_bg_1_LM)
+document.getElementById("library_com").appendChild(normstand_1_LM)
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)
