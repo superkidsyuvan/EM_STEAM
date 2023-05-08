@@ -1147,6 +1147,22 @@ var normstand_1_LM = document.createElement("img")
 normstand_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/lunch_stand.png"
 normstand_1_LM.id="normstand_1_LM-desktop"
 normstand_1_LM.hidden=true
+var quest_ui_11 = document.createElement("img")
+quest_ui_11.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/quest_ui.png"
+quest_ui_11.id="quest_ui_11-desktop"
+quest_ui_11.hidden=true
+var quest_ui_22 = document.createElement("img")
+quest_ui_22.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/quest_ui2.png"
+quest_ui_22.id="quest_ui_22-desktop"
+quest_ui_22.hidden=true
+var table_middle_1_LM = document.createElement("img")
+table_middle_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/table_middle.png"
+table_middle_1_LM.id="table_middle_1_LM-desktop"
+table_middle_1_LM.hidden=true
+var cashiers12_1_LM = document.createElement("img")
+cashiers12_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/cashiers.png"
+cashiers12_1_LM.id="cashiers12_1_LM-desktop"
+cashiers12_1_LM.hidden=true
 
 /* DONTI OWKRRR!!
 
@@ -1570,6 +1586,10 @@ document.getElementById("library_com").appendChild(lunch_lady1_1_LM)
 document.getElementById("library_com").appendChild(lunch_map_bg_1_LM)
 document.getElementById("library_com").appendChild(fruit_foret_no_bg_1_LM)
 document.getElementById("library_com").appendChild(normstand_1_LM)
+document.getElementById("library_com").appendChild(quest_ui_11)
+document.getElementById("library_com").appendChild(quest_ui_22)
+document.getElementById("library_com").appendChild(table_middle_1_LM)
+document.getElementById("library_com").appendChild(cashiers12_1_LM)
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)
@@ -1623,6 +1643,7 @@ document.getElementById("fox_vide_or_something_pov_idk-desktop").onended = (even
 
 document.getElementById("cece_band_osu_playback-desktop").onended = (event) => {
     lvl="osu_afterplay_stats"
+    tempINFO[26]="buy lunch"
     document.getElementById('cece_band_osu_playback-desktop').pause()
     document.getElementById('drive_clip-drive').pause()
     document.getElementById('drive_clip-SOUNDdesk').pause()

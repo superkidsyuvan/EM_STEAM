@@ -559,6 +559,14 @@
         <img hidden src="" id="fruit_foret_no_bg_1_LM-imgur" alt="fruit_foret_no_bg_1_LM-imgur">
         <img hidden src="" id="normstand_1_LM-google" alt="normstand_1_LM-google">
         <img hidden src="" id="normstand_1_LM-imgur" alt="normstand_1_LM-imgur">
+        <img hidden src="" id="quest_ui_11-google" alt="quest_ui_11-google">
+        <img hidden src="" id="quest_ui_11-imgur" alt="quest_ui_11-imgur">
+        <img hidden src="" id="quest_ui_22-google" alt="quest_ui_22-google">
+        <img hidden src="" id="quest_ui_22-imgur" alt="quest_ui_22-imgur">
+        <img hidden src="" id="table_middle_1_LM-google" alt="table_middle_1_LM-google">
+        <img hidden src="" id="table_middle_1_LM-imgur" alt="table_middle_1_LM-imgur">
+        <img hidden src="" id="cashiers12_1_LM-google" alt="cashiers12_1_LM-google">
+        <img hidden src="" id="cashiers12_1_LM-imgur" alt="cashiers12_1_LM-imgur">
         <img hidden src="" id="lunch_map_bg_1_LM-google" alt="lunch_map_bg_1_LM-google">
         <img hidden src="" id="lunch_map_bg_1_LM-imgur" alt="lunch_map_bg_1_LM-imgur">
         <video hidden src="https://i.imgur.com/H0EPXlB.mp4" id="tsone_intro-imgur" alt="tsone_intro-imgur"></video>
@@ -760,7 +768,7 @@
             var pause_menu2=0
             var holding_what_obj="none" //what you holding tho??
             var moveTHING=0
-            var tempINFO = [false,false,0,false,false,false,0,0,1,false,0,"dor1","none",false,"vol-","nil",0,"vol-",0,"neutral",0,0,true]
+            var tempINFO = [false,false,0,false,false,false,0,0,1,false,0,"dor1","none",false,"vol-","nil",0,"vol-",0,"neutral",0,0,"false","?","Reward: ???","0/1","random_quest"]
             var osu={}
             var osuX={}
             var osuY={}
@@ -1131,13 +1139,19 @@
             function FRAME(){
                 if(lvl!="osu!-doki_doki,[json-cece_F]" || lvl!="teacher_caught_edwerd_on_phone"){ctx.clearRect(0,0,310, 150);}
                 envo_2d()
-                otherSTUF()
                 envo_3d()
+                otherSTUF()
             }
 
             function translateGRID(x,y){
                 var n = (x/150)*250
                 var h = (y/300)*500
+                return (n+","+h)
+            }
+
+            function translateGRID2(x,y){
+                var n = (x/250)*150
+                var h = (y/500)*300
                 return (n+","+h)
             }
 
@@ -1814,7 +1828,7 @@
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("edwerd","profile_ph",10,28)
-                            typewriter("aaugauadihdbsjalj", 15, 110);
+                            typewriter("you-huh i wha-", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -1823,7 +1837,7 @@
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("teacher1","profile",10,28)
-                            typewriter("edwerd this is da 7th time tis week", 15, 110);
+                            typewriter("This is the seventh time this week Edward!", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -1831,8 +1845,8 @@
                             ctx.fillRect(10, 95, 270, 50);
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
-                            DrawPlayer("edwerd","profile_ph",10,28)
-                            typewriter("why u pasue vidio?", 15, 110);
+                            DrawPlayer("teacher1","profile",10,28)
+                            typewriter("OooOoh!", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -1840,8 +1854,8 @@
                             ctx.fillRect(10, 95, 270, 50);
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
-                            DrawPlayer("teacher1","profile",10,28)
-                            typewriter("ITS WENESDAY EDWERD", 15, 110);
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("But why did you pause the video?", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -1849,8 +1863,8 @@
                             ctx.fillRect(10, 95, 270, 50);
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
-                            DrawPlayer("edwerd","profile_ph",10,28)
-                            typewriter("amugus 🤫", 15, 110);
+                            DrawPlayer("teacher1","profile",10,28)
+                            typewriter("*whispers* You really are dumb", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -1859,7 +1873,7 @@
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("teacher1","profile",10,28)
-                            typewriter("if this behavior keeps up....", 15, 110);
+                            typewriter("...", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -1867,8 +1881,9 @@
                             ctx.fillRect(10, 95, 270, 50);
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
-                            DrawPlayer("teacher1","profile",10,28)
-                            typewriter("i will call ur parents!!", 15, 110);
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            //typewriter("amugus 🤫", 15, 110);
+                            typewriter("Huh?", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -1876,8 +1891,8 @@
                             ctx.fillRect(10, 95, 270, 50);
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
-                            DrawPlayer("edwerd","profile_ph",10,28)
-                            typewriter("heheheheheh", 15, 110);
+                            DrawPlayer("teacher1","profile",10,28)
+                            typewriter("I will now take your phone. *Takes phone*", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -1886,7 +1901,7 @@
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("teacher1","profile",10,28)
-                            typewriter("i will now take your phone ", 15, 110);
+                            typewriter("until the end of class", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -1894,8 +1909,8 @@
                             ctx.fillRect(10, 95, 270, 50);
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
-                            DrawPlayer("teacher1","profile",10,28)
-                            typewriter("until the end of class", 15, 110);
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("Damn it", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -1903,8 +1918,8 @@
                             ctx.fillRect(10, 95, 270, 50);
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
-                            DrawPlayer("bell1_s","profile",10,28)
-                            typewriter("*bell rings*", 15, 110);
+                            DrawPlayer("teacher1","profile",10,28)
+                            typewriter("Oh yeah, and I’m going to have", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -1913,7 +1928,52 @@
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("teacher1","profile",10,28)
-                            typewriter("i dont get paid enough. 💀", 15, 110);
+                            typewriter("to call your parents about this", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==12){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("Hehehe, good luck on doing that", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==13){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("bell1_s","profile",10,28)
+                            typewriter("*bell rings*", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==14){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("teacher1","profile",10,28)
+                            typewriter("Ughh!", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==15){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("teacher1","profile",10,28)
+                            typewriter("I dont get paid enough. ", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==16){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("And I will take that! *Takes phone*", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -2828,6 +2888,7 @@
                             ctx.fillStyle="white"; 
                             tempINFO[3]=true
                             aboveTEXTnotification("#00ff00","#ffffff","Chapter1 Unlocked!")
+                            tempINFO[22]="false"
                             ctx.font = "15px Arial";
                             DrawPlayer("cece1","cece_profilepic3",10,28)
                             typewriter("and he was left to.. die?", 15, 110);
@@ -4369,35 +4430,35 @@
                 1, 1, 1, 2, 3, 4, 1, 1, 1, 7, 7, 7, 7, 7, 7, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7,10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 5, 7, 0, 0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 1, 5, 7, 0, 0, 0, 0, 0, 0, 0,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+                1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
+                1, 0, 0, 0, 0, 0, 0, 0, 1, 5, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0,14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+                1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 1, 1, 1, 1, 1, 1, 1, 1, 8, 0, 0, 0, 0, 0, 7,11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 5, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+                1, 0, 0, 0, 0, 0, 0, 0, 5, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 6, 7, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+                1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+                1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 1, 1, 1, 1, 1, 1, 1, 1, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+                1, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 6, 8, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+                1, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 1, 1, 1, 1, 1, 1, 1, 1, 8, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 5, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+                1, 0, 0, 0, 0, 0, 0, 0, 5, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 0,12, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 6,12, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 9, 9, 9, 9, 9, 9, 0, 0, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 9, 9, 0, 9, 9, 0, 0, 0, 0, 0, 0, 9, 9, 0, 9, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0,13,14, 0, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 7, 7, 7, 7, 7, 8, 7, 9, 9,15,13,14, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
+                1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0,17,17,17,17,17,17, 0, 0, 0, 0, 9,
+                1, 1, 1, 1, 1, 1, 1, 1, 1, 7, 7, 7, 7, 7, 8, 7, 9,14,15,13,14,14,15,13,14,14,15,13,14,14,15,13,
             ]
 
             var plain_map = [
@@ -4478,7 +4539,7 @@
 
             //randome texture loading
             var MAP=[document.getElementById("rock_wall-"+IMAGEserver),document.getElementById("rock_wall-"+IMAGEserver),document.getElementById("advisor_3d-"+IMAGEserver),document.getElementById("portal_3d-"+IMAGEserver),document.getElementById("portal_2d-"+IMAGEserver),document.getElementById("amogus-"+IMAGEserver)]
-            var mlp=[0,document.getElementById("wall_classroom1_LM-"+IMAGEserver),document.getElementById("board_left_LM-"+IMAGEserver),document.getElementById("board_middle_LM-"+IMAGEserver),document.getElementById("board_right_LM-"+IMAGEserver),document.getElementById("fade_1_LM-"+IMAGEserver),document.getElementById("fade_rev_1_LM-"+IMAGEserver),document.getElementById("wall_norm_1_LM-"+IMAGEserver),document.getElementById("wall_poster1_1_LM-"+IMAGEserver),document.getElementById("cafeteria_1_LM-"+IMAGEserver),document.getElementById("cafe_norm_1_LM-"+IMAGEserver),document.getElementById("cafe_norm_rev_1_LM-"+IMAGEserver),document.getElementById("door_left_1_LM-"+IMAGEserver),document.getElementById("lunch_lady1_1_LM-"+IMAGEserver),document.getElementById("fruit_foret_no_bg_1_LM-"+IMAGEserver),document.getElementById("normstand_1_LM-"+IMAGEserver)]
+            var mlp=[0,document.getElementById("wall_classroom1_LM-"+IMAGEserver),document.getElementById("board_left_LM-"+IMAGEserver),document.getElementById("board_middle_LM-"+IMAGEserver),document.getElementById("board_right_LM-"+IMAGEserver),document.getElementById("fade_1_LM-"+IMAGEserver),document.getElementById("fade_rev_1_LM-"+IMAGEserver),document.getElementById("wall_norm_1_LM-"+IMAGEserver),document.getElementById("wall_poster1_1_LM-"+IMAGEserver),document.getElementById("cafeteria_1_LM-"+IMAGEserver),document.getElementById("cafe_norm_1_LM-"+IMAGEserver),document.getElementById("cafe_norm_rev_1_LM-"+IMAGEserver),document.getElementById("door_left_1_LM-"+IMAGEserver),document.getElementById("lunch_lady1_1_LM-"+IMAGEserver),document.getElementById("fruit_foret_no_bg_1_LM-"+IMAGEserver),document.getElementById("normstand_1_LM-"+IMAGEserver),document.getElementById("table_middle_1_LM-"+IMAGEserver),document.getElementById("cashiers12_1_LM-"+IMAGEserver)]
 
             //3d functions
                 function envo_3d(){
@@ -4553,6 +4614,7 @@
                         
                         // render textures
                         if(textureImage!=13){
+                            if(textureImage!=17){
                             ctx.drawImage(
                                 mlp[textureImage],
                                 textureOffset,                                                       /* source image X offset */
@@ -4564,6 +4626,17 @@
                                 1,                                                                   /* target image width    */
                                 wallHeight                                                          /* target image height   */
                             );
+                            }else{ctx.drawImage(
+                                mlp[textureImage],
+                                textureOffset+(funniframe/2),                                                       /* source image X offset */
+                                0,                                                                   /* source image Y offset */
+                                1,                                                                   /* source image width    */
+                                64,                                                                  /* source image height   */
+                                mapOffsetX + ray,                                                    /* target image X offset */
+                                mapOffsetY + (75 - Math.floor(wallHeight / 2)),             /* target image Y offset */
+                                1,                                                                   /* target image width    */
+                                wallHeight                                                          /* target image height   */
+                            ); }
                         }else{
                             ctx.drawImage(
                                 mlp[textureImage],
@@ -5102,6 +5175,19 @@
             }
             
             function otherSTUF(){
+                if(mode=="easy" || mode=="norm"){
+                    if(tempINFO[22]=="true"){
+                        ctx.drawImage(document.getElementById("quest_ui_11-"+IMAGEserver),tempINFO[20],tempINFO[21],75,50)
+                    }
+                    if(tempINFO[22]=="hover"){
+                        ctx.drawImage(document.getElementById("quest_ui_22-"+IMAGEserver),tempINFO[20],tempINFO[21],100,66)
+                        ctx.font = "15px Arial";
+                        ctx.fillText(tempINFO[25],tempINFO[20]+7,tempINFO[21]+45)
+                        ctx.font = "10px Arial";
+                        ctx.fillText(tempINFO[26],tempINFO[20]+7,tempINFO[21]+22)
+                        ctx.fillText(tempINFO[24],tempINFO[20]+7,tempINFO[21]+60)
+                    }
+                }
                 if(lvl=="3d_lunch_map"){
                     if(tempINFO[19]=="down"){
                         if(tempINFO[18]!=0){
@@ -7193,6 +7279,8 @@
                         if(frame_bg_main39>=4478){
                             frame_bg_main39=0
                             lvl="tutorial"
+                            tempINFO[22]="true"
+                            tempINFO[26]="go to right of screen"
                             document.getElementById("ambience-"+SOUNDserver).pause()
                         }
                         if(frame_bg_main3>=2816){
@@ -7815,6 +7903,11 @@
                     }
                     if(x>=294){
                         lvl="cece_room_2"
+                        if(mode=="norm"){
+                            tempINFO[26]="get red key"
+                        }else{
+                            tempINFO[26]="Get red key (follow arrows)"
+                        }
                         x=258
                         y=86
                     }
@@ -7976,6 +8069,7 @@
                     }
                     if(x>=243){
                         lvl="cecequestintro"
+                        tempINFO[26]="decide cece?"
                         player="cece1"
                         document.getElementById("chasemusic-drive").pause() 
                         document.getElementById("chasemusic-drive").currentTime=0
@@ -8358,6 +8452,16 @@
                 }
             }
 
+            canvas.addEventListener("mousedown", function(e){
+                if(mode=="easy" || mode=="norm"){
+                    if(tempINFO[22]!="false"){
+                        if(e.clientX>=parseInt((translateGRID(tempINFO[20],tempINFO[21]).split(","))[0]) && e.clientX<=parseInt((translateGRID(tempINFO[20]+75,tempINFO[21]).split(","))[0]) && e.clientY>=parseInt((translateGRID(tempINFO[20],tempINFO[21]).split(","))[1]) && e.clientY<=parseInt((translateGRID(tempINFO[20],tempINFO[21]+50).split(","))[1])){
+                            tempINFO[23]=true
+                        }
+                    }
+                }
+            })
+
             canvas.addEventListener("click", function(e){
                 if(mode=="norm" || mode=="easy"){
                     var nt = (translateGRID(25,25).split(","))[0]
@@ -8371,6 +8475,11 @@
                                 obj="noti"
                                 inventory_toggle=true
                                 inventoryDEBOUNCE = addITEM("inventory_redKEY1")
+                                if(mode=="norm"){
+                                    tempINFO[26]="get yellow key"
+                                }else{
+                                    tempINFO[26]="Get yellow key (follow arrows)"
+                                }
                                 holding_what_obj="da_garage_closet_key_cece1"
                                 setInterval(function(){
                                     obj="none"
@@ -8456,6 +8565,11 @@
                     if(x>=170 && x<=197 && y<=60){
                         if(tempINFO[1]==false){
                             var dd = addITEM("inventory_yelKEY1")
+                            if(mode=="norm"){
+                                    tempINFO[26]="go to bedrom"
+                                }else{
+                                    tempINFO[26]="go to bedrom (follow arrows)"
+                                }
                             if(dd==false){
                                 tempINFO[15]="notification_MAD"
                                 setInterval(function(){
@@ -8733,7 +8847,7 @@
                     if(sound==true || SOUNDserver=="SOUNDdesk"){
                         document.getElementById("dia_enter-"+SOUNDserver).play()
                     }
-                    if(dia==12){
+                    if(dia==17){
                         lvl="demo-end"
                     }
                 }
@@ -8803,6 +8917,7 @@
                             nuTW=0
                             obj=""
                             lvl="cece_moms_bedroom"
+                            tempINFO[26]="play osu!!"
                         }
                     }
                 if(lvl=="tutorial_ne1"){
@@ -8821,6 +8936,7 @@
                 if(lvl=="tutorials"){
                     if(x<=240 && x>=188){
                         lvl="3d_minimap"
+                        tempINFO[26]="find red portal"
                         MAP=[document.getElementById("rock_wall-"+IMAGEserver),document.getElementById("rock_wall-"+IMAGEserver),document.getElementById("advisor_3d-"+IMAGEserver),document.getElementById("portal_3d-"+IMAGEserver),document.getElementById("portal_2d-"+IMAGEserver),document.getElementById("amogus-"+IMAGEserver)]
                         playerX=84
                         playerY=84
@@ -8868,6 +8984,7 @@
                         x = 0
                         y = 0
                         tempINFO[12]="none"
+                        tempINFO[26]="go to right of screen"
                     }
                 }
                 if(tempINFO[12]=="amogus"){
@@ -9015,6 +9132,8 @@
                         }
                         player="bakaRUN-v1.2"
                         mode="easy"
+                        tempINFO[22]="true"
+                        tempINFO[26]="RUN AWAY FROM HIM"
                     }else{
                         lvl="menuSEL1-locked"
                         if(sound==true || SOUNDserver=="SOUNDdesk"){
@@ -9045,6 +9164,8 @@
                         }
                         player="bakaRUN-v1.2"
                         mode="norm"
+                        tempINFO[22]="true"
+                        tempINFO[26]="RUN AWAY FROM HIM"
                     }else{
                         lvl="menuSEL1-locked"
                         if(sound==true || SOUNDserver=="SOUNDdesk"){
@@ -9081,6 +9202,8 @@
                         }
                         player="bakaRUN-v1.2"
                         mode="hard"
+                        tempINFO[22]="true"
+                        tempINFO[26]="RUN AWAY FROM HIM"
                     }else{
                         lvl="menuSEL1-locked"
                         if(sound==true || SOUNDserver=="SOUNDdesk"){
@@ -9384,6 +9507,11 @@
                         if(x>=170 && x<=197 && y<=60){
                             if(tempINFO[1]==false){
                                 var dd = addITEM("inventory_yelKEY1")
+                                if(mode=="norm"){
+                                    tempINFO[26]="go to bedrom"
+                                }else{
+                                    tempINFO[26]="go to bedrom (follow arrows)"
+                                }
                                 if(dd==false){
                                     tempINFO[15]="notification_MAD"
                                     setInterval(function(){
@@ -9467,6 +9595,7 @@
                             nuTW=0
                             obj=""
                             lvl="cece_moms_bedroom"
+                            tempINFO[26]="play osu!!"
                         }
                     }
                     if(lvl=="ceceRoom_into_Kicten"){
@@ -9566,6 +9695,11 @@
                                 obj="noti"
                                 inventory_toggle=true
                                 inventoryDEBOUNCE = addITEM("inventory_redKEY1")
+                                if(mode=="norm"){
+                                    tempINFO[26]="get yellow key"
+                                }else{
+                                    tempINFO[26]="Get yellow key (follow arrows)"
+                                }
                                 holding_what_obj="da_garage_closet_key_cece1"
                                 setInterval(function(){
                                     obj="none"
@@ -9920,7 +10054,20 @@
                     }
                 }
             })
+            canvas.addEventListener("mouseup", function(e){
+                if(mode=="easy" || mode=="norm"){
+                    if(tempINFO[23]){
+                        tempINFO[23]=false
+                    }
+                }
+            })
             canvas.addEventListener("mousemove", function(e){
+                if(mode=="easy" || mode=="norm"){
+                    if(tempINFO[23] && tempINFO[22]=="hover"){
+                        tempINFO[20] = Math.round(parseInt((translateGRID2(e.clientX,e.clientY).split(","))[0]))
+                        tempINFO[21] = Math.round(parseInt((translateGRID2(e.clientX,e.clientY).split(","))[1]))
+                    }
+                }
                 if(lvl=="sound2"  || lvl=="sound3"|| lvl=="sound4"|| lvl=="sound5"){
                     if(e.clientX>=39 && e.clientX<=224 && e.clientY>=53 && e.clientY<=79){
                         lvl="sound3"
@@ -10000,10 +10147,11 @@
                     }
                 }
                 if(mode=="easy" || mode=="norm"){
-                    if(tempINFO[22]==true){
-                        console.log(e.clientX>=(translateGRID(tempINFO[20],tempINFO[21]).split(","))[0] && e.clientX<=(translateGRID(tempINFO[20]+150,tempINFO[21]).split(","))[0] && e.clientY>=(translateGRID(tempINFO[20],tempINFO[21]).split(","))[1] && e.clientY<=(translateGRID(tempINFO[20],tempINFO[21]+100).split(","))[0])
-                        if(e.clientX>=parseInt((translateGRID(tempINFO[20],tempINFO[21]).split(","))[0]) && e.clientX<=parseInt((translateGRID(tempINFO[20]+150,tempINFO[21]).split(","))[0]) && e.clientY>=parseInt((translateGRID(tempINFO[20],tempINFO[21]).split(","))[1]) && e.clientY<=parseInt((translateGRID(tempINFO[20],tempINFO[21]+150).split(","))[1])){
-                            console.log("quest ui clicked")
+                    if(tempINFO[22]!="false"){
+                        if(e.clientX>=parseInt((translateGRID(tempINFO[20],tempINFO[21]).split(","))[0]) && e.clientX<=parseInt((translateGRID(tempINFO[20]+75,tempINFO[21]).split(","))[0]) && e.clientY>=parseInt((translateGRID(tempINFO[20],tempINFO[21]).split(","))[1]) && e.clientY<=parseInt((translateGRID(tempINFO[20],tempINFO[21]+50).split(","))[1])){
+                            tempINFO[22]="hover"
+                        }else{
+                            tempINFO[22]="true"
                         }
                     }
                 }
@@ -10165,6 +10313,7 @@
             document.getElementById('cece_band_osu_playback-google').onended = (event) => {
                 //lvl="drive_clip_osu_ended_"
                 lvl="osu_afterplay_stats"
+                tempINFO[26]="buy lunch"
                 document.getElementById('cece_band_osu_playback-google').pause()
                 document.getElementById('drive_clip-drive').pause()
                 document.getElementById('drive_clip-SOUNDdesk').pause()
@@ -10186,6 +10335,7 @@
             
             document.getElementById('cece_band_osu_playback2-imgur').onended = (event) => {
                 lvl="osu_afterplay_stats"
+                tempINFO[26]="buy lunch"
                 document.getElementById('cece_band_osu_playback2-imgur').pause()
                 document.getElementById('drive_clip-drive').pause()
                 document.getElementById('drive_clip-SOUNDdesk').pause()
