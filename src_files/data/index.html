@@ -14,7 +14,7 @@
     </head>
     <body id="body-body">
         <canvas id="mainGame">If You See Me, Try Upgrading Your Browser</canvas>
-        <div id="ugly"><h3>Images Not Working? / Image Loading Stuck?: Change Server (Image):</h3>
+        <div id="ugly"><h3 id="ugly2">Images Not Working? / Image Loading Stuck?: Change Server (Image):</h3>
         <span hidden id="external_script"></span>
         <button onclick="imgur()" id="imgur">imgur (Default) - (Selected)</button> <button onclick="google()" id="google">Google Photos (Recommended for school computers)</button>         <div id="library_com"></div>
         </br><span>Images May Take Time To Load When Changing Servers</span>
@@ -567,6 +567,8 @@
         <img hidden src="" id="table_middle_1_LM-imgur" alt="table_middle_1_LM-imgur">
         <img hidden src="" id="cashiers12_1_LM-google" alt="cashiers12_1_LM-google">
         <img hidden src="" id="cashiers12_1_LM-imgur" alt="cashiers12_1_LM-imgur">
+        <img hidden src="" id="classroom_profile_1_LM-google" alt="classroom_profile_1_LM-google">
+        <img hidden src="" id="classroom_profile_1_LM-imgur" alt="classroom_profile_1_LM-imgur">
         <img hidden src="" id="lunch_map_bg_1_LM-google" alt="lunch_map_bg_1_LM-google">
         <img hidden src="" id="lunch_map_bg_1_LM-imgur" alt="lunch_map_bg_1_LM-imgur">
         <video hidden src="https://i.imgur.com/H0EPXlB.mp4" id="tsone_intro-imgur" alt="tsone_intro-imgur"></video>
@@ -1822,6 +1824,12 @@
             function dialogue(){
                     ctx.fillStyle="black";
                     ctx.fillRect(10, 95, 270, 50);
+                    if(lvl=="3d_lunch_map"){
+                        if(tempINFO[13]==true){
+                            if(tempINFO[12]=="lunch_cashier"){
+                            }
+                        }
+                    }
                     if(lvl=="teacher_mad_talk"){
                         if(dia==0){
                             ctx.fillRect(10, 95, 270, 50);
@@ -1845,7 +1853,7 @@
                             ctx.fillRect(10, 95, 270, 50);
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
-                            DrawPlayer("teacher1","profile",10,28)
+                            DrawPlayer("clasrom1","profile",10,28)
                             typewriter("OooOoh!", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
@@ -4508,7 +4516,7 @@
             
             // handle user input
             window.onkeydown = function(event) {
-                if(interact!=true){
+                if(tempINFO[13]!=true){
                 switch (event.keyCode) {
                 case 83: playerMoveX = -1; playerMoveY = -1; break;
                 case 87: playerMoveX = 1; playerMoveY = 1; break;
@@ -4519,12 +4527,14 @@
             }
             
             window.onkeyup = function(event) {
-                switch (event.keyCode) {
-                case 83:
-                case 87: playerMoveX = 0; playerMoveY = 0; break;
-                case 65:
-                case 68: playerMoveAngle = 0; break;
-                case 77: showMap=false
+                if(tempINFO[13]!=true){
+                    switch (event.keyCode) {
+                    case 83:
+                    case 87: playerMoveX = 0; playerMoveY = 0; break;
+                    case 65:
+                    case 68: playerMoveAngle = 0; break;
+                    case 77: showMap=false
+                    }
                 }
             } 
             
@@ -4544,7 +4554,7 @@
             //3d functions
                 function envo_3d(){
                     if(lvl=="3d_lunch_map"){
-                        ctx.drawImage(document.getElementById("lunch_map_bg_1_LM-"+IMAGEserver),0,0,310,150,0,0,310,150)
+                        ctx.drawImage(document.getElementById("lunch_map_bg_1_LM-"+IMAGEserver),0,0,310,150,0,0+tempINFO[18],310,150)
                         // update player position
                         var playerOffsetX = Math.sin(playerAngle) * MAP_SPEED;
                         var playerOffsetY = Math.cos(playerAngle) * MAP_SPEED;
@@ -4671,17 +4681,17 @@
                             }
                             }
                         }
-                        
+
                         // draw player on 2D map
                         ctx.fillStyle = 'Red';
                         ctx.beginPath();
-                        ctx.arc(playerMapX, playerMapY, 1, 0, DOUBLE_PI);
+                        ctx.arc(playerMapX/2, playerMapY/2, 1, 0, DOUBLE_PI);
                         ctx.fill();
                         ctx.strokeStyle = 'Red';
                         ctx.lineWidht = 1;
                         ctx.beginPath();
-                        ctx.moveTo(playerMapX, playerMapY);
-                        ctx.lineTo(playerMapX + Math.sin(playerAngle) * 2, playerMapY + Math.cos(playerAngle) * 2);
+                        ctx.moveTo(playerMapX/2, playerMapY/2);
+                        ctx.lineTo((playerMapX/2) + Math.sin(playerAngle) * 2, (playerMapY/2) + Math.cos(playerAngle) * 2);
                         ctx.stroke();
                         }
                         
@@ -4690,11 +4700,21 @@
                         ctx.fillRect(0, 0, canvas.width, mapOffsetY);
                         ctx.fillRect(0, mapOffsetY + 200, canvas.width, canvas.width - mapOffsetY + 200);
 
-                        /*if(tempINFO[13]==true){
+
+                        if(tempINFO[26]=="check lunch balance!"){
+                            if(playerX<=1726.6863820923534 && playerY<=1907.6187348267827 && playerX>=1348.490653623187 && playerY>=1841.6359861991814){
+                                if(tempINFO[13]==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)}
+                                tempINFO[12]="lunch_cashier" 
+                            }else{
+                                tempINFO[12]="none"
+                            }
+                        }
+
+                        if(tempINFO[13]==true){
                             dialogue() 
                         }
 
-                        if(playerX<=400.51668806603703 && playerY<=291.97293386869825 && playerX>=315.66255458405715 && playerY>=211.4766448172366){
+                        /*if(playerX<=400.51668806603703 && playerY<=291.97293386869825 && playerX>=315.66255458405715 && playerY>=211.4766448172366){
                             if(tempINFO[13]==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)}
                             tempINFO[12]="advisor" 
                         }else if(playerX>=309.15273249776766 && playerY>=476.7996971400903 && playerX<=408.56922684323985 && playerY<=541.8303063532986){
@@ -4707,7 +4727,7 @@
                         }
                     }
                     if(lvl=="3d_minimap"){
-                        ctx.drawImage(document.getElementById("land2-"+IMAGEserver),0,0,310,150)
+                        ctx.drawImage(document.getElementById("land2-"+IMAGEserver),0-tempINFO[18],0,310,150)
                         // update player position
                         var playerOffsetX = Math.sin(playerAngle) * MAP_SPEED;
                         var playerOffsetY = Math.cos(playerAngle) * MAP_SPEED;
@@ -6877,7 +6897,7 @@
                             }
                             if(lvl=="teacher_caught_edwerd_on_phone_sprite" && frame_bg_main47>=24800){
                                 frame_bg_main47=0
-                                lvl="demo-end"
+                                lvl="teacher_mad_talk"
                             }
                             frame_bg_main47=frame_bg_main47+310
                         }
@@ -8265,6 +8285,11 @@
                         ctx.drawImage(document.getElementById("edwerd_profile_ph-"+IMAGEserver),frame_bg_main42,0,64,64,x,y,64,64) 
                     }
                 }
+                if(player=="clasrom1"){
+                    if(state=="profile"){
+                        ctx.drawImage(document.getElementById("classroom_profile_1_LM-"+IMAGEserver),0+(funniframe/2),0,64,64,x,y,64,64) 
+                    }
+                }
                 if(player=="cece_mother"){
                     if(state=="profile"){
                         ctx.drawImage(document.getElementById("cece_mother_profile-"+IMAGEserver),0+(funniframe/2),0,64,64,x,y,64,64) 
@@ -8848,7 +8873,9 @@
                         document.getElementById("dia_enter-"+SOUNDserver).play()
                     }
                     if(dia==17){
-                        lvl="demo-end"
+                        mlp=[0,document.getElementById("wall_classroom1_LM-"+IMAGEserver),document.getElementById("board_left_LM-"+IMAGEserver),document.getElementById("board_middle_LM-"+IMAGEserver),document.getElementById("board_right_LM-"+IMAGEserver),document.getElementById("fade_1_LM-"+IMAGEserver),document.getElementById("fade_rev_1_LM-"+IMAGEserver),document.getElementById("wall_norm_1_LM-"+IMAGEserver),document.getElementById("wall_poster1_1_LM-"+IMAGEserver),document.getElementById("cafeteria_1_LM-"+IMAGEserver),document.getElementById("cafe_norm_1_LM-"+IMAGEserver),document.getElementById("cafe_norm_rev_1_LM-"+IMAGEserver),document.getElementById("door_left_1_LM-"+IMAGEserver),document.getElementById("lunch_lady1_1_LM-"+IMAGEserver),document.getElementById("fruit_foret_no_bg_1_LM-"+IMAGEserver),document.getElementById("normstand_1_LM-"+IMAGEserver),document.getElementById("table_middle_1_LM-"+IMAGEserver),document.getElementById("cashiers12_1_LM-"+IMAGEserver)]
+                        lvl="3d_lunch_map"
+                        tempINFO[26]="check lunch balance!"
                     }
                 }
                 if(lvl=="she_evil_shit"){
@@ -8943,6 +8970,22 @@
                         if(sound==true || SOUNDserver=="SOUNDdesk"){
                             document.getElementById("ohio-"+SOUNDserver).currentTime=0
                             document.getElementById("ohio-"+SOUNDserver).play()
+                        }
+                    }
+                }
+                if(lvl=="3d_lunch_map"){
+                    if(tempINFO[13]==true){
+                        if(tempINFO[12]=="lunch_cashier"){
+                            dia=dia+1
+                            nuTW=0
+                            if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                document.getElementById("dia_enter-"+SOUNDserver).play()
+                            }
+                            if(dia==100){
+                                tempINFO[12]="none"
+                                dia=0
+                                tempINFO[13]=false
+                            }
                         }
                     }
                 }
@@ -9267,7 +9310,9 @@
                 //document.getElementById("amoguuusnnsja").innerHTML=e.clientX+","+e.clientY
             })
             window.addEventListener("keydown", function(e){
+                //document.getElementById("ugly2").innerHTML=playerX+","+playerY
                 if(e.key=="f"){
+                    
                     /*
                     document.getElementById("ugly").setAttribute("style","display:none;");    
                     document.getElementById("mainGame").setAttribute("style","width:1920px;height:1080px;");    
@@ -9821,7 +9866,9 @@
                     chapterSEL=0
                 }
                 if(e.key=="." && e.ctrlKey){
-                    lvl="cece_moms_bedroom2"
+                    lvl="teacher_mad_talk"
+                    mode="easy"
+                    tempINFO[22]="true"
                     dia=0
                     chapterSEL=0
                 }

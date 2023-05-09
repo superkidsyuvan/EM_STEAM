@@ -1163,6 +1163,10 @@ var cashiers12_1_LM = document.createElement("img")
 cashiers12_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/cashiers.png"
 cashiers12_1_LM.id="cashiers12_1_LM-desktop"
 cashiers12_1_LM.hidden=true
+var classroom_profile_1_LM = document.createElement("img")
+classroom_profile_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/teacherROM/class_profile.png"
+classroom_profile_1_LM.id="classroom_profile_1_LM-desktop"
+classroom_profile_1_LM.hidden=true
 
 /* DONTI OWKRRR!!
 
@@ -1590,6 +1594,7 @@ document.getElementById("library_com").appendChild(quest_ui_11)
 document.getElementById("library_com").appendChild(quest_ui_22)
 document.getElementById("library_com").appendChild(table_middle_1_LM)
 document.getElementById("library_com").appendChild(cashiers12_1_LM)
+document.getElementById("library_com").appendChild(classroom_profile_1_LM)
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)
