@@ -1167,6 +1167,23 @@ var classroom_profile_1_LM = document.createElement("img")
 classroom_profile_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/teacherROM/class_profile.png"
 classroom_profile_1_LM.id="classroom_profile_1_LM-desktop"
 classroom_profile_1_LM.hidden=true
+var table_and_chair_1_LM = document.createElement("img")
+table_and_chair_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/chair_and_table.png"
+table_and_chair_1_LM.id="table_and_chair_1_LM-desktop"
+table_and_chair_1_LM.hidden=true
+var taecher_smol_1_LM = document.createElement("img")
+taecher_smol_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/teacher_smol.png"
+taecher_smol_1_LM.id="taecher_smol_1_LM-desktop"
+taecher_smol_1_LM.hidden=true
+var bg_dia1_LM_1_cashier = document.createElement("img")
+bg_dia1_LM_1_cashier.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/diolauge_stage/bg_dia1.png"
+bg_dia1_LM_1_cashier.id="bg_dia1_LM_1_cashier-desktop"
+bg_dia1_LM_1_cashier.hidden=true
+var lunch_cashier_profile_1_LM = document.createElement("img")
+lunch_cashier_profile_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/diolauge_stage/lunch_cashier_profile.png"
+lunch_cashier_profile_1_LM.id="lunch_cashier_profile_1_LM-desktop"
+lunch_cashier_profile_1_LM.hidden=true
+
 
 /* DONTI OWKRRR!!
 
@@ -1595,6 +1612,10 @@ document.getElementById("library_com").appendChild(quest_ui_22)
 document.getElementById("library_com").appendChild(table_middle_1_LM)
 document.getElementById("library_com").appendChild(cashiers12_1_LM)
 document.getElementById("library_com").appendChild(classroom_profile_1_LM)
+document.getElementById("library_com").appendChild(table_and_chair_1_LM)
+document.getElementById("library_com").appendChild(taecher_smol_1_LM)
+document.getElementById("library_com").appendChild(bg_dia1_LM_1_cashier)
+document.getElementById("library_com").appendChild(lunch_cashier_profile_1_LM)
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)

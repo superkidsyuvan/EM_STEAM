@@ -571,6 +571,14 @@
         <img hidden src="" id="classroom_profile_1_LM-imgur" alt="classroom_profile_1_LM-imgur">
         <img hidden src="" id="lunch_map_bg_1_LM-google" alt="lunch_map_bg_1_LM-google">
         <img hidden src="" id="lunch_map_bg_1_LM-imgur" alt="lunch_map_bg_1_LM-imgur">
+        <img hidden src="" id="table_and_chair_1_LM-google" alt="table_and_chair_1_LM-google">
+        <img hidden src="" id="table_and_chair_1_LM-imgur" alt="table_and_chair_1_LM-imgur">
+        <img hidden src="" id="taecher_smol_1_LM-google" alt="taecher_smol_1_LM-google">
+        <img hidden src="" id="taecher_smol_1_LM-imgur" alt="taecher_smol_1_LM-imgur">
+        <img hidden src="" id="bg_dia1_LM_1_cashier-google" alt="bg_dia1_LM_1_cashier-google">
+        <img hidden src="" id="bg_dia1_LM_1_cashier-imgur" alt="bg_dia1_LM_1_cashier-imgur">
+        <img hidden src="" id="lunch_cashier_profile_1_LM-google" alt="lunch_cashier_profile_1_LM-google">
+        <img hidden src="" id="lunch_cashier_profile_1_LM-imgur" alt="lunch_cashier_profile_1_LM-imgur">
         <video hidden src="https://i.imgur.com/H0EPXlB.mp4" id="tsone_intro-imgur" alt="tsone_intro-imgur"></video>
         <video hidden src="https://docs.google.com/uc?export=open&id=1NFltla_juGGw8Z8olSMD93FaLTUM3o7_" id="tsone_intro-google" alt="tsone_intro-google"></video>
         <video hidden src="https://i.imgur.com/hIUsXgN.mp4" id="tsone_intro_no-imgur" alt="tsone_intro_no-imgur"></video>
@@ -1824,11 +1832,97 @@
             function dialogue(){
                     ctx.fillStyle="black";
                     ctx.fillRect(10, 95, 270, 50);
-                    if(lvl=="3d_lunch_map"){
-                        if(tempINFO[13]==true){
-                            if(tempINFO[12]=="lunch_cashier"){
-                            }
+                    if(lvl=="cashier_talk1"){
+                        if(dia==0){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("wat is my lunch balence??", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
                         }
+                        if(dia==1){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("lunch_cashier","profile",10,28)
+                            typewriter("enter in ur studenti id", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        } 
+                        if(dia==2){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("ok!11 *enters id(*)", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==3){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("lunch_cashier","profile",10,28)
+                            typewriter("oh my!!11", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        } 
+                        if(dia==4){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("wat is it???", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==5){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("do i have a bajillion dabloons??", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==6){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("lunch_cashier","profile",10,28)
+                            typewriter("ur account is -$59.41", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        } 
+                        if(dia==7){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("can i buy a meal", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==8){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("lunch_cashier","profile",10,28)
+                            typewriter("no", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==9){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("😭😭😭😭😭😭", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        } 
                     }
                     if(lvl=="teacher_mad_talk"){
                         if(dia==0){
@@ -2048,8 +2142,8 @@
                             ctx.fillText("Click To Continue", 15, 130);
                         }
                         if(dia==6){
-                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
-
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);
+                            ctx.fillRect(10, 95, 270, 50);
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("amogus","profile",10,28)
@@ -2058,8 +2152,8 @@
                             ctx.fillText("Click To Continue", 15, 130);
                         }
                         if(dia==7){
-                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);ctx.fillRect(10, 95, 270, 50);
-
+                            ctx.drawImage(document.getElementById("amogus_costume_closup1-"+IMAGEserver),0,0,310,150);
+                            ctx.fillRect(10, 95, 270, 50);
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("amogus","profile",10,28)
@@ -2608,7 +2702,7 @@
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("cece_mother","profile",10,28)
-                            typewriter("cece wat are you doing", 15, 110);
+                            typewriter("cece wtf are you doing", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -2888,7 +2982,7 @@
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("advisor","profile",10,28)
-                            typewriter("😡", 15, 110);
+                            typewriter("shit.", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -4437,15 +4531,15 @@
             var lunch_map = [
                 1, 1, 1, 2, 3, 4, 1, 1, 1, 7, 7, 7, 7, 7, 7, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7,10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 1, 5, 7, 0, 0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+                1, 0, 0, 0,19, 0, 0, 0, 1, 5, 7, 0, 0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 1, 5, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+                1, 0,18, 0,18, 0,18, 0, 1, 5, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
+                1, 0,18, 0,18, 0,18, 0, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 8, 0, 0, 0, 0, 0, 7,11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 5, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
-                1, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+                1, 0,18, 0,18, 0,18, 0, 1, 8, 0, 0, 0, 0, 0, 7,11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+                1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
+                1,10, 1, 1, 1, 1, 1, 1, 1, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 6, 7, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 7, 9, 0, 0,16,16, 0, 0,16,16, 0, 0,16,16, 0, 0, 9,
                 1, 0, 0, 0, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
@@ -4549,7 +4643,7 @@
 
             //randome texture loading
             var MAP=[document.getElementById("rock_wall-"+IMAGEserver),document.getElementById("rock_wall-"+IMAGEserver),document.getElementById("advisor_3d-"+IMAGEserver),document.getElementById("portal_3d-"+IMAGEserver),document.getElementById("portal_2d-"+IMAGEserver),document.getElementById("amogus-"+IMAGEserver)]
-            var mlp=[0,document.getElementById("wall_classroom1_LM-"+IMAGEserver),document.getElementById("board_left_LM-"+IMAGEserver),document.getElementById("board_middle_LM-"+IMAGEserver),document.getElementById("board_right_LM-"+IMAGEserver),document.getElementById("fade_1_LM-"+IMAGEserver),document.getElementById("fade_rev_1_LM-"+IMAGEserver),document.getElementById("wall_norm_1_LM-"+IMAGEserver),document.getElementById("wall_poster1_1_LM-"+IMAGEserver),document.getElementById("cafeteria_1_LM-"+IMAGEserver),document.getElementById("cafe_norm_1_LM-"+IMAGEserver),document.getElementById("cafe_norm_rev_1_LM-"+IMAGEserver),document.getElementById("door_left_1_LM-"+IMAGEserver),document.getElementById("lunch_lady1_1_LM-"+IMAGEserver),document.getElementById("fruit_foret_no_bg_1_LM-"+IMAGEserver),document.getElementById("normstand_1_LM-"+IMAGEserver),document.getElementById("table_middle_1_LM-"+IMAGEserver),document.getElementById("cashiers12_1_LM-"+IMAGEserver)]
+            var mlp=[0,document.getElementById("wall_classroom1_LM-"+IMAGEserver),document.getElementById("board_left_LM-"+IMAGEserver),document.getElementById("board_middle_LM-"+IMAGEserver),document.getElementById("board_right_LM-"+IMAGEserver),document.getElementById("fade_1_LM-"+IMAGEserver),document.getElementById("fade_rev_1_LM-"+IMAGEserver),document.getElementById("wall_norm_1_LM-"+IMAGEserver),document.getElementById("wall_poster1_1_LM-"+IMAGEserver),document.getElementById("cafeteria_1_LM-"+IMAGEserver),document.getElementById("cafe_norm_1_LM-"+IMAGEserver),document.getElementById("cafe_norm_rev_1_LM-"+IMAGEserver),document.getElementById("door_left_1_LM-"+IMAGEserver),document.getElementById("lunch_lady1_1_LM-"+IMAGEserver),document.getElementById("fruit_foret_no_bg_1_LM-"+IMAGEserver),document.getElementById("normstand_1_LM-"+IMAGEserver),document.getElementById("table_middle_1_LM-"+IMAGEserver),document.getElementById("cashiers12_1_LM-"+IMAGEserver),document.getElementById("chair_and_table-"+IMAGEserver),document.getElementById("taecher_smol_1_LM-"+IMAGEserver)]
 
             //3d functions
                 function envo_3d(){
@@ -4701,29 +4795,14 @@
                         ctx.fillRect(0, mapOffsetY + 200, canvas.width, canvas.width - mapOffsetY + 200);
 
 
-                        if(tempINFO[26]=="check lunch balance!"){
                             if(playerX<=1726.6863820923534 && playerY<=1907.6187348267827 && playerX>=1348.490653623187 && playerY>=1841.6359861991814){
-                                if(tempINFO[13]==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)}
-                                tempINFO[12]="lunch_cashier" 
+                                if(tempINFO[26]=="check lunch balance!"){
+                                    if(tempINFO[13]==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)}
+                                    tempINFO[12]="lunch_cashier" 
+                                }
                             }else{
                                 tempINFO[12]="none"
                             }
-                        }
-
-                        if(tempINFO[13]==true){
-                            dialogue() 
-                        }
-
-                        /*if(playerX<=400.51668806603703 && playerY<=291.97293386869825 && playerX>=315.66255458405715 && playerY>=211.4766448172366){
-                            if(tempINFO[13]==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)}
-                            tempINFO[12]="advisor" 
-                        }else if(playerX>=309.15273249776766 && playerY>=476.7996971400903 && playerX<=408.56922684323985 && playerY<=541.8303063532986){
-                            tempINFO[12]="2d_portal"
-                            if(tempINFO[13]==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)} 
-                        }else if(playerX<=1955.229260630279 && playerY>=1463.2179126460276 && playerX>=1913.488090043841 && playerY<=1550.448107335401){
-                            tempINFO[12]="amogus"
-                            if(tempINFO[13]==false){ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),75,0)} 
-                        }*/
                         }
                     }
                     if(lvl=="3d_minimap"){
@@ -5615,6 +5694,10 @@
                 }
                 if(lvl=="osu!-doki_doki,[json-cece_F]"){
 
+                }
+                if(lvl=="cashier_talk1"){
+                    ctx.drawImage(document.getElementById("bg_dia1_LM_1_cashier-"+IMAGEserver),0,0,310,150)
+                    dialogue()
                 }
                 if(lvl=="osu_afterplay_stats"){
                     ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
@@ -8285,6 +8368,11 @@
                         ctx.drawImage(document.getElementById("edwerd_profile_ph-"+IMAGEserver),frame_bg_main42,0,64,64,x,y,64,64) 
                     }
                 }
+                if(player=="lunch_cashier"){
+                    if(state=="profile"){
+                        ctx.drawImage(document.getElementById("lunch_cashier_profile_1_LM-"+IMAGEserver),frame_bg_main42,0,64,64,x,y,64,64) 
+                    }
+                }
                 if(player=="clasrom1"){
                     if(state=="profile"){
                         ctx.drawImage(document.getElementById("classroom_profile_1_LM-"+IMAGEserver),0+(funniframe/2),0,64,64,x,y,64,64) 
@@ -8973,19 +9061,23 @@
                         }
                     }
                 }
+                if(lvl=="cashier_talk1"){
+                    dia=dia+1
+                    nuTW=0
+                    if(sound==true || SOUNDserver=="SOUNDdesk"){
+                        document.getElementById("dia_enter-"+SOUNDserver).play()
+                    }
+                    if(dia==10){
+                        tempINFO[12]="none"
+                        dia=0
+                        tempINFO[13]=false
+                    } 
+                }
                 if(lvl=="3d_lunch_map"){
-                    if(tempINFO[13]==true){
+                    if(tempINFO[13]==false){
                         if(tempINFO[12]=="lunch_cashier"){
-                            dia=dia+1
-                            nuTW=0
-                            if(sound==true || SOUNDserver=="SOUNDdesk"){
-                                document.getElementById("dia_enter-"+SOUNDserver).play()
-                            }
-                            if(dia==100){
-                                tempINFO[12]="none"
-                                dia=0
-                                tempINFO[13]=false
-                            }
+                            lvl="cashier_talk1"
+                            tempINFO[13]=true
                         }
                     }
                 }
@@ -9548,6 +9640,14 @@
                     }
                 }
                 if(e.key=="e"){
+                    if(lvl=="3d_lunch_map"){
+                    if(tempINFO[13]==false){
+                        if(tempINFO[12]=="lunch_cashier"){
+                            lvl="cashier_talk1"
+                            tempINFO[13]=true
+                        }
+                    }
+                }
                     if(lvl=="garage_cece1_closet"){
                         if(x>=170 && x<=197 && y<=60){
                             if(tempINFO[1]==false){
