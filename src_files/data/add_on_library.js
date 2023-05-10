@@ -1183,7 +1183,10 @@ var lunch_cashier_profile_1_LM = document.createElement("img")
 lunch_cashier_profile_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/diolauge_stage/lunch_cashier_profile.png"
 lunch_cashier_profile_1_LM.id="lunch_cashier_profile_1_LM-desktop"
 lunch_cashier_profile_1_LM.hidden=true
-
+var person_table_1_LM = document.createElement("img")
+person_table_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/person_table.png"
+person_table_1_LM.id="person_table_1_LM-desktop"
+person_table_1_LM.hidden=true
 
 /* DONTI OWKRRR!!
 
@@ -1616,6 +1619,8 @@ document.getElementById("library_com").appendChild(table_and_chair_1_LM)
 document.getElementById("library_com").appendChild(taecher_smol_1_LM)
 document.getElementById("library_com").appendChild(bg_dia1_LM_1_cashier)
 document.getElementById("library_com").appendChild(lunch_cashier_profile_1_LM)
+document.getElementById("library_com").appendChild(person_table_1_LM)
+
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)
