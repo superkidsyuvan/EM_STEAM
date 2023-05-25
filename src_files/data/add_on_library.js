@@ -951,10 +951,10 @@ var tsone_intro = document.createElement("video")
 tsone_intro.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/MENU_START/intro_cool.mp4"
 tsone_intro.id="tsone_intro-desktop"
 tsone_intro.hidden=true
-var tsone_intro_no = document.createElement("video")
-tsone_intro_no.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/MENU_START/intro_no_sound.mp4"
-tsone_intro_no.id="tsone_intro_no-desktop"
-tsone_intro_no.hidden=true
+var lunch_overview_veryFAST = document.createElement("video")
+lunch_overview_veryFAST.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/diolauge_stage/slang.mp4"
+lunch_overview_veryFAST.id="lunch_overview_veryFAST-desktop"
+lunch_overview_veryFAST.hidden=true
 var intro_chapter1 = document.createElement("video")
 intro_chapter1.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/SCENE1/heavily_edited.mp4"
 intro_chapter1.id="intro_chapter1-desktop"
@@ -1187,6 +1187,11 @@ var person_table_1_LM = document.createElement("img")
 person_table_1_LM.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/person_table.png"
 person_table_1_LM.id="person_table_1_LM-desktop"
 person_table_1_LM.hidden=true
+var slang_spritesheet = document.createElement("img")
+slang_spritesheet.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/diolauge_stage/wal.png"
+slang_spritesheet.id="slang_spritesheet-desktop"
+slang_spritesheet.hidden=true
+
 
 /* DONTI OWKRRR!!
 
@@ -1291,7 +1296,11 @@ skip_sfx1.id="skip_sfx1-SOUNDdesk"
 var ding = document.createElement("audio")
 ding.src=window.location.href.slice(0,-21)+"files/sound/SFX/.wav/ding.wav"
 ding.id="ding-SOUNDdesk"
+var tutorial_end1_none_dia13 = document.createElement("audio")
+tutorial_end1_none_dia13.src=window.location.href.slice(0,-21)+"files/sound/DIALOUGE/tutorial_end1/dia13.mp3"
+tutorial_end1_none_dia13.id="tutorial_end1_none_dia13-SOUNDdesk"
 //drive_clip.preload="auto"
+document.getElementById("sound_lib").appendChild(tutorial_end1_none_dia13)
 document.getElementById("sound_lib").appendChild(ding)
 document.getElementById("sound_lib").appendChild(drive_clip)
 document.getElementById("sound_lib").appendChild(skip_sfx1)
@@ -1560,7 +1569,7 @@ document.getElementById("library_com").appendChild(icon_c)
 document.getElementById("library_com").appendChild(skip1button)
 document.getElementById("library_com").appendChild(skip2button)
 document.getElementById("library_com").appendChild(tsone_intro)
-document.getElementById("library_com").appendChild(tsone_intro_no)
+document.getElementById("library_com").appendChild(lunch_overview_veryFAST)
 document.getElementById("library_com").appendChild(intro_chapter1)
 document.getElementById("library_com").appendChild(band_playback_cece)
 document.getElementById("library_com").appendChild(horrible)
@@ -1620,6 +1629,7 @@ document.getElementById("library_com").appendChild(taecher_smol_1_LM)
 document.getElementById("library_com").appendChild(bg_dia1_LM_1_cashier)
 document.getElementById("library_com").appendChild(lunch_cashier_profile_1_LM)
 document.getElementById("library_com").appendChild(person_table_1_LM)
+document.getElementById("library_com").appendChild(slang_spritesheet)
 
 
 document.getElementById("library_com").appendChild(button_switch)
@@ -1638,53 +1648,7 @@ window.addEventListener("keyup", function(e){
     }
 })
 
-document.getElementById("desktop_sound").addEventListener("click",function(){
-    desktopSOUND()
-})
 
-document.getElementById("desktop").addEventListener("click",function(){
-    desktop()
-})
-
-document.getElementById("external_script").innerHTML="true"
-document.getElementById("drive_clip-SOUNDdesk").ontimeupdate=function(){SONGupdated('drive_clip',Math.floor(this.currentTime))}
-document.getElementById('tsone_intro-desktop').onended = (event) => {
-    console.log("tsone_intro-desktop stopped either because it has finished playing or no further data is available.");
-    sound=false
-    lvl="soundin"
-};
-
-document.getElementById('tsone_intro_no-desktop').onended = (event) => {
-    console.log("tsone_intro_no-desktop stopped either because it has finished playing or no further data is available.");
-    sound=false
-    lvl="enter"
-};
-
-document.getElementById('intro_chapter1-desktop').onended = (event) => {
-    console.log("intro_chapter1-desktop stopped either because it has finished playing or no further data is available.");
-    lvl="hallwayCHASE-0"
-};
-
-document.getElementById("cece_band_osu_playback-desktop").ontimeupdate=function(){SONGupdated('drive_clip',Math.floor(this.currentTime))};
-
-document.getElementById("fox_vide_or_something_pov_idk-desktop").onended = (event) => {
-    //lvl="dead-hallwayCHASE"        
-    lvl="garden_minigame_death_die"
-}
-
-document.getElementById("cece_band_osu_playback-desktop").onended = (event) => {
-    lvl="osu_afterplay_stats"
-    tempINFO[26]="buy lunch"
-    document.getElementById('cece_band_osu_playback-desktop').pause()
-    document.getElementById('drive_clip-drive').pause()
-    document.getElementById('drive_clip-SOUNDdesk').pause()
-    document.getElementById('drive_clip-r3').pause()
-    document.getElementById('cece_band_osu_playback-desktop').currentTime=0
-};
-
-document.getElementById("teacher_caught_edwer_watching_on_his_iphone4-desktop").onended = (event) => {
-    lvl="teacher_mad_talk"
-}
 
 document.getElementById("ready-SOUNDdesk").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=1}}
 document.getElementById("set-SOUNDdesk").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=2}}
