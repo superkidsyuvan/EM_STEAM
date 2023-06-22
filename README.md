@@ -10,7 +10,7 @@ literraly da best game ever here how to play!!!
 
 --tis setup aint a light downloading stuf, it like wayy to much so get ready for your 1GB plan to die
 
-## DA WINDOWS WAY (how to run on windows)
+## DA WINDOWS WAY (how to run on windows + mac)
 
 download tis repository (all files and stuf)
 
@@ -73,10 +73,18 @@ Dont forgor that tis is best game ever!!!
 
 # Updates
 
+
+
 ## updaet 1.0.486-1.0.488(cece_osu_mania 🐸 / edwer beginn)
 
 i deleted **ALL** desktop.ini **files** cuz like not needed just leftovers of compiling and google drive server~
 anyways added ***full recreation of osu!mania***  (song made for da game tho) and like edwerd quest is starting to actualy exists like honestly its very cool boi
+
+### estoy loco 🤪🖍 (send help)
+
+***added support for mac (dat computer) -- dont know if linux works but you can try**
+**dont actually send help lol** but ummm i added hd images on a **310 x 150 px** grid/canvas?? **(why anti-alising no worrkkk)** anyways i worked hard i guess it wont be added/ implemented into the game fully until i decide so lolololol 🤡 find out secrets of game yourself + added cutsence and fight sequence idk 
+
 
 ## update 1.0.4849 (sus bean)
 

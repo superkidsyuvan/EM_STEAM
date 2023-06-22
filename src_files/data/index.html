@@ -583,6 +583,26 @@
         <img hidden src="" id="person_table_1_LM-imgur" alt="person_table_1_LM-imgur">
         <img hidden src="" id="slang_spritesheet-google" alt="slang_spritesheet-google">
         <img hidden src="" id="slang_spritesheet-imgur" alt="slang_spritesheet-imgur">
+        <img hidden src="" id="savefile_bg-google" alt="savefile_bg-google">
+        <img hidden src="" id="savefile_bg-imgur" alt="savefile_bg-imgur">
+        <img hidden src="" id="savefile_h0-google" alt="savefile_h0-google">
+        <img hidden src="" id="savefile_h0-imgur" alt="savefile_h0-imgur">
+        <img hidden src="" id="savefile_h1-google" alt="savefile_h1-google">
+        <img hidden src="" id="savefile_h1-imgur" alt="savefile_h1-imgur">
+        <img hidden src="" id="savefile_h2-google" alt="savefile_h2-google">
+        <img hidden src="" id="savefile_h2-imgur" alt="savefile_h2-imgur">
+        <img hidden src="" id="savefile_h3-google" alt="savefile_h3-google">
+        <img hidden src="" id="savefile_h3-imgur" alt="savefile_h3-imgur">
+        <img hidden src="" id="bg_lunchFIGHT11-google" alt="bg_lunchFIGHT11-google">
+        <img hidden src="" id="bg_lunchFIGHT11-imgur" alt="bg_lunchFIGHT11-imgur">
+        <img hidden src="" id="bg_lunchFIGHT11_invert-google" alt="bg_lunchFIGHT11_invert-google">
+        <img hidden src="" id="bg_lunchFIGHT11_invert-imgur" alt="bg_lunchFIGHT11_invert-imgur">
+        <img hidden src="" id="fight_spritesheet_cafe-google" alt="fight_spritesheet_cafe-google">
+        <img hidden src="" id="fight_spritesheet_cafe-imgur" alt="fight_spritesheet_cafe-imgur">
+        <img hidden src="" id="svg_test1-imgur" alt="svg_test1-imgur">
+        <img hidden src="" id="svg_test1-google" alt="svg_test1-google">
+        <img hidden src="" id="bg_pixl_halfd-imgur" alt="bg_pixl_halfd-imgur">
+        <img hidden src="" id="bg_pixl_halfd-google" alt="bg_pixl_halfd-google">
         <video hidden src="https://i.imgur.com/H0EPXlB.mp4" id="tsone_intro-imgur" alt="tsone_intro-imgur"></video>
         <video hidden src="https://docs.google.com/uc?export=open&id=1NFltla_juGGw8Z8olSMD93FaLTUM3o7_" id="tsone_intro-google" alt="tsone_intro-google"></video>
         <video hidden src="https://i.imgur.com/hIUsXgN.mp4" id="tsone_intro_no-imgur" alt="tsone_intro_no-imgur"></video>
@@ -654,6 +674,10 @@
         <audio id="drive_clip-r3" src="" ontimeupdate="SONGupdated('drive_clip',Math.floor(this.currentTime))" preload="auto" oncanplaythrough="amough2()"></audio>
         <audio id="skip_sfx1-drive" src=""></audio>
         <audio id="skip_sfx1-r3" src=""></audio>
+        <audio id="amusia_sart_audio-drive" src=""></audio>
+        <audio id="amusia_sart_audio-r3" src=""></audio>
+        <audio id="pursuit-drive" src=""></audio>
+        <audio id="pursuit-r3" src=""></audio>
         <script src="./add_on_library.js"></script>
         <script>
             //        <button onclick="document.getElementById('drive_clip-'+SOUNDserver).play()">test</button>
@@ -671,6 +695,7 @@
             var SOUNDserver = "drive" //is sound server online1!1!
             var hover1 = "2" //used for hover hover menu thing
             var ms100 = 0 //100ms timer (like good for gif frames aka sprite sheets)
+            var ms1000 =0 //1second timetr (eheheheheh)
             var wannaDRAWme = true //draws player if true
             var obj="" // wat obiject do you want ):<
             var frame_bg_main=0 //spritesheet variable for p1 main game
@@ -784,7 +809,11 @@
             var pause_menu2=0
             var holding_what_obj="none" //what you holding tho??
             var moveTHING=0
-            var tempINFO = [false,false,0,false,false,false,0,0,1,false,0,"dor1","none",false,"vol-","nil",0,"vol-",0,"neutral",0,0,"false","?","Reward: ???","0/1","random_quest"]
+            var tempINFO = [false,false,0,false,false,false,0,0,1,false,0,"dor1","none",false,"vol-","nil",0,"vol-",0,"neutral",0,0,"false","?","Reward: ???","0/1","random_quest","?lvl?",x,y,"off",-60,310,100,100,"false",false,1,false,false]
+            var jsonDATA = "0"
+            var jsonDATA1 = []
+            var jsonDATA2 = []
+            var jsonDATA3 = []
             var osu={}
             var osuX={}
             var osuY={}
@@ -1306,16 +1335,64 @@
                 otherSTUF()
             }
 
+            function readJSON(fileNum){
+                fetch(window.location.href.slice(0,-21)+"files/data/require/saveFiles/saveFile"+fileNum+".json")
+                .then(response => response.json())
+                .then(data =>{
+                    if(fileNum==1){
+                        jsonDATA1=data
+                    }else if(fileNum==2){
+                        jsonDATA2=data
+                    }else if(fileNum==3){
+                        jsonDATA3=data
+                    }
+                });
+            }
+
+            
+
+            function writeJSON(data101){
+                const userJSON = JSON.stringify(data101)
+            }
+
             function translateGRID(x,y){
-                var n = (x/150)*250
-                var h = (y/300)*500
+                var n
+                var h
+                if(tempINFO[36]==false){
+                    n = (x/150)*250
+                    h = (y/300)*500
+                }else{
+                    n = (x/150)*window.screen.height
+                    h = (y/300)*window.screen.width
+                }
                 return (n+","+h)
             }
 
             function translateGRID2(x,y){
-                var n = (x/250)*150
-                var h = (y/500)*300
+                var n  
+                var h 
+                if(tempINFO[36]==false){
+                    n = (x/250)*150
+                    h = (y/500)*300
+                }else{
+                    n = (x/window.screen.height)*150
+                    h = (y/window.screen.width)*300
+                }
                 return (n+","+h)
+            }
+
+            function requestFullScreen(element) {
+                // Supports most browsers and their versions.
+                var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+                if (requestMethod) { // Native full screen.
+                    requestMethod.call(element);
+                } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+                    var wscript = new ActiveXObject("WScript.Shell");
+                    if (wscript !== null) {
+                        wscript.SendKeys("{F11}");
+                    }
+                }
             }
 
             function aboveTEXTnotification(bgHEX,txtHEX,txtSTR){
@@ -5623,10 +5700,61 @@
                     ctx.fillText(ss, 10, 50);
                     var mma = Number(intake)
                     if(mma<=load){
-                        lvl="plz_turn_on_sound_plzzz"
-                        //lvl="garden_minigame"
-                        //type="evil"
+                        lvl="savefile"
+                        //lvl="plz_turn_on_sound_plzzz"
                     }
+                }
+                if(lvl=="savefile"){
+                    ctx.drawImage(document.getElementById("savefile_bg-"+IMAGEserver),0,0,310,150)
+                    ctx.drawImage(document.getElementById("savefile_h0-"+IMAGEserver),0,0,310,150)
+                    ctx.fillStyle = "green"
+                    ctx.font="10px Arial"
+                    ctx.fillRect(6,55,(jsonDATA1[1].slice(0,-1))/1.612903226,5)
+                    ctx.fillRect(6,91,(jsonDATA2[1].slice(0,-1))/1.612903226,5)
+                    ctx.fillRect(6,130,(jsonDATA3[1].slice(0,-1))/1.612903226,5)
+                    ctx.fillStyle = "white"
+                    ctx.fillText(jsonDATA1[1], 6, 68);
+                    ctx.fillText(jsonDATA2[1], 6, 104);
+                    ctx.fillText(jsonDATA3[1], 6, 142);
+                }
+                if(lvl=="savefile1"){
+                    ctx.drawImage(document.getElementById("savefile_bg-"+IMAGEserver),0,0,310,150)
+                    ctx.fillStyle = "green"
+                    ctx.font="10px Arial"
+                    ctx.fillRect(6,55,(jsonDATA1[1].slice(0,-1))/1.612903226,5)
+                    ctx.fillRect(6,91,(jsonDATA2[1].slice(0,-1))/1.612903226,5)
+                    ctx.fillRect(6,130,(jsonDATA3[1].slice(0,-1))/1.612903226,5)
+                    ctx.fillStyle = "white"
+                    ctx.fillText(jsonDATA1[1], 6, 68);
+                    ctx.fillText(jsonDATA2[1], 6, 104);
+                    ctx.fillText(jsonDATA3[1], 6, 142);
+                    ctx.drawImage(document.getElementById("savefile_h1-"+IMAGEserver),0,0,310,150)
+                }
+                if(lvl=="savefile2"){
+                    ctx.drawImage(document.getElementById("savefile_bg-"+IMAGEserver),0,0,310,150)
+                    ctx.fillStyle = "green"
+                    ctx.font="10px Arial"
+                    ctx.fillRect(6,55,(jsonDATA1[1].slice(0,-1))/1.612903226,5)
+                    ctx.fillRect(6,91,(jsonDATA2[1].slice(0,-1))/1.612903226,5)
+                    ctx.fillRect(6,130,(jsonDATA3[1].slice(0,-1))/1.612903226,5)
+                    ctx.fillStyle = "white"
+                    ctx.fillText(jsonDATA1[1], 6, 68);
+                    ctx.fillText(jsonDATA2[1], 6, 104);
+                    ctx.fillText(jsonDATA3[1], 6, 142);
+                    ctx.drawImage(document.getElementById("savefile_h2-"+IMAGEserver),0,0,310,150)
+                }
+                if(lvl=="savefile3"){
+                    ctx.drawImage(document.getElementById("savefile_bg-"+IMAGEserver),0,0,310,150)
+                    ctx.fillStyle = "green"
+                    ctx.font="10px Arial"
+                    ctx.fillRect(6,55,(jsonDATA1[1].slice(0,-1))/1.612903226,5)
+                    ctx.fillRect(6,91,(jsonDATA2[1].slice(0,-1))/1.612903226,5)
+                    ctx.fillRect(6,130,(jsonDATA3[1].slice(0,-1))/1.612903226,5)
+                    ctx.fillStyle = "white"
+                    ctx.fillText(jsonDATA1[1], 6, 68);
+                    ctx.fillText(jsonDATA2[1], 6, 104);
+                    ctx.fillText(jsonDATA3[1], 6, 142);
+                    ctx.drawImage(document.getElementById("savefile_h3-"+IMAGEserver),0,0,310,150)
                 }
                 if(lvl=="enter"){
                     ctx.drawImage(document.getElementById("enter1-"+IMAGEserver),frame_bg_main,0,256,144,0,0,310,150)
@@ -5886,14 +6014,12 @@
                     ctx.drawImage(document.getElementById("bg_dia1_LM_1_cashier-"+IMAGEserver),0,0,310,150)
                     dialogue()
                 }
-                if(lvl=="evelen_kate_2"){
-                    dialogue()
-                }
                 if(lvl=="evelen_kate_1"){
-                    if(SOUNDserver=="SOUNDdesk" || sound==true){}else{
+                    //video here add later1!1 - todo
+                }
+                if(lvl=="evelen_kate_2"){
                     ctx.drawImage(document.getElementById("slang_spritesheet-"+IMAGEserver),frame_bg_main47,0,310,150,0,0,310,150)
-                    }
-                    //dialogue()
+                    //diolauge() -- video
                 }
                 if(lvl=="osu_afterplay_stats"){
                     ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
@@ -6647,6 +6773,168 @@
                         }
                     }
                 }
+                if(lvl=="FIGHR_EDWERA_AAA:hamburger:"){
+                    ctx.drawImage(document.getElementById("bg_lunchFIGHT11_invert-"+IMAGEserver),0,0,310,150)
+                    ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),227,73,78,22,200,90,78,22)
+                    ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),227,47,78,22,10,120,78,22)
+                    ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),(funniframe*5.46875)+717,39,57,102,tempINFO[31],30,57,102)
+                    ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),(funniframe*5.46875)+874,4,48,92,tempINFO[32],5,57,102)
+                    ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,0,96,31,0,0,96,31)
+                    ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),215,0,96,31,205,0,96,31)
+                    ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),215,0,96,31,205,0,96,31)
+                    if(tempINFO[35]=="false"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
+                        ctx.fillStyle="#ffffff"
+                        ctx.font="10px Arial"
+                        ctx.fillText("FiGHt! ",220,115)
+                        ctx.fillText("OBjEcTs!!",220,135)
+                        ctx.fillText("RuN! 🏃‍♀️",260,115)
+                    }
+                    if(tempINFO[35]=="objects"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
+                        ctx.fillStyle="#ffffff"
+                        ctx.font="15px Arial"
+                        ctx.fillText("OBjEcTs!!",215,130)
+                        ctx.font="10px Arial"
+                        ctx.fillText("FiGHt! ",220,115)
+                        ctx.fillText("RuN! 🏃‍♀️",260,115)
+                    }
+                    if(tempINFO[35]=="runn"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
+                        ctx.fillStyle="#ffffff"
+                        ctx.font="10px Arial"
+                        ctx.fillText("FiGHt! ",220,115)
+                        ctx.fillText("OBjEcTs!!",220,135)
+                        ctx.font="15px Arial"
+                        ctx.fillText("RuN! 🏃‍♀️",255,110)
+                    }
+                    if(tempINFO[35]=="fight"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
+                        ctx.fillStyle="#ffffff"
+                        ctx.font="15px Arial"
+                        ctx.fillText("FiGHt! ",215,110)
+                        ctx.font="10px Arial"
+                        ctx.fillText("OBjEcTs!!",220,135)
+                        ctx.fillText("RuN! 🏃‍♀️",260,115)
+                    }
+                    if(tempINFO[35]=="no_objets"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),925,46,82,101,215,46,82,101)
+                        ctx.font="10px Arial"
+                        ctx.fillStyle="#BF0A30"
+                        ctx.fillText("radom text",215,115)
+                        ctx.fillStyle="#ffffff"
+                        ctx.fillText("No OBJECTS 😥",215,135)
+                    }
+                    if(tempINFO[35]=="no_objets2"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),925,46,82,101,215,46,82,101)
+                        ctx.font="10px Arial"
+                        ctx.fillStyle="#BF0A30"
+                        ctx.fillText("radom text",215,115)
+                        ctx.fillStyle="#ffffff"
+                        ctx.font="15px Arial"
+                        ctx.fillText("No OBJECTS 😥",215,135)
+                    }
+                    if(tempINFO[35]=="no_running_heheh"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),925,46,82,101,215,46,82,101)
+                        ctx.font="10px Arial"
+                        ctx.fillStyle="#BF0A30"
+                        ctx.fillText("imagine running",215,125)
+                        ctx.fillStyle="#ffffff"
+                        ctx.fillText("No Running 😬",215,135)
+                    }
+                    if(tempINFO[35]=="fight_menu"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),925,46,82,101,215,46,82,101)
+                        ctx.fillStyle="#ffffff"
+                        //(tempINFO[37]+(tempINFO[37]-Math.floor(Math.random()*0.199)))
+                        ctx.font="8px Arial"
+                        ctx.fillText("Taunt (x"+(tempINFO[37]+0.293)+" strength)",215,85)
+                        ctx.font="10px Arial"
+                        ctx.fillText("Punche ("+(10*tempINFO[37])+" dmg)",215,115)
+                        ctx.fillText("GO BACKK",215,135)
+                    }
+                    if(tempINFO[35]=="fight_menu_back"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),925,46,82,101,215,46,82,101)
+                        ctx.fillStyle="#ffffff"
+                        ctx.font="8px Arial"
+                        ctx.fillText("Taunt (x"+(tempINFO[37]+0.293)+" strength)",215,85)
+                        ctx.font="10px Arial"
+                        ctx.fillText("Punche ("+(10*tempINFO[37])+" dmg)",215,115)
+                        ctx.font="15px Arial"
+                        ctx.fillText("GO BACKK",215,135)
+                    }
+                    if(tempINFO[35]=="fight_menu_punch"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),925,46,82,101,215,46,82,101)
+                        ctx.fillStyle="#ffffff"
+                        ctx.font="8px Arial"
+                        ctx.fillText("Taunt (x"+(tempINFO[37]+0.293)+" strength)",215,85)
+                        ctx.font="15px Arial"
+                        ctx.fillText("Punche ("+(10*tempINFO[37])+" dmg)",215,115)
+                        ctx.font="10px Arial"
+                        ctx.fillText("GO BACKK",215,135)
+                    }
+                    if(tempINFO[35]=="fight_menu_taunt"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),925,46,82,101,215,46,82,101)
+                        ctx.fillStyle="#ffffff"
+                        ctx.font="10px Arial"
+                        ctx.fillText("Taunt (x"+(tempINFO[37]+0.293)+" strength)",215,85)
+                        ctx.fillText("Punche ("+(10*tempINFO[37])+" dmg)",215,115)
+                        ctx.fillText("GO BACKK",215,135)
+                    }
+                    if(tempINFO[35]=="no_running_heheh2"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),925,46,82,101,215,46,82,101)
+                        ctx.font="10px Arial"
+                        ctx.fillStyle="#BF0A30"
+                        ctx.fillText("why you read tiss",215,125)
+                        ctx.font="15px Arial"
+                        ctx.fillStyle="#ffffff"
+                        ctx.fillText("No Running 😬",210,130)
+                    }
+                    ctx.fillStyle="green"
+                    ctx.fillRect(23,24,tempINFO[33]/1.88679245,5)
+                    ctx.fillStyle="purple"
+                    ctx.fillRect(240,24,tempINFO[34]/1.88679245,5)
+                    //funniframe
+                }
+                if(lvl=="test-svg"){
+                    ctx.lineWidth = 1
+                    ctx.strokeStyle ="red"
+                    ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),0,0,310,75,0,75,310,75)
+                    ctx.beginPath();
+                    ctx.moveTo(0, 75);
+                    ctx.lineTo(310, 75);
+                    ctx.stroke();
+                    if(tempINFO[39]==false){
+                        ctx.drawImage(document.getElementById("vector_bg_half1-"+IMAGEserver),0,0,2500,1000,0,0,310,75)
+                    }else{
+                        ctx.drawImage(document.getElementById("vector_bg_half1-"+IMAGEserver),0,1000,2500,1000,0,0,310,75)
+                    }
+                    if(tempINFO[38]==false){
+                        ctx.drawImage(document.getElementById("svg_test1-"+IMAGEserver),181,31,505,86,10,28,133,33)
+                        ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),50,92,116,29,175,100,116,29)
+                    }else{
+                        ctx.drawImage(document.getElementById("svg_test1-"+IMAGEserver),181,153,505,100,10,28,133,33)
+                        ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),186,92,116,29,175,100,116,29)
+                    }
+                    if(tempINFO[39]==false){
+                        ctx.font = "15px Arial";
+                        ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),68,126,79,18,180,105,79,18)
+                    }else{
+                        ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),205,128,79,18,180,105,79,18)
+                        ctx.font = "14px Arial";
+                    }
+                    ctx.fillStyle="black"
+                    ctx.fillText("Vector!",20,50)
+                    //154+505+686 : x 
+                    // 31+86+181 : y
+                }
                 if(lvl=="outsidegame_cece1_backyard"){
                     ctx.drawImage(document.getElementById("grass_static-"+IMAGEserver),0,0,310,150)
                     ctx.drawImage(document.getElementById("wall_outside_amogus-"+IMAGEserver),0,0,310,150)
@@ -6917,6 +7205,27 @@
                         } 
                     }
                 }
+                if(ms1000!=30){
+                    ms1000=ms1000+1
+                    if(ms1000==28){
+                        if(tempINFO[39]==false){
+                            tempINFO[39]=true
+                            return
+                        }else{
+                            tempINFO[39]=false
+                            return
+                        } 
+                    }
+                }else{
+                    ms1000=0
+                    if(tempINFO[38]==false){
+                        tempINFO[38]=true
+                        return
+                    }else{
+                        tempINFO[38]=false
+                        return
+                    }
+                }
                 if(ms100!=3){
                     ms100=ms100+1
                     if(jingle_db==true){
@@ -6992,6 +7301,33 @@
                     if(tempINFO[14]!=tempINFO[17] && tempINFO[16]!=0){
                         tempINFO[16]=tempINFO[16]-1
                         ctx.drawImage(document.getElementById(tempINFO[14]+"-"+IMAGEserver),0,0)
+                    }
+                    if(lvl=="AMUSIA_SART"){
+                        if(tempINFO[30]=="on"){
+                            ctx.fillRect(0,0,310,150);
+                            ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),1631,46,57,102,tempINFO[31],30,57,102)
+                            ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),2340,54,48,92,tempINFO[32],5,57,102)
+                            if(tempINFO[31]==-60){
+                                document.getElementById("amusia_sart_audio-"+SOUNDserver).play()
+                            }
+                            if(tempINFO[31]!=20){
+                                if(tempINFO[31]>-5){
+                                    tempINFO[31]=tempINFO[31]+10
+                                }else{
+                                    tempINFO[31]=tempINFO[31]+5
+                                }
+                            }else{
+                                if(tempINFO[32]!=210){
+                                    tempINFO[32]=tempINFO[32]-10
+                                }
+                            }
+                            tempINFO[30]="off"
+                            return
+                        }
+                        if(tempINFO[30]=="off"){
+                            tempINFO[30]="on"
+                            return
+                        }
                     }
                 }else{
                     ms100=0
@@ -7123,6 +7459,15 @@
                                 ctx.drawImage(document.getElementById("tutorial_ne-"+IMAGEserver),Math.floor(Math.random()*100),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*250),Math.floor(Math.random()*100))  
                             }
                         }
+                        if(lvl=="FIGHR_EDWERA_AAA:hamburger:"){
+                            if(Math.floor(Math.random()*101)<=33){
+                                ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),Math.floor(Math.random()*250),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*250),Math.floor(Math.random()*100))  
+                                ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*250),Math.floor(Math.random()*100))  
+                                ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),Math.floor(Math.random()*150),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*250),Math.floor(Math.random()*100))  
+                                ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*300),Math.floor(Math.random()*100))  
+                                ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),Math.floor(Math.random()*100),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*250),Math.floor(Math.random()*100))  
+                            }
+                        }
                         if(lvl=="tutorial_end"){
                             if(frame_bg_main47==0){
                                 frame_bg_main47=256
@@ -7165,7 +7510,7 @@
                         if(frame_bg_main13>=1410){
                             frame_bg_main13=35
                         }
-                        if(lvl=="garden_minigame_new_death" || lvl=="garden_minigame_death_die" || lvl=="teacher_caught_edwerd_on_phone_sprite"){
+                        if(lvl=="garden_minigame_new_death" || lvl=="garden_minigame_death_die" || lvl=="teacher_caught_edwerd_on_phone_sprite" || lvl=="evelen_kate_2"){
                             if(frame_bg_main47==24490 && lvl=="garden_minigame_new_death"){
                                 frame_bg_main47=0
                                 //lvl="new_death_backyard"
@@ -7177,6 +7522,10 @@
                             if(lvl=="teacher_caught_edwerd_on_phone_sprite" && frame_bg_main47>=24800){
                                 frame_bg_main47=0
                                 lvl="teacher_mad_talk"
+                            }
+                            if(lvl=="evelen_kate_2"  && frame_bg_main47>=54870){
+                                frame_bg_main47=0
+                                lvl="AMUSIA_SART"
                             }
                             frame_bg_main47=frame_bg_main47+310
                         }
@@ -8772,6 +9121,62 @@
             })
 
             canvas.addEventListener("click", function(e){
+                if(lvl=="FIGHR_EDWERA_AAA:hamburger:"){
+                    if(tempINFO[35]=="runn"){
+                        tempINFO[35]="no_running_heheh"
+                    }
+                    if(tempINFO[35]=="objects"){
+                        tempINFO[35]="no_objets"
+                    }
+                    if(tempINFO[35]=="fight"){
+                        tempINFO[35]="fight_menu"
+                    }
+                    if(tempINFO[35]=="no_running_heheh2"){
+                        tempINFO[35]="false" 
+                    }
+                    if(tempINFO[35]=="fight_menu_back"){
+                        tempINFO[35]="false" 
+                    }
+                    if(tempINFO[35]=="no_objets2"){
+                        tempINFO[35]="false" 
+                    }
+                }
+                if(lvl=="savefile1"){
+                    if(IMAGEserver=="desktop"){
+                        if(document.getElementById("external_script").innerHTML=="true"){
+                            lvl="plz_turn_on_sound_plzzz"
+                        }else{
+                            lvl="load"
+                        }
+                    }else{
+                        lvl="load"
+                    }
+                    jsonDATA="1"
+                }
+                if(lvl=="savefile2"){
+                    if(IMAGEserver=="desktop"){
+                        if(document.getElementById("external_script").innerHTML=="true"){
+                            lvl="plz_turn_on_sound_plzzz"
+                        }else{
+                            lvl="load"
+                        }
+                    }else{
+                        lvl="load"
+                    }
+                    jsonDATA="2"
+                }
+                if(lvl=="savefile3"){
+                    if(IMAGEserver=="desktop"){
+                        if(document.getElementById("external_script").innerHTML=="true"){
+                            lvl="plz_turn_on_sound_plzzz"
+                        }else{
+                            lvl="load"
+                        }
+                    }else{
+                        lvl="load"
+                    }
+                    jsonDATA="3"
+                }
                 if(mode=="norm" || mode=="easy"){
                     var nt = (translateGRID(25,25).split(","))[0]
                     var nta = nt
@@ -8853,6 +9258,17 @@
                 }
                 if(lvl=="menuSEL0-rotate1"){
                     lvl="menuSEL0"
+                    if(tempINFO[3]==false){
+                        if(jsonDATA=="1"){
+                            jsonDATA1[1]=(((parseInt(jsonDATA1[1].slice(0,-1))+3.22580645).toString())+"%")
+                        }
+                        if(jsonDATA=="2"){
+                            jsonDATA2[1]=(((parseInt(jsonDATA2[1].slice(0,-1))+3.22580645).toString())+"%")
+                        }
+                        if(jsonDATA=="3"){
+                            jsonDATA3[1]=(((parseInt(jsonDATA3[1].slice(0,-1))+3.22580645).toString())+"%")
+                        }
+                    }
                     tempINFO[3]=true
                     if(sound==true || SOUNDserver=="SOUNDdesk"){
                         document.getElementById("skip_sfx1-"+SOUNDserver).currentTime=0
@@ -8899,7 +9315,7 @@
                         }
                 }
                 if(lvl=="warning_popup"){
-                    if(e.clientX>=110 && e.clientX<=132 && e.clientY>=111 && e.clientY<=130){
+                    if(e.clientX>=parseInt((translateGRID(66,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(79.2,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,66.6).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,78).split(","))[1])){
                         if(flashingLIGHTS==true){
                             flashingLIGHTS=false
                             return
@@ -8907,14 +9323,14 @@
                             flashingLIGHTS=true
                             return  
                         }
-                    }else if(e.clientX>=147 && e.clientX<=364 && e.clientY>=189 && e.clientY<=212){
+                    }else if(e.clientX>=parseInt((translateGRID(88.19999999999999,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(218.4,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,113.4).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,127.2).split(","))[1])){
                         //if(interact==true){
                             //intract=false
                             lvl="garden_minigame"
                             x=399
                             y=89
                         //} 
-                    }else if(e.clientX>=425 && e.clientX<=456 && e.clientY>=28 && e.clientY<=60){
+                    }else if(e.clientX>=parseInt((translateGRID(255,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(273.6,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,16.8).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,36).split(","))[1])){
                         lvl="outsidegame_cece1_backyard"
                         y=79
                         x=72
@@ -8967,7 +9383,7 @@
                     }
                 if(pause==true){
                     if(char_pause.slice(-8)=="-basicin"){
-                        if(e.clientX>=355 && e.clientX<=503 && e.clientY>=154 && e.clientY<=184){
+                        if(e.clientX>=parseInt((translateGRID(213,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(301.8,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,73.2).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,110.39999999999999).split(","))[1])){
                             if(equiped!=char_pause.slice(0,-8)){
                                 equiped=char_pause.slice(0,-8)
                             }else{
@@ -9279,8 +9695,8 @@
                             tempINFO[13]=true
                         }
                         if(tempINFO[12]=="evelen_kate_scene"){
-                            lvl="evelen_kate_1"
                             if(SOUNDserver=="SOUNDdesk" || sound==true){
+                                lvl="evelen_kate_1"
                                 if(IMAGEserver=="imgur"){
                                     document.getElementById("lunch_overview_veryFAST-imgur").play()
                                     lunch_overview_veryFAST_imgur.doLoad()
@@ -9291,6 +9707,8 @@
                                     document.getElementById("lunch_overview_veryFAST-desktop").play()
                                     lunch_overview_veryFAST_desktop.doLoad()
                                 }
+                            }else{
+                                lvl="evelen_kate_2"
                             }
                             dia=0
                             tempINFO[13]=true
@@ -9862,6 +10280,19 @@
                         }
                     }
                 }
+                if(e.key=="f"){
+                    if(tempINFO[36]==false){
+                        requestFullScreen(document.getElementById("mainGame"))
+                        tempINFO[36]=true
+                        return
+                    }
+                }
+                if(e.key=="Escape"){
+                    if(tempINFO[36]==true){
+                        tempINFO[36]=false
+                        return
+                    }
+                }
                 if(e.key=="e"){
                     if(lvl=="3d_lunch_map"){
                         if(tempINFO[13]==false){
@@ -10200,17 +10631,18 @@
                         }
                     }
                 }
-                if(e.key=="q" && e.ctrlKey){
-                    lvl="menuSEL0"
-                    chapterSEL=0
-                }
-                if(e.key=="." && e.ctrlKey){
-                    lvl="teacher_mad_talk"
+                if(e.key=="s" && e.ctrlKey){
+                    tempINFO[27]=lvl 
+                    //tempINFO[28],tempINFO[29]
+                    //lvl="lvl"
+                }                
+                /*if(e.key=="." && e.ctrlKey){
+                    lvl=""
                     mode="easy"
                     tempINFO[22]="true"
                     dia=0
                     chapterSEL=0
-                }
+                }*/
                 if(e.key=="ArrowDown"){
                     if(fnf_mode==true){
                         if(touching(124,adcp,34,34,124,116,34,34)==true){
@@ -10324,16 +10756,27 @@
                     if(e.key=="I" || e.key=="i"){
                         IMAGEserver="imgur"
                         lvl="load"
+                        SOUNDserver="r3"
                     }
                     if(e.key=="G" || e.key=="g"){
                         IMAGEserver="google"
                         lvl="load"
+                        SOUNDserver="drive"
                     }
                     if(e.key=="D" || e.key=="d"){
-                        if(document.getElementById("external_script").innerHTML=="true"){IMAGEserver="desktop"}
-                        lvl="load"
-                        
+                        if(document.getElementById("external_script").innerHTML=="true"){
+                            IMAGEserver="desktop"
+                            SOUNDserver="SOUNDdesk"
+                            lvl="savefile"
+                        }else{
+                            lvl="load"
+                            IMAGEserver="imgur"
+                            SOUNDserver="r3"
+                        }
                     }
+                    readJSON(1)
+                    readJSON(2)
+                    readJSON(3)
                 }
                 if(lvl=="question1-s"){
                     if(e.key=="a"){
@@ -10448,6 +10891,19 @@
                 }
             })
             canvas.addEventListener("mousemove", function(e){
+                if(lvl=="test-svg" || lvl=="test-svg1" || lvl=="test-svg2"){
+                    if(e.clientX>=parseInt((translateGRID(16.8,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(144,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,34.2).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,56.4).split(","))[1])){
+                        lvl="test-svg1"
+                    }else if(e.clientX>=parseInt((translateGRID(182.4,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(292.2,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,106.8).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,128.4).split(","))[1])){
+                        lvl="test-svg2"
+                    }else{
+                        lvl="test-svg"
+                    }
+                    /*28 57
+                    240 94
+                    304 178
+                    487 214*/
+                }
                 if(mode=="easy" || mode=="norm"){
                     if(tempINFO[23] && tempINFO[22]=="hover"){
                         tempINFO[20] = Math.round(parseInt((translateGRID2(e.clientX,e.clientY).split(","))[0]))
@@ -10455,41 +10911,41 @@
                     }
                 }
                 if(lvl=="sound2"  || lvl=="sound3"|| lvl=="sound4"|| lvl=="sound5"){
-                    if(e.clientX>=39 && e.clientX<=224 && e.clientY>=53 && e.clientY<=79){
+                    if(e.clientX>=parseInt((translateGRID(21,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(134,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,31).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,47).split(","))[1])){
                         lvl="sound3"
-                    }else if(e.clientX>=38 && e.clientX<=191 && e.clientY>=110 && e.clientY<=133){
+                    }else if(e.clientX>=parseInt((translateGRID(22,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(116,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,66).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,81).split(","))[1])){
                         lvl="sound4"
-                    }else if(e.clientX>=39 && e.clientX<=131 && e.clientY>=167 && e.clientY<=189){
+                    }else if(e.clientX>=parseInt((translateGRID(23,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(78,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,100).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,113).split(","))[1])){
                         lvl="sound5"
                     }else{
                         lvl="sound2"
                     }
                 }
                 if(lvl=="setting2" || lvl=="setting3" || lvl=="setting-so"){
-                   if(e.clientX>=21 && e.clientX<=122 && e.clientY>=217 && e.clientY<=244){
+                   if(e.clientX>=parseInt((translateGRID(12,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(73,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,130).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,146).split(","))[1])){
                         lvl="setting3"
-                    }else if(e.clientX>=132 && e.clientX<=175 && e.clientY>=45 && e.clientY<=62){
+                    }else if(e.clientX>=parseInt((translateGRID(79,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(105,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,27).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,37).split(","))[1])){
                         lvl="setting-so"
                     }else{
                         lvl="setting2"
                     }
                 }
                 if(lvl=="credit2" || lvl=="credit3"){
-                   if(e.clientX>=350 && e.clientX<=448 && e.clientY>=33 && e.clientY<=58){
+                   if(e.clientX>=parseInt((translateGRID(210,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(268.8,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,19).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,34).split(","))[1])){
                         lvl="credit3"
                     }else{
                         lvl="credit2"
                     }
                 }
                 if(lvl=="introCUTP1-pause" || lvl=="introCUTP1"){
-                	if(e.clientX>=425 && e.clientX<=495 && e.clientY>=229 && e.clientY<=250){
+                	if(e.clientX>=parseInt((translateGRID(255,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(297,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,137).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,150).split(","))[1])){
                         lvl="introCUTP1-pause"
                     }else{
                         lvl="introCUTP1"
                     }
                 }
                 if(lvl=="chapter1_intro-pause" || lvl=="chapter1_intro"){
-                	if(e.clientX>=425 && e.clientX<=495 && e.clientY>=229 && e.clientY<=250){
+                	if(e.clientX>=parseInt((translateGRID(225,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(297,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,137).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,150).split(","))[1])){
                         lvl="chapter1_intro-pause"
                         if(IMAGEserver=="desktop"){
                             if(!document.getElementById("intro_chapter1-desktop").paused){
@@ -10526,7 +10982,7 @@
                     }
                 }
                 if(lvl=="hallwayCHASE-start" || lvl=="hallwayCHASE-start-pause"){
-                    if(e.clientX>=425 && e.clientX<=495 && e.clientY>=229 && e.clientY<=250){
+                    if(e.clientX>=parseInt((translateGRID(255,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(297,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,137).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,150).split(","))[1])){
                         lvl="hallwayCHASE-start-pause"
                     }else{
                         lvl="hallwayCHASE-start"
@@ -10541,17 +10997,28 @@
                         }
                     }
                 }
+                if(lvl=="savefile" || lvl=="savefile1" || lvl=="savefile2" || lvl=="savefile3"){
+                    if(e.clientX>=parseInt((translateGRID(4,44).split(","))[0]) && e.clientX<=parseInt((translateGRID(74,73).split(","))[0]) && e.clientY>=parseInt((translateGRID(4,44).split(","))[1]) && e.clientY<=parseInt((translateGRID(74,73).split(","))[1])){
+                        lvl="savefile1"
+                    }else if(e.clientX>=parseInt((translateGRID(4,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(74,109).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,80).split(","))[1]) && e.clientY<=parseInt((translateGRID(74,109).split(","))[1])){
+                        lvl="savefile2"
+                    }else if(e.clientX>=parseInt((translateGRID(4,119).split(","))[0]) && e.clientX<=parseInt((translateGRID(74,159).split(","))[0]) && e.clientY>=parseInt((translateGRID(4,119).split(","))[1]) && e.clientY<=parseInt((translateGRID(74,159).split(","))[1])){
+                        lvl="savefile3"
+                    }else{
+                        lvl="savefile"
+                    }
+                }
                 if(lvl=="menuSEL1" || lvl=="menuSEL1-rotate"){
-                    if(e.clientX>=52 && e.clientX<=192 && e.clientY>=175 && e.clientY<=198){
+                    if(e.clientX>=parseInt((translateGRID(31,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(115.2,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,105).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,118).split(","))[1])){
                         lvl="menuSEL1-rotate"
                     }else{
                         lvl="menuSEL1"
                     } 
                 }
                 if(lvl=="menuSEL0" || lvl=="menuSEL0-rotate" || lvl=="menuSEL0-rotate1"){
-                    if(e.clientX>=52 && e.clientX<=192 && e.clientY>=175 && e.clientY<=198){
+                    if(e.clientX>=parseInt((translateGRID(31,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(115.2,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,105).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,118).split(","))[1])){
                         lvl="menuSEL0-rotate"
-                    }else if(e.clientX>=52 && e.clientX<=192 && e.clientY>=215 && e.clientY<=248){
+                    }else if(e.clientX>=parseInt((translateGRID(31,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(115.2,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,129).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,148).split(","))[1])){
                         if(tempINFO[3]==false){
                             lvl="menuSEL0-rotate1"
                         }
@@ -10560,13 +11027,13 @@
                     } 
                 }
                 if(lvl=="menuSEL1-difficulty_select" || lvl=="ms1dc" || lvl=="ms1dse" || lvl=="ms1dsn" || lvl=="ms1dsh"){
-                    if(e.clientX>=340 && e.clientX<=373 && e.clientY>=21 && e.clientY<=56){
+                    if(e.clientX>=parseInt((translateGRID(204,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(223,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,12).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,33).split(","))[1])){
                         lvl="ms1dc"
-                    }else if(e.clientX>=164 && e.clientX<=368 && e.clientY>=71 && e.clientY<=117){
+                    }else if(e.clientX>=parseInt((translateGRID(98,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(220,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,42).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,70).split(","))[1])){
                         lvl="ms1dse"
-                    }else if(e.clientX>=166 && e.clientX<=367 && e.clientY>=134 && e.clientY<=179){
+                    }else if(e.clientX>=parseInt((translateGRID(99,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(220,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,80).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,107).split(","))[1])){
                         lvl="ms1dsn"
-                    }else if(e.clientX>=164 && e.clientX<=366 && e.clientY>=193 && e.clientY<=239){
+                    }else if(e.clientX>=parseInt((translateGRID(98,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(219,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,115).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,143).split(","))[1])){
                         lvl="ms1dsh"
                     }else{
                         lvl="menuSEL1-difficulty_select"
@@ -10574,18 +11041,18 @@
                 }
                 if(lvl=="plz_turn_on_sound_plzzz" || lvl=="plz_turn_on_sound_plzzz_decline:hover" || lvl=="plz_turn_on_sound_plzzz_accept:hover"){
                     //plz_turn_on_sound_plzzz_accept:hover
-                    if(e.clientX>=293 && e.clientX<=351 && e.clientY>=117 && e.clientY<=130){
+                    if(e.clientX>=parseInt((translateGRID(173,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(210,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,66).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,74).split(","))[1])){
                         lvl="plz_turn_on_sound_plzzz_accept:hover"
-                    }else if(e.clientX>=432 && e.clientX<=493 && e.clientY>=117 && e.clientY<=130){
+                    }else if(e.clientX>=parseInt((translateGRID(256,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(292,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,66).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,74).split(","))[1])){
                         lvl="plz_turn_on_sound_plzzz_decline:hover"
                     }else{
                         lvl="plz_turn_on_sound_plzzz"  
                     }
                 }
                 if(lvl=="cece_room_1_decide"){
-                    if(e.clientX>=90 && e.clientX<=210 && e.clientY>=224 && e.clientY<=246){
+                    if(e.clientX>=parseInt((translateGRID(54,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(126,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,134).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,146).split(","))[1])){
                         decide_1=1
-                    }else if(e.clientX>=310 && e.clientX<=420 && e.clientY>=223 && e.clientY<=245){
+                    }else if(e.clientX>=parseInt((translateGRID(186,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(252,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,133).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,146).split(","))[1])){
                         decide_1=2
                     }else{
                         decide_1=0
@@ -10594,74 +11061,74 @@
                 if(pause==true){
                     if(obj!=">:(-NOTI-INVENTORY-BAD-):<"){
                         if(char_pause.slice(-8)=="-statsss" || char_pause.slice(-8)=="-profile" || char_pause.slice(-8)=="-voiceln" ||char_pause.slice(-8)=="-charact"){
-                            if(e.clientX>=10 && e.clientX<=66 && e.clientY>=205 && e.clientY<=235){
+                            if(e.clientX>=parseInt((translateGRID(6,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(39,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,122).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,141).split(","))[1])){
                                 obj="resume_gamer"
-                            }else if(e.clientX>=10 && e.clientX<=66 && e.clientY>=76 && e.clientY<=88){
+                            }else if(e.clientX>=parseInt((translateGRID(6,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(39,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,45).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,52).split(","))[1])){
                                 obj="profile"
-                            }else if(e.clientX>=8 && e.clientX<=68 && e.clientY>=93 && e.clientY<=116){
+                            }else if(e.clientX>=parseInt((translateGRID(4,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(39,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,55).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,69).split(","))[1])){
                                 obj="voice_lines"
-                            }else if(e.clientX>=10 && e.clientX<=65 && e.clientY>=120 && e.clientY<=133){
+                            }else if(e.clientX>=parseInt((translateGRID(6,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(39,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,72).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,79).split(","))[1])){
                                 obj="stats"
-                            }else if(e.clientX>=8 && e.clientX<=66 && e.clientY>=136 && e.clientY<=147){
+                            }else if(e.clientX>=parseInt((translateGRID(4,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(39,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,81).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,88).split(","))[1])){
                                 obj="char"
                             }else{
                                 obj="none"
                             }
                         }
                         if(char_pause.slice(-8)=="-basicin" || char_pause.slice(-8)=="-desc_in" || char_pause.slice(-8)=="-statsin" || char_pause.slice(-8)=="-previin" || char_pause.slice(-8)=="-advanin" || char_pause.slice(-8)=="-randoin" | char_pause.slice(-8)=="-itemtin"){
-                            if(e.clientX>=6 && e.clientX<=141 && e.clientY>=61 && e.clientY<=76){
+                            if(e.clientX>=parseInt((translateGRID(3,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(84,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,36).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,45).split(","))[1])){
                                 obj="basic_stuf_inven"
-                            }else if(e.clientX>=9 && e.clientX<=83 && e.clientY>=109 && e.clientY<=95){
+                            }else if(e.clientX>=parseInt((translateGRID(5,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(49,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,65).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,57).split(","))[1])){
                                 obj="description_inve"
-                            }else if(e.clientX>=9 && e.clientX<=117 && e.clientY>=103 && e.clientY<=116){
+                            }else if(e.clientX>=parseInt((translateGRID(5,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(70,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,61).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,69).split(","))[1])){
                                 obj="stats_inventoryy"
-                            }else if(e.clientX>=7 && e.clientX<=130 && e.clientY>=123 && e.clientY<=135){
+                            }else if(e.clientX>=parseInt((translateGRID(4,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(78,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,73).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,81).split(","))[1])){
                                 obj="pre-view_invento"
-                            }else if(e.clientX>=7 && e.clientX<=127 && e.clientY>=142 && e.clientY<=155){
+                            }else if(e.clientX>=parseInt((translateGRID(4,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(76,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,85).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,93).split(","))[1])){
                                 obj="advanced_invento"
-                            }else if(e.clientX>=8 && e.clientX<=141 && e.clientY>=161 && e.clientY<=175){
+                            }else if(e.clientX>=parseInt((translateGRID(4,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(84,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,96).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,105).split(","))[1])){
                                 obj="randomSHIT_inven"
-                            }else if(e.clientX>=7 && e.clientX<=142 && e.clientY>=180 && e.clientY<=195){
+                            }else if(e.clientX>=parseInt((translateGRID(4,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(85,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,108).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,117).split(","))[1])){
                                 obj="itemTYOE_invento"
-                            }else if(e.clientX>=9 && e.clientX<=142 && e.clientY>=203 && e.clientY<=218){
+                            }else if(e.clientX>=parseInt((translateGRID(5,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(85,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,121).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,131).split(","))[1])){
                                 obj="resume_gamer"
                             }else{
                                 obj="none"
                             }  
                         } 
-                        if(e.clientX>=7 && e.clientX<=126 && e.clientY>=7 && e.clientY<=22){
+                        if(e.clientX>=parseInt((translateGRID(4,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(75,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,4).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,13).split(","))[1])){
                             obj="profile_top"
-                        }else if(e.clientX>=128 && e.clientX<=266 && e.clientY>=8 && e.clientY<=24){
+                        }else if(e.clientX>=parseInt((translateGRID(76,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(159,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,4).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,14).split(","))[1])){
                             obj="inventory_top"
-                        }else if(e.clientX>=271 && e.clientX<=295 && e.clientY>=8 && e.clientY<=24){
+                        }else if(e.clientX>=parseInt((translateGRID(162,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(177,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,4).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,14).split(","))[1])){
                             obj="menuin_top"
                         }
                     };
                 };
                 if(lvl=="menuSEL1-locked" || lvl=="menuSEL1-locked2"){
-                    if(e.clientX>=181 && e.clientX<=444 && e.clientY>=177 && e.clientY<=211){
+                    if(e.clientX>=parseInt((translateGRID(108,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(266,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,70).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,126).split(","))[1])){
                         lvl="menuSEL1-locked2"
                     }else{
                         lvl="menuSEL1-locked"
                     } 
                 }
                 if(inventory_toggle==true){
-                    if(e.clientX>=94 && e.clientX<=139 && e.clientY>=204 && e.clientY<=250){
+                    if(e.clientX>=parseInt((translateGRID(56,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(83,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,122).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,150).split(","))[1])){
                         ctx.drawImage(document.getElementById("inventory_hover-"+IMAGEserver),50,117,32,32)
                         INVENTORYhov[0]="1";
-                    }else if(e.clientX>=148 && e.clientX<=195 && e.clientY>=205 && e.clientY<=251){
+                    }else if(e.clientX>=parseInt((translateGRID(88,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(117,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,122).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,150).split(","))[1])){
                         ctx.drawImage(document.getElementById("inventory_hover-"+IMAGEserver),83,117,32,32)
                         INVENTORYhov[1]="2";
-                    }else if(e.clientX>=202 && e.clientX<=251 && e.clientY>=207 && e.clientY<=251){
+                    }else if(e.clientX>=parseInt((translateGRID(121,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(150,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,124).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,150).split(","))[1])){
                         ctx.drawImage(document.getElementById("inventory_hover-"+IMAGEserver),116,117,32,32)
                         INVENTORYhov[2]="3";
-                    }else if(e.clientX>=259 && e.clientX<=306 && e.clientY>=203 && e.clientY<=251){
+                    }else if(e.clientX>=parseInt((translateGRID(155,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(183,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,121).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,150).split(","))[1])){
                         ctx.drawImage(document.getElementById("inventory_hover-"+IMAGEserver),149,117,32,32)
                         INVENTORYhov[3]="4";
-                    }else if(e.clientX>=314 && e.clientX<=362 && e.clientY>=203 && e.clientY<=251){
+                    }else if(e.clientX>=parseInt((translateGRID(188,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(217,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,121).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,150).split(","))[1])){
                         ctx.drawImage(document.getElementById("inventory_hover-"+IMAGEserver),182,117,32,32)
                         INVENTORYhov[4]="5";
-                    }else if(e.clientX>=368 && e.clientX<=417 && e.clientY>=203 && e.clientY<=251){
+                    }else if(e.clientX>=parseInt((translateGRID(220,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(250,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,121).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,150).split(","))[1])){
                         ctx.drawImage(document.getElementById("inventory_hover-"+IMAGEserver),215,117,32,32)
                         INVENTORYhov[5]="6";
                     }else{
@@ -10671,6 +11138,45 @@
                         INVENTORYhov[3]="";
                         INVENTORYhov[4]="";
                         INVENTORYhov[5]="";
+                    }
+                }
+                if(lvl=="FIGHR_EDWERA_AAA:hamburger:"){
+                    if(tempINFO[35]=="false" || tempINFO[35]=="fight" || tempINFO[35]=="runn" || tempINFO[35]=="objects"){
+                        if(e.clientX>=parseInt((translateGRID(220,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(253,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,115).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,120).split(","))[1])){
+                            tempINFO[35]="fight"
+                        }else if(e.clientX>=parseInt((translateGRID(220,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(270,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,135).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,141).split(","))[1])){
+                            tempINFO[35]="objects"
+                        }else if(e.clientX>=parseInt((translateGRID(260,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(303,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,115).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,120).split(","))[1])){
+                            tempINFO[35]="runn"
+                        }else{
+                            tempINFO[35]="false"
+                        }
+                    }
+                    if(tempINFO[35]=="no_running_heheh" || tempINFO[35]=="no_running_heheh2"){
+                        if(e.clientX>=parseInt((translateGRID(215,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(303,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,135).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,200).split(","))[1])){
+                            tempINFO[35]="no_running_heheh2"
+                        }else{
+                            tempINFO[35]="no_running_heheh"
+                        }
+                    }
+                    if(tempINFO[35]=="no_objets" || tempINFO[35]=="no_objets2"){
+                        if(e.clientX>=parseInt((translateGRID(215,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(303,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,135).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,200).split(","))[1])){
+                            tempINFO[35]="no_objets2"
+                        }else{
+                            tempINFO[35]="no_objets"
+                        }
+                    }
+                    if(tempINFO[35]=="fight_menu" || tempINFO[35]=="fight_menu_back" || tempINFO[35]=="fight_menu_taunt"){
+                        if(e.clientX>=parseInt((translateGRID(215,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(303,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,135).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,200).split(","))[1])){
+                            tempINFO[35]="fight_menu_back"
+                        }else if(e.clientX>=parseInt((translateGRID(215,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(297,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,80).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,89).split(","))[1])){
+                            tempINFO[35]="fight_menu_taunt"
+                        }else if(e.clientX>=parseInt((translateGRID(215,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(297,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,115).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,120).split(","))[1])){
+                            tempINFO[35]="fight_menu_punch"
+                        }else{
+                            tempINFO[35]="fight_menu"
+                        }
+                        //215,
                     }
                 }
             })
@@ -10741,61 +11247,27 @@
                 lvl="teacher_mad_talk"
             };
 
-            document.getElementById("lunch_overview_veryFAST-google").ontimeupdate=function(){
+           /* document.getElementById("lunch_overview_veryFAST-google").ontimeupdate=function(){
                 SONGupdated('overview101LUNCH',Math.floor(this.currentTime))
             }
             document.getElementById("lunch_overview_veryFAST-imgur").ontimeupdate=function(){
                 SONGupdated('overview101LUNCH',Math.floor(this.currentTime))
+            }*/
+
+            document.getElementById("lunch_overview_veryFAST-google").onended = (event) => {lvl="AMUSIA_SART"};
+            document.getElementById("lunch_overview_veryFAST-imgur").onended = (event) => {lvl="AMUSIA_SART"};
+
+            document.getElementById("amusia_sart_audio-r3").onended=function(){
+                lvl="FIGHR_EDWERA_AAA:hamburger:"
+                document.getElementById("pursuit-r3").loopable=true
+                document.getElementById("pursuit-r3").play()
             }
 
-            document.getElementById("desktop_sound").addEventListener("click",function(){
-    desktopSOUND()
-})
-
-document.getElementById("desktop").addEventListener("click",function(){
-    desktop()
-})
-
-document.getElementById("external_script").innerHTML="true"
-document.getElementById("drive_clip-SOUNDdesk").ontimeupdate=function(){SONGupdated('drive_clip',Math.floor(this.currentTime))}
-document.getElementById('tsone_intro-desktop').onended = (event) => {
-    console.log("tsone_intro-desktop stopped either because it has finished playing or no further data is available.");
-    sound=false
-    lvl="soundin"
-};
-
-document.getElementById('tsone_intro_no-desktop').onended = (event) => {
-    console.log("tsone_intro_no-desktop stopped either because it has finished playing or no further data is available.");
-    sound=false
-    lvl="enter"
-};
-
-document.getElementById('intro_chapter1-desktop').onended = (event) => {
-    console.log("intro_chapter1-desktop stopped either because it has finished playing or no further data is available.");
-    lvl="hallwayCHASE-0"
-};
-
-document.getElementById("cece_band_osu_playback-desktop").ontimeupdate=function(){SONGupdated('drive_clip',Math.floor(this.currentTime))};
-
-document.getElementById("fox_vide_or_something_pov_idk-desktop").onended = (event) => {
-    //lvl="dead-hallwayCHASE"        
-    lvl="garden_minigame_death_die"
-}
-
-document.getElementById("cece_band_osu_playback-desktop").onended = (event) => {
-    lvl="osu_afterplay_stats"
-    tempINFO[26]="buy lunch"
-    document.getElementById('cece_band_osu_playback-desktop').pause()
-    document.getElementById('drive_clip-drive').pause()
-    document.getElementById('drive_clip-SOUNDdesk').pause()
-    document.getElementById('drive_clip-r3').pause()
-    document.getElementById('cece_band_osu_playback-desktop').currentTime=0
-};
-
-
-document.getElementById("lunch_overview_veryFAST-desktop").ontimeupdate=function(){
-    SONGupdated('overview101LUNCH',Math.floor(this.currentTime))
-}
+            document.getElementById("amusia_sart_audio-drive").onended=function(){
+                lvl="FIGHR_EDWERA_AAA:hamburger:"
+                document.getElementById("pursuit-drive").loopable=true
+                document.getElementById("pursuit-drive").play()
+            }
 
             ////window.location.href.slice(0,-10)+
         </script>

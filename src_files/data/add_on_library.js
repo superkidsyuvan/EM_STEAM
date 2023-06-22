@@ -951,6 +951,10 @@ var tsone_intro = document.createElement("video")
 tsone_intro.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/MENU_START/intro_cool.mp4"
 tsone_intro.id="tsone_intro-desktop"
 tsone_intro.hidden=true
+var tsone_intro_no = document.createElement("video")
+tsone_intro_no.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/MENU_START/intro_no_sound.mp4"
+tsone_intro_no.id="tsone_intro_no-desktop"
+tsone_intro_no.hidden=true 
 var lunch_overview_veryFAST = document.createElement("video")
 lunch_overview_veryFAST.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/diolauge_stage/slang.mp4"
 lunch_overview_veryFAST.id="lunch_overview_veryFAST-desktop"
@@ -1019,6 +1023,14 @@ var vol0 = document.createElement("img")
 vol0.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol0.png"
 vol0.id="vol0-desktop"
 vol0.hidden=true
+var svg_test1 = document.createElement("img")
+svg_test1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/blank_save/button.svg"
+svg_test1.id="svg_test1-desktop"
+svg_test1.hidden=true 
+var bg_pixl_halfd = document.createElement("img")
+bg_pixl_halfd.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/blank_save/bg_pixl_halfd.png"
+bg_pixl_halfd.id="bg_pixl_halfd-desktop"
+bg_pixl_halfd.hidden=true 
 var vol1 = document.createElement("img")
 vol1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/master-volume/vol1.png"
 vol1.id="vol1-desktop"
@@ -1191,7 +1203,42 @@ var slang_spritesheet = document.createElement("img")
 slang_spritesheet.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/diolauge_stage/wal.png"
 slang_spritesheet.id="slang_spritesheet-desktop"
 slang_spritesheet.hidden=true
-
+var savefile_bg = document.createElement("img")
+savefile_bg.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/savefiles_menu/bg.png"
+savefile_bg.id="savefile_bg-desktop"
+savefile_bg.hidden=true
+var savefile_h0 = document.createElement("img")
+savefile_h0.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/savefiles_menu/hover0.png"
+savefile_h0.id="savefile_h0-desktop"
+savefile_h0.hidden=true
+var savefile_h1 = document.createElement("img")
+savefile_h1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/savefiles_menu/hover1.png"
+savefile_h1.id="savefile_h1-desktop"
+savefile_h1.hidden=true
+var savefile_h2 = document.createElement("img")
+savefile_h2.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/savefiles_menu/hover2.png"
+savefile_h2.id="savefile_h2-desktop"
+savefile_h2.hidden=true
+var savefile_h3 = document.createElement("img")
+savefile_h3.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/savefiles_menu/hover3.png"
+savefile_h3.id="savefile_h3-desktop"
+savefile_h3.hidden=true
+var fight_spritesheet_cafe = document.createElement("img")
+fight_spritesheet_cafe.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/fight_ss.png"
+fight_spritesheet_cafe.id="fight_spritesheet_cafe-desktop"
+fight_spritesheet_cafe.hidden=true
+var bg_lunchFIGHT11 = document.createElement("img")
+bg_lunchFIGHT11.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/bg_norm.png"
+bg_lunchFIGHT11.id="bg_lunchFIGHT11-desktop"
+bg_lunchFIGHT11.hidden=true
+var bg_lunchFIGHT11_invert = document.createElement("img")
+bg_lunchFIGHT11_invert.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/bg_invert.png"
+bg_lunchFIGHT11_invert.id="bg_lunchFIGHT11_invert-desktop"
+bg_lunchFIGHT11_invert.hidden=true
+var vector_bg_half1 = document.createElement("img")
+vector_bg_half1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/blank_save/bg_master.svg"
+vector_bg_half1.id="vector_bg_half1-desktop"
+vector_bg_half1.hidden=true 
 
 /* DONTI OWKRRR!!
 
@@ -1215,9 +1262,15 @@ var drive_clip = document.createElement("audio")
 drive_clip.src=window.location.href.slice(0,-21)+"files/sound/MUSIC/.ogg/drive_clip.ogg"
 drive_clip.id="drive_clip-SOUNDdesk"
 //drive_clip.oncanplaythrough=function(){tempINFO[8]=1}
+var amusia_sart_audio = document.createElement("audio")
+amusia_sart_audio.src=window.location.href.slice(0,-21)+"files/sound/MUSIC/.wav/amusia_start.wav"
+amusia_sart_audio.id="amusia_sart_audio-SOUNDdesk"
 var go3 = document.createElement("audio")
 go3.src=window.location.href.slice(0,-21)+"files/sound/SFX/.wav/go.wav"
 go3.id="go-SOUNDdesk"
+var pursuit = document.createElement("audio")
+pursuit.src=window.location.href.slice(0,-21)+"files/sound/MUSIC/.wav/Pursuit.wav"
+pursuit.id="pursuit-SOUNDdesk"
 var jumpscare_HARVESTER = document.createElement("audio")
 jumpscare_HARVESTER.src=window.location.href.slice(0,-21)+"files/sound/SFX/.wav/harvester_jumpscare.wav"
 jumpscare_HARVESTER.id="jumpscare_HARVESTER-SOUNDdesk"
@@ -1300,6 +1353,7 @@ var tutorial_end1_none_dia13 = document.createElement("audio")
 tutorial_end1_none_dia13.src=window.location.href.slice(0,-21)+"files/sound/DIALOUGE/tutorial_end1/dia13.mp3"
 tutorial_end1_none_dia13.id="tutorial_end1_none_dia13-SOUNDdesk"
 //drive_clip.preload="auto"
+document.getElementById("sound_lib").appendChild(pursuit)
 document.getElementById("sound_lib").appendChild(tutorial_end1_none_dia13)
 document.getElementById("sound_lib").appendChild(ding)
 document.getElementById("sound_lib").appendChild(drive_clip)
@@ -1328,6 +1382,7 @@ document.getElementById("sound_lib").appendChild(chp_locked_error_sound)
 document.getElementById("sound_lib").appendChild(scrollMENU)
 document.getElementById("sound_lib").appendChild(missnote2)
 document.getElementById("sound_lib").appendChild(go3)
+document.getElementById("sound_lib").appendChild(amusia_sart_audio)
 document.getElementById("sound_lib").appendChild(jumpscare_HARVESTER)
 
 var button_switch = document.createElement("button")
@@ -1630,25 +1685,24 @@ document.getElementById("library_com").appendChild(bg_dia1_LM_1_cashier)
 document.getElementById("library_com").appendChild(lunch_cashier_profile_1_LM)
 document.getElementById("library_com").appendChild(person_table_1_LM)
 document.getElementById("library_com").appendChild(slang_spritesheet)
+document.getElementById("library_com").appendChild(savefile_bg)
+document.getElementById("library_com").appendChild(savefile_h0)
+document.getElementById("library_com").appendChild(savefile_h1)
+document.getElementById("library_com").appendChild(savefile_h2)
+document.getElementById("library_com").appendChild(savefile_h3)
+document.getElementById("library_com").appendChild(fight_spritesheet_cafe)
+document.getElementById("library_com").appendChild(bg_lunchFIGHT11)
+document.getElementById("library_com").appendChild(bg_lunchFIGHT11_invert)
+document.getElementById("library_com").appendChild(tsone_intro_no)
+document.getElementById("library_com").appendChild(vector_bg_half1)
+
+document.getElementById("library_com").appendChild(svg_test1)
+document.getElementById("library_com").appendChild(bg_pixl_halfd)
+
 
 
 document.getElementById("library_com").appendChild(button_switch)
 //document.getElementById("sound_lib").appendChild(testAUDIO)
-
-window.addEventListener("keyup", function(e){
-    if(e.key=="f"){
-        /*if(document.getElementById("mainGame").requestFullScreen){
-            document.getElementById("mainGame").requestFullScreen();
-        }else if(document.getElementById("mainGame").webkitRequestFullScreen){
-            document.getElementById("mainGame").webkitRequestFullScreen();
-        }else if(document.getElementById("mainGame").mozRequestFullScreen){
-            document.getElementById("mainGame").mozRequestFullScreen();
-        }*/
-        
-    }
-})
-
-
 
 document.getElementById("ready-SOUNDdesk").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=1}}
 document.getElementById("set-SOUNDdesk").onended=function(){if(lvl=='hallwayCHASE-0'){rsg=2}}
@@ -1657,5 +1711,69 @@ document.getElementById("laugh-SOUNDdesk").onended=function(){if(lvl=="hallwayCH
 document.getElementById("begin-SOUNDdesk").onended=function(){if(lvl=="hallwayCHASE-start" || lvl=="hallwayCHASE-start-pause"){document.getElementById("laugh-"+SOUNDserver).play();lvl="hallwayCHASE-laugh"}}
 document.getElementById("decide-SOUNDdesk").onended=function(){if(lvl=="cece_room_1_decide"){lvl="she_is_the_ded"}}
 document.getElementById("jumpscare_HARVESTER-SOUNDdesk").onended=function(){if(lvl=="plz_turn_on_sound_plzzz_jump"){white_trans=true}}
+
+document.getElementById("desktop_sound").addEventListener("click",function(){
+    desktopSOUND()
+})
+
+document.getElementById("desktop").addEventListener("click",function(){
+    desktop()
+})
+
+document.getElementById("external_script").innerHTML="true"
+document.getElementById("drive_clip-SOUNDdesk").ontimeupdate=function(){SONGupdated('drive_clip',Math.floor(this.currentTime))}
+document.getElementById('tsone_intro-desktop').onended = (event) => {
+    if(document.getElementById("external_script").innerHTML=="true"){
+        IMAGEserver="desktop"
+        SOUNDserver="SOUNDdesk"
+        sound=true
+        lvl="enter"
+    }else{
+        sound=false
+        lvl="soundin"
+    }
+};
+
+document.getElementById('tsone_intro_no-desktop').onended = (event) => {
+    sound=false
+    lvl="enter"
+};
+
+document.getElementById('intro_chapter1-desktop').onended = (event) => {
+    console.log("intro_chapter1-desktop stopped either because it has finished playing or no further data is available.");
+    lvl="hallwayCHASE-0"
+};
+
+document.getElementById("cece_band_osu_playback-desktop").ontimeupdate=function(){SONGupdated('drive_clip',Math.floor(this.currentTime))};
+
+document.getElementById("fox_vide_or_something_pov_idk-desktop").onended = (event) => {
+    //lvl="dead-hallwayCHASE"        
+    lvl="garden_minigame_death_die"
+}
+document.getElementById("lunch_overview_veryFAST-desktop").onended = (event) => {
+    lvl="AMUSIA_SART"
+};
+
+
+document.getElementById("cece_band_osu_playback-desktop").onended = (event) => {
+    lvl="osu_afterplay_stats"
+    tempINFO[26]="buy lunch"
+    document.getElementById('cece_band_osu_playback-desktop').pause()
+    document.getElementById('drive_clip-drive').pause()
+    document.getElementById('drive_clip-SOUNDdesk').pause()
+    document.getElementById('drive_clip-r3').pause()
+    document.getElementById('cece_band_osu_playback-desktop').currentTime=0
+};
+
+document.getElementById("amusia_sart_audio-SOUNDdesk").onended=function(){
+    lvl="FIGHR_EDWERA_AAA:hamburger:"
+    document.getElementById("pursuit-SOUNDdesk").loopable=true
+    document.getElementById("pursuit-SOUNDdesk").play()
+}
+
+document.getElementById("lunch_overview_veryFAST-desktop").ontimeupdate=function(){
+    //SONGupdated('overview101LUNCH',Math.floor(this.currentTime))
+}
+
 
 console.log("it worked")
