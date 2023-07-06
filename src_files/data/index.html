@@ -618,6 +618,8 @@
         <video hidden src="" id="lunch_overview_veryFAST-google" alt="lunch_overview_veryFAST-google"></video>
         <video hidden src="" id="teacher_caught_edwer_watching_on_his_iphone4-imgur" alt="teacher_caught_edwer_watching_on_his_iphone4-imgur"></video>
         <video hidden src="" id="teacher_caught_edwer_watching_on_his_iphone4-google" alt="teacher_caught_edwer_watching_on_his_iphone4-google"></video>
+        <video hidden src="" id="taunt_move1-imgur" alt="taunt_move1-imgur"></video>
+        <video hidden src="" id="taunt_move1-google" alt="taunt_move1-google"></video>
         <audio id="jumpscare_HARVESTER-drive" src=""></audio>
         <audio id="jumpscare_HARVESTER-r3" src=""></audio>
         <audio id="go-drive" src=""></audio>
@@ -687,6 +689,7 @@
         <h3>Sound Not Working? (Make sure not on mute) / Sound Assest Loading Stuck?: Change Server (Sound):</h3> <button id="drive_s" onclick="drive()">DRIVE.cloud (Default) - (Selected)</button> <button id="c3.RBX" onclick="RBX()">C3.RBXcdn</button> <button id="desktop_sound" onclick="desktopSOUND()">Desktop sound! (no internet needed)</button> <div id="sound_lib"></div>
         </br><span>Sound May Take Time To Load When Changing Servers</span></div>
             */
+           
             var canvas = document.getElementById("mainGame") // ooh thaats where we are drawinf right?
             var ctx = canvas.getContext("2d"); //it could be 3d but nah
             var lvl = "start-warn" //level selection
@@ -792,6 +795,7 @@
             var frame_bg_main56=146
             var frame_bg_main57=0
             var frame_bg_main58=99
+            var waiting_move = 182
             var frame_bg_main59=0
             var funniframe=0
             var adiviserY = 190
@@ -1326,6 +1330,112 @@
                 return;
                 }
             };
+
+            const taunt_move1_desktop={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    return;
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("taunt_move1-desktop");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width
+                    self.height = self.c1.height
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                return;
+                }
+            };
+
+            const taunt_move1_google={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    return;
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("taunt_move1-google");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width
+                    self.height = self.c1.height
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                return;
+                }
+            };
+
+            const taunt_move1_imgur={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    return;
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("taunt_move1-imgur");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width
+                    self.height = self.c1.height
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                return;
+                }
+            };
+
                         
             //universal functions (some left out cuz ya)
             function FRAME(){
@@ -6775,13 +6885,43 @@
                 }
                 if(lvl=="FIGHR_EDWERA_AAA:hamburger:"){
                     ctx.drawImage(document.getElementById("bg_lunchFIGHT11_invert-"+IMAGEserver),0,0,310,150)
+                    if(Math.floor(Math.random()*101)<=33){
+                        var a = Math.floor(Math.random()*250)
+                        var b =  Math.floor(Math.random()*50)
+                        var c = Math.floor(Math.random()*100)
+                        var d = Math.floor(Math.random()*50)
+                        var e = Math.floor(Math.random()*250)
+                        var f =  Math.floor(Math.random()*50)
+                        var g = Math.floor(Math.random()*50)
+                        var h = Math.floor(Math.random()*100)
+                        var i = Math.floor(Math.random()*250)
+                        var j =  Math.floor(Math.random()*50)
+                        var k = Math.floor(Math.random()*50)
+                        var l = Math.floor(Math.random()*50)
+                        ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),a,b,c,d,a,b,c,d)  
+                        ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),e,f,g,h,e,f,g,h)  
+                        ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),i,j,k,l,i,j,k,l)   
+                    }
                     ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),227,73,78,22,200,90,78,22)
                     ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),227,47,78,22,10,120,78,22)
-                    ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),(funniframe*5.46875)+717,39,57,102,tempINFO[31],30,57,102)
-                    ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),(funniframe*5.46875)+874,4,48,92,tempINFO[32],5,57,102)
+                    ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),(frame_bg_main58-99)+717,39,57,102,tempINFO[31],30,57,102)
+                    ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),(frame_bg_main58-99)+874,4,48,92,tempINFO[32],5,57,102)
                     ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,0,96,31,0,0,96,31)
                     ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),215,0,96,31,205,0,96,31)
                     ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),215,0,96,31,205,0,96,31)
+                    if(tempINFO[35]=="waiting_move"){
+                        ctx.fillStyle="white"
+                        ctx.fillRect(210,120,70,15)
+                        ctx.fillStyle="black"
+                        if(tempINFO[38]==true){
+                            ctx.fillText("choosing move..",215,125)
+                        }else{
+                            ctx.fillText("choosing move.",215,125)
+                        }
+                    }
+                    if(tempINFO[35]=="powerup"){
+                        ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),(frame_bg_main58-99)+1049,31,70,62,tempINFO[32]-4,50,70,62)
+                    }
                     if(tempINFO[35]=="false"){
                         ctx.drawImage(document.getElementById("fight_spritesheet_cafe-"+IMAGEserver),0,100,310,47,0,100,310,47)
                         ctx.fillStyle="#ffffff"
@@ -6935,6 +7075,69 @@
                     //154+505+686 : x 
                     // 31+86+181 : y
                 }
+                if(lvl=="test-svg2"){
+                    ctx.lineWidth = 1
+                    ctx.strokeStyle ="red"
+                    ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),0,0,310,75,0,75,310,75)
+                    ctx.beginPath();
+                    ctx.moveTo(0, 75);
+                    ctx.lineTo(310, 75);
+                    ctx.stroke();
+                    if(tempINFO[39]==false){
+                        ctx.drawImage(document.getElementById("vector_bg_half1-"+IMAGEserver),0,0,2500,1000,0,0,310,75)
+                    }else{
+                        ctx.drawImage(document.getElementById("vector_bg_half1-"+IMAGEserver),0,1000,2500,1000,0,0,310,75)
+                    }
+                    if(tempINFO[38]==false){
+                        ctx.drawImage(document.getElementById("svg_test1-"+IMAGEserver),181,31,505,86,10,28,133,33)
+                        ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),50,92,116,29,175,100,116,29)
+                    }else{
+                        ctx.drawImage(document.getElementById("svg_test1-"+IMAGEserver),181,153,505,100,10,28,133,33)
+                        ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),186,92,116,29,175,100,116,29)
+                    }
+                    if(tempINFO[39]==false){
+                        ctx.font = "15px Arial";
+                        ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),68,126,79,18,180,105,100,18)
+                    }else{
+                        ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),205,128,79,18,180,105,100,18)
+                        ctx.font = "14px Arial";
+                    }
+                    ctx.fillStyle="black"
+                    ctx.fillText("Vector!",20,50)
+                    //154+505+686 : x 
+                    // 31+86+181 : y
+                }
+                if(lvl=="test-svg1"){
+                    ctx.lineWidth = 1
+                    ctx.strokeStyle ="red"
+                    ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),0,0,310,75,0,75,310,75)
+                    ctx.beginPath();
+                    ctx.moveTo(0, 75);
+                    ctx.lineTo(310, 75);
+                    ctx.stroke();
+                    if(tempINFO[39]==false){
+                        ctx.drawImage(document.getElementById("vector_bg_half1-"+IMAGEserver),0,0,2500,1000,0,0,310,75)
+                    }else{
+                        ctx.drawImage(document.getElementById("vector_bg_half1-"+IMAGEserver),0,1000,2500,1000,0,0,310,75)
+                    }
+                    if(tempINFO[38]==false){
+                        ctx.drawImage(document.getElementById("svg_test1-"+IMAGEserver),181,31,505,86,10,28,133,33)
+                        ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),50,92,116,29,175,100,116,29)
+                    }else{
+                        ctx.drawImage(document.getElementById("svg_test1-"+IMAGEserver),181,153,505,100,10,28,133,33)
+                        ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),186,92,116,29,175,100,116,29)
+                    }
+                    if(tempINFO[39]==false){
+                        ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),68,126,79,18,180,105,79,18)
+                    }else{
+                        ctx.drawImage(document.getElementById("bg_pixl_halfd-"+IMAGEserver),205,128,79,18,180,105,79,18)
+                    }
+                    ctx.font = "20px Arial";
+                    ctx.fillStyle="black"
+                    ctx.fillText("Vector!",20,50)
+                    //154+505+686 : x 
+                    // 31+86+181 : y
+                }
                 if(lvl=="outsidegame_cece1_backyard"){
                     ctx.drawImage(document.getElementById("grass_static-"+IMAGEserver),0,0,310,150)
                     ctx.drawImage(document.getElementById("wall_outside_amogus-"+IMAGEserver),0,0,310,150)
@@ -7050,6 +7253,23 @@
                 }
                 if(lvl=="plz_turn_on_sound_plzzz_accept"){
                     ctx.drawImage(document.getElementById("harvester_ani1-"+IMAGEserver),frame_bg_main57,0,310,150,0,0,310,150)
+                }
+                if(lvl=="introscren"){
+                    ctx.drawImage(document.getElementById("answer_ani1-"+IMAGEserver),frame_bg_main59,0,310,150,0,0,310,150)
+                }
+                if(lvl=="introscrenn"){
+                    ctx.drawImage(document.getElementById("answer_stable1-"+IMAGEserver),0,0,310,150,0,0,310,150)
+                    ctx.fillStyle="white"
+                    ctx.font="10px Arial"
+                    ctx.fillText("like you will be like bombarded with menus",67,45)
+                    ctx.fillText("cuz you just starting savefile",67,55)
+                    ctx.fillText("(pres enter to continue)",67,65)
+                    ctx.fillText("1) image type",67,75)
+                    ctx.fillText("2) sound",67,85)
+                    ctx.fillText("3) home/settings",67,95)
+                    ctx.fillText("4) main-screen",67,105)
+                    ctx.fillText("5) chapter selection",67,115)
+
                 }
                 if(white_trans==true){ctx.drawImage(document.getElementById("transition_white-"+IMAGEserver),white_trans_num,0,310,150,0,0,310,150)}
                 if(pause==true){
@@ -7331,6 +7551,16 @@
                     }
                 }else{
                     ms100=0
+                    if(lvl=="introscren"){
+                        if(frame_bg_main59<=930){
+                            frame_bg_main59=frame_bg_main59+310
+                            
+                        }else{
+                            frame_bg_main59=0
+                            lvl="introscrenn"
+                        }
+                    }
+                    
                     if(mode=="easy"){
                         for (var [key, value] of Object.entries(osu)) {
                             var d = value+64
@@ -7350,12 +7580,15 @@
                             }
                         }}}
                     }
-                    if(lvl=="dad_test01" || lvl=="garden_minigame"){
+                    if(lvl=="dad_test01" || lvl=="garden_minigame" || lvl=="FIGHR_EDWERA_AAA:hamburger:"){
                         frame_bg_main58=frame_bg_main58+700
                         if(frame_bg_main58==4299){
+                            if(lvl=="FIGHR_EDWERA_AAA:hamburger:" && tempINFO[35]=="powerup"){
+                                tempINFO[35]="waiting_move"
+                                waiting_move=Math.floor(Math.random()*1000)
+                            } 
                             frame_bg_main58=99
                         }
-                        
                     }
                     if(pause==true){
                         if(char_pause.slice(0,-8)=="harvester"){
@@ -7460,13 +7693,7 @@
                             }
                         }
                         if(lvl=="FIGHR_EDWERA_AAA:hamburger:"){
-                            if(Math.floor(Math.random()*101)<=33){
-                                ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),Math.floor(Math.random()*250),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*250),Math.floor(Math.random()*100))  
-                                ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*250),Math.floor(Math.random()*100))  
-                                ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),Math.floor(Math.random()*150),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*250),Math.floor(Math.random()*100))  
-                                ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*300),Math.floor(Math.random()*100))  
-                                ctx.drawImage(document.getElementById("bg_lunchFIGHT11-"+IMAGEserver),Math.floor(Math.random()*100),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*50),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*250),Math.floor(Math.random()*100))  
-                            }
+                            
                         }
                         if(lvl=="tutorial_end"){
                             if(frame_bg_main47==0){
@@ -9122,6 +9349,53 @@
 
             canvas.addEventListener("click", function(e){
                 if(lvl=="FIGHR_EDWERA_AAA:hamburger:"){
+                    if(tempINFO[35]=="fight_menu_taunt"){
+                        tempINFO[37]=tempINFO[37]+(tempINFO[37]*0.293)
+                        if(sound==true || SOUNDserver=="SOUNDdesk"){
+                            lvl="taunt-move"
+                            if(IMAGEserver=="desktop"){
+                                document.getElementById("taunt_move1-desktop").play()
+                                taunt_move1_desktop.doLoad()
+                            }
+                            if(IMAGEserver=="google"){
+                                document.getElementById("taunt_move1-google").play()
+                                taunt_move1_google.doLoad()
+                            }
+                            if(IMAGEserver=="imgur"){
+                                document.getElementById("taunt_move1-imgur").play()
+                                taunt_move1_imgur.doLoad()
+                            }
+                        }else{
+                            tempINFO[35]="false"
+                        }
+                        //taunt_move1_desktop
+                    }
+                }
+                if(lvl=="test-svg1"){
+                    lvl="plz_turn_on_sound_plzzz"
+                    if(jsonDATA=="1"){
+                        jsonDATA1[0]="VECTOR"
+                    }
+                    if(jsonDATA=="2"){
+                        jsonDATA2[0]="VECTOR"
+                    }
+                    if(jsonDATA=="3"){
+                        jsonDATA3[0]="VECTOR"
+                    }
+                }
+                if(lvl=="test-svg2"){
+                    lvl="plz_turn_on_sound_plzzz"
+                    if(jsonDATA=="1"){
+                        jsonDATA1[0]="RASTER"
+                    }
+                    if(jsonDATA=="2"){
+                        jsonDATA2[0]="RASTER"
+                    }
+                    if(jsonDATA=="3"){
+                        jsonDATA3[0]="RASTER"
+                    }
+                }
+                if(lvl=="FIGHR_EDWERA_AAA:hamburger:"){
                     if(tempINFO[35]=="runn"){
                         tempINFO[35]="no_running_heheh"
                     }
@@ -9141,41 +9415,45 @@
                         tempINFO[35]="false" 
                     }
                 }
-                if(lvl=="savefile1"){
+                if(lvl=="savefile1" || lvl=="savefile2" || lvl=="savefile3"){
+                    if(lvl=="savefile1"){
+                        jsonDATA="1"
+                    }
+                    if(lvl=="savefile2"){
+                        jsonDATA="2"
+                    }
+                    if(lvl=="savefile3"){
+                        jsonDATA="3"
+                    }
                     if(IMAGEserver=="desktop"){
                         if(document.getElementById("external_script").innerHTML=="true"){
-                            lvl="plz_turn_on_sound_plzzz"
+                            if(jsonDATA=="1"){
+                                if(jsonDATA1[0]=="blank"){
+                                     lvl="introscren"
+                                }else{
+                                    lvl="enter"
+                                }//lvl="plz_turn_on_sound_plzzz" 
+                            }
+                            if(jsonDATA=="2"){
+                                if(jsonDATA2[0]=="blank"){
+                                     lvl="introscren"
+                                }else{
+                                    lvl="enter"
+                                }
+                            }
+                            if(jsonDATA=="3"){
+                                if(jsonDATA3[0]=="blank"){
+                                     lvl="introscren"
+                                }else{
+                                    lvl="enter"
+                                }
+                            }
                         }else{
                             lvl="load"
                         }
                     }else{
                         lvl="load"
                     }
-                    jsonDATA="1"
-                }
-                if(lvl=="savefile2"){
-                    if(IMAGEserver=="desktop"){
-                        if(document.getElementById("external_script").innerHTML=="true"){
-                            lvl="plz_turn_on_sound_plzzz"
-                        }else{
-                            lvl="load"
-                        }
-                    }else{
-                        lvl="load"
-                    }
-                    jsonDATA="2"
-                }
-                if(lvl=="savefile3"){
-                    if(IMAGEserver=="desktop"){
-                        if(document.getElementById("external_script").innerHTML=="true"){
-                            lvl="plz_turn_on_sound_plzzz"
-                        }else{
-                            lvl="load"
-                        }
-                    }else{
-                        lvl="load"
-                    }
-                    jsonDATA="3"
                 }
                 if(mode=="norm" || mode=="easy"){
                     var nt = (translateGRID(25,25).split(","))[0]
@@ -9545,7 +9823,7 @@
                     }
                     if(dia==33){
                         if(document.getElementById("external_script").innerHTML=="true"){
-                            var amosiiia=window.location.href.slice(0,-10)+"require/additions/text_msg.html"
+                            var amosiiia=window.location.href.slice(0,-10)+"require/desktop/pages/text_msg.html"
                             window.open(amosiiia, '_blank', 'top=500,left=200,frame=true,nodeIntegration=no')
                         }
                         lvl="garage_cece1_closet"
@@ -10882,6 +11160,11 @@
                         ar="arrow_right"
                     }
                 }
+                if(e.key=="Enter"){
+                    if(lvl=="introscrenn"){
+                        lvl="test-svg"
+                    }
+                }
             })
             canvas.addEventListener("mouseup", function(e){
                 if(mode=="easy" || mode=="norm"){
@@ -11166,7 +11449,7 @@
                             tempINFO[35]="no_objets"
                         }
                     }
-                    if(tempINFO[35]=="fight_menu" || tempINFO[35]=="fight_menu_back" || tempINFO[35]=="fight_menu_taunt"){
+                    if(tempINFO[35]=="fight_menu" || tempINFO[35]=="fight_menu_back" || tempINFO[35]=="fight_menu_taunt" || tempINFO[35]=="fight_menu_punch"){
                         if(e.clientX>=parseInt((translateGRID(215,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(303,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,135).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,200).split(","))[1])){
                             tempINFO[35]="fight_menu_back"
                         }else if(e.clientX>=parseInt((translateGRID(215,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(297,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,80).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,89).split(","))[1])){
@@ -11267,6 +11550,18 @@
                 lvl="FIGHR_EDWERA_AAA:hamburger:"
                 document.getElementById("pursuit-drive").loopable=true
                 document.getElementById("pursuit-drive").play()
+            }
+
+            document.getElementById("taunt_move1-google").onended=function(){
+                lvl="FIGHR_EDWERA_AAA:hamburger:"
+                tempINFO[35]="powerup"
+                frame_bg_main58=99
+            }
+
+            document.getElementById("taunt_move1-imgur").onended=function(){
+                lvl="FIGHR_EDWERA_AAA:hamburger:"
+                tempINFO[35]="powerup"
+                frame_bg_main58=99
             }
 
             ////window.location.href.slice(0,-10)+

@@ -1239,6 +1239,18 @@ var vector_bg_half1 = document.createElement("img")
 vector_bg_half1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/blank_save/bg_master.svg"
 vector_bg_half1.id="vector_bg_half1-desktop"
 vector_bg_half1.hidden=true 
+var answer_stable1 = document.createElement("img")
+answer_stable1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/blank_save/answer_prompt/answer_stable.png"
+answer_stable1.id="answer_stable1-desktop"
+answer_stable1.hidden=true 
+var answer_ani1= document.createElement("img")
+answer_ani1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/blank_save/answer_prompt/answer_ani.png"
+answer_ani1.id="answer_ani1-desktop"
+answer_ani1.hidden=true 
+var taunt_move1= document.createElement("video")
+taunt_move1.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/taunt.mp4"
+taunt_move1.id="taunt_move1-desktop"
+taunt_move1.hidden=true 
 
 /* DONTI OWKRRR!!
 
@@ -1695,6 +1707,9 @@ document.getElementById("library_com").appendChild(bg_lunchFIGHT11)
 document.getElementById("library_com").appendChild(bg_lunchFIGHT11_invert)
 document.getElementById("library_com").appendChild(tsone_intro_no)
 document.getElementById("library_com").appendChild(vector_bg_half1)
+document.getElementById("library_com").appendChild(answer_stable1)
+document.getElementById("library_com").appendChild(answer_ani1)
+document.getElementById("library_com").appendChild(taunt_move1)
 
 document.getElementById("library_com").appendChild(svg_test1)
 document.getElementById("library_com").appendChild(bg_pixl_halfd)
@@ -1775,5 +1790,10 @@ document.getElementById("lunch_overview_veryFAST-desktop").ontimeupdate=function
     //SONGupdated('overview101LUNCH',Math.floor(this.currentTime))
 }
 
+document.getElementById("taunt_move1-desktop").onended=function(){
+    lvl="FIGHR_EDWERA_AAA:hamburger:"
+    tempINFO[35]="powerup"
+    frame_bg_main58=99
+}
 
 console.log("it worked")

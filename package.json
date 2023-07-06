@@ -17,8 +17,11 @@
     "electron": "^21.4.4"
   },
   "dependencies": {
+    "browserify": "^17.0.0",
     "build": "^0.1.4",
     "electron-builder": "^23.6.0",
-    "electron-packager": "^17.1.1"
+    "electron-packager": "^17.1.1",
+    "fs": "^0.0.1-security",
+    "fs-js": "^1.0.6"
   }
 }
