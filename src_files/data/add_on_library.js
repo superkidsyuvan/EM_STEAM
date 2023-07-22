@@ -95,6 +95,10 @@ var enter1 = document.createElement("img")
 enter1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/MENU_START/start_menu.png"
 enter1.id="enter1-desktop"
 enter1.hidden=true
+var savefile1 = document.createElement("img")
+savefile1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/MENU_START/sf1.png"
+savefile1.id="savefile1-desktop"
+savefile1.hidden=true
 var sound1 = document.createElement("img")
 sound1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/MENU_START/sound1.png"
 sound1.id="sound1-desktop"
@@ -1251,6 +1255,10 @@ var taunt_move1= document.createElement("video")
 taunt_move1.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/taunt.mp4"
 taunt_move1.id="taunt_move1-desktop"
 taunt_move1.hidden=true 
+var punch_move_buli= document.createElement("video")
+punch_move_buli.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/punch2.mp4"
+punch_move_buli.id="punch_move_buli-desktop"
+punch_move_buli.hidden=true 
 
 /* DONTI OWKRRR!!
 
@@ -1710,6 +1718,8 @@ document.getElementById("library_com").appendChild(vector_bg_half1)
 document.getElementById("library_com").appendChild(answer_stable1)
 document.getElementById("library_com").appendChild(answer_ani1)
 document.getElementById("library_com").appendChild(taunt_move1)
+document.getElementById("library_com").appendChild(punch_move_buli)
+document.getElementById("library_com").appendChild(savefile1)
 
 document.getElementById("library_com").appendChild(svg_test1)
 document.getElementById("library_com").appendChild(bg_pixl_halfd)

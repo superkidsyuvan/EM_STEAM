@@ -620,6 +620,8 @@
         <video hidden src="" id="teacher_caught_edwer_watching_on_his_iphone4-google" alt="teacher_caught_edwer_watching_on_his_iphone4-google"></video>
         <video hidden src="" id="taunt_move1-imgur" alt="taunt_move1-imgur"></video>
         <video hidden src="" id="taunt_move1-google" alt="taunt_move1-google"></video>
+        <video hidden src="" id="punch_move_buli-imgur" alt="punch_move_buli-imgur"></video>
+        <video hidden src="" id="punch_move_buli-google" alt="punch_move_buli-google"></video>
         <audio id="jumpscare_HARVESTER-drive" src=""></audio>
         <audio id="jumpscare_HARVESTER-r3" src=""></audio>
         <audio id="go-drive" src=""></audio>
@@ -795,7 +797,6 @@
             var frame_bg_main56=146
             var frame_bg_main57=0
             var frame_bg_main58=99
-            var waiting_move = 182
             var frame_bg_main59=0
             var funniframe=0
             var adiviserY = 190
@@ -814,6 +815,7 @@
             var holding_what_obj="none" //what you holding tho??
             var moveTHING=0
             var tempINFO = [false,false,0,false,false,false,0,0,1,false,0,"dor1","none",false,"vol-","nil",0,"vol-",0,"neutral",0,0,"false","?","Reward: ???","0/1","random_quest","?lvl?",x,y,"off",-60,310,100,100,"false",false,1,false,false]
+            var huioo = 1
             var jsonDATA = "0"
             var jsonDATA1 = []
             var jsonDATA2 = []
@@ -1443,26 +1445,31 @@
                 envo_2d()
                 envo_3d()
                 otherSTUF()
+                
             }
 
-            function readJSON(fileNum){
-                fetch(window.location.href.slice(0,-21)+"files/data/require/saveFiles/saveFile"+fileNum+".json")
-                .then(response => response.json())
-                .then(data =>{
-                    if(fileNum==1){
-                        jsonDATA1=data
-                    }else if(fileNum==2){
-                        jsonDATA2=data
-                    }else if(fileNum==3){
-                        jsonDATA3=data
-                    }
-                });
-            }
-
-            
-
-            function writeJSON(data101){
-                const userJSON = JSON.stringify(data101)
+            function writeJSON(lvle){
+                /*if(lvl=="test-svg2" || lvl=="test-svg1"){
+                    
+                }*/
+                lvl=lvle+"-sf"
+                frame_bg_main=0
+                if(jsonDATA=="1"){
+                    jsonDATA1[3]=tempINFO
+                    delete localStorage.json1
+                    localStorage.json1=JSON.stringify(jsonDATA1)
+                }
+                if(jsonDATA=="2"){
+                    jsonDATA2[3]=tempINFO
+                    delete localStorage.json2
+                    localStorage.json2=JSON.stringify(jsonDATA2)
+                }
+                if(jsonDATA=="3"){
+                    jsonDATA3[3]=tempINFO
+                    delete localStorage.json3
+                    localStorage.json3=JSON.stringify(jsonDATA3)
+                }
+                huioo=(Math.floor(Math.random()*6)+1)             
             }
 
             function translateGRID(x,y){
@@ -5648,6 +5655,20 @@
             }
             
             function otherSTUF(){
+                if(lvl=="enter-sf"){
+                    if(frame_bg_main==1536){
+                        if(huioo<=0){
+                            lvl="sound"
+                        }
+                        huioo=huioo-1
+                    }
+                }
+                if(lvl=="FIGHR_EDWERA_AAA:hamburger:" && tempINFO[35]=="waiting_move"){
+                    if(huioo<=0){
+                        lvl="destruction_WAAA"
+                    }
+                    huioo=huioo-1
+                } 
                 if(mode=="easy" || mode=="norm"){
                     if(tempINFO[22]=="true"){
                         ctx.drawImage(document.getElementById("quest_ui_11-"+IMAGEserver),tempINFO[20],tempINFO[21],75,50)
@@ -5868,6 +5889,10 @@
                 }
                 if(lvl=="enter"){
                     ctx.drawImage(document.getElementById("enter1-"+IMAGEserver),frame_bg_main,0,256,144,0,0,310,150)
+                }
+                if(lvl=="enter-sf"){
+                    ctx.drawImage(document.getElementById("enter1-"+IMAGEserver),frame_bg_main,0,256,144,0,0,310,150)
+                    ctx.drawImage(document.getElementById("savefile1-"+IMAGEserver),frame_bg_main,0,256,150,0,100,150,100)
                 }
                 if(lvl=="sound"){
                     ctx.drawImage(document.getElementById("sound1-"+IMAGEserver),frame_bg_main1,0,256,144,0,0,310,150)
@@ -7585,7 +7610,7 @@
                         if(frame_bg_main58==4299){
                             if(lvl=="FIGHR_EDWERA_AAA:hamburger:" && tempINFO[35]=="powerup"){
                                 tempINFO[35]="waiting_move"
-                                waiting_move=Math.floor(Math.random()*1000)
+                                huioo=(Math.floor(Math.random()*6)+1)
                             } 
                             frame_bg_main58=99
                         }
@@ -9349,6 +9374,9 @@
 
             canvas.addEventListener("click", function(e){
                 if(lvl=="FIGHR_EDWERA_AAA:hamburger:"){
+                    if(tempINFO[35]=="fight_menu_punch"){
+
+                    }
                     if(tempINFO[35]=="fight_menu_taunt"){
                         tempINFO[37]=tempINFO[37]+(tempINFO[37]*0.293)
                         if(sound==true || SOUNDserver=="SOUNDdesk"){
@@ -9383,8 +9411,8 @@
                         jsonDATA3[0]="VECTOR"
                     }
                 }
-                if(lvl=="test-svg2"){
-                    lvl="plz_turn_on_sound_plzzz"
+                if(lvl=="test-svg2"){  
+                    lvl="plz_turn_on_sound_plzzz"                  
                     if(jsonDATA=="1"){
                         jsonDATA1[0]="RASTER"
                     }
@@ -9884,7 +9912,7 @@
                     }
                 }
                 if(lvl=="enter"){
-                    lvl="sound"
+                    writeJSON("enter")
                 }
                 if(lvl=="tutorialp"){
                     if(x<=146 && x>=119){
@@ -10349,7 +10377,7 @@
                         holding_what_obj=""
                     }
                     if(lvl=="enter"){
-                        lvl="sound"
+                       writeJSON("enter")
                     }
                     if(lvl=="warning2"){
                         lvl="warning3"
@@ -10470,12 +10498,33 @@
                     crouch=true
                 }
                 if(e.key=="p"){
-                    pause=true
-                    inventory_toggle=false
-                    frame_bg_main57=0
-                    obj="mogus"
+                    if(pause==false){
+                        if(lvl!="osu!-doki_doki,[json-cece_F]"){
+                            pause=true
+                            inventory_toggle=false
+                            frame_bg_main57=0
+                            obj="mogus"
+                        }
+                    }
+                    if(pause==true){
+                        pause=false
+                        for(var index = 0; index < boxINVENTORY.length; index++){
+                            if(boxINVENTORY[index]!=""){
+                                inventory_toggle=true
+                            }
+                        }
+                        if(sound==true || SOUNDserver=="SOUNDdesk"){
+                            document.getElementById("cancel-"+SOUNDserver).currentTime=0
+                            document.getElementById("cancel-"+SOUNDserver).play()
+                        }
+                        return
+                    }
                 }
                 if(e.key=="Escape"){
+                    if(tempINFO[36]==true){
+                        tempINFO[36]=false
+                        return
+                    }
                     if(document.getElementById("ugly").style.display=='none'){
                         document.getElementById("ugly").setAttribute("style","display:block;");    
                         document.getElementById("mainGame").setAttribute("style","width:500px;height:250px;"); 
@@ -10562,12 +10611,6 @@
                     if(tempINFO[36]==false){
                         requestFullScreen(document.getElementById("mainGame"))
                         tempINFO[36]=true
-                        return
-                    }
-                }
-                if(e.key=="Escape"){
-                    if(tempINFO[36]==true){
-                        tempINFO[36]=false
                         return
                     }
                 }
@@ -11052,9 +11095,20 @@
                             SOUNDserver="r3"
                         }
                     }
-                    readJSON(1)
-                    readJSON(2)
-                    readJSON(3)
+                    // YES //
+                    if(localStorage.json1==undefined){
+                        localStorage.json1='["blank","0%",null,[]]'
+                    }
+                    if(localStorage.json2==undefined){
+                        localStorage.json2='["blank","0%",null,[]]'
+                    }
+                    if(localStorage.json3==undefined){
+                        localStorage.json3='["blank","0%",null,[]]'
+                    }
+                    jsonDATA1=JSON.parse(localStorage.json1)
+                    jsonDATA2=JSON.parse(localStorage.json2)
+                    jsonDATA3=JSON.parse(localStorage.json3)
+                    //localStorage.json1.setItem(key.5)
                 }
                 if(lvl=="question1-s"){
                     if(e.key=="a"){
