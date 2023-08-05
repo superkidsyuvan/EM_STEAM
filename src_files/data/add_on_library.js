@@ -1306,6 +1306,9 @@ chp_locked_error_sound.id="chp_locked_error_sound-SOUNDdesk"
 var audioP1S1 = document.createElement("audio")
 audioP1S1.src=window.location.href.slice(0,-21)+"files/sound/MUSIC/.wav/video-intro-amzing-with-sound.wav"
 audioP1S1.id="audioP1S1-SOUNDdesk"
+var hp_warning = document.createElement("audio")
+hp_warning.src=window.location.href.slice(0,-21)+"files/sound/SFX/.wav/hp_warning.wav"
+hp_warning.id="hp_warning-SOUNDdesk"
 var ambience = document.createElement("audio")
 ambience.src=window.location.href.slice(0,-21)+"files/sound/MUSIC/.mp3/Death_ambience.mp3"
 ambience.id="ambience-SOUNDdesk"
@@ -1804,6 +1807,15 @@ document.getElementById("taunt_move1-desktop").onended=function(){
     lvl="FIGHR_EDWERA_AAA:hamburger:"
     tempINFO[35]="powerup"
     frame_bg_main58=99
+}
+
+document.getElementById("punch_move_buli-desktop").onended=function(){
+    lvl="FIGHR_EDWERA_AAA:hamburger:"
+    tempINFO[35]="false"
+    tempINFO[33]=tempINFO[33]-50
+    if(tempINFO[33]<=0){
+        lvl="knockout"
+    }
 }
 
 console.log("it worked")

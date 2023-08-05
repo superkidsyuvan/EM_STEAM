@@ -2161,6 +2161,153 @@
                 }
             };
 
+            const punch_move_buli_desktop={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("punch_move_buli-desktop");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="destruction_WAAA"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+                return;
+                }
+            };
+
+            const punch_move_buli_imgur={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("punch_move_buli-imgur");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="destruction_WAAA"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+                return;
+                }
+            };
+
+            const punch_move_buli_google={
+                timerCallback: function() {
+                if (this.video.paused) {
+                    return;
+                }
+                if(this.video.ended){
+                    sound=false
+                    lvl="soundin"
+                    return "end";
+                }
+                this.computeFrame();
+                let self = this;
+                setTimeout(function () {
+                    self.timerCallback();
+                    }, 0);
+                },
+            
+                doLoad: function() {
+                this.video = document.getElementById("punch_move_buli-google");
+                this.c1 = document.getElementById("mainGame");
+                this.ctx1 = this.c1.getContext("2d");
+                //this.c2 = document.getElementById("c2");
+                //this.ctx2 = this.c2.getContext("2d");
+                let self = this;
+                this.video.addEventListener("play", function() {
+                    self.width = self.c1.width//self.video.videoWidth / 2;
+                    self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
+                    self.timerCallback();
+                    }, false);
+                },
+            
+                computeFrame: function() {
+                if(lvl=="destruction_WAAA"){this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);}
+                let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+                let l = frame.data.length / 4;
+                
+                // below is for chroma key (would use movavi tho)    
+                /*for (let i = 0; i < l; i++) {
+                    let r = frame.data[i * 4 + 0];
+                    let g = frame.data[i * 4 + 1];
+                    let b = frame.data[i * 4 + 2];
+                    if (g > 100 && r > 100 && b < 43)
+                    frame.data[i * 4 + 3] = 0;
+                }
+                this.ctx2.putImageData(frame, 0, 0);*/
+                return;
+                }
+            };
+
             function amough(){
                 tempINFO[6]=1
             }
@@ -5666,6 +5813,16 @@
                 if(lvl=="FIGHR_EDWERA_AAA:hamburger:" && tempINFO[35]=="waiting_move"){
                     if(huioo<=0){
                         lvl="destruction_WAAA"
+                        if(IMAGEserver=="google"){
+                            document.getElementById("punch_move_buli-google").play()
+                            punch_move_buli_google.doLoad()
+                        }else if(IMAGEserver=="imgur"){
+                            document.getElementById("punch_move_buli-imgur").play()
+                            punch_move_buli_imgur.doLoad()
+                        }else if(IMAGEserver=="desktop"){
+                            document.getElementById("punch_move_buli-desktop").play()
+                            punch_move_buli_desktop.doLoad()
+                        }
                     }
                     huioo=huioo-1
                 } 
@@ -7610,7 +7767,7 @@
                         if(frame_bg_main58==4299){
                             if(lvl=="FIGHR_EDWERA_AAA:hamburger:" && tempINFO[35]=="powerup"){
                                 tempINFO[35]="waiting_move"
-                                huioo=(Math.floor(Math.random()*6)+1)
+                                huioo=(Math.floor(Math.random()*15)+1)
                             } 
                             frame_bg_main58=99
                         }
@@ -11616,6 +11773,42 @@
                 lvl="FIGHR_EDWERA_AAA:hamburger:"
                 tempINFO[35]="powerup"
                 frame_bg_main58=99
+            }
+
+            document.getElementById("punch_move_buli-google").onended=function(){
+                lvl="FIGHR_EDWERA_AAA:hamburger:"
+                tempINFO[35]="false"
+                tempINFO[33]=tempINFO[33]-50
+                if(tempINFO[33]<=0){
+                    lvl="knockout"
+                    if(!document.getElementById("pursuit-SOUNDserver").paused){
+                        document.getElementById("pursuit-SOUNDserver").pause()
+                    }
+                    if(!document.getElementById("pursuit-r3").paused){
+                        document.getElementById("pursuit-r3").pause()
+                    }
+                    if(!document.getElementById("pursuit-drive").paused){
+                        document.getElementById("pursuit-drive").pause()
+                    }
+                }
+            }
+
+            document.getElementById("punch_move_buli-imgur").onended=function(){
+                lvl="FIGHR_EDWERA_AAA:hamburger:"
+                tempINFO[35]="false"
+                tempINFO[33]=tempINFO[33]-50
+                if(tempINFO[33]<=0){
+                    lvl="knockout"
+                    if(!document.getElementById("pursuit-SOUNDserver").paused){
+                        document.getElementById("pursuit-SOUNDserver").pause()
+                    }
+                    if(!document.getElementById("pursuit-r3").paused){
+                        document.getElementById("pursuit-r3").pause()
+                    }
+                    if(!document.getElementById("pursuit-drive").paused){
+                        document.getElementById("pursuit-drive").pause()
+                    }
+                }
             }
 
             ////window.location.href.slice(0,-10)+
