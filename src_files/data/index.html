@@ -5558,7 +5558,7 @@
                                 spawnOSU("b",80,10)
                             }
                             if(time==15){
-                                spawnOSU("r",80,80)
+                                spawnOSU("a",80,80)
                             }
                             if(time==21){
                                 spawnOSU("o",120,16)
@@ -5582,7 +5582,7 @@
                                 spawnOSU("a",145,98)
                             }
                             if(time==46){
-                                spawnOSU("r",98,50)
+                                spawnOSU("b",98,50)
                             }
                             if(time==47){
                                 spawnOSU("a",50,50)
@@ -9530,6 +9530,46 @@
             })
 
             canvas.addEventListener("click", function(e){
+                if(lvl=="osu!-doki_doki,[json-cece_F]"){
+                    if( Object.keys(osu).length===0){}else{
+                        for (var [key, value] of Object.entries(osu)) {
+                            console.log(osu[key]+"."+osuX[key]+"."+osuY[key])
+                            if(e.clientX>=parseInt((translateGRID(osuX[key],0).split(","))[0]) && e.clientX<=parseInt((translateGRID(osuX[key]+400,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,osuY[key]).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,osuY[key]+408).split(","))[1]) ){
+                                var oasdi = 0
+                                var ee = key.slice(0,-1)
+                                while(get(sta,key,'No')!='No'){
+                                    oasdi=oasdi+1 
+                                }
+                                staX[ee+oasdi]=osuX[key]
+                                staY[ee+oasdi]=osuY[key]
+                                staC[ee+oasdi]=0
+                                if(osu[key]<=960 && osu[key]>=832){
+                                    clicks_osu["horrible"]=clicks_osu["horrible"]+1
+                                    sta[ee+oasdi]="horrible"
+                                }
+                                if(osu[key]<=768 && osu[key]>=640){
+                                    clicks_osu["bad"]=clicks_osu["bad"]+1
+                                    sta[ee+oasdi]="bad"
+                                }
+                                if(osu[key]<=448 && osu[key]>=320){
+                                    clicks_osu["mid"]=clicks_osu["mid"]+1
+                                    sta[ee+oasdi]="mid"
+                                }
+                                if(osu[key]<=256 && osu[key]>=128){
+                                    clicks_osu["good"]=clicks_osu["good"]+1
+                                    sta[ee+oasdi]="good"
+                                }
+                                if(osu[key]<=64 && osu[key]>=0){
+                                    clicks_osu["perfect"]=clicks_osu["perfect"]+1
+                                    sta[ee+oasdi]="perfect"
+                                }
+                                delete osu[key]
+                                delete osuX[key]
+                                delete osuY[key]
+                            }
+                        }
+                    }
+                }
                 if(lvl=="FIGHR_EDWERA_AAA:hamburger:"){
                     if(tempINFO[35]=="fight_menu_punch"){
 
