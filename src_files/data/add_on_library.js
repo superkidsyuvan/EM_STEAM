@@ -1251,6 +1251,14 @@ var answer_ani1= document.createElement("img")
 answer_ani1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/blank_save/answer_prompt/answer_ani.png"
 answer_ani1.id="answer_ani1-desktop"
 answer_ani1.hidden=true 
+var loadin= document.createElement("img")
+loadin.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/loadin.png"
+loadin.id="loadin-desktop"
+loadin.hidden=true 
+var retry_pulse= document.createElement("img")
+retry_pulse.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/retry_pulse.png"
+retry_pulse.id="retry_pulse-desktop"
+retry_pulse.hidden=true 
 var taunt_move1= document.createElement("video")
 taunt_move1.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/taunt.mp4"
 taunt_move1.id="taunt_move1-desktop"
@@ -1720,6 +1728,8 @@ document.getElementById("library_com").appendChild(tsone_intro_no)
 document.getElementById("library_com").appendChild(vector_bg_half1)
 document.getElementById("library_com").appendChild(answer_stable1)
 document.getElementById("library_com").appendChild(answer_ani1)
+document.getElementById("library_com").appendChild(loadin)
+document.getElementById("library_com").appendChild(retry_pulse)
 document.getElementById("library_com").appendChild(taunt_move1)
 document.getElementById("library_com").appendChild(punch_move_buli)
 document.getElementById("library_com").appendChild(savefile1)
