@@ -140,13 +140,13 @@
         <img hidden src="https://docs.google.com/uc?export=open&id=1NH8J8S2jLbmC-4H0sXLNn83TwWYggxg6" id="tangle_jumpscare-google" alt="tangle_jumpscare-google">
         <img hidden src="https://i.imgur.com/wnLEEtB.png" id="enter2-imgur" alt="enter2-imgur">
         <img hidden src="https://docs.google.com/uc?export=open&id=1OIbtH8GiwMBK5-cA8ZmBjIjp3pfJ_hYA" id="enter2-google" alt="enter2-google">
-        
         <img hidden src="https://i.imgur.com/Y8beQKf.png" id="cecequest1-imgur" alt="cecequest1-imgur">
-        <img hidden src="https://docs.google.com/uc?export=open&id=1Q2qgGYrOOiK9HLYbZePBENJmp5y2RRDd" id="cecequest1-google" alt="cecequest1-google">
+        <img hidden src="https://docs.google.com/uc?export=open&id=1EXJzZQJ60Z9UjVM7AKDYCQL7otJEzN1V" id="cecequest1-google" alt="cecequest1-google">
         <img hidden src="https://i.imgur.com/MmmkddP.png" id="cece_room_closeup_nighttime-imgur" alt="cece_room_closeup_nighttime-imgur">
-        <img hidden src="https://docs.google.com/uc?export=open&id=1RigLGtEX_70RJuQsGFSRFWEMbXTGI6A4" id="cece_room_closeup_nighttime-google" alt="cece_room_closeup_nighttime-google">
+        <img hidden src="https://docs.google.com/uc?export=open&id=1FAuINITGbFwv85LlruZx_8IuHgCXeCkI" id="cece_room_closeup_nighttime-google" alt="cece_room_closeup_nighttime-google">
         <img hidden src="https://i.imgur.com/JwVPTuc.png" id="cece_room_closeup_daytime-imgur" alt="cece_room_closeup_daytime-imgur">
-        <img hidden src="https://docs.google.com/uc?export=open&id=1CmWl43w73RdRWxxdaK0KluZF_O58Q7Sc" id="cece_room_closeup_daytime-google" alt="cece_room_closeup_daytime-google">
+        <img hidden src="https://docs.google.com/uc?export=open&id=1EGBORPX-WWBp61ckOv4TDfFTboELqC-f" id="cece_room_closeup_daytime-google" alt="cece_room_closeup_daytime-google">
+        
         <img hidden src="https://i.imgur.com/rBo2KNQ.png" id="ui1-imgur" alt="ui1-imgur">
         <img hidden src="https://i.imgur.com/b9NLqUR.png" id="x_round-imgur" alt="x_round-imgur">
         <img hidden src="https://i.imgur.com/Mbx1mBD.png" id="norm_expand-imgur" alt="norm_expand-imgur">
@@ -700,7 +700,7 @@
             */
            // https://imgur.com/a/aGG36UI
             var canvas = document.getElementById("mainGame") // ooh thaats where we are drawinf right?
-            var ctx = canvas.getContext("2d"); //it could be 3d but nah
+            var ctx = canvas.getContext('2d', {willReadFrequently: true}); //it could be 3d but nah
             var lvl = "start-warn" //level selection
             var load = 0 // loading state- must meet number of assets in if function
             var IMAGEserver = "imgur" //is image server online11!!
