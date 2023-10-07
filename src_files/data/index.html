@@ -610,6 +610,16 @@
         <img hidden src="" id="answer_stable1-google" alt="answer_stable1-google">
         <img hidden src="" id="answer_ani1-imgur" alt="answer_ani1-imgur">
         <img hidden src="" id="answer_ani1-google" alt="answer_ani1-google">
+        <img hidden src="" id="eyes_open-imgur" alt="eyes_open-imgur">
+        <img hidden src="" id="eyes_open-google" alt="eyes_open-google">
+        <img hidden src="" id="eyes_close-imgur" alt="eyes_close-imgur">
+        <img hidden src="" id="eyes_close-google" alt="eyes_close-google">
+        <img hidden src="" id="retry_inverted-imgur" alt="retry_inverted-imgur">
+        <img hidden src="" id="retry_inverted-google" alt="retry_inverted-google">
+        <img hidden src="" id="nurse_room_bg-imgur" alt="nurse_room_bg-imgur">
+        <img hidden src="" id="nurse_room_bg-google" alt="nurse_room_bg-google">
+        <img hidden src="" id="chap3pre-imgur" alt="chap3pre-imgur">
+        <img hidden src="" id="chap3pre-google" alt="chap3pre-imgur">
         <video hidden src="https://i.imgur.com/H0EPXlB.mp4" id="tsone_intro-imgur" alt="tsone_intro-imgur"></video>
         <video hidden src="https://docs.google.com/uc?export=open&id=1NFltla_juGGw8Z8olSMD93FaLTUM3o7_" id="tsone_intro-google" alt="tsone_intro-google"></video>
         <video hidden src="https://i.imgur.com/hIUsXgN.mp4" id="tsone_intro_no-imgur" alt="tsone_intro_no-imgur"></video>
@@ -6672,14 +6682,12 @@
                     ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25,100,90,16)                    
                 }
                 if(lvl=="menuSEL3"){
-                    ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
-                    ctx.drawImage(document.getElementById("chapter3-"+IMAGEserver),230,85,70,20)
-                    if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,85,70,20)}
-                    ctx.drawImage(document.getElementById("chapter1-"+IMAGEserver),230,55,70,20)
-                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,55,70,20)}                    
-                    ctx.drawImage(document.getElementById("chapter2-"+IMAGEserver),220,70,70,20)
-                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,220,70,70,20)}
-                    ctx.drawImage(document.getElementById("chap2pre-"+IMAGEserver),10,10)
+                    ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)                 
+                    ctx.drawImage(document.getElementById("chapter2-"+IMAGEserver),230,55,70,20)
+                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,55,70,20)}
+                    ctx.drawImage(document.getElementById("chapter3-"+IMAGEserver),220,70,70,20)
+                    if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,220,70,70,20)}
+                    ctx.drawImage(document.getElementById("chap3pre-"+IMAGEserver),10,10)
                     if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_visual_chapSEL-"+IMAGEserver),10,10)}
                     ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25,100,90,16)                    
                 }
@@ -10710,7 +10718,7 @@
                     }
                 }
                 if(e.key=="ArrowUp"){
-                    if(lvl=="menuSEL1" || lvl=="menuSEL2"){
+                    if(lvl=="menuSEL1" || lvl=="menuSEL2" || lvl=="menuSEL3"){
                         if(chapterSEL=="0"){
                             return
                         }else{
@@ -10725,8 +10733,8 @@
                     }}
                 }
                 if(e.key=="ArrowDown"){
-                    if(lvl=="menuSEL1" ||lvl=="menuSEL0" ){
-                        if(chapterSEL=="2"){
+                    if(lvl=="menuSEL1" ||lvl=="menuSEL0" || lvl=="menuSEL2"){
+                        if(chapterSEL=="3"){
                             return
                         }else{
                             var amo = parseInt(chapterSEL)
@@ -11532,6 +11540,11 @@
                 }
             })
             canvas.addEventListener("mousemove", function(e){
+                if(lvl=="menuSEL3"){
+                    if(e.clientX>=parseInt((translateGRID(10,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(138,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,10).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,74).split(","))[1])){
+                        
+                    }  
+                }
                 if(lvl=="test-svg" || lvl=="test-svg1" || lvl=="test-svg2"){
                     if(e.clientX>=parseInt((translateGRID(16.8,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(144,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,34.2).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,56.4).split(","))[1])){
                         lvl="test-svg1"

@@ -1258,7 +1258,27 @@ loadin.hidden=true
 var retry_pulse= document.createElement("img")
 retry_pulse.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/retry_pulse.png"
 retry_pulse.id="retry_pulse-desktop"
-retry_pulse.hidden=true 
+retry_pulse.hidden=true
+var eyes_open= document.createElement("img")
+eyes_open.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/nurses_office/eye_open.png"
+eyes_open.id="eyes_open-desktop"
+eyes_open.hidden=true
+var eyes_close= document.createElement("img")
+eyes_close.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/nurses_office/eye_close.png"
+eyes_close.id="eyes_close-desktop"
+eyes_close.hidden=true 
+var retry_inverted= document.createElement("img")
+retry_inverted.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/nurses_office/inverted.png"
+retry_inverted.id="retry_inverted-desktop"
+retry_inverted.hidden=true   
+var nurse_room_bg= document.createElement("img")
+nurse_room_bg.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/nurses_office/nurse_room_bg.png"
+nurse_room_bg.id="nurse_room_bg-desktop"
+nurse_room_bg.hidden=true  
+var chap3pre = document.createElement("img")
+chap3pre.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/CHAP_SEL/chapter3pre.png"
+chap3pre.id="chap3pre-desktop"
+chap3pre.hidden=true
 var taunt_move1= document.createElement("video")
 taunt_move1.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/taunt.mp4"
 taunt_move1.id="taunt_move1-desktop"
@@ -1733,6 +1753,11 @@ document.getElementById("library_com").appendChild(retry_pulse)
 document.getElementById("library_com").appendChild(taunt_move1)
 document.getElementById("library_com").appendChild(punch_move_buli)
 document.getElementById("library_com").appendChild(savefile1)
+document.getElementById("library_com").appendChild(eyes_open)
+document.getElementById("library_com").appendChild(eyes_close)
+document.getElementById("library_com").appendChild(retry_inverted)
+document.getElementById("library_com").appendChild(nurse_room_bg)
+document.getElementById("library_com").appendChild(chap3pre)
 
 document.getElementById("library_com").appendChild(svg_test1)
 document.getElementById("library_com").appendChild(bg_pixl_halfd)
