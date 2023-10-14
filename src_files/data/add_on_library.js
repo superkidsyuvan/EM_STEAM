@@ -1279,6 +1279,10 @@ var chap3pre = document.createElement("img")
 chap3pre.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/CHAP_SEL/chapter3pre.png"
 chap3pre.id="chap3pre-desktop"
 chap3pre.hidden=true
+var hover_thing1 = document.createElement("img")
+hover_thing1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/CHAP_SEL/chap3_hovergif_pre.png"
+hover_thing1.id="hover_thing1-desktop"
+hover_thing1.hidden=true
 var taunt_move1= document.createElement("video")
 taunt_move1.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/taunt.mp4"
 taunt_move1.id="taunt_move1-desktop"
@@ -1758,6 +1762,8 @@ document.getElementById("library_com").appendChild(eyes_close)
 document.getElementById("library_com").appendChild(retry_inverted)
 document.getElementById("library_com").appendChild(nurse_room_bg)
 document.getElementById("library_com").appendChild(chap3pre)
+document.getElementById("library_com").appendChild(hover_thing1)
+
 
 document.getElementById("library_com").appendChild(svg_test1)
 document.getElementById("library_com").appendChild(bg_pixl_halfd)
