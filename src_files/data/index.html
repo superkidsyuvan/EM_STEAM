@@ -2351,7 +2351,70 @@
                             typewriter("what is thy doing in this establishment", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
-                        } 
+                        }                            
+                        if(dia==1){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial"; 
+                            DrawPlayer("harvester_chase_scene","profile",10,28)
+                            typewriter("no hablo englesh", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==2){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("nuh uh", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }                            
+                        if(dia==3){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial"; 
+                            DrawPlayer("harvester_chase_scene","profile",10,28)
+                            typewriter("sorry my bad", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==4){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("can thou leave", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }                            
+                        if(dia==5){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial"; 
+                            DrawPlayer("harvester_chase_scene","profile",10,28)
+                            typewriter("unfortunately i must chase thee", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==6){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial";
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("thy should start running", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }
+                        if(dia==7){
+                            ctx.fillRect(10, 95, 270, 50);
+                            ctx.fillStyle="white"; 
+                            ctx.font = "15px Arial"; 
+                            DrawPlayer("harvester_chase_scene","profile",10,28)
+                            typewriter("i agree with thy statement", 15, 110);
+                            ctx.font = "10px Arial";
+                            ctx.fillText("Click To Continue", 15, 130);
+                        }      
                     }
                     if(lvl=="evelen_kate_2"){
                         if(dia==0){
@@ -2359,7 +2422,7 @@
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("edwerd","profile_ph",10,28)
-                            typewriter("wat is my lunch balence??", 15, 110);
+                            typewriter("(insert text here)??", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         } 
@@ -5829,6 +5892,11 @@
             }
             
             function otherSTUF(){
+                if(tempINFO[36]==true){
+                    if (!(screen.width == window.innerWidth && screen.height == window.innerHeight)) {
+                        tempINFO[36]=false
+                    }
+                }
                 if(lvl=="enter-sf"){
                     if(frame_bg_main==1536){
                         if(huioo<=0){
@@ -11573,7 +11641,7 @@
             canvas.addEventListener("mousemove", function(e){
                 if(lvl=="menuSEL3"){
                     if(e.clientX>=parseInt((translateGRID(10,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(138,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,10).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,74).split(","))[1])){
-                        ctx.drawImage(document.getElementById("hover_thing1-"+IMAGEserver),parseInt((translateGRID2(e.clientX,0).split(","))[0]),parseInt((translateGRID(0,e.clientY).split(","))[1]),100,13)
+                        ctx.drawImage(document.getElementById("hover_thing1-"+IMAGEserver),Math.round(parseInt((translateGRID2(e.clientX,e.clientY).split(","))[0])),Math.round(parseInt((translateGRID2(e.clientX,e.clientY).split(","))[1])),100,13)
                     }  
                 }
                 if(lvl=="test-svg" || lvl=="test-svg1" || lvl=="test-svg2"){
