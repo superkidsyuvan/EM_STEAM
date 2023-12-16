@@ -6290,10 +6290,39 @@
                     DrawPlayer(player,moveDIR,220,80,0,0);   
                 }
                 if(lvl=="hallwayCHASE-demo1"){
-                    ctx.drawImage(document.getElementById("hallway-"+IMAGEserver),0-x,0 /*0-y*/ ,2358,150);
-                    DrawPlayer(player,moveDIR,155,y /*75*/,0,0);
+                    if(!(x>=1344)){
+                        ctx.drawImage(document.getElementById("hallway-"+IMAGEserver),0-x,0 /*0-y*/ ,2358,150);
+                        DrawPlayer(player,moveDIR,155,y /*75*/,0,0);
+                    }else{
+                        ctx.drawImage(document.getElementById("hallway-"+IMAGEserver),0-1344,0 /*0-y*/ ,2358,150);
+                        DrawPlayer(player,moveDIR,x-1250,y /*75*/,0,0);
+                    }
                     DrawPlayer("harvester_chase_scene","running",lookbehindyou,65,0,0)
+                    if(x>460&&x<480&&jump==false){
+                        debouce1=0
+                        lvl="jumpscare-tangle_jumpscare"
+                        lookbehindyou=0
+                        x=0
+                    }
+                    if(x>670&&x<760&&crouch==false){
+                        debouce1=0
+                        lookbehindyou=0
+                        lvl="jumpscare-evil_blob"
+                        x=0
+                    }
+                    if(x>933&&x<993&&y<5){
+                        lookbehindyou=-999999999999
+                        x=0
+                        lvl="hallwayCHASE-9"
+                    }
+                    if(x>933&&x<993&&y<50){
+                        lookbehindyou=lookbehindyou+5
+                    }
                     //x-lookbehindyou
+                    //429, 501 (x1) (fin)
+                    //663, 765 (x2) (fin)
+                    //933, 993 (x3)
+                    //1482
                 }  
                 if(lvl=="hallwayCHASE-1"){
                     ctx.drawImage(document.getElementById("hallway-"+IMAGEserver),0,0,256,144,0,0,300,150);
@@ -8458,9 +8487,13 @@
                                     if(sound==true || SOUNDserver=="SOUNDdesk"){
                                         document.getElementById("go-"+SOUNDserver).play()
                                     }
-                                }else{if(sound==true || SOUNDserver=="SOUNDdesk"){
-                                    debouce1=debouce1-1
-                                    frame_bg_main18=frame_bg_main18-256}else{rsg=2}
+                                }else{
+                                    if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                        debouce1=debouce1-1
+                                        frame_bg_main18=frame_bg_main18-256
+                                    }else{
+                                        rsg=2
+                                    }
                                 }
                             }
                             if(debouce1==26){
@@ -9380,6 +9413,9 @@
                         }
                         if(state=="idle"&&crouch==false){
                             ctx.drawImage(document.getElementById("runBaka_v1.2-"+IMAGEserver),frame_bg_main17,3,32,94,x+13,y,25,65)
+                            if(lvl=="hallwayCHASE-demo1"&&x>100){
+                                lookbehindyou=lookbehindyou+2
+                            }
                         }
                         if(crouch==true){
                             ctx.drawImage(document.getElementById("runBaka_v1.2-"+IMAGEserver),frame_bg_main19,71,52,51,x+13,y,25,65)
@@ -10877,27 +10913,31 @@
                     }}
                 }
                 if(e.key=="w"){
-                    if(sound==true || SOUNDserver=="SOUNDdesk"){document.getElementById("walking-"+SOUNDserver).play()}
+                    if(sound==true || SOUNDserver=="SOUNDdesk"){
+                        document.getElementById("walking-"+SOUNDserver).play()
+                    }
                     if(pause==false){
                         if(wannaDRAWme==true&&jump==false&&crouch==false){
                             y=y-3
                             moveDIR="up"
-                            if(lvl=="hallwayCHASE-demo1"&&y<51){
+                            if(lvl=="hallwayCHASE-demo1"&&y<51&&(!(x>933&&x<993))){
                                 y=y+3
                             }
                         }
                         if(wannaDRAWme==true&&crouch==true){
                             y=y-2
-                            if(lvl=="hallwayCHASE-demo1"&&y<51){
+                            if(lvl=="hallwayCHASE-demo1"&&y<51&&(!(x>933&&x<993))){
                                 y=y+2
                             }
                         }
                     }
                 }
                 if(e.key=="s"){
-                    if(sound==true || SOUNDserver=="SOUNDdesk"){document.getElementById("walking-"+SOUNDserver).play()}
+                    if(sound==true || SOUNDserver=="SOUNDdesk"){
+                        document.getElementById("walking-"+SOUNDserver).play()
+                    }
                     if(pause==false){
-                        if(wannaDRAWme==true&&jump==false&&crouch==false){
+                        if(wannaDRAWme==true && jump==false && crouch==false){
                             y=y+3
                             if(lvl=="hallwayCHASE-demo1"&&y>87){
                                 y=y-3
@@ -10917,6 +10957,15 @@
                         if(sound==true || SOUNDserver=="SOUNDdesk"){document.getElementById("walking-"+SOUNDserver).play()}
                         if(wannaDRAWme==true&&crouch==false){
                             x=x-3
+                            if(lvl=="hallwayCHASE-demo1"){
+                                lookbehindyou=lookbehindyou+2
+                                if(y<50&&(x<933||x>993)){
+                                    x=x+3
+                                }
+                                if(x<-156){
+                                    x=x+3
+                                }
+                            }
                             moveDIR="right"
                             /*if(lvl=="hallwayCHASE-1" || lvl=="hallwayCHASE-2" || lvl=="hallwayCHASE-3" || lvl=="hallwayCHASE-4" || lvl=="hallwayCHASE-5" || lvl=="hallwayCHASE-6" || lvl=="hallwayCHASE-7" || lvl=="hallwayCHASE-8" || lvl=="hallwayCHASE-9"){
                                 lookbehindyou=lookbehindyou-3
@@ -10924,6 +10973,15 @@
                         }
                         if(wannaDRAWme==true&&crouch==true){
                             x=x-2
+                            lookbehindyou=lookbehindyou+2
+                            if(lvl=="hallwayCHASE-demo1"){
+                                if(y<50&&(x<933||x>993)){
+                                    x=x+3
+                                }
+                                if(x<-156){
+                                    x=x+3
+                                }
+                            }
                             /*if(lvl=="hallwayCHASE-1" || lvl=="hallwayCHASE-2" || lvl=="hallwayCHASE-3" || lvl=="hallwayCHASE-4" || lvl=="hallwayCHASE-5" || lvl=="hallwayCHASE-6" || lvl=="hallwayCHASE-7" || lvl=="hallwayCHASE-8" || lvl=="hallwayCHASE-9"){
                                 lookbehindyou=lookbehindyou-2
                             }*/
@@ -10937,12 +10995,22 @@
                         if(wannaDRAWme==true&&crouch==false){
                             x=x+3
                             moveDIR="left"
+                            if(lvl=="hallwayCHASE-demo1"){
+                                if(y<50&&(x<933||x>993)){
+                                    x=x-3
+                                }
+                            }
                             /*if(lvl=="hallwayCHASE-1" || lvl=="hallwayCHASE-2" || lvl=="hallwayCHASE-3" || lvl=="hallwayCHASE-4" || lvl=="hallwayCHASE-5" || lvl=="hallwayCHASE-6" || lvl=="hallwayCHASE-7" || lvl=="hallwayCHASE-8" || lvl=="hallwayCHASE-9"){
                                 lookbehindyou=lookbehindyou+3
                             }*/
                         }
                         if(wannaDRAWme==true&&crouch==true){
                             x=x+2
+                            if(lvl=="hallwayCHASE-demo1"){
+                                if(y<50&&(x<933||x>993)){
+                                    x=x-2
+                                }
+                            }
                             /*if(lvl=="hallwayCHASE-1" || lvl=="hallwayCHASE-2" || lvl=="hallwayCHASE-3" || lvl=="hallwayCHASE-4" || lvl=="hallwayCHASE-5" || lvl=="hallwayCHASE-6" || lvl=="hallwayCHASE-7" || lvl=="hallwayCHASE-8" || lvl=="hallwayCHASE-9"){
                                 lookbehindyou=lookbehindyou+2
                             }*/
@@ -11624,7 +11692,9 @@
                     }
                 }
                 if(wannaDRAWme==true&&jump==false){
-                    if(sound==true || SOUNDserver=="SOUNDdesk"){document.getElementById("walking-"+SOUNDserver).play()}
+                    if(sound==true || SOUNDserver=="SOUNDdesk"){
+                        document.getElementById("walking-"+SOUNDserver).play()
+                    }
                     moveDIR="idle"
                 }
                 if(e.key=="Control"){
