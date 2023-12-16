@@ -1283,6 +1283,14 @@ var hover_thing1 = document.createElement("img")
 hover_thing1.src=window.location.href.slice(0,-21)+"files/images/bin/MENUS/CHAP_SEL/chap3_hovergif_pre.png"
 hover_thing1.id="hover_thing1-desktop"
 hover_thing1.hidden=true
+var runner = document.createElement("img")
+runner.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/CHASE1/runner.png"
+runner.id="runner-desktop"
+runner.hidden=true
+var when_eleven_go = document.createElement("img")
+when_eleven_go.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/when_eleven_go.png"
+when_eleven_go.id="when_eleven_go-desktop"
+when_eleven_go.hidden=true
 var taunt_move1= document.createElement("video")
 taunt_move1.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/taunt.mp4"
 taunt_move1.id="taunt_move1-desktop"
@@ -1763,7 +1771,8 @@ document.getElementById("library_com").appendChild(retry_inverted)
 document.getElementById("library_com").appendChild(nurse_room_bg)
 document.getElementById("library_com").appendChild(chap3pre)
 document.getElementById("library_com").appendChild(hover_thing1)
-
+document.getElementById("library_com").appendChild(runner)
+document.getElementById("library_com").appendChild(when_eleven_go)
 
 document.getElementById("library_com").appendChild(svg_test1)
 document.getElementById("library_com").appendChild(bg_pixl_halfd)
