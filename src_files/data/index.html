@@ -2263,11 +2263,11 @@ tempINFO[42]=true;
             const punch_move_buli_desktop={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -2290,7 +2290,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -2315,11 +2315,11 @@ tempINFO[42]=true;
             const punch_move_buli_imgur={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -2367,11 +2367,11 @@ tempINFO[42]=true;
             const punch_move_buli_google={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -2394,7 +2394,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -6769,6 +6769,24 @@ tempINFO[42]=true;
                         huioo=huioo-1
                     }                    
                 }
+                if(lvl=="menuSEL0-difficulty_select"){
+                    ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
+                    ctx.drawImage(document.getElementById("chapter3-"+IMAGEserver),230,115,70,20)
+                    ctx.drawImage(document.getElementById("chapter2-"+IMAGEserver),230,100,70,20)
+                    ctx.drawImage(document.getElementById("chapter1-"+IMAGEserver),230,85,70,20)
+                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,85,70,20)}
+                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,100,70,20)}
+                    if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,115,70,20)}
+                    ctx.drawImage(document.getElementById("tutorial-"+IMAGEserver),220,70,70,20)
+                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("skip1button-"+IMAGEserver),25,120,90,16)}
+                    ctx.drawImage(document.getElementById("chaptpre-"+IMAGEserver),10,10)
+                    ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25,100,90,16)       
+                    ctx.drawImage(document.getElementById("ui1-"+IMAGEserver),0,0,320,150)
+                    ctx.drawImage(document.getElementById("x_round-"+IMAGEserver),198,7,24,24)
+                    ctx.drawImage(document.getElementById("easy_expand-"+IMAGEserver),91,37)
+                    ctx.drawImage(document.getElementById("norm_expand-"+IMAGEserver),91,74)
+                    ctx.drawImage(document.getElementById("hard_expand-"+IMAGEserver),91,111)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                }
                 if(lvl=="menuSEL1-locked2"){
                     ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
                     ctx.drawImage(document.getElementById("tutorial-"+IMAGEserver),230,55,70,20)
@@ -6916,6 +6934,18 @@ tempINFO[42]=true;
                     ctx.drawImage(document.getElementById("hard_contract-"+IMAGEserver),91,111)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
                 }
                 if(lvl=="menuSEL2"){
+                    ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0+jingle1242,0,310,150)
+                    ctx.drawImage(document.getElementById("chapter3-"+IMAGEserver),230+jingle1242,85,70,20)
+                    if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230+jingle1242,85,70,20)}
+                    ctx.drawImage(document.getElementById("chapter1-"+IMAGEserver),230+jingle1242,55,70,20)
+                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230+jingle1242,55,70,20)}                    
+                    ctx.drawImage(document.getElementById("chapter2-"+IMAGEserver),220+jingle1242,70,70,20)
+                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,220+jingle1242,70,70,20)}
+                    ctx.drawImage(document.getElementById("chap2pre-"+IMAGEserver),10+jingle1242,10)
+                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_visual_chapSEL-"+IMAGEserver),10+jingle1242,10)}
+                    ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25+jingle1242,100,90,16)                    
+                }
+                if(lvl=="menuSEL2-rotate"){
                     ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
                     ctx.drawImage(document.getElementById("chapter3-"+IMAGEserver),230,85,70,20)
                     if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,85,70,20)}
@@ -6925,9 +6955,19 @@ tempINFO[42]=true;
                     if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,220,70,70,20)}
                     ctx.drawImage(document.getElementById("chap2pre-"+IMAGEserver),10,10)
                     if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_visual_chapSEL-"+IMAGEserver),10,10)}
-                    ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25,100,90,16)                    
+                    ctx.drawImage(document.getElementById("enter2-"+IMAGEserver),25,100,90,16)                    
                 }
                 if(lvl=="menuSEL3"){
+                    ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0+jingle1242,0,310,150)                 
+                    ctx.drawImage(document.getElementById("chapter2-"+IMAGEserver),230+jingle1242,55,70,20)
+                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230+jingle1242,55,70,20)}
+                    ctx.drawImage(document.getElementById("chapter3-"+IMAGEserver),220+jingle1242,70,70,20)
+                    if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,220+jingle1242,70,70,20)}
+                    ctx.drawImage(document.getElementById("chap3pre-"+IMAGEserver),10+jingle1242,10)
+                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_visual_chapSEL-"+IMAGEserver),10+jingle1242,10)}
+                    ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25+jingle1242,100,90,16)                    
+                }
+                if(lvl=="menuSEL3-rotate"){
                     ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)                 
                     ctx.drawImage(document.getElementById("chapter2-"+IMAGEserver),230,55,70,20)
                     if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,55,70,20)}
@@ -6935,7 +6975,7 @@ tempINFO[42]=true;
                     if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,220,70,70,20)}
                     ctx.drawImage(document.getElementById("chap3pre-"+IMAGEserver),10,10)
                     if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_visual_chapSEL-"+IMAGEserver),10,10)}
-                    ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25,100,90,16)                    
+                    ctx.drawImage(document.getElementById("enter2-"+IMAGEserver),25,100,90,16)                    
                 }
                 if(lvl=="tutorial1"){
                     ctx.drawImage(document.getElementById("tutorial1-"+IMAGEserver),0,0,256,144,0,0,300,150)
@@ -11051,6 +11091,32 @@ tempINFO[42]=true;
                             //aboveTEXTnotification("#ff0000","#ffffff","Unlock this chapter by finish previous")
                         }
                     }
+                    if(lvl=="menuSEL2" || lvl=="menuSEL2-rotate"){
+                        if(tempINFO[4]==true){
+                            lvl="menuSEL2-difficulty_select"
+                        }else{
+                            if(jingle_db==false){
+                                jingle_db=true
+                                if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                    document.getElementById("chp_locked_error_sound-"+SOUNDserver).play()
+                                }
+                            }
+                            //aboveTEXTnotification("#ff0000","#ffffff","Unlock this chapter by finish previous")
+                        }
+                    }
+                    if(lvl=="menuSEL3" || lvl=="menuSEL3-rotate"){
+                        if(tempINFO[4]==true){
+                            lvl="menuSEL3-difficulty_select"
+                        }else{
+                            if(jingle_db==false){
+                                jingle_db=true
+                                if(sound==true || SOUNDserver=="SOUNDdesk"){
+                                    document.getElementById("chp_locked_error_sound-"+SOUNDserver).play()
+                                }
+                            }
+                            //aboveTEXTnotification("#ff0000","#ffffff","Unlock this chapter by finish previous")
+                        }
+                    }
                     if(lvl=="dead-hallwayCHASE"){
                         lookbehindyou=100
                         document.getElementById("chasemusic-"+SOUNDserver).pause()
@@ -12067,6 +12133,20 @@ tempINFO[42]=true;
                         lvl="menuSEL1-rotate"
                     }else{
                         lvl="menuSEL1"
+                    } 
+                }
+                if(lvl=="menuSEL2" || lvl=="menuSEL2-rotate"){
+                    if(e.clientX>=parseInt((translateGRID(31,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(115.2,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,105).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,118).split(","))[1])){
+                        lvl="menuSEL2-rotate"
+                    }else{
+                        lvl="menuSEL2"
+                    } 
+                }
+                if(lvl=="menuSEL3" || lvl=="menuSEL3-rotate"){
+                    if(e.clientX>=parseInt((translateGRID(31,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(115.2,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,105).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,118).split(","))[1])){
+                        lvl="menuSEL3-rotate"
+                    }else{
+                        lvl="menuSEL3"
                     } 
                 }
                 if(lvl=="menuSEL0" || lvl=="menuSEL0-rotate" || lvl=="menuSEL0-rotate1"){
