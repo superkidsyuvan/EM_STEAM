@@ -2186,7 +2186,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -5455,34 +5455,34 @@ tempINFO[42]=true;
 
                         // draw map on left shift press
                         if (showMap) { 
-                        // draw 2D map
-                        for (var row = 0; row < MAP_SIZE; row++) {
-                            for (var col = 0; col < MAP_SIZE; col++) {
-                            var square = row * MAP_SIZE + col;
-                            if (lunch_map[square] != 0) {
-                                ctx.fillStyle = '#555';
-                                ctx.fillRect(mapOffsetX + col * 2, mapOffsetY + row * 2, 2, 2);
-                            } else if (lunch_map[square] >= 2){
-                                ctx.fillStyle = '#0000ff';
-                                ctx.fillRect(mapOffsetX + col * 2, mapOffsetY + row * 2, 2, 2);
-                            }else{
-                                ctx.fillStyle = '#aaa';
-                                ctx.fillRect(mapOffsetX + col * 2, mapOffsetY + row * 2, 2, 2);
+                            // draw 2D map
+                            for (var row = 0; row < MAP_SIZE; row++) {
+                                for (var col = 0; col < MAP_SIZE; col++) {
+                                    var square = row * MAP_SIZE + col;
+                                    if (lunch_map[square] != 0) {
+                                        ctx.fillStyle = '#555';
+                                        ctx.fillRect(mapOffsetX + col * 2, mapOffsetY + row * 2, 2, 2);
+                                    } else if (lunch_map[square] >= 2){
+                                        ctx.fillStyle = '#0000ff';
+                                        ctx.fillRect(mapOffsetX + col * 2, mapOffsetY + row * 2, 2, 2);
+                                    }else{
+                                        ctx.fillStyle = '#aaa';
+                                        ctx.fillRect(mapOffsetX + col * 2, mapOffsetY + row * 2, 2, 2);
+                                    }
+                                }
                             }
-                            }
-                        }
 
-                        // draw player on 2D map
-                        ctx.fillStyle = 'Red';
-                        ctx.beginPath();
-                        ctx.arc(playerMapX/2, playerMapY/2, 1, 0, DOUBLE_PI);
-                        ctx.fill();
-                        ctx.strokeStyle = 'Red';
-                        ctx.lineWidht = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(playerMapX/2, playerMapY/2);
-                        ctx.lineTo((playerMapX/2) + Math.sin(playerAngle) * 2, (playerMapY/2) + Math.cos(playerAngle) * 2);
-                        ctx.stroke();
+                            // draw player on 2D map
+                            ctx.fillStyle = 'Red';
+                            ctx.beginPath();
+                            ctx.arc(Math.round(playerMapX/2), Math.round(playerMapY/2), 1, 0, DOUBLE_PI);
+                            ctx.fill();
+                            ctx.strokeStyle = 'Red';
+                            ctx.lineWidht = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(Math.round(playerMapX/2), Math.round(playerMapY/2));
+                            ctx.lineTo(Math.round(playerMapX/2) + Math.sin(playerAngle) * 2, Math.round(playerMapY/2) + Math.cos(playerAngle) * 2);
+                            ctx.stroke();
                         }
                         
                         // fix wall layout
@@ -5594,34 +5594,34 @@ tempINFO[42]=true;
 
                         // draw map on left shift press
                         if (showMap) { 
-                        // draw 2D map
-                        for (var row = 0; row < MAP_SIZE; row++) {
-                            for (var col = 0; col < MAP_SIZE; col++) {
-                            var square = row * MAP_SIZE + col;
-                            if (map[square] != 0) {
-                                ctx.fillStyle = '#555';
-                                ctx.fillRect(mapOffsetX + col * 2, mapOffsetY + row * 2, 2, 2);
-                            } else if (map[square] >= 2){
-                                ctx.fillStyle = '#0000ff';
-                                ctx.fillRect(mapOffsetX + col * 2, mapOffsetY + row * 2, 2, 2);
-                            }else{
-                                ctx.fillStyle = '#aaa';
-                                ctx.fillRect(mapOffsetX + col * 2, mapOffsetY + row * 2, 2, 2);
+                            // draw 2D map
+                            for (var row = 0; row < MAP_SIZE; row++) {
+                                for (var col = 0; col < MAP_SIZE; col++) {
+                                var square = row * MAP_SIZE + col;
+                                if (map[square] != 0) {
+                                    ctx.fillStyle = '#555';
+                                    ctx.fillRect(mapOffsetX + col * 2, mapOffsetY + row * 2, 2, 2);
+                                } else if (map[square] >= 2){
+                                    ctx.fillStyle = '#0000ff';
+                                    ctx.fillRect(mapOffsetX + col * 2, mapOffsetY + row * 2, 2, 2);
+                                }else{
+                                    ctx.fillStyle = '#aaa';
+                                    ctx.fillRect(mapOffsetX + col * 2, mapOffsetY + row * 2, 2, 2);
+                                }
+                                }
                             }
-                            }
-                        }
-                        
-                        // draw player on 2D map
-                        ctx.fillStyle = 'Red';
-                        ctx.beginPath();
-                        ctx.arc(playerMapX, playerMapY, 1, 0, DOUBLE_PI);
-                        ctx.fill();
-                        ctx.strokeStyle = 'Red';
-                        ctx.lineWidht = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(playerMapX, playerMapY);
-                        ctx.lineTo(playerMapX + Math.sin(playerAngle) * 2, playerMapY + Math.cos(playerAngle) * 2);
-                        ctx.stroke();
+                            
+                            // draw player on 2D map
+                            ctx.fillStyle = 'Red';
+                            ctx.beginPath();
+                            ctx.arc(Math.round(playerMapX/2), Math.round(playerMapY/2), 1, 0, DOUBLE_PI);
+                            ctx.fill();
+                            ctx.strokeStyle = 'Red';
+                            ctx.lineWidht = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(Math.round(playerMapX/2), Math.round(playerMapY/2));
+                            ctx.lineTo(Math.round(playerMapX/2) + Math.sin(playerAngle) * 2, Math.round(playerMapY/2) + Math.cos(playerAngle) * 2);
+                            ctx.stroke();
                         }
                         
                         // fix wall layout
@@ -6786,6 +6786,78 @@ tempINFO[42]=true;
                     ctx.drawImage(document.getElementById("easy_expand-"+IMAGEserver),91,37)
                     ctx.drawImage(document.getElementById("norm_expand-"+IMAGEserver),91,74)
                     ctx.drawImage(document.getElementById("hard_expand-"+IMAGEserver),91,111)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                }
+                if(lvl=="ms0dc"){
+                    ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
+                    ctx.drawImage(document.getElementById("chapter3-"+IMAGEserver),230,115,70,20)
+                    ctx.drawImage(document.getElementById("chapter2-"+IMAGEserver),230,100,70,20)
+                    ctx.drawImage(document.getElementById("chapter1-"+IMAGEserver),230,85,70,20)
+                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,85,70,20)}
+                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,100,70,20)}
+                    if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,115,70,20)}
+                    ctx.drawImage(document.getElementById("tutorial-"+IMAGEserver),220,70,70,20)
+                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("skip1button-"+IMAGEserver),25,120,90,16)}
+                    ctx.drawImage(document.getElementById("chaptpre-"+IMAGEserver),10,10)
+                    ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25,100,90,16) 
+                    ctx.drawImage(document.getElementById("ui1-"+IMAGEserver),0,0,320,150)
+                    ctx.drawImage(document.getElementById("x_round-"+IMAGEserver),194,2,32,32)
+                    ctx.drawImage(document.getElementById("easy_expand-"+IMAGEserver),91,37)
+                    ctx.drawImage(document.getElementById("norm_expand-"+IMAGEserver),91,74)
+                    ctx.drawImage(document.getElementById("hard_expand-"+IMAGEserver),91,111)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                }
+                if(lvl=="ms0dse"){
+                    ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
+                    ctx.drawImage(document.getElementById("chapter3-"+IMAGEserver),230,115,70,20)
+                    ctx.drawImage(document.getElementById("chapter2-"+IMAGEserver),230,100,70,20)
+                    ctx.drawImage(document.getElementById("chapter1-"+IMAGEserver),230,85,70,20)
+                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,85,70,20)}
+                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,100,70,20)}
+                    if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,115,70,20)}
+                    ctx.drawImage(document.getElementById("tutorial-"+IMAGEserver),220,70,70,20)
+                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("skip1button-"+IMAGEserver),25,120,90,16)}
+                    ctx.drawImage(document.getElementById("chaptpre-"+IMAGEserver),10,10)
+                    ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25,100,90,16) 
+                    ctx.drawImage(document.getElementById("ui1-"+IMAGEserver),0,0,320,150)
+                    ctx.drawImage(document.getElementById("x_round-"+IMAGEserver),198,7,24,24)
+                    ctx.drawImage(document.getElementById("easy_contract-"+IMAGEserver),91,37)
+                    ctx.drawImage(document.getElementById("norm_expand-"+IMAGEserver),91,74)
+                    ctx.drawImage(document.getElementById("hard_expand-"+IMAGEserver),91,111)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                }
+                if(lvl=="ms0dsn"){
+                    ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
+                    ctx.drawImage(document.getElementById("chapter3-"+IMAGEserver),230,115,70,20)
+                    ctx.drawImage(document.getElementById("chapter2-"+IMAGEserver),230,100,70,20)
+                    ctx.drawImage(document.getElementById("chapter1-"+IMAGEserver),230,85,70,20)
+                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,85,70,20)}
+                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,100,70,20)}
+                    if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,115,70,20)}
+                    ctx.drawImage(document.getElementById("tutorial-"+IMAGEserver),220,70,70,20)
+                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("skip1button-"+IMAGEserver),25,120,90,16)}
+                    ctx.drawImage(document.getElementById("chaptpre-"+IMAGEserver),10,10)
+                    ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25,100,90,16) 
+                    ctx.drawImage(document.getElementById("ui1-"+IMAGEserver),0,0,320,150)
+                    ctx.drawImage(document.getElementById("x_round-"+IMAGEserver),198,7,24,24)
+                    ctx.drawImage(document.getElementById("easy_expand-"+IMAGEserver),91,37)
+                    ctx.drawImage(document.getElementById("norm_contract-"+IMAGEserver),91,74)
+                    ctx.drawImage(document.getElementById("hard_expand-"+IMAGEserver),91,111)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                }
+                if(lvl=="ms0dsh"){
+                    ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
+                    ctx.drawImage(document.getElementById("chapter3-"+IMAGEserver),230,115,70,20)
+                    ctx.drawImage(document.getElementById("chapter2-"+IMAGEserver),230,100,70,20)
+                    ctx.drawImage(document.getElementById("chapter1-"+IMAGEserver),230,85,70,20)
+                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,85,70,20)}
+                    if(tempINFO[4]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,100,70,20)}
+                    if(tempINFO[5]==false){ctx.drawImage(document.getElementById("locked_chapter_glitch_effect-"+IMAGEserver),funniframe,0,128,32,230,115,70,20)}
+                    ctx.drawImage(document.getElementById("tutorial-"+IMAGEserver),220,70,70,20)
+                    if(tempINFO[3]==false){ctx.drawImage(document.getElementById("skip1button-"+IMAGEserver),25,120,90,16)}
+                    ctx.drawImage(document.getElementById("chaptpre-"+IMAGEserver),10,10)
+                    ctx.drawImage(document.getElementById("enter-"+IMAGEserver),25,100,90,16) 
+                    ctx.drawImage(document.getElementById("ui1-"+IMAGEserver),0,0,320,150)
+                    ctx.drawImage(document.getElementById("x_round-"+IMAGEserver),198,7,24,24)
+                    ctx.drawImage(document.getElementById("easy_expand-"+IMAGEserver),91,37)
+                    ctx.drawImage(document.getElementById("norm_expand-"+IMAGEserver),91,74)
+                    ctx.drawImage(document.getElementById("hard_contract-"+IMAGEserver),91,111)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
                 }
                 if(lvl=="menuSEL1-locked2"){
                     ctx.drawImage(document.getElementById("menuSELbg-"+IMAGEserver),0,0,310,150)
@@ -10880,10 +10952,21 @@ tempINFO[42]=true;
                     lvl="menuSEL1-difficulty_select"
                 }
                 if(lvl=="menuSEL0-rotate"){
+                    //lvl="tutorial1"
+                    lvl="menuSEL0-difficulty_select"
+                    document.getElementById("ambience-"+SOUNDserver).pause()
+                }
+                if(lvl=="ms0dse"){
+                    mode="easy"
                     lvl="tutorial1"
-                    if(sound==false){
-                        document.getElementById("ambience-"+SOUNDserver).pause()
-                    }
+                }
+                if(lvl=="ms0dsn"){
+                    mode="norm"
+                    lvl="tutorial1"
+                }
+                if(lvl=="ms0dsh"){
+                    mode="hard"
+                    lvl="tutorial1"
                 }
                 if(lvl=="ms1dse"){
                     if(tempINFO[3]==true){
@@ -11008,6 +11091,9 @@ tempINFO[42]=true;
                 if(lvl=="ms1dc"){
                     lvl="menuSEL1"
                 }
+                if(lvl=="ms0dc"){
+                    lvl="menuSEL0"
+                }
                 if(lvl=="setting-so"){
                     if(sound==true || SOUNDserver=="SOUNDdesk"){
                         lvl="sound_dies"
@@ -11123,7 +11209,8 @@ tempINFO[42]=true;
                         lvl="menuSEL1"
                     }
                     if(lvl=="menuSEL0"){
-                        lvl="tutorial1"
+                        lvl="menuSEL0-difficulty_select"
+                        //lvl="tutorial1"
                         document.getElementById("ambience-"+SOUNDserver).pause()
                     }
                 }
@@ -11334,6 +11421,10 @@ tempINFO[42]=true;
                             document.getElementById("cancel-"+SOUNDserver).play()
                         }
                         return
+                    }
+                    if(lvl.startsWith("tutorial")==true){
+                        tempINFO[22]="false"
+                        lvl="menuSEL0"
                     }
                 }
                 if(e.key=="1"){
@@ -12171,6 +12262,19 @@ tempINFO[42]=true;
                         lvl="ms1dsh"
                     }else{
                         lvl="menuSEL1-difficulty_select"
+                    } 
+                }
+                if(lvl=="menuSEL0-difficulty_select" || lvl=="ms0dc" || lvl=="ms0dse" || lvl=="ms0dsn" || lvl=="ms0dsh"){
+                    if(e.clientX>=parseInt((translateGRID(204,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(223,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,12).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,33).split(","))[1])){
+                        lvl="ms0dc"
+                    }else if(e.clientX>=parseInt((translateGRID(98,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(220,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,42).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,70).split(","))[1])){
+                        lvl="ms0dse"
+                    }else if(e.clientX>=parseInt((translateGRID(99,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(220,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,80).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,107).split(","))[1])){
+                        lvl="ms0dsn"
+                    }else if(e.clientX>=parseInt((translateGRID(98,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(219,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,115).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,143).split(","))[1])){
+                        lvl="ms0dsh"
+                    }else{
+                        lvl="menuSEL0-difficulty_select"
                     } 
                 }
                 if(lvl=="plz_turn_on_sound_plzzz" || lvl=="plz_turn_on_sound_plzzz_decline:hover" || lvl=="plz_turn_on_sound_plzzz_accept:hover"){
