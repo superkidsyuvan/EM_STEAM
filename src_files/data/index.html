@@ -173,9 +173,9 @@
         <img hidden src="https://docs.google.com/uc?export=open&id=16VYwMTA0jHQ10LyYhpSYNDW8cOJEUbUl" id="easy_contract-google" alt="easy_contract-google">
         <img hidden src="https://docs.google.com/uc?export=open&id=16BNbU1XXd2q6LJnB_dpyUzPav4trp9Wp" id="easy_expand-google" alt="easy_expand-google">
         <img hidden src="https://i.imgur.com/uK9YJXx.png" id="tutorial-imgur" alt="tutorial-imgur">
-        
-        <img hidden src="https://docs.google.com/uc?export=open&id=1TuwTI0v-Oxg8s7XvSQ-6yahTXmW-S00c" id="tutorial-google" alt="tutorial-google">
+        <img hidden src="https://docs.google.com/uc?export=open&id=143zlToOq-WPJdy-EnLvhxPUlk2TVM0vq" id="tutorial-google" alt="tutorial-google">
         <img hidden src="https://i.imgur.com/QbOR27B.png" id="chaptpre-imgur" alt="chaptpre-imgur">
+
         <img hidden src="https://docs.google.com/uc?export=open&id=1w0PVnZJ5GqM9BkSBAwmoK7_yAONSxYeE" id="chaptpre-google" alt="chaptpre-google">
         <img hidden src="https://i.imgur.com/OT5DH4z.png" id="cecespritesheet-imgur" alt="cecespritesheet-imgur">
         <img hidden src="https://docs.google.com/uc?export=open&id=1A_OedjTRe3zpdXyJ9mNAnrUjVTP1KLKt" id="cecespritesheet-google" alt="cecespritesheet-google">
@@ -835,7 +835,7 @@
             var pause_menu2=0
             var holding_what_obj="none" //what you holding tho??
             var moveTHING=0
-            var tempINFO = [false,false,0,false,false,false,0,0,1,false,0,"dor1","none",false,"vol-","nil",0,"vol-",0,"neutral",0,0,"false","?","Reward: ???","0/1","random_quest","?lvl?",x,y,"off",-60,310,100,100,"false",false,1,false,false,-3,0,false]
+            var tempINFO = [false,false,0,false,false,false,0,0,1,false,0,"dor1","none",false,"vol-","nil",0,"vol-",0,"neutral",0,0,"false","?","Reward: ???","0/1","random_quest","?lvl?",x,y,"off",-60,310,100,100,"false",false,1,false,false,-3,0,false,false,0,0,"none",128]
             var huioo = 1
             var jsonDATA = "0"
             var jsonDATA1 = []
@@ -866,14 +866,15 @@
             var debouce1osu=false
             var times_osu=-99999
             var clicks_osu={"miss":0,"horrible":0,"bad":0,"mid":0,"good":0,"perfect":0}
+
             const fox_video_idk_imgur={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -896,7 +897,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -971,11 +972,11 @@ tempINFO[42]=true;
             const fox_video_idk_desktop={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -998,7 +999,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1102,7 +1103,7 @@ tempINFO[42]=true;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1126,11 +1127,11 @@ tempINFO[42]=true;
             const tsone_video_google={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -1153,7 +1154,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-                    tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1178,11 +1179,11 @@ tempINFO[42]=false;
             const tsone_video_imgur={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -1205,7 +1206,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1230,11 +1231,11 @@ tempINFO[42]=true;
             const lunch_overview_veryFAST_desktop={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -1257,7 +1258,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1282,11 +1283,11 @@ tempINFO[42]=true;
             const lunch_overview_veryFAST_google={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -1309,7 +1310,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1334,11 +1335,11 @@ tempINFO[42]=true;
             const lunch_overview_veryFAST_imgur={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -1361,7 +1362,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1386,11 +1387,11 @@ tempINFO[42]=true;
             const taunt_move1_desktop={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 this.computeFrame();
@@ -1410,7 +1411,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width
                     self.height = self.c1.height
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1424,11 +1425,11 @@ tempINFO[42]=true;
             const taunt_move1_google={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 this.computeFrame();
@@ -1448,7 +1449,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width
                     self.height = self.c1.height
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1462,11 +1463,11 @@ tempINFO[42]=true;
             const taunt_move1_imgur={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 this.computeFrame();
@@ -1486,7 +1487,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width
                     self.height = self.c1.height
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1628,11 +1629,11 @@ tempINFO[42]=true;
             const intro_chapter1_desktop={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                        tempINFO[42]=false;
                         return;
                     }
                     if(this.video.ended){
-tempINFO[42]=false;
+                        tempINFO[42]=false;
                         sound=false
                         lvl="soundin"
                         return "end";
@@ -1655,7 +1656,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1681,11 +1682,11 @@ tempINFO[42]=true;
             const intro_chapter1_google={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -1708,7 +1709,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1734,11 +1735,11 @@ tempINFO[42]=true;
             const intro_chapter1_imgur={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -1761,7 +1762,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1814,7 +1815,7 @@ tempINFO[42]=true;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-                    tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1867,11 +1868,11 @@ tempINFO[42]=true;
             const cece_band_osu_playback2_imgur={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;           
+                    tempINFO[42]=false;           
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -1894,7 +1895,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -1947,11 +1948,11 @@ tempINFO[42]=true;
             const cece_band_osu_playback_desktop={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -1974,7 +1975,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -2027,11 +2028,11 @@ tempINFO[42]=true;
             const cece_band_osu_playback_google={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -2054,7 +2055,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -2107,11 +2108,11 @@ tempINFO[42]=true;
             const edwerd_caught_on_his_phone_desktop={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -2134,7 +2135,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -2159,11 +2160,11 @@ tempINFO[42]=true;
             const edwerd_caught_on_his_phone_google={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -2211,11 +2212,11 @@ tempINFO[42]=false;
             const edwerd_caught_on_his_phone_imgur={
                 timerCallback: function() {
                 if (this.video.paused) {
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     return;
                 }
                 if(this.video.ended){
-tempINFO[42]=false;
+                    tempINFO[42]=false;
                     sound=false
                     lvl="soundin"
                     return "end";
@@ -2238,7 +2239,7 @@ tempINFO[42]=false;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -2342,7 +2343,7 @@ tempINFO[42]=true;
                     self.width = self.c1.width//self.video.videoWidth / 2;
                     self.height = self.c1.height//self.video.videoHeight / 2; (multi vid at once)
                     self.timerCallback();
-tempINFO[42]=true;
+                        tempINFO[42]=true;
                     }, false);
                 },
             
@@ -8148,7 +8149,24 @@ tempINFO[42]=true;
                     ctx.fillText("5) chapter selection",67,115)
 
                 }
-                if(white_trans==true){ctx.drawImage(document.getElementById("transition_white-"+IMAGEserver),white_trans_num,0,310,150,0,0,310,150)}
+                if(lvl.startsWith("tutorial")==true){
+                    if(tempINFO[43]==true){
+                        ctx.drawImage(document.getElementById("bg_esc-"+IMAGEserver),tempINFO[44],tempINFO[45])
+                        if(tempINFO[46]=="none"){
+                            ctx.drawImage(document.getElementById("no_esc-"+IMAGEserver),tempINFO[44],tempINFO[45],128,64)
+                            ctx.drawImage(document.getElementById("yes_esc-"+IMAGEserver),tempINFO[44],tempINFO[45],128,64)
+                        }else if(tempINFO[46]=="yes"){
+                            ctx.drawImage(document.getElementById("no_esc-"+IMAGEserver),tempINFO[44],tempINFO[45],128,64)
+                            ctx.drawImage(document.getElementById("yes_hover-"+IMAGEserver),tempINFO[47],0,128,64,tempINFO[44],tempINFO[45],128,64)
+                        }else if(tempINFO[46]=="no"){
+                            ctx.drawImage(document.getElementById("no_hover-"+IMAGEserver),tempINFO[47],0,128,64,tempINFO[44],tempINFO[45],128,64)
+                            ctx.drawImage(document.getElementById("yes_esc-"+IMAGEserver),tempINFO[44],tempINFO[45],128,64)
+                        }
+                    }
+                }
+                if(white_trans==true){
+                    ctx.drawImage(document.getElementById("transition_white-"+IMAGEserver),white_trans_num,0,310,150,0,0,310,150)
+                }
                 if(pause==true){
                     if(char_pause.slice(-8)=="-statsss" || char_pause.slice(-8)=="-profile" || char_pause.slice(-8)=="-voiceln" ||char_pause.slice(-8)=="-charact"){
                         ctx.drawImage(document.getElementById("profile_profile_pause-"+IMAGEserver),0,0,300,150)
@@ -8874,6 +8892,10 @@ tempINFO[42]=true;
                         funniframe=funniframe+128
                         if(funniframe==896){
                             funniframe=0
+                        }
+                        tempINFO[47]=tempINFO[47]+128
+                        if(tempINFO[47]==1920){
+                            tempINFO[47]=0
                         }
                         if(lvl=="im_evil_ahh_cece1"){
                             frame_bg_main54=frame_bg_main54+700
@@ -9754,6 +9776,21 @@ tempINFO[42]=true;
                     if(x>=290){
                         lvl="tutorials"
                         x=-10
+                    }
+                }
+                if(lvl=="tutorials"){
+                    if(y<=41){
+                        y=40
+                    }
+                    if(y>=100){
+                        y=99
+                    }
+                    if(x<=-16){
+                        lvl="tutorialp"
+                        x=280
+                    }
+                    if(x>=290){
+                        x=-289
                     }
                 }
                 if(lvl=="hallwayCHASE-1"){
@@ -11702,7 +11739,12 @@ tempINFO[42]=true;
                     }
                     if(lvl.startsWith("tutorial")==true){
                         tempINFO[22]="false"
-                        lvl="menuSEL0"
+                        tempINFO[43]=true
+                        tempINFO[44]=0
+                        tempINFO[45]=0
+                        tempINFO[46]="none"
+                        tempINFO[47]="none"
+                        //lvl="menuSEL0"
                     }
                 }
                 if(e.key=="1"){
@@ -12375,6 +12417,19 @@ tempINFO[42]=true;
                 }
             })
             canvas.addEventListener("mousemove", function(e){
+                if(lvl.startsWith("tutorial")==true){
+                    if(tempINFO[43]==true){
+                        if(tempINFO[46]=="none" || tempINFO[46]=="no" || tempINFO[46]=="yes"){
+                            if(e.clientX>=parseInt((translateGRID(5+tempINFO[44],0).split(","))[0]) && e.clientX<=parseInt((translateGRID(62+tempINFO[44],0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,45+tempINFO[45]).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,59+tempINFO[45]).split(","))[1])){
+                                tempINFO[46]="yes"
+                            }else if(e.clientX>=parseInt((translateGRID(67+tempINFO[44],0).split(","))[0]) && e.clientX<=parseInt((translateGRID(124+tempINFO[44],0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,45+tempINFO[45]).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,59+tempINFO[45]).split(","))[1])){
+                                tempINFO[46]="no"
+                            }else{
+                                tempINFO[46]="none"
+                            }
+                        }
+                    }
+                }
                 if(lvl=="menuSEL3"){
                     if(e.clientX>=parseInt((translateGRID(10,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(138,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,10).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,74).split(","))[1])){
                         ctx.drawImage(document.getElementById("hover_thing1-"+IMAGEserver),Math.round(parseInt((translateGRID2(e.clientX,e.clientY).split(","))[0])),Math.round(parseInt((translateGRID2(e.clientX,e.clientY).split(","))[1])),100,13)

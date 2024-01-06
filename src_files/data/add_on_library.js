@@ -1291,6 +1291,26 @@ var when_eleven_go = document.createElement("img")
 when_eleven_go.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/eleven_profile_2.png"
 when_eleven_go.id="when_eleven_go-desktop"
 when_eleven_go.hidden=true
+var bg_esc = document.createElement("img")
+bg_esc.src=window.location.href.slice(0,-21)+"files/images/bin/TUTORIAL/bg_esc.png"
+bg_esc.id="bg_esc-desktop"
+bg_esc.hidden=true
+var no_esc = document.createElement("img")
+no_esc.src=window.location.href.slice(0,-21)+"files/images/bin/TUTORIAL/no_esc.png"
+no_esc.id="no_esc-desktop"
+no_esc.hidden=true
+var no_hover = document.createElement("img")
+no_hover.src=window.location.href.slice(0,-21)+"files/images/bin/TUTORIAL/no_hover.png"
+no_hover.id="no_hover-desktop"
+no_hover.hidden=true
+var yes_esc = document.createElement("img")
+yes_esc.src=window.location.href.slice(0,-21)+"files/images/bin/TUTORIAL/yes_esc.png"
+yes_esc.id="yes_esc-desktop"
+yes_esc.hidden=true
+var yes_hover = document.createElement("img")
+yes_hover.src=window.location.href.slice(0,-21)+"files/images/bin/TUTORIAL/yes_hover.png"
+yes_hover.id="yes_hover-desktop"
+yes_hover.hidden=true
 var taunt_move1= document.createElement("video")
 taunt_move1.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/taunt.mp4"
 taunt_move1.id="taunt_move1-desktop"
@@ -1773,6 +1793,11 @@ document.getElementById("library_com").appendChild(chap3pre)
 document.getElementById("library_com").appendChild(hover_thing1)
 document.getElementById("library_com").appendChild(runner)
 document.getElementById("library_com").appendChild(when_eleven_go)
+document.getElementById("library_com").appendChild(bg_esc)
+document.getElementById("library_com").appendChild(no_esc)
+document.getElementById("library_com").appendChild(no_hover)
+document.getElementById("library_com").appendChild(yes_esc)
+document.getElementById("library_com").appendChild(yes_hover)
 
 document.getElementById("library_com").appendChild(svg_test1)
 document.getElementById("library_com").appendChild(bg_pixl_halfd)
