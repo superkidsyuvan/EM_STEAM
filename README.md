@@ -10,7 +10,62 @@ literraly da best game ever here how to play!!!
 
 --tis setup aint a light downloading stuf, it like wayy to much so get ready for your 1GB plan to die
 
-## DA WINDOWS WAY (how to run on windows + mac)
+## DA WINDOWS WAY  
+
+go to [https://nodejs.org/en/download](https://nodejs.org/en/download)
+
+download newest LTS version
+
+go to [https://git-scm.com/downloads](https://git-scm.com/downloads)
+
+download da latest version!!! 
+
+go to the folder of where your game folder thingi is desired!!!!
+
+click the up thingi (like tat bar and type cmd!!!)
+
+``` MS-DOS
+cmd
+```
+
+![I really need a graphic designer 😥](https://i.imgur.com/qzC4N0V.png)
+
+then press enter and it should bring you to **command prompt windows**!!!
+ 
+run this conspicuous code
+
+``` MS-DOS
+git clone https://github.com/superkidsyuvan/EM_STEAM.git
+```
+
+wait for it to do it's thing..
+
+then run the following command!
+
+``` MS-DOS
+cd ./EM_STEAM
+```
+(it should be very fast unless *Potato computer*)
+
+now run:
+
+``` MS-DOS
+npm install electron
+```
+
+**if it gets stuck try clicking or pressing enter**
+
+then after that:
+
+``` MS-DOS
+npm run electron
+```
+
+(the program should be running now idk)
+
+if wanna run again just do everthing except umm git clone cmd + dont download new thing + no npm install cmd
+
+## mac thinge idk i dont have 💀 + 🍎
 
 download tis repository (all files and stuf)
 
@@ -24,7 +79,7 @@ go to [https://nodejs.org/en/download](https://nodejs.org/en/download)
 
 download newest LTS version
 
-open command prompt (run as admin)
+open whatever is your command prompt (run as admin or somthing idk)
 
 ``` MS-DOS
 cd C:/../EM_STEAM
@@ -47,7 +102,7 @@ npm run electron
 
 (the program should be running now idk)
 
-### side note:
+### side note (for both):
 
 only run "npm install electron" if it is your first time running the program, although if you download it again (maybe because updated), run the command. Not sure if that made sense but **YES**
 
@@ -85,7 +140,8 @@ anyways added ***full recreation of osu!mania***  (song made for da game tho) an
 ***added support for mac (dat computer) -- dont know if linux works but you can try**
 **dont actually send help lol** but ummm i added hd images on a **310 x 150 px** grid/canvas?? **(why anti-alising no worrkkk)** anyways i worked hard i guess it wont be added/ implemented into the game fully until i decide so lolololol 🤡 find out secrets of game yourself + added cutsence and fight sequence idk 
 
-
+### rhino 🦏
+i did like stuuff idk i forgor i keep on forget! like umm have fun bugs fixed immeseinly and the game now actually playable lol. 😔 + like yess everything fix amd windos simplified?
 ## update 1.0.4849 (sus bean)
 
 this is so cool but like regular updateding and like everthing

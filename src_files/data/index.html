@@ -10305,6 +10305,27 @@
             })
 
             canvas.addEventListener("click", function(e){
+                if(lvl.startsWith("tutorial")==true){
+                    if(tempINFO[43]==true){
+                        if(tempINFO[46]="yes"){
+                            tempINFO[22]="false"
+                            tempINFO[43]=false
+                            tempINFO[44]=0
+                            tempINFO[45]=0
+                            tempINFO[46]="none"
+                            tempINFO[47]=128
+                            lvl="menuSEL0"
+                        }else if(tempINFO[46]="no"){
+                            tempINFO[22]="true"
+                            tempINFO[43]=false
+                            tempINFO[44]=0
+                            tempINFO[45]=0
+                            tempINFO[46]="none"
+                            tempINFO[47]=128
+                            //lvl="menuSEL0"
+                        }
+                    }
+                }
                 if(lvl=="knockout-animation"){
                     frame_bg_main59=0
                     lvl="knockout-animation1"
@@ -11743,7 +11764,7 @@
                         tempINFO[44]=0
                         tempINFO[45]=0
                         tempINFO[46]="none"
-                        tempINFO[47]="none"
+                        tempINFO[47]=128
                         //lvl="menuSEL0"
                     }
                 }
