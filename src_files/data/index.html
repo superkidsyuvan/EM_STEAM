@@ -1547,10 +1547,10 @@
                 var h
                 if(tempINFO[36]==false){
                     n = (x/150)*250
-                    h = (y/300)*500
+                    h = (y/310)*500
                 }else{
                     n = (x/150)*window.screen.height
-                    h = (y/300)*window.screen.width
+                    h = (y/310)*window.screen.width
                 }
                 return (n+","+h)
             }
@@ -1560,10 +1560,10 @@
                 var h 
                 if(tempINFO[36]==false){
                     n = (x/250)*150
-                    h = (y/500)*300
+                    h = (y/500)*310
                 }else{
                     n = (x/window.screen.height)*150
-                    h = (y/window.screen.width)*300
+                    h = (y/window.screen.width)*310
                 }
                 return (n+","+h)
             }
@@ -2436,13 +2436,15 @@
                     ctx.fillStyle="black";
                     ctx.fillRect(10, 95, 270, 50);
                     if(lvl=="nurse_room"){
-                        ctx.fillRect(10, 95, 270, 50);
+                        if(dia>=0){
+                            ctx.fillRect(10, 95, 270, 50);
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("eleven","profile_norm",10,28)
                             typewriter("?", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
+                        }
                     }
                     if(lvl=="hallwayCHASE-start-redo"){
                         if(dia==0){
@@ -2700,7 +2702,7 @@
                             ctx.fillStyle="white"; 
                             ctx.font = "15px Arial";
                             DrawPlayer("teacher1","profile",10,28)
-                            typewriter("until the end of class", 15, 110);
+                            typewriter("Until the end of class.", 15, 110);
                             ctx.font = "10px Arial";
                             ctx.fillText("Click To Continue", 15, 130);
                         }
@@ -10874,6 +10876,17 @@
                         }
                     }
                 }
+                if(lvl=="nurse_room"){
+                    dia=dia+1
+                    nuTW=0
+                    if(sound==true || SOUNDserver=="SOUNDdesk"){
+                        document.getElementById("dia_enter-"+SOUNDserver).play()
+                    }
+                    if(dia==8){
+                        lvl="hallwayCHASE-0"
+                        y=-1
+                    }
+                }
                 if(lvl=="hallwayCHASE-start-redo"){
                     dia=dia+1
                     nuTW=0
@@ -11468,7 +11481,7 @@
             })
             window.addEventListener("keydown", function(e){
                 //document.getElementById("ugly2").innerHTML=playerX+","+playerY
-                if(e.key=="f"){
+                //if(e.key=="f"){
                     
                     /*
                     document.getElementById("ugly").setAttribute("style","display:none;");    
@@ -11476,7 +11489,7 @@
                     windowADD[0]=1420
                     windowADD[1]=830
                     return*/
-                }
+                //}
                 if(e.key=="Enter"){
                     if(lvl=="garden_minigame_death_die"){
                         boxINVENTORY[0]=""
@@ -12873,14 +12886,17 @@
 
             document.getElementById("teacher_caught_edwer_watching_on_his_iphone4-imgur").onended = (event) => {
                 lvl="teacher_mad_talk"
+                dia=0
             }
 
             document.getElementById("teacher_caught_edwer_watching_on_his_iphone4-google").onended = (event) => {
                 lvl="teacher_mad_talk"
+                dia=0
             }
 
             document.getElementById("teacher_caught_edwer_watching_on_his_iphone4-desktop").onended = (event) => {
                 lvl="teacher_mad_talk"
+                dia=0
             };
 
            /* document.getElementById("lunch_overview_veryFAST-google").ontimeupdate=function(){

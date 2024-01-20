@@ -176,7 +176,7 @@ literally just uploaded that version to em
 
 everything from tutorial to like everything
 
-# SOCIAL STUFFF
+# SOCIAL STUFFF 🌐
 
-[tsone website](https://sites.google.com/view/tsone) | [youtube idk](https://www.youtube.com/@tsone_) | [roblox group](https://www.roblox.com/groups/10913019)
+[tsone website](https://sites.google.com/view/tsone) | [youtube idk](https://www.youtube.com/@tsone_) | [roblox group](https://www.roblox.com/groups/10913019) | [discordo](https://www.discord.com/invite/7bRubmdg6z) 
 
