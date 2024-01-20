@@ -1291,6 +1291,14 @@ var when_eleven_go = document.createElement("img")
 when_eleven_go.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/eleven_profile_2.png"
 when_eleven_go.id="when_eleven_go-desktop"
 when_eleven_go.hidden=true
+var kate_norm = document.createElement("img")
+kate_norm.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/edwer/cafeteria/fight/kate_norm.png"
+kate_norm.id="kate_norm-desktop"
+kate_norm.hidden=true
+var arrow3 = document.createElement("img")
+arrow3.src=window.location.href.slice(0,-21)+"files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/arrow.png"
+arrow3.id="arrow3_cece1-desktop"
+arrow3.hidden=true
 var bg_esc = document.createElement("img")
 bg_esc.src=window.location.href.slice(0,-21)+"files/images/bin/TUTORIAL/bg_esc.png"
 bg_esc.id="bg_esc-desktop"
@@ -1793,11 +1801,13 @@ document.getElementById("library_com").appendChild(chap3pre)
 document.getElementById("library_com").appendChild(hover_thing1)
 document.getElementById("library_com").appendChild(runner)
 document.getElementById("library_com").appendChild(when_eleven_go)
+document.getElementById("library_com").appendChild(kate_norm)
 document.getElementById("library_com").appendChild(bg_esc)
 document.getElementById("library_com").appendChild(no_esc)
 document.getElementById("library_com").appendChild(no_hover)
 document.getElementById("library_com").appendChild(yes_esc)
 document.getElementById("library_com").appendChild(yes_hover)
+document.getElementById("library_com").appendChild(arrow3)
 
 document.getElementById("library_com").appendChild(svg_test1)
 document.getElementById("library_com").appendChild(bg_pixl_halfd)

@@ -624,6 +624,8 @@
         <img hidden src="" id="runner-google" alt="runner-google">
         <img hidden src="" id="when_eleven_go-imgur" alt="when_eleven_go-imgur">
         <img hidden src="" id="when_eleven_go-google" alt="when_eleven_go-google">
+        <img hidden src="" id="kate_norm-imgur" alt="kate_norm-imgur">
+        <img hidden src="" id="kate_norm-google" alt="kate_norm-google">
         <video hidden src="https://i.imgur.com/H0EPXlB.mp4" id="tsone_intro-imgur" alt="tsone_intro-imgur"></video>
         <video hidden src="https://docs.google.com/uc?export=open&id=1NFltla_juGGw8Z8olSMD93FaLTUM3o7_" id="tsone_intro-google" alt="tsone_intro-google"></video>
         <video hidden src="https://i.imgur.com/hIUsXgN.mp4" id="tsone_intro_no-imgur" alt="tsone_intro_no-imgur"></video>
@@ -2436,14 +2438,26 @@
                     ctx.fillStyle="black";
                     ctx.fillRect(10, 95, 270, 50);
                     if(lvl=="nurse_room"){
-                        if(dia>=0){
-                            ctx.fillRect(10, 95, 270, 50);
-                            ctx.fillStyle="white"; 
-                            ctx.font = "15px Arial";
+                        ctx.fillRect(10, 95, 270, 50);
+                        ctx.fillStyle="white"; 
+                        ctx.font = "10px Arial";
+                        ctx.fillText("Click To Continue", 15, 130);
+                        ctx.font = "15px Arial";
+                        if(dia==0){
                             DrawPlayer("eleven","profile_norm",10,28)
-                            typewriter("?", 15, 110);
-                            ctx.font = "10px Arial";
-                            ctx.fillText("Click To Continue", 15, 130);
+                            typewriter("kate he waking up", 15, 110);
+                        }
+                        if(dia==1){
+                            DrawPlayer("kate","profile_norm",10,28)
+                            typewriter("omg omg i need to open ", 15, 110);
+                        }
+                        if(dia==2){
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("im dead", 15, 110);
+                        }
+                        if(dia>=3){
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("man im dead", 15, 110);
                         }
                     }
                     if(lvl=="hallwayCHASE-start-redo"){
@@ -6172,12 +6186,21 @@
                     ctx.fillText("mouse here", 123, 70);
                 }
                 if(lvl=="start-img"){
+                        ctx.font = "10px Arial";
+                        ctx.fillStyle = "white";
+                        ctx.strokeStyle = "white";
+                        ctx.fillText("press 'I' for imgur image server", 10, 10);
+                        ctx.fillText("press 'G' for google image server", 10, 30);
+                    if(document.getElementById("external_script").innerHTML=="true"){
+                        ctx.fillText("press 'D' for desktop image server", 10, 70); 
+                    }
+                }
+                if(lvl=="fake_loading_lol"){
+                    ctx.font = "15px Arial";
+                    ctx.fillStyle="white";
+                    ctx.fillText("Loading..", 10, 50);
                     ctx.font = "10px Arial";
-                    ctx.fillStyle = "white";
-                    ctx.strokeStyle = "white";
-                    ctx.fillText("press 'I' for imgur image server", 10, 10);
-                    ctx.fillText("press 'G' for google image server", 10, 30);
-                    if(document.getElementById("external_script").innerHTML=="true"){ctx.fillText("press 'D' for desktop image server", 10, 70);}
+                    ctx.fillText("(thanks 4 downloading ze ofline game ting)", 10, 60);
                 }
                 if(lvl=="load"){
                     ctx.font = "15px Arial";
@@ -7372,6 +7395,7 @@
                 if(lvl=="conscience1"){
                     ctx.fillStyle="#242424";
                     ctx.fillRect(0, 0, 310, 150);
+                    ctx.drawImage(document.getElementById("arrow3_cece1-"+IMAGEserver),0,0,310,150)
                     DrawPlayer(player,moveDIR,x,y,0,0)
                 }
                 if(lvl=="conscience2"){
@@ -7464,12 +7488,12 @@
                     if(y>=39 && y<=69 && x<=43){
                         ctx.drawImage(document.getElementById("interact1-"+IMAGEserver),10,57,32,16)
                     }
-                    if(obj=="animation"){
+                    /*if(obj=="animation"){
                         ctx.drawImage(document.getElementById("questopen-"+IMAGEserver),frame_bg_main57,0,100,75,0,0,100,75)
                     }
                     if(obj=="mogus"){
                         ctx.drawImage(document.getElementById("questcecefollow-"+IMAGEserver),0,0,100,75,0,0,100,75)
-                    }
+                    }*/
                 }
                 if(lvl=="ceceRoom_into_Kicten"){
                     ctx.drawImage(document.getElementById("bg_hallway1-"+IMAGEserver),0,0,310,150)                       
@@ -7834,17 +7858,17 @@
                             lvl="knockout"
                             tempINFO[40]=262
                             if(sound==true || SOUNDserver=="SOUNDdesk"){
-                                if(document.getElementById("pursuit-SOUNDdesk")!=null){
+                                if(document.getElementById("pursuit-SOUNDdesk")){
                                     if(!document.getElementById("pursuit-SOUNDdesk").paused){
                                         document.getElementById("pursuit-SOUNDdesk").pause()
                                     }
                                 }
-                                if(document.getElementById("pursuit-r3")!=null){
+                                if(document.getElementById("pursuit-r3")){
                                     if(!document.getElementById("pursuit-r3").paused){
                                         document.getElementById("pursuit-r3").pause()
                                     }
                                 }
-                                if(document.getElementById("pursuit-drive")!=null){
+                                if(document.getElementById("pursuit-drive")){
                                     if(!document.getElementById("pursuit-drive").paused){
                                         document.getElementById("pursuit-drive").pause()
                                     }
@@ -9045,6 +9069,9 @@
                         }
                         if(frame_bg_main>=2816){
                             frame_bg_main=0
+                            if(lvl=="fake_loading_lol"){
+                                lvl="savefile"
+                            }
                         }
                         if(frame_bg_main1>=5120){
                             frame_bg_main1=0
@@ -10114,6 +10141,11 @@
                         ctx.drawImage(document.getElementById("when_eleven_go-"+IMAGEserver),0+(funniframe*0.78125),0,100,100,x,y,64,64) 
                     }
                 }
+                if(player=="kate"){
+                    if(state=="profile_norm"){
+                        ctx.drawImage(document.getElementById("kate_norm-"+IMAGEserver),0+(funniframe*0.78125),0,100,100,x,y,64,64) 
+                    }
+                }
                 if(player=="dad_backgardian"){
                     if(type=="evil"){
                         ctx.fillStyle="#ff1a1a";
@@ -10238,9 +10270,9 @@
                     }
                     if(equiped=="y_yelKEY1"){
                         if(lvl!="garden_minigame"){
-                            ctx.drawImage(document.getElementById("screen_yelKEY1-"+IMAGEserver),x,y)
+                            ctx.drawImage(document.getElementById("equiy_yelKEY1-"+IMAGEserver),x,y)
                         }else{
-                            ctx.drawImage(document.getElementById("screen_yelKEY1-"+IMAGEserver),136,65)
+                            ctx.drawImage(document.getElementById("equiy_yelKEY1-"+IMAGEserver),136,65)
                         }
                     }
                 }
@@ -10879,6 +10911,13 @@
                 if(lvl=="nurse_room"){
                     dia=dia+1
                     nuTW=0
+                    if(document.getElementById(lvl+"_"+tempINFO[12]+"_dia"+dia+"-"+SOUNDserver)){
+                        document.getElementById(lvl+"_"+tempINFO[12]+"_dia"+dia+"-"+SOUNDserver).currentTime=0
+                        document.getElementById(lvl+"_"+tempINFO[12]+"_dia"+dia+"-"+SOUNDserver).play()
+                    }
+                    if(document.getElementById(lvl+"_"+tempINFO[12]+"_dia"+(dia-1)+"-"+SOUNDserver)){
+                        document.getElementById(lvl+"_"+tempINFO[12]+"_dia"+(dia-1)+"-"+SOUNDserver).pause()
+                    }
                     if(sound==true || SOUNDserver=="SOUNDdesk"){
                         document.getElementById("dia_enter-"+SOUNDserver).play()
                     }
@@ -11707,13 +11746,14 @@
                 if(e.key=="Control"){
                     crouch=true
                 }
-                if(e.key=="p"){
+                if(e.key=="p" || e.key=="P"){
                     if(pause==false){
                         if(lvl!="osu!-doki_doki,[json-cece_F]"){
                             pause=true
                             inventory_toggle=false
                             frame_bg_main57=0
                             obj="mogus"
+                            return
                         }
                     }
                     if(pause==true){
