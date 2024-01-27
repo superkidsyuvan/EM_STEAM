@@ -1900,6 +1900,15 @@ document.getElementById("punch_move_buli-desktop").onended=function(){
     tempINFO[33]=tempINFO[33]-50
     if(tempINFO[33]<=0){
         lvl="knockout"
+        if(!document.getElementById("pursuit-SOUNDserver").paused){
+            document.getElementById("pursuit-SOUNDserver").pause()
+        }
+        if(!document.getElementById("pursuit-r3").paused){
+            document.getElementById("pursuit-r3").pause()
+        }
+        if(!document.getElementById("pursuit-drive").paused){
+            document.getElementById("pursuit-drive").pause()
+        }
     }
 }
 
