@@ -2449,16 +2449,92 @@
                         }
                         if(dia==1){
                             DrawPlayer("kate","profile_norm",10,28)
-                            typewriter("omg omg i need to open ", 15, 110);
+                            typewriter("omg omg i need to open insta", 15, 110);
                         }
                         if(dia==2){
                             DrawPlayer("edwerd","profile_ph",10,28)
                             typewriter("im dead", 15, 110);
                         }
-                        if(dia>=3){
+                        if(dia==3){
+                            DrawPlayer("kate","profile_norm",10,28)
+                            typewriter("we killed him", 15, 110);
+                        }
+                        if(dia==4){
+                            DrawPlayer("eleven","profile_norm",10,28)
+                            typewriter("I SWEAR I BROKE HIPPA FOR THIS", 15+(Math.floor(Math.random()*10)-5), 110+(Math.floor(Math.random()*10)-5));
+                        }
+                        if(dia==5){
+                            DrawPlayer("kate","profile_norm",10,28)
+                            typewriter("AAAAAAAAAAAAAAAAA", 15+(Math.floor(Math.random()*10)-5), 110+(Math.floor(Math.random()*10)-5));
+                        }
+                        if(dia==6){
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("Huh?", 15, 110);
+                        }
+                        if(dia==7){
+                            DrawPlayer("kate","profile_norm",10,28)
+                            typewriter("Wait he talked...", 15, 110);
+                        }
+                        if(dia==8){
+                            DrawPlayer("kate","profile_norm",10,28)
+                            typewriter("HE'S A ZOMBIE NOW", 15+(Math.floor(Math.random()*10)-5), 110+(Math.floor(Math.random()*10)-5));
+                        }
+                        if(dia==9){
+                            DrawPlayer("eleven","profile_norm",10,28)
+                            typewriter("OMG HOW DID THIS EVEN HAPPEN", 15+(Math.floor(Math.random()*10)-5), 110+(Math.floor(Math.random()*10)-5));
+                        }
+                        if(dia==10){
+                            DrawPlayer("kate","profile_norm",10,28)
+                            typewriter("Let's ask him first tho", 15, 110);
+                        }                   
+                        if(dia==11){
+                            DrawPlayer("eleven","profile_norm",10,28)
+                            typewriter("True..", 15, 110);
+                        }
+                        if(dia==12){
+                            DrawPlayer("eleven","profile_norm",10,28)
+                            typewriter("Are you a zombie?", 15, 110);
+                        }
+                        if(dia==13){
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("No, I’m not a zomb- *gasp*", 15, 110);
+                        }
+                        if(dia==14){
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("MY ARM AAAAAAAAAA", 15+(Math.floor(Math.random()*10)-5), 110+(Math.floor(Math.random()*10)-5));
+                        }
+                        if(dia==15){
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("IT BENT DA WONG WAY", 15+(Math.floor(Math.random()*10)-5), 110+(Math.floor(Math.random()*10)-5));
+                        }
+                        if(dia==16){
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("I NEED A NURSE!!!!", 15+(Math.floor(Math.random()*10)-5), 110+(Math.floor(Math.random()*10)-5));
+                        }
+                        if(dia==17){
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("HEY YOU!!!!", 15+(Math.floor(Math.random()*10)-5), 110+(Math.floor(Math.random()*10)-5));
+                        }                            
+                        if(dia==18){
+                            DrawPlayer("cece1","cece_profilepic3",10,28)
+                            typewriter("Yeah me?", 15, 110);
+                        }  
+                        if(dia==19){
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("HELP ME MY ARM,", 15+(Math.floor(Math.random()*10)-5), 110+(Math.floor(Math.random()*10)-5));
+                        }
+                        if(dia==20){
+                            DrawPlayer("edwerd","profile_ph",10,28)
+                            typewriter("IT'S BENT THE WRONG WAY", 15+(Math.floor(Math.random()*10)-5), 110+(Math.floor(Math.random()*10)-5));
+                        }
+                        if(dia==21){
+                            DrawPlayer("cece1","cece_profilepic3",10,28)
+                            typewriter("ok", 15, 110);
+                        }
+                        /*if(dia>=20){
                             DrawPlayer("edwerd","profile_ph",10,28)
                             typewriter("man im dead", 15, 110);
-                        }
+                        }*/
                     }
                     if(lvl=="hallwayCHASE-start-redo"){
                         if(dia==0){
@@ -10921,9 +10997,9 @@
                     if(sound==true || SOUNDserver=="SOUNDdesk"){
                         document.getElementById("dia_enter-"+SOUNDserver).play()
                     }
-                    if(dia==8){
-                        lvl="hallwayCHASE-0"
-                        y=-1
+                    if(dia==22){
+                        dia=0
+                        lvl="nurse_room_ani1"
                     }
                 }
                 if(lvl=="hallwayCHASE-start-redo"){
@@ -11646,7 +11722,7 @@
                         }
                         if(wannaDRAWme==true&&crouch==true){
                             y=y-2
-                            if(lvl=="hallwayCHASE-demo1"&&y<51&&(!(x>933&&x<993))){
+                            if(lvl=="hallwayCHASE-demo1" && y<51 && (!(x>933&&x<993))){
                                 y=y+2
                             }
                         }
@@ -11659,14 +11735,14 @@
                     if(pause==false){
                         if(wannaDRAWme==true && jump==false && crouch==false){
                             y=y+3
-                            if(lvl=="hallwayCHASE-demo1"&&y>87){
+                            if(lvl=="hallwayCHASE-demo1" && (y>87 || (x>933 && x<993 && y<40))){
                                 y=y-3
                             }
                             moveDIR="down"
                         }
                         if(wannaDRAWme==true&&crouch==true){
                             y=y+2
-                            if(lvl=="hallwayCHASE-demo1"&&y>87){
+                            if(lvl=="hallwayCHASE-demo1" && (y>87 || (x>933 && x<993 && y<40))){
                                 y=y-2
                             }
                         }
