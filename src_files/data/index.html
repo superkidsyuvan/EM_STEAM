@@ -12422,7 +12422,7 @@
                     if(e.key=="D" || e.key=="d"){
                         if(document.getElementById("external_script").innerHTML=="true"){
                             IMAGEserver="desktop"
-                            SOUNDserver="SOUNDdesk"
+                            SOUNDerver="SOUNDdesk"
                             lvl="savefile"
                         }else{
                             lvl="load"
@@ -12433,12 +12433,57 @@
                     // YES //
                     if(localStorage.json1==undefined){
                         localStorage.json1='["blank","0%",null,[]]'
+                    }else{
+                        /*if(((JSON.parse(localStorage.json1)[3]).length)<(tempINFO.length)){
+                            lvl="fake_loading_lol"
+                            var fin = ((JSON.parse(localStorage.json1)[3]).length)
+                            var tp = (tempINFO.length)
+                            var newtp = (JSON.parse(localStorage.json1)[3])
+                            for (let i = fin; i <= tp; i++) {
+                                newtp[i]=tempINFO[i]
+                            }
+                            jsonDATA1[3]=newtp
+                            writeJSON("intial_load_js1")
+                        }*/
                     }
                     if(localStorage.json2==undefined){
                         localStorage.json2='["blank","0%",null,[]]'
+                    }else{
+                        /*if(((JSON.parse(localStorage.json2)[3]).length)<(tempINFO.length)){
+                            lvl="fake_loading_lol"
+                            var fin = ((JSON.parse(localStorage.json2)[3]).length)
+                            var tp = (tempINFO.length)
+                            var newtp = (JSON.parse(localStorage.json2)[3])
+                            for (let i = fin; i <= tp; i++) {
+                                newtp[i]=tempINFO[i]
+                            }
+                            jsonDATA2[3]=newtp
+                            writeJSON("intial_load_js2")
+                            [81341,12,12] [81391,12,12]
+
+
+                            extra = tempinfo[json2[3].length : ]
+                            for element in extra:
+                                json2[3].append(element)
+
+                            
+
+                        }*/
                     }
                     if(localStorage.json3==undefined){
                         localStorage.json3='["blank","0%",null,[]]'
+                    }else{
+                        /*if(((JSON.parse(localStorage.json3)[3]).length)<(tempINFO.length)){
+                            lvl="fake_loading_lol"
+                            var fin = ((JSON.parse(localStorage.json3)[3]).length)
+                            var tp = (tempINFO.length)
+                            var newtp = (JSON.parse(localStorage.json3)[3])
+                            for (let i = fin; i <= tp; i++) {
+                                newtp[i]=tempINFO[i]
+                            }
+                            jsonDATA3[3]=newtp
+                            writeJSON("intial_load_js2")
+                        }*/
                     }
                     jsonDATA1=JSON.parse(localStorage.json1)
                     jsonDATA2=JSON.parse(localStorage.json2)
