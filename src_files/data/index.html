@@ -6278,6 +6278,27 @@
                     ctx.font = "10px Arial";
                     ctx.fillText("(thanks 4 downloading ze ofline game ting)", 10, 60);
                 }
+                if(lvl=="intial_load_js2-sf"){
+                    ctx.font = "15px Arial";
+                    ctx.fillStyle="white";
+                    ctx.fillText("Writing To Save File Number 2..", 10, 50);
+                    ctx.font = "10px Arial";
+                    ctx.fillText("(it's because the game updated bozo)", 10, 60);
+                }
+                if(lvl=="intial_load_js1-sf"){
+                    ctx.font = "15px Arial";
+                    ctx.fillStyle="white";
+                    ctx.fillText("Writing To Save File Number 1..", 10, 50);
+                    ctx.font = "10px Arial";
+                    ctx.fillText("(it's because the game updated bozo)", 10, 60);
+                }
+                if(lvl=="intial_load_js3-sf"){
+                    ctx.font = "15px Arial";
+                    ctx.fillStyle="white";
+                    ctx.fillText("Writing To Save File Number 3..", 10, 50);
+                    ctx.font = "10px Arial";
+                    ctx.fillText("(it's because the game updated bozo)", 10, 60);
+                }
                 if(lvl=="load"){
                     ctx.font = "15px Arial";
                     ctx.fillStyle="white";
@@ -12484,10 +12505,29 @@
                             jsonDATA3[3]=newtp
                             writeJSON("intial_load_js2")
                         }*/
+                        if(((JSON.parse(localStorage.json3)[3]).length)<(tempINFO.length)){
+                            lvl="fake_loading_lol"
+                            var extra_value = []
+                            var number = 0
+                            for (let i = ((JSON.parse(localStorage.json3)[3]).length); i < (tempINFO.length); i++) {
+                                extra_value.push(tempINFO[i])
+                                number=number+1
+                            }
+                            var newtp = (JSON.parse(localStorage.json3)[3])
+                            for (let i = 0; i < number; i++) {
+                                newtp.push(extra_value[i])
+                            }
+                            console.log(newtp)
+                            console.log(extra_value)
+                            jsonDATA3[3]=newtp
+                            writeJSON("intial_load_js3")
+                        }
                     }
                     jsonDATA1=JSON.parse(localStorage.json1)
                     jsonDATA2=JSON.parse(localStorage.json2)
-                    jsonDATA3=JSON.parse(localStorage.json3)
+                    if(((JSON.parse(localStorage.json3)[3]).length)=(tempINFO.length)){
+                        jsonDATA3=JSON.parse(localStorage.json3)
+                    }
                     //localStorage.json1.setItem(key.5)
                 }
                 if(lvl=="question1-s"){
