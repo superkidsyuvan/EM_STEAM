@@ -1526,7 +1526,7 @@
                     localStorage.json1=JSON.stringify(jsonDATA1)
                 }
                 if(jsonDATA=="2"){
-                    if(lvle=="enter"&&JSON.parse(localStorage.json2)=="blank"){
+                    if(lvle=="enter" && JSON.parse(localStorage.json2)=="blank"){
                         jsonDATA2[3]=tempINFO
                     }
                     tempINFO=jsonDATA2[3]
@@ -1534,14 +1534,22 @@
                     localStorage.json2=JSON.stringify(jsonDATA2)
                 }
                 if(jsonDATA=="3"){
-                    if(lvle=="enter"&&JSON.parse(localStorage.json3)[0]=="blank"){
+                    if(lvle=="enter" && JSON.parse(localStorage.json3)[0]=="blank"){
                         jsonDATA3[3]=tempINFO
                     }
                     tempINFO=jsonDATA3[3]
                     delete localStorage.json3
-                    localStorage.json3=JSON.stringify(jsonDATA3)
+                    if(lvle.startsWith("intial_load_js")){
+                        console.log(localStorage.json3)
+                        var local3 = [ JSON.parse(localStorage.json3)[0], JSON.parse(localStorage.json3)[1], JSON.parse(localStorage.json3)[2], jsonDATA3[3]]
+                        jsonDATA3=local3
+                        localStorage.json3=JSON.stringify(local3)
+                    }else{
+                        localStorage.json3=JSON.stringify(jsonDATA3)
+                    }
                 }
-                huioo=(Math.floor(Math.random()*6)+1)             
+                huioo=(Math.floor(Math.random()*6)+1)   
+                //if add save renember to do huioo (coundownt)          
             }
 
             function translateGRID(x,y){
@@ -6091,10 +6099,17 @@
                 }else{
                     tempINFO[36]=true
                 }
-                if(lvl=="enter-sf"){
+                if(lvl.endsWith("-sf")){
                     if(frame_bg_main==1536){
                         if(huioo<=0){
-                            lvl="sound"
+                            if(lvl.startsWith("enter")){
+                                lvl="sound"
+                            }
+                            if(lvl.startsWith("intial_load_js3")){
+                                lvl="savefile"
+                            }else if(lvl.startsWith("intial_load_js")){
+                                lvl="fake_loading_lol"
+                            }
                         }
                         huioo=huioo-1
                     }
@@ -6284,6 +6299,7 @@
                     ctx.fillText("Writing To Save File Number 2..", 10, 50);
                     ctx.font = "10px Arial";
                     ctx.fillText("(it's because the game updated bozo)", 10, 60);
+                    ctx.drawImage(document.getElementById("savefile1-"+IMAGEserver),frame_bg_main,0,256,150,0,100,150,100)
                 }
                 if(lvl=="intial_load_js1-sf"){
                     ctx.font = "15px Arial";
@@ -6291,6 +6307,7 @@
                     ctx.fillText("Writing To Save File Number 1..", 10, 50);
                     ctx.font = "10px Arial";
                     ctx.fillText("(it's because the game updated bozo)", 10, 60);
+                    ctx.drawImage(document.getElementById("savefile1-"+IMAGEserver),frame_bg_main,0,256,150,0,100,150,100)
                 }
                 if(lvl=="intial_load_js3-sf"){
                     ctx.font = "15px Arial";
@@ -6298,6 +6315,7 @@
                     ctx.fillText("Writing To Save File Number 3..", 10, 50);
                     ctx.font = "10px Arial";
                     ctx.fillText("(it's because the game updated bozo)", 10, 60);
+                    ctx.drawImage(document.getElementById("savefile1-"+IMAGEserver),frame_bg_main,0,256,150,0,100,150,100)
                 }
                 if(lvl=="load"){
                     ctx.font = "15px Arial";
@@ -12520,6 +12538,7 @@
                             console.log(newtp)
                             console.log(extra_value)
                             jsonDATA3[3]=newtp
+                            jsonDATA="3"
                             writeJSON("intial_load_js3")
                         }
                     }
