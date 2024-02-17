@@ -1518,30 +1518,44 @@
                 lvl=lvle+"-sf"
                 frame_bg_main=0
                 if(jsonDATA=="1"){
+                    var local1 = [ (JSON.parse(localStorage.json1)[0]), (JSON.parse(localStorage.json1)[1]), (JSON.parse(localStorage.json1)[2]), jsonDATA1[3]]
                     if(lvle=="enter" && JSON.parse(localStorage.json1)[0]=="blank"){
                         jsonDATA1[3]=tempINFO
                     }
                     tempINFO=jsonDATA1[3]
                     delete localStorage.json1
-                    localStorage.json1=JSON.stringify(jsonDATA1)
+                    if(lvle.startsWith("intial_load_js")){
+                        console.log(local1)
+                        jsonDATA1=local1
+                        localStorage.json1=JSON.stringify(local1)
+                    }else{
+                        localStorage.json1=JSON.stringify(jsonDATA1)
+                    }
                 }
                 if(jsonDATA=="2"){
-                    if(lvle=="enter" && JSON.parse(localStorage.json2)=="blank"){
+                    var local2 = [ (JSON.parse(localStorage.json2)[0]), (JSON.parse(localStorage.json2)[1]), (JSON.parse(localStorage.json2)[2]), jsonDATA2[3]]
+                    if(lvle=="enter" && JSON.parse(localStorage.json2)[0]=="blank"){
                         jsonDATA2[3]=tempINFO
                     }
                     tempINFO=jsonDATA2[3]
                     delete localStorage.json2
-                    localStorage.json2=JSON.stringify(jsonDATA2)
+                    if(lvle.startsWith("intial_load_js")){
+                        console.log(local2)
+                        jsonDATA2=local2
+                        localStorage.json2=JSON.stringify(local2)
+                    }else{
+                        localStorage.json2=JSON.stringify(jsonDATA2)
+                    }
                 }
                 if(jsonDATA=="3"){
+                    var local3 = [ (JSON.parse(localStorage.json3)[0]), (JSON.parse(localStorage.json3)[1]), (JSON.parse(localStorage.json3)[2]), jsonDATA3[3]]
                     if(lvle=="enter" && JSON.parse(localStorage.json3)[0]=="blank"){
                         jsonDATA3[3]=tempINFO
                     }
                     tempINFO=jsonDATA3[3]
                     delete localStorage.json3
                     if(lvle.startsWith("intial_load_js")){
-                        console.log(localStorage.json3)
-                        var local3 = [ JSON.parse(localStorage.json3)[0], JSON.parse(localStorage.json3)[1], JSON.parse(localStorage.json3)[2], jsonDATA3[3]]
+                        console.log(local3)
                         jsonDATA3=local3
                         localStorage.json3=JSON.stringify(local3)
                     }else{
