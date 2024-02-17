@@ -8348,10 +8348,10 @@
                         ctx.drawImage(document.getElementById("profile_bloodd_pause-"+IMAGEserver),1,1,72,11,1,1,72,11) 
                     }
                     if(obj=="inventory_top"){
-                        ctx.drawImage(document.getElementById("profile_bloodd_pause-"+IMAGEserver),75,1,86,11,75,1,86,11) 
+                        ctx.drawImage(document.getElementById("profile_bloodd_pause-"+IMAGEserver),75,0,86,11,71,0,86,11) 
                     }
                     if(obj=="menuin_top"){
-                        ctx.drawImage(document.getElementById("profile_bloodd_pause-"+IMAGEserver),163,1,140,11,163,1,140,11) 
+                        ctx.drawImage(document.getElementById("profile_bloodd_pause-"+IMAGEserver),160,0,140,11,156,0,140,11) 
                     }
                     if(char_pause=="y_redKEY1-basicin"){
                         ctx.drawImage(document.getElementById("inventory_redKEY1-"+IMAGEserver),230,19)
@@ -11658,6 +11658,9 @@
                     windowADD[1]=830
                     return*/
                 //}
+                if(e.key=="Shift"){
+                    
+                }
                 if(e.key=="Enter"){
                     if(lvl=="garden_minigame_death_die"){
                         boxINVENTORY[0]=""
@@ -12487,17 +12490,24 @@
                     if(localStorage.json1==undefined){
                         localStorage.json1='["blank","0%",null,[]]'
                     }else{
-                        /*if(((JSON.parse(localStorage.json1)[3]).length)<(tempINFO.length)){
+                        if(((JSON.parse(localStorage.json1)[3]).length)<(tempINFO.length)){
                             lvl="fake_loading_lol"
-                            var fin = ((JSON.parse(localStorage.json1)[3]).length)
-                            var tp = (tempINFO.length)
-                            var newtp = (JSON.parse(localStorage.json1)[3])
-                            for (let i = fin; i <= tp; i++) {
-                                newtp[i]=tempINFO[i]
+                            var extra_value = []
+                            var number = 0
+                            for (let i = ((JSON.parse(localStorage.json1)[3]).length); i < (tempINFO.length); i++) {
+                                extra_value.push(tempINFO[i])
+                                number=number+1
                             }
+                            var newtp = (JSON.parse(localStorage.json1)[3])
+                            for (let i = 0; i < number; i++) {
+                                newtp.push(extra_value[i])
+                            }
+                            console.log(newtp)
+                            console.log(extra_value)
                             jsonDATA1[3]=newtp
+                            jsonDATA="1"
                             writeJSON("intial_load_js1")
-                        }*/
+                        }
                     }
                     if(localStorage.json2==undefined){
                         localStorage.json2='["blank","0%",null,[]]'
@@ -12518,25 +12528,30 @@
                             extra = tempinfo[json2[3].length : ]
                             for element in extra:
                                 json2[3].append(element)
-
-                            
-
                         }*/
+
+                        if(((JSON.parse(localStorage.json2)[3]).length)<(tempINFO.length)){
+                            lvl="fake_loading_lol"
+                            var extra_value = []
+                            var number = 0
+                            for (let i = ((JSON.parse(localStorage.json2)[3]).length); i < (tempINFO.length); i++) {
+                                extra_value.push(tempINFO[i])
+                                number=number+1
+                            }
+                            var newtp = (JSON.parse(localStorage.json2)[3])
+                            for (let i = 0; i < number; i++) {
+                                newtp.push(extra_value[i])
+                            }
+                            console.log(newtp)
+                            console.log(extra_value)
+                            jsonDATA2[3]=newtp
+                            jsonDATA="2"
+                            writeJSON("intial_load_js2")
+                        }
                     }
                     if(localStorage.json3==undefined){
                         localStorage.json3='["blank","0%",null,[]]'
                     }else{
-                        /*if(((JSON.parse(localStorage.json3)[3]).length)<(tempINFO.length)){
-                            lvl="fake_loading_lol"
-                            var fin = ((JSON.parse(localStorage.json3)[3]).length)
-                            var tp = (tempINFO.length)
-                            var newtp = (JSON.parse(localStorage.json3)[3])
-                            for (let i = fin; i <= tp; i++) {
-                                newtp[i]=tempINFO[i]
-                            }
-                            jsonDATA3[3]=newtp
-                            writeJSON("intial_load_js2")
-                        }*/
                         if(((JSON.parse(localStorage.json3)[3]).length)<(tempINFO.length)){
                             lvl="fake_loading_lol"
                             var extra_value = []
@@ -12556,8 +12571,12 @@
                             writeJSON("intial_load_js3")
                         }
                     }
-                    jsonDATA1=JSON.parse(localStorage.json1)
-                    jsonDATA2=JSON.parse(localStorage.json2)
+                    if(((JSON.parse(localStorage.json1)[3]).length)=(tempINFO.length)){
+                        jsonDATA1=JSON.parse(localStorage.json1)
+                    }
+                    if(((JSON.parse(localStorage.json2)[3]).length)=(tempINFO.length)){
+                        jsonDATA2=JSON.parse(localStorage.json2)
+                    }
                     if(((JSON.parse(localStorage.json3)[3]).length)=(tempINFO.length)){
                         jsonDATA3=JSON.parse(localStorage.json3)
                     }
@@ -12965,7 +12984,7 @@
                             obj="profile_top"
                         }else if(e.clientX>=parseInt((translateGRID(76,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(159,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,4).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,14).split(","))[1])){
                             obj="inventory_top"
-                        }else if(e.clientX>=parseInt((translateGRID(162,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(177,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,4).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,14).split(","))[1])){
+                        }else if(e.clientX>=parseInt((translateGRID(162,0).split(","))[0]) && e.clientX<=parseInt((translateGRID(304,0).split(","))[0]) && e.clientY>=parseInt((translateGRID(0,4).split(","))[1]) && e.clientY<=parseInt((translateGRID(0,14).split(","))[1])){
                             obj="menuin_top"
                         }
                     };
