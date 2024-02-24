@@ -1511,6 +1511,28 @@
                 otherSTUF()
             }
 
+            function loadIN(server){
+                var allTags = document.getElementById('body-body').getElementsByTagName("img");
+                var arr = Array.from(allTags)
+                //chek if numero is odd and delete it cuz
+                console.log(arr)
+                if(arr.length & 1){
+                    arr.splice(-1);
+                }
+                intake = (arr.length/2).toString()
+                for (var i = 0, len = arr.length; i < len; i++) {
+                    if((arr[i].id).endsWith(server)){
+                        console.log(arr[i].id)
+
+                        document.getElementById(arr[i].id).addEventListener("load", function(){
+                            load=load+1
+                        })
+                    }
+                    // arr[i] is an element within the container object
+                    // arr[i].id is the id of the element (if there is one)
+                }
+            }
+
             function writeJSON(lvle){
                 /*if(lvl=="test-svg2" || lvl=="test-svg1"){
                     
@@ -4195,7 +4217,7 @@
                 // allTags[i].id is the id of the element (if there is one)
             }
             */
-            document.getElementById("enter1-imgur").addEventListener("load", function(){
+            /*document.getElementById("enter1-imgur").addEventListener("load", function(){
                 load=load+100000
             })
             document.getElementById("enter1-google").addEventListener("load", function(){
@@ -5301,7 +5323,7 @@
             document.getElementById("motheriamcurrent-imgur").addEventListener("load", function(){
                 load=load+100
             })
-
+            */
             //below is 3D processing 
 
             //variables & constants (very important)
@@ -6342,8 +6364,7 @@
                     ctx.font = "15px Arial";
                     ctx.fillStyle="white";
                     var loade = load.toString();
-                    var ss = "Loading Assets ("+loade+"/400)";
-                    ctx.fillText(ss, 10, 50);
+                    ctx.fillText("Loading Assets ("+loade+"/"+intake+")", 10, 50);
                     var mma = Number(intake)
                     if(mma<=load){
                         lvl="savefile"
@@ -12474,11 +12495,13 @@
                 if(lvl=="start-img"){
                     if(e.key=="I" || e.key=="i"){
                         IMAGEserver="imgur"
+                        loadIN("imgur")
                         lvl="load"
                         SOUNDserver="r3"
                     }
                     if(e.key=="G" || e.key=="g"){
                         IMAGEserver="google"
+                        loadIN("google")
                         lvl="load"
                         SOUNDserver="drive"
                     }
@@ -12487,11 +12510,11 @@
                             IMAGEserver="desktop"
                             SOUNDerver="SOUNDdesk"
                             lvl="savefile"
-                        }else{
+                        }/*else{
                             lvl="load"
                             IMAGEserver="imgur"
                             SOUNDserver="r3"
-                        }
+                        }*/
                     }
                     // YES //
                     if(localStorage.json1==undefined){
