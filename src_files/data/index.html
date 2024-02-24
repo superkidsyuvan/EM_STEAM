@@ -4188,6 +4188,13 @@
                 }
             
             // heheheh WE are now loadng millons of assests maybe (it add event listener so stuf load fully)
+            /*
+            var allTags = document.getElementById('container').getElementsByTagName("*");
+            for (var i = 0, len = allTags.length; i < len; i++) {
+                // allTags[i] is an element within the container object
+                // allTags[i].id is the id of the element (if there is one)
+            }
+            */
             document.getElementById("enter1-imgur").addEventListener("load", function(){
                 load=load+100000
             })
@@ -5839,7 +5846,7 @@
                         if(time==1){
                             document.getElementById("lunch_overview_veryFAST-google").pause()
                             document.getElementById("lunch_overview_veryFAST-imgur").pause()
-                            if(document.getElementById("external_script").innerHTML=="true"){
+                            if((document.getElementById("external_script").innerHTML).startsWith("true")==true){
                                 document.getElementById("lunch_overview_veryFAST-desktop").pause()
                             }
                             lvl="evelen_kate_2" 
@@ -6296,7 +6303,7 @@
                         ctx.strokeStyle = "white";
                         ctx.fillText("press 'I' for imgur image server", 10, 10);
                         ctx.fillText("press 'G' for google image server", 10, 30);
-                    if(document.getElementById("external_script").innerHTML=="true"){
+                    if((document.getElementById("external_script").innerHTML).startsWith("true")==true){
                         ctx.fillText("press 'D' for desktop image server", 10, 70); 
                     }
                 }
@@ -11073,7 +11080,7 @@
                         document.getElementById("dia_enter-"+SOUNDserver).play()
                     }
                     if(dia==33){
-                        if(document.getElementById("external_script").innerHTML=="true"){
+                        if((document.getElementById("external_script").innerHTML).startsWith("true")==true){
                             var amosiiia=window.location.href.slice(0,-10)+"require/desktop/pages/text_msg.html"
                             window.open(amosiiia, '_blank', 'top=500,left=200,frame=true,nodeIntegration=no')
                         }
@@ -12476,7 +12483,7 @@
                         SOUNDserver="drive"
                     }
                     if(e.key=="D" || e.key=="d"){
-                        if(document.getElementById("external_script").innerHTML=="true"){
+                        if((document.getElementById("external_script").innerHTML).startsWith("true")==true){
                             IMAGEserver="desktop"
                             SOUNDerver="SOUNDdesk"
                             lvl="savefile"

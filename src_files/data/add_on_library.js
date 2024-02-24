@@ -1835,10 +1835,9 @@ document.getElementById("desktop").addEventListener("click",function(){
     desktop()
 })
 
-document.getElementById("external_script").innerHTML="true"
 document.getElementById("drive_clip-SOUNDdesk").ontimeupdate=function(){SONGupdated('drive_clip',Math.floor(this.currentTime))}
 document.getElementById('tsone_intro-desktop').onended = (event) => {
-    if(document.getElementById("external_script").innerHTML=="true"){
+    if((document.getElementById("external_script").innerHTML).startsWith("true")==true){
         IMAGEserver="desktop"
         SOUNDserver="SOUNDdesk"
         sound=true
@@ -1913,5 +1912,7 @@ document.getElementById("punch_move_buli-desktop").onended=function(){
         }
     }
 }
+
+document.getElementById("external_script").innerHTML="true ;"
 
 console.log("it worked")
