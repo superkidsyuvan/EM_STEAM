@@ -718,7 +718,8 @@
             var canvas = document.getElementById("mainGame") // ooh thaats where we are drawinf right?
             var ctx = canvas.getContext('2d', {willReadFrequently: true}); //it could be 3d but nah
             var lvl = "start-warn" //level selection
-            var load = 0 // loading state- must meet number of assets in if function
+            var load_google = 0 // loading state- must meet number of assets in if function
+            var load_imgur = 0 // loading state- must meet number of assets in if function
             var IMAGEserver = "imgur" //is image server online11!!
             var SOUNDserver = "drive" //is sound server online1!1!
             var hover1 = "2" //used for hover hover menu thing
@@ -1523,10 +1524,16 @@
                 for (var i = 0, len = arr.length; i < len; i++) {
                     if((arr[i].id).endsWith(server)){
                         console.log(arr[i].id)
-
-                        document.getElementById(arr[i].id).addEventListener("load", function(){
-                            load=load+1
-                        })
+                        if(server=="google"){
+                            document.getElementById(arr[i].id).addEventListener("load", function(){
+                                load_google=load_google+1
+                            })
+                        }else if(server=="imgur"){
+                            document.getElementById(arr[i].id).addEventListener("load", function(){
+                                load_imgur=load_imgur+1
+                            })
+                            load_imgur=load_imgur+1
+                        }
                     }
                     // arr[i] is an element within the container object
                     // arr[i].id is the id of the element (if there is one)
@@ -4210,6 +4217,8 @@
                 }
             
             // heheheh WE are now loadng millons of assests maybe (it add event listener so stuf load fully)
+            loadIN("imgur")
+            loadIN("google")
             /*
             var allTags = document.getElementById('container').getElementsByTagName("*");
             for (var i = 0, len = allTags.length; i < len; i++) {
@@ -6363,12 +6372,19 @@
                 if(lvl=="load"){
                     ctx.font = "15px Arial";
                     ctx.fillStyle="white";
-                    var loade = load.toString();
-                    ctx.fillText("Loading Assets ("+loade+"/"+intake+")", 10, 50);
-                    var mma = Number(intake)
-                    if(mma<=load){
-                        lvl="savefile"
-                        //lvl="plz_turn_on_sound_plzzz"
+                    if(IMAGEserver=="google"){
+                        ctx.fillText("Loading Assets ("+(load_google.toString())+"/"+intake+")", 10, 50);
+                        var mma = Number(intake)
+                        if(mma<=load_google){
+                            lvl="savefile"
+                            //lvl="plz_turn_on_sound_plzzz"
+                        }
+                    }else if(IMAGEserver=="imgur"){
+                        ctx.fillText("Loading Assets ("+(load_imgur.toString())+"/"+intake+")", 10, 50);
+                        var mma = Number(intake)
+                        if(mma<=load_imgur){
+                            lvl="savefile"
+                        }
                     }
                 }
                 if(lvl=="savefile"){
@@ -12495,13 +12511,11 @@
                 if(lvl=="start-img"){
                     if(e.key=="I" || e.key=="i"){
                         IMAGEserver="imgur"
-                        loadIN("imgur")
                         lvl="load"
                         SOUNDserver="r3"
                     }
                     if(e.key=="G" || e.key=="g"){
                         IMAGEserver="google"
-                        loadIN("google")
                         lvl="load"
                         SOUNDserver="drive"
                     }
