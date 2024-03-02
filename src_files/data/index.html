@@ -8373,6 +8373,9 @@
                     if(char_pause.slice(-8)=="-basicin" ){
                         ctx.drawImage(document.getElementById("inventory_bi-"+IMAGEserver),0,0,300,150)
                     }
+                    if(char_pause.endsWith("-menuin_top")){
+
+                    }
                     if(obj=="resume_gamer"){
                         ctx.drawImage(document.getElementById("profile_bloodd_pause-"+IMAGEserver),1,120,36,14,1,120,36,14)
                     }
@@ -8427,7 +8430,7 @@
                         ctx.fillText("Empty INVENTORY SLOT",10,27);
                         ctx.font = "10px Arial"
                         ctx.fillText("UNKOWN_INFORMATION",85,40);
-                        ctx.fillText("EMPTY",85,50);
+                        ctx.fillText("£MPTY �E",85,50);
                         ctx.fillText("NO ITEM AVAIBLE",85,60);
                     }
                     if(char_pause.slice(-8)=="-basicin" || char_pause.slice(-8)=="-desc_in" || char_pause.slice(-8)=="-statsin" || char_pause.slice(-8)=="-previin" || char_pause.slice(-8)=="-advanin" || char_pause.slice(-8)=="-randoin" || char_pause.slice(-8)=="-itemtin"){
@@ -10947,6 +10950,9 @@
                         }
                         //inventory_redKEY1
                     }
+                    if(obj=="menuin_top"){
+                        //char_pause="loadf-menuintop"
+                    }
                     if(obj==">:(-NOTI-INVENTORY-BAD-):<"){
                         aboveTEXTnotification("#ff0000","#ffffff","get item to see (why u no have)")
                     }
@@ -12460,10 +12466,12 @@
                 }
                 if(e.key=="-"){
                     if(sound==true || SOUNDserver=="SOUNDdesk"){
-                        if((document.getElementById('audioP1S1-'+SOUNDserver).volume-0.1)>0){
+                        if(((document.getElementById('audioP1S1-'+SOUNDserver).volume)-0.1)>0){
                             tempINFO[17]="vol"+(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString())
-                            var lin = document.getElementById("body-body").getElementsByTagName("audio")
-                            var lis = document.getElementById("body-body").getElementsByTagName("video")
+                            var a = document.getElementById("body-body").getElementsByTagName("audio")
+                            var b = document.getElementById("body-body").getElementsByTagName("video")
+                            var lin = Array.from(a)
+                            var lis = Array.from(b)
                             for (var i = 0, len = lin.length; i < len; i++) {
                                 document.getElementById(lin[i].id).volume=document.getElementById(lin[i].id).volume-0.1
                                 // allTags[i] is an element within the container object
@@ -12472,11 +12480,12 @@
                             for (var i = 0, len = lis.length; i < len; i++) {
                                 document.getElementById(lis[i].id).volume=document.getElementById(lis[i].id).volume-0.1
                             }
-                            if(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString().includes(".")==true){
-                                tempINFO[14]="vol"+document.getElementById('audioP1S1-'+SOUNDserver).volume.toString().slice(2).slice(-1)
-                            }else if(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString()=="0"){
+                            if(((document.getElementById('audioP1S1-'+SOUNDserver).volume).toString()).includes(".")==true){
+                                console.log((document.getElementById('audioP1S1-'+SOUNDserver).volume).toFixed(1))
+                                tempINFO[14]="vol"+((document.getElementById('audioP1S1-'+SOUNDserver).volume).toFixed(1)).substring(2)//.slice(2).slice(-1)
+                            }else if((document.getElementById('audioP1S1-'+SOUNDserver).volume).toString()=="0"){
                                 tempINFO[14]="vol0"
-                            }else if(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString()=="1"){
+                            }else if((document.getElementById('audioP1S1-'+SOUNDserver).volume).toString()=="1"){
                                 tempINFO[14]="vol10"
                             }
                             tempINFO[16]=10
@@ -12486,21 +12495,25 @@
                 }
                 if(e.key=="=" || e.key=="+"){
                     if(sound==true || SOUNDserver=="SOUNDdesk"){
-                        if((document.getElementById('audioP1S1-'+SOUNDserver).volume+0.1)<1){
+                        if((document.getElementById('audioP1S1-'+SOUNDserver).volume+0.1)<=1){
                             tempINFO[17]="vol"+(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString())
-                            var lin = document.getElementById("body-body").getElementsByTagName("audio")
-                            var lis = document.getElementById("body-body").getElementsByTagName("video")
+                            var a = document.getElementById("body-body").getElementsByTagName("audio")
+                            var b = document.getElementById("body-body").getElementsByTagName("video")
+                            var lin = Array.from(a)
+                            var lis = Array.from(b)
                             for (var i = 0, len = lin.length; i < len; i++) {
                                 document.getElementById(lin[i].id).volume=document.getElementById(lin[i].id).volume+0.1
                             }
                             for (var i = 0, len = lis.length; i < len; i++) {
                                 document.getElementById(lis[i].id).volume=document.getElementById(lis[i].id).volume+0.1
                             }
-                            if(document.getElementById('audioP1S1-'+SOUNDserver).volume.toString().includes(".")==true){
-                                tempINFO[14]="vol"+document.getElementById('audioP1S1-'+SOUNDserver).volume.toString().slice(2).slice(-1)
-                            }else if(document.getElementById('audioP1S1-'+SOUNDserver).volume==0){
+                            console.log((document.getElementById('audioP1S1-'+SOUNDserver).volume))
+                            if(((document.getElementById('audioP1S1-'+SOUNDserver).volume).toString()).includes(".")==true){
+                                console.log((document.getElementById('audioP1S1-'+SOUNDserver).volume).toFixed(1))
+                                tempINFO[14]="vol"+((document.getElementById('audioP1S1-'+SOUNDserver).volume).toFixed(1)).substring(2)//.slice(2).slice(-1)
+                            }else if((document.getElementById('audioP1S1-'+SOUNDserver).volume).toString()=="0"){
                                 tempINFO[14]="vol0"
-                            }else if(document.getElementById('audioP1S1-'+SOUNDserver).volume==1){
+                            }else if((document.getElementById('audioP1S1-'+SOUNDserver).volume).toString()=="1"){
                                 tempINFO[14]="vol10"
                             }
                             tempINFO[16]=10
